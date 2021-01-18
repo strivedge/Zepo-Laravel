@@ -1,0 +1,1 @@
+{{__('testinominal::app.testinominal.name') }}
