@@ -287,6 +287,7 @@ return [
 
         Custom\Blog\Providers\BlogServiceProvider::class,
         Custom\Testinominal\Providers\TestinominalServiceProvider::class,
+        Custom\Offer\Providers\OfferServiceProvider::class,
 
     ],
 
