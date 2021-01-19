@@ -8,7 +8,7 @@ return [
             'edit-title' => 'Edit',
             'id' => 'Id',
             'title' => 'Offer',
-            'title' => 'Title',
+            'offer_title' => 'Title',
             'image' => 'Image',
             'desc' => 'Description',
             'date' => 'Date',
