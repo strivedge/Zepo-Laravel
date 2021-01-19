@@ -3,12 +3,6 @@
 @section('page_title')
 {{__('testinominal::app.testinominal.add-title') }}
 @stop
-<style>
-    .errSpan
-    {
-        color: red;
-    }
-</style>
 @section('content')
 <div class="content">
     <form method="POST" action="saveTestinominal" enctype="multipart/form-data" @submit.prevent="onSubmit">
