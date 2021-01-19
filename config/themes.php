@@ -24,10 +24,10 @@ return [
             'parent' => 'default'
         ],
 
-        'zepomart' => [
-            'views_path' => 'resources/themes/zepomart/views',
-            'assets_path' => 'public/themes/zepomart/assets',
-            'name' => 'Zepomart',
+        'zmart' => [
+            'views_path' => 'resources/themes/zmart/views',
+            'assets_path' => 'public/themes/zmart/assets',
+            'name' => 'Zmart',
             'parent' => 'default'
         ],
 
