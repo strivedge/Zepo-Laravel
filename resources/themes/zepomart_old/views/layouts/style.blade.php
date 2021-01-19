@@ -1,1 +1,0 @@
-<link rel="stylesheet" href="{{ asset('themes/zepomart/assets/css/velocity.css') }}">

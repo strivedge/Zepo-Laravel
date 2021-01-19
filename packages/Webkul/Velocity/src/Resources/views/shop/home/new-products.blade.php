@@ -1,6 +1,7 @@
 @php
     $count = $velocityMetaData ? $velocityMetaData->new_products_count : 10;
     $direction = core()->getCurrentLocale()->direction == 'rtl' ? 'rtl' : 'ltr';
+    $showRecentlyViewed = false;
 @endphp
 
 <new-products></new-products>
