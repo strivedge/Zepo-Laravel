@@ -4,6 +4,7 @@ namespace Custom\Offer\Http\Controllers;
 
 use App\Offer;
 use Illuminate\Http\Request;
+use DB;
 
 class OfferController extends Controller
 {
@@ -21,7 +22,10 @@ class OfferController extends Controller
      */
     public function index()
     {
-        return view($this->_config['view']);
+        $offers = DB::table('master_offers')
+        ->orderby('id','desc')
+        ->get();
+        return view($this->_config['view'], compact('offers'));
     }
 
     /**
@@ -31,7 +35,7 @@ class OfferController extends Controller
      */
     public function create()
     {
-        //
+        return view($this->_config['view']);
     }
 
     /**
@@ -42,7 +46,34 @@ class OfferController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'desc' => 'required',
+            'image' => 'mimes:jpeg,jpg,png,gif|required|max:10000',
+            'status' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required'
+        ]);
+
+        $imageName = $request->image;
+        if($imageName != null)
+        {
+            $imageName1 = time().'.'.$imageName->extension();  
+            $imageName->move(public_path('uploadImages/offer'), $imageName1);
+            $request->image = $imageName1;
+        }
+
+        DB::table('master_offers')
+    	->insert([
+    		'title' => $request->title,
+    		'desc' => $request->desc,
+    		'image' => $request->image,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+            'status' => $request->status
+        ]);
+
+        return redirect()->route($this->_config['redirect']);
     }
 
     /**
@@ -62,9 +93,10 @@ class OfferController extends Controller
      * @param  \App\Offer  $offer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Offer $offer)
+    public function edit(Offer $offer, $id)
     {
-        //
+        $offers = DB::table('master_offers')->where('id', $id)->get();
+        return view($this->_config['view'], compact('offers'));
     }
 
     /**
@@ -74,9 +106,47 @@ class OfferController extends Controller
      * @param  \App\Offer  $offer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Offer $offer)
+    public function update(Request $request, Offer $offer, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'desc' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            'status' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+        ]);
+
+        if($request->image != '')
+        {
+            if ($files = $request->image) 
+            {
+                $destinationPath = public_path('uploadImages/offer'); // upload path
+                $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
+                $files->move($destinationPath, $profileImage);
+
+                DB::table('master_offers')->where('id', $id)->update([
+                    'title' => $request->title,
+    		        'desc' => $request->desc,
+    		        'image' => $profileImage,
+                    'start_date' => $request->start_date,
+                    'end_date' => $request->end_date,
+                    'status' => $request->status
+                ]);
+            }
+        }
+        else
+        {
+            echo "<pre>"; print_r($request->all()); exit();
+            DB::table('master_offers')->where('id', $id)->update([
+                'title' => $request->title,
+                'desc' => $request->desc,
+                'start_date' => $request->start_date,
+                'end_date' => $request->end_date,
+                'status' => $request->status
+            ]);
+        }
+        return redirect()->route($this->_config['redirect']);
     }
 
     /**
@@ -85,8 +155,9 @@ class OfferController extends Controller
      * @param  \App\Offer  $offer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Offer $offer)
+    public function destroy(Offer $offer, $id)
     {
-        //
+        DB::table('master_offers')->where('id', $id)->delete();
+        return redirect()->route($this->_config['redirect']);
     }
 }

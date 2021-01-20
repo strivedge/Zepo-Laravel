@@ -2,14 +2,10 @@
 
 Route::view('/offer', 'offer::offer.test');
 
-Route::get('admin/offer', 'Custom\Offer\Http\Controllers\OfferController@index')->defaults('_config', ['view' => 'offer::offer.index'])->name('offer.index');
+Route::get('admin/offers', 'Custom\Offer\Http\Controllers\OfferController@index')->defaults('_config', ['view' => 'offer::offer.index'])->name('offer.index');
 
-// Route::get('admin/addTestinominal', 'Custom\Testinominal\Http\Controllers\TestinominalController@create')->defaults('_config', ['view' => 'testinominal::testinominal.create']);
-
-// Route::get('admin/testinominal_edit/{id}', 'Custom\Testinominal\Http\Controllers\TestinominalController@edit')->defaults('_config', ['view' => 'testinominal::testinominal.edit']);
-
-// Route::get('admin/testinominal_delete/{id}', 'Custom\Testinominal\Http\Controllers\TestinominalController@destroy')->defaults('_config', ['redirect' => 'testinominal.index'])->name('testinominal_delete');
-
-// Route::post('admin/saveTestinominal', 'Custom\Testinominal\Http\Controllers\TestinominalController@store')->defaults('_config', ['redirect' => 'testinominal.index']);
-
-// Route::post('admin/updateTestinominal/{id}', 'Custom\Testinominal\Http\Controllers\TestinominalController@update')->defaults('_config', ['redirect' => 'testinominal.index'])->name('update');
+Route::get('admin/addOffer', 'Custom\Offer\Http\Controllers\OfferController@create')->defaults('_config', ['view' => 'offer::offer.create']);
+Route::get('admin/offer_edit/{id}', 'Custom\Offer\Http\Controllers\OfferController@edit')->defaults('_config', ['view' => 'offer::offer.edit']);
+Route::get('admin/offer_delete/{id}', 'Custom\Offer\Http\Controllers\OfferController@destroy')->defaults('_config', ['redirect' => 'offer.index'])->name('offer_delete');
+Route::post('admin/saveOffer', 'Custom\Offer\Http\Controllers\OfferController@store')->defaults('_config', ['redirect' => 'offer.index']);
+Route::post('admin/updateOffer/{id}', 'Custom\Offer\Http\Controllers\OfferController@update')->defaults('_config', ['redirect' => 'offer.index'])->name('update');

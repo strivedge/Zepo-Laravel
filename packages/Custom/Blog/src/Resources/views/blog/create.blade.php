@@ -52,7 +52,7 @@
 
                 <div class="control-group" :class="[errors.has('blog_date') ? 'has-error' : '']">
                     <label for="blog_date" class="required">{{ __('blog::app.blogs.blog_date') }}</label>
-                    <input type="date" class="control" name="blog_date" value="2021-01-01"  v-validate="'required'">
+                    <input type="date" class="control" name="blog_date" value='<?php echo date("Y-m-d"); ?>'  v-validate="'required'">
                     <span class="control-error" v-if="errors.has('blog_date')">@{{ errors.first('blog_date') }}</span>
                 </div>
                 
