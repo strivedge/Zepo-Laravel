@@ -29,7 +29,7 @@
             <div class="form-container">
                 @csrf()
                 <div class="control-group" :class="[errors.has('title') ? 'has-error' : '']">
-                    <label for="title" class="required">{{ __('testinominal::app.testinominal.title') }}</label>
+                    <label for="title" class="required">{{ __('testinominal::app.testinominal.testi-title') }}</label>
                     <input type="text" class="control" name="title" value="{{$post->title}}" v-validate="'required'">
                     <span class="control-error" v-if="errors.has('title')">@{{ errors.first('title') }}</span>
                 </div>

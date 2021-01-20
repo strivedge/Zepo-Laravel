@@ -27,7 +27,7 @@
             <div class="form-container">
                 @csrf()
                 <div class="control-group" :class="[errors.has('title') ? 'has-error' : '']">
-                    <label for="title" class="required">{{ __('offer::app.offer.title') }}</label>
+                    <label for="title" class="required">{{ __('offer::app.offer.offer-title') }}</label>
                     <input type="text" class="control" name="title" placeholder="Enter Offer title here" v-validate="'required'">
                     <span class="control-error" v-if="errors.has('title')">@{{ errors.first('title') }}</span>
                 </div>
@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="control-group" :class="[errors.has('status') ? 'has-error' : '']">
-                    <label for="status" class="required">{{ __('offer::app.offer.offer_status') }}</label>
+                    <label for="status" class="required">{{ __('offer::app.offer.offer-status') }}</label>
                     <select name="status" class="control" v-validate="'required'">
                         <option value="0">Active</option>
                         <option value="1">Inactive</option>
@@ -54,13 +54,13 @@
                 </div>
 
                 <div class="control-group" :class="[errors.has('date') ? 'has-error' : '']">
-                    <label for="date" class="required">{{ __('offer::app.offer.start_date') }}</label>
+                    <label for="date" class="required">{{ __('offer::app.offer.start-date') }}</label>
                     <input type="date" class="control" name="start_date" value='<?php echo date("Y-m-d"); ?>'  v-validate="'required'">
                     <span class="control-error" v-if="errors.has('date')">@{{ errors.first('date') }}</span>
                 </div>
 
                 <div class="control-group" :class="[errors.has('date') ? 'has-error' : '']">
-                    <label for="date" class="required">{{ __('offer::app.offer.end_date') }}</label>
+                    <label for="date" class="required">{{ __('offer::app.offer.end-date') }}</label>
                     <input type="date" class="control" name="end_date" value='<?php echo date("Y-m-d", strtotime("+ 1 day")); ?>'  v-validate="'required'">
                     <span class="control-error" v-if="errors.has('date')">@{{ errors.first('date') }}</span>
                 </div>

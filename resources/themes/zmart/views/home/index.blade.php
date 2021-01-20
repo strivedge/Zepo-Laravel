@@ -107,7 +107,8 @@
             <li class="active"><a data-toggle="tab" href="#home">New product</a></li>
             <li><a data-toggle="tab" href="#menu1">Featured Product</a></li>
             <li><a data-toggle="tab" href="#menu2">Recently Viewed</a></li>
-            <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
+            <li><a data-toggle="tab" href="#menu3">Offers</a></li>
+            <li><a data-toggle="tab" href="#menu4">Blogs</a></li>
           </ul>
 
           <div class="tab-content">
@@ -115,14 +116,21 @@
               @include('shop::home.new-products')
             </div>
             <div id="menu1" class="tab-pane ">
-               @include('shop::home.featured-products')
+              @include('shop::home.featured-products')
             </div>
             <div id="menu2" class="tab-pane ">
               @include('shop::products.list.recently-viewed',['quantity' => 1])
             </div>
             <div id="menu3" class="tab-pane ">
-              <h3>Menu 3</h3>
-              <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+              <h3>Offers</h3>
+              <!-- offers files -->
+              @include('shop::home.offer-products')
+              <!-- <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p> -->
+            </div>
+            <div id="menu4" class="tab-pane ">
+              <h3>Blogs</h3>
+              <!-- blogs files -->
+              @include('shop::home.blog-products')
             </div>
           </div>
         </div>
@@ -145,6 +153,7 @@
                 <!-- @include('shop::home.advertisements.advertisement-three') -->
                 <!--  @include('shop::home.new-products') -->
                 @include('shop::products.list.recently-viewed')
+                @include('shop::products.list.testinominal-view')
                 <!-- @include('shop::home.advertisements.advertisement-two') -->
 
         <!-- {{ view_render_event('bagisto.shop.home.content.after') }} -->

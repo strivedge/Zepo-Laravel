@@ -1,21 +1,26 @@
-@if (app('Webkul\Product\Repositories\ProductRepository')->getFeaturedProducts()->count())
-    <section class="featured-products">
+<section class="featured-products">
 
-        <div class="featured-heading">
-            {{ __('shop::app.home.featured-products') }}<br/>
+    <div class="featured-heading">
+        {{ __('shop::app.home.offers-products') }}<br/>
+        <span class="featured-seperator" style="color:lightgrey;">_____</span>
+    </div>
 
-            <span class="featured-seperator" style="color:lightgrey;">_____</span>
+    <div class="featured-grid product-grid-4">
+        <div class="row">
+        @foreach($offers as $offer)
+            <div class="column">
+                <div class="container">
+                    <div class="card-4">
+                        <img src="{{ asset('uploadImages/offer/'.$offer->image) }}" alt="{{ __('shop::app.home.offers-products') }}" height="100" width="100" onerror="this.src='{{ asset('vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png') }}'">
+                        <h3>{{ $offer->title }}</h3>
+                        <p>{{ $offer->desc }}</p>
+                        <p>{{ $offer->start_date }}</p>
+                        <p>{{ $offer->end_date }}</p>
+                    </div>
+                </div>
+            </div>
+        @endforeach
         </div>
+    </div>
 
-        <div class="featured-grid product-grid-4">
-
-            @foreach (app('Webkul\Product\Repositories\ProductRepository')->getFeaturedProducts() as $productFlat)
-
-                @include ('shop::products.list.card', ['product' => $productFlat])
-
-            @endforeach
-
-        </div>
-
-    </section>
-@endif
+</section>
