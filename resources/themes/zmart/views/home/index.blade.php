@@ -115,11 +115,11 @@
 
     <!-- Left and right controls -->
     <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
-      <span class=""><img src="{{ asset('/themes/zmart/assets/images/bx-bx-right-arrow-alt.png') }}"></span>
+      <span class="arrows"><img src="{{ asset('/themes/zmart/assets/images/bx-bx-right-arrow-alt.png') }}"></span>
       <span class="sr-only">Previous</span>
     </a>
     <a class="carousel-control-next" href="#myCarousel" data-slide="next">
-      <span class=""><img src="{{ asset('/themes/zmart/assets/images/bx-bx-left-arrow-alt.png') }}"></span>
+      <span class="arrows"><img src="{{ asset('/themes/zmart/assets/images/bx-bx-left-arrow-alt.png') }}"></span>
       <span class="sr-only">Next</span>
     </a>
   </div>
