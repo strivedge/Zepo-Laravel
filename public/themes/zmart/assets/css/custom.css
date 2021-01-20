@@ -1,0 +1,35 @@
+/* Common Css
+------------------------------------------------------------------------------------------------------------------------*/
+.container { max-width: 1640px!important; }
+@media (max-width: 1610px) {
+	.container { max-width: 100%!important; }
+}
+
+
+/* Header Css
+-------------------------------------------------------------------------------------------------------------------------------------- */
+.navbar-top .navbar-top-wrapper { display: flex;flex-wrap: wrap; }
+.navbar-top .navbar-top-wrapper .navbar-left-wrapper { text-align: left;padding: 0; }
+.navbar-top .navbar-top-wrapper .navbar-right-wrapper{ text-align: right;padding: 0;}
+.navbar-top ul{ margin: 0; padding: 0; list-style-type: none; display: inline-flex; flex-direction: row; justify-content: flex-end; width: auto;align-items: center; }
+.navbar-top ul li{margin: 0; padding: 0 10px; list-style-type: none;}
+.navbar-top ul li a{ color: #fff; font-size: 14px; font-weight: 600;font-family: 'Be Vietnam', sans-serif;color: #FFFFFF; }
+
+.navbar-top .navbar-top-wrapper .navbar-left-wrapper ul li { display: inline-block; }
+.navbar-top .navbar-top-wrapper .navbar-left-wrapper ul li:first-child{ padding-left: 0;}
+.navbar-top .navbar-top-wrapper .navbar-left-wrapper ul li a:before { font-family: 'boxicons'!important; font-weight: normal; font-style: normal; font-variant: normal;vertical-align: middle;line-height: 1.5; margin-right: 10px;font-size: 20px; display: inline-block; }
+.navbar-top .navbar-top-wrapper .navbar-left-wrapper ul li.email a:before { content: "\ea8e"; }
+.navbar-top .navbar-top-wrapper .navbar-left-wrapper ul li.phone a:before { content: "\eb7c";}
+.navbar-top .navbar-top-wrapper .navbar-left-wrapper ul li span i {  }
+
+.navbar-top .navbar-top-wrapper .navbar-right-wrapper .modal-content { border: 0;box-shadow: unset;background: transparent; }
+.navbar-top .navbar-top-wrapper .navbar-right-wrapper .dropdown,
+.navbar-top .navbar-top-wrapper .navbar-right-wrapper .modal-content a { border-right: 1px solid #F4F4F4;padding: 0px 15px; }
+.navbar-top .navbar-top-wrapper .navbar-right-wrapper .languages .dropdown:last-child { border-right: 0;padding-right: 0; }
+.navbar-top .navbar-top-wrapper .navbar-right-wrapper .currencycode .dropdown { padding-left: 0; }
+.navbar-top .navbar-top-wrapper .navbar-right-wrapper .modal-content a:hover { text-decoration: none; }
+.navbar-top .navbar-top-wrapper .navbar-right-wrapper .modal-content .theme-btn { color: #fff; font-size: 14px; font-weight: 600;font-family: 'Be Vietnam', sans-serif;color: #FFFFFF;background-color: transparent; border: 0; }
+.navbar-top .navbar-top-wrapper .navbar-right-wrapper .modal-content .theme-btn:hover { background: transparent;background-color: transparent!important;border-color: transparent!important; } 
+
+#top .navbar-top .navbar-top-wrapper .navbar-right-wrapper .locale-switcher { padding: 0px 26px 0px 0px;font-size: 14px;font-family: 'Be Vietnam', sans-serif;font-weight: 600;color: #fff; }
+#top .navbar-top .navbar-top-wrapper .navbar-right-wrapper .styled-select+.select-icon-container .select-icon { top: -17px; color: #fff; font-weight: bold; }
