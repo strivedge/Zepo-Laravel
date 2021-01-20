@@ -4,6 +4,7 @@
     if (! is_null($term)) {
         $serachQuery = 'term='.request()->input('term');
     }
+
 ?>
 
 <div class="header" id="header">

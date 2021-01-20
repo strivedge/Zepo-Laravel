@@ -384,14 +384,15 @@ class ProductRepository extends Repository
 
             return $query->distinct()
                 ->Join('catalog_rule_product_prices', 'catalog_rule_product_prices.product_id', '=', 'product_flat.product_id')
+               // ->select('product_flat.*','catalog_rule_product_prices.price')
                 //->leftJoin('product_flat', 'catalog_rule_product_prices.product_id', '=', 'product_flat.product_id')
                 ->where('product_flat.status', 1)
                 ->where('product_flat.visible_individually', 1)
                 ->where('product_flat.channel', $channel)
                 ->where('product_flat.locale', $locale)
                 ->whereNotNull('product_flat.url_key')
-                ->groupBy('catalog_rule_product_prices.product_id')
-                ->inRandomOrder();
+                ->groupBy('catalog_rule_product_prices.product_id');
+               // ->inRandomOrder();
         })->paginate(4);
 
         return $results;
