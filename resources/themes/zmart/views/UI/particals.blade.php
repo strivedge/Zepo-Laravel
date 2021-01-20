@@ -50,21 +50,23 @@
 @include('velocity::UI.header')
 
 <script type="text/x-template" id="logo-template">
-    <a
+    <a class=" navbar-brand col-md-2"
         :class="`left ${addClass}`"
         href="{{ route('shop.home.index') }}">
 
         @if ($logo = core()->getCurrentChannel()->logo_url)
-            <img class="logo" src="{{ $logo }}" />
+            <img class="logo" src="{{ $logo }}" class="custom-logo" />
         @else
-            <img class="logo" src="{{ asset('themes/zmart/assets/images/logo-text.png') }}" />
+            <img class="logo custom-logo" src="{{ asset('themes/zmart/assets/images/logo-text.png') }}" />
         @endif
     </a>
 </script>
 
 <script type="text/x-template" id="searchbar-template">
-    <div class="row no-margin right searchbar">
-        <div class="col-lg-5 col-md-12 no-padding input-group">
+     <!-- <div class="row no-margin right searchbar"> -->
+    <div class="col-md-10 right searchbar">
+         <!--  <div class="col-lg-5 col-md-10 no-padding input-group"> -->
+        <div class="navbar--search col-md-9 no-padding input-group">
             <form
                 method="GET"
                 role="search"
@@ -77,7 +79,7 @@
 
                     <div class="btn-group full-width">
                         <div class="selectdiv">
-                           <!--  <select class="form-control fs13 styled-select" name="category" @change="focusInput($event)">
+                           <select class="form-control fs13 styled-select" name="category" @change="focusInput($event)">
                                 <option value="">
                                     {{ __('velocity::app.header.all-categories') }}
                                 </option>
@@ -99,7 +101,7 @@
 
                             <div class="select-icon-container">
                                 <span class="select-icon rango-arrow-down"></span>
-                            </div> -->
+                            </div>
                         </div>
 
                         <div class="full-width">
@@ -124,7 +126,7 @@
             </form>
         </div>
 
-        <div class="col-lg-7 col-md-12">
+        <div class="navbar--addcart--wishlist col-md-3">
             {!! view_render_event('bagisto.shop.layout.header.cart-item.before') !!}
                 @include('shop::checkout.cart.mini-cart')
             {!! view_render_event('bagisto.shop.layout.header.cart-item.after') !!}
@@ -132,7 +134,7 @@
             @php
                 $showCompare = core()->getConfigData('general.content.shop.compare_option') == "1" ? true : false;
 
-                $showCompare = false;
+                
             @endphp
 
             {!! view_render_event('bagisto.shop.layout.header.compare.before') !!}
@@ -152,7 +154,7 @@
                         <div class="badge-container" v-if="compareCount > 0">
                             <span class="badge" v-text="compareCount"></span>
                         </div>
-                        <span>{{ __('velocity::app.customer.compare.text') }}</span>
+                       <!--  <span>{{ __('velocity::app.customer.compare.text') }}</span> -->
                     </a>
                 @endif
             {!! view_render_event('bagisto.shop.layout.header.compare.after') !!}

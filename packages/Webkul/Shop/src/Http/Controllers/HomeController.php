@@ -5,6 +5,7 @@ namespace Webkul\Shop\Http\Controllers;
 use Webkul\Shop\Http\Controllers\Controller;
 use Webkul\Core\Repositories\SliderRepository;
 use Webkul\Product\Repositories\SearchRepository;
+use DB;
 
 class HomeController extends Controller
 {
@@ -52,13 +53,21 @@ class HomeController extends Controller
 
         $currentLocale = core()->getCurrentLocale();
 
+        // fetched data for blogs (posts) and offers
+        $offers = DB::table('master_offers')->orderby('id','desc')->get();
+        $posts = DB::table('master_posts')->orderby('id','desc')->get();
+
+        // testinominal title and fetched data for testinominals
+        $testi_title = "Testinominals";
+        $testinominals = DB::table('master_testinominal')->orderby('id','desc')->get();
+
         $sliderData = $this->sliderRepository
             ->where('channel_id', $currentChannel->id)
             ->where('locale', $currentLocale->code)
             ->get()
             ->toArray();
 
-        return view($this->_config['view'], compact('sliderData'));
+        return view($this->_config['view'], compact('sliderData', 'offers', 'posts', 'testi_title', 'testinominals'));
     }
 
     /**

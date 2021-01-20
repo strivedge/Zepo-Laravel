@@ -15,8 +15,4 @@
                 @include ('shop::products.list.card', ['product' => $productFlat])
 
             @endforeach
-
-        </div>
-
-    </section>
-@endif
+</section>

@@ -3,7 +3,6 @@
 namespace Custom\Offer\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Event;
 
 /**
  * HelloWorld service provider
@@ -23,11 +22,6 @@ class OfferServiceProvider extends ServiceProvider
         include __DIR__ . '/../Http/routes.php';
         $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang', 'offer');
         $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'offer');
-
-        Event::listen('bagisto.admin.layout.head', function($viewRenderEventManager) {
-            $viewRenderEventManager->addTemplate('offer::layouts.style');
-        });
-
         $this->loadMigrationsFrom(__DIR__ .'/../Database/Migrations');
     }
 

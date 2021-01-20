@@ -47,26 +47,26 @@ class BlogController extends Controller
         // echo "<pre>";
         // print_r($request->all());exit();
         $this->validate($request, [
-            'blog_title' => 'required',
-            'blog_image' => 'mimes:jpeg,jpg,png,gif|required|max:10000',
-            'blog_content' => 'required',
-            'blog_date' => 'required',
+            'title' => 'required',
+            'image' => 'mimes:jpeg,jpg,png,gif|required|max:10000',
+            'content' => 'required',
+            'date' => 'required',
         ]);
 
-        $imageName = $request->blog_image;
+        $imageName = $request->image;
         if($imageName!= null)
         {
             $imageName1 = time().'.'.$imageName->extension();  
             $imageName->move(public_path('uploadImages'), $imageName1);
         }
-        $request->blog_image = $imageName1;
+        $request->image = $imageName1;
 
         DB::table('master_posts')
     	->insert([
-    		'title' => $request->blog_title,
-    		'image' => $request->blog_image,
-    		'content' => $request->blog_content,
- 			'date' => $request->blog_date
+    		'title' => $request->title,
+    		'image' => $request->image,
+    		'content' => $request->content,
+ 			'date' => $request->date
         ]);
 
         return redirect()->route($this->_config['redirect']);
@@ -94,33 +94,33 @@ class BlogController extends Controller
     {
         // print_r($request->id);exit();
         $this->validate($request, [
-            'blog_title' => 'required',
-            'blog_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
-            'blog_content' => 'required',
-            'blog_date' => 'required',
+            'title' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            'content' => 'required',
+            'date' => 'required',
         ]);
-        if($request->blog_image != '')
+        if($request->image != '')
         {
-            if ($files = $request->blog_image) 
+            if ($files = $request->image) 
             {
                 $destinationPath = public_path('uploadImages'); // upload path
                 $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
                 $files->move($destinationPath, $profileImage);
                 
                 DB::table('master_posts')->where('id', $id)->update([
-                    'title' => $request->blog_title,
+                    'title' => $request->title,
     		        'image' => $profileImage,
-    		        'content' => $request->blog_content,
- 			        'date' => $request->blog_date
+    		        'content' => $request->content,
+ 			        'date' => $request->date
                 ]);
             }
         }
         else
         {
             DB::table('master_posts')->where('id', $id)->update([
-                'title' => $request->blog_title,
-    		    'content' => $request->blog_content,
-                'date' => $request->blog_date
+                'title' => $request->title,
+    		    'content' => $request->content,
+                'date' => $request->date
             ]);
         }
         return redirect()->route($this->_config['redirect']);

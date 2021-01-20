@@ -323,7 +323,7 @@
 
                 @php
                     $showCompare = core()->getConfigData('general.content.shop.compare_option') == "1" ? true : false;
-                    $showCompare =  false;
+                   
                 @endphp
 
                 <div class="right-vc-header col-6">
