@@ -56,7 +56,6 @@
     BASE_URL="<?php echo url(''); ?>";
 	function deleteAction(id)
 	{
-		console.log(id);
 		if (confirm('Are you sure you want to delete?'))
 		{
             $.ajax({
