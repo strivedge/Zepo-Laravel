@@ -21,8 +21,6 @@ class TestinominalController extends Controller
      */
     public function index()
     {
-
-        // $data['posts'] = DB::table('posts')->get();
         $posts = DB::table('master_testinominal')
         ->orderby('id','desc')
         ->get();

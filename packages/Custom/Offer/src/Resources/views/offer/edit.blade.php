@@ -29,7 +29,7 @@
             <div class="form-container">
                 @csrf()
                 <div class="control-group" :class="[errors.has('title') ? 'has-error' : '']">
-                    <label for="title" class="required">{{ __('offer::app.offer.title') }}</label>
+                    <label for="title" class="required">{{ __('offer::app.offer.offer-title') }}</label>
                     <input type="text" class="control" name="title" value="{{$offer->title}}" v-validate="'required'">
                     <span class="control-error" v-if="errors.has('title')">@{{ errors.first('title') }}</span>
                 </div>
@@ -52,7 +52,7 @@
                 </div>
 
                 <div class="control-group" :class="[errors.has('status') ? 'has-error' : '']">
-                    <label for="status" class="required">{{ __('offer::app.offer.offer_status') }}</label>
+                    <label for="status" class="required">{{ __('offer::app.offer.offer-status') }}</label>
                     <select name="status" class="control" v-validate="'required'">
                         <option value="0" {{$offer->status == '0' ? 'selected' : ''}}>Active</option>
                         <option value="1" {{$offer->status == '1' ? 'selected' : ''}}>Inactive</option>
@@ -61,15 +61,15 @@
                 </div>
 
                 <div class="control-group" :class="[errors.has('date') ? 'has-error' : '']">
-                    <label for="date" class="required">{{ __('offer::app.offer.start_date') }}</label>
+                    <label for="date" class="required">{{ __('offer::app.offer.start-date') }}</label>
                     <input type="date" class="control" name="start_date" value="{{$offer->start_date}}"  v-validate="'required'">
-                    <span class="control-error" v-if="errors.has('date')">@{{ errors.first('start_date') }}</span>
+                    <span class="control-error" v-if="errors.has('date')">@{{ errors.first('date') }}</span>
                 </div>
 
                 <div class="control-group" :class="[errors.has('date') ? 'has-error' : '']">
-                    <label for="date" class="required">{{ __('offer::app.offer.end_date') }}</label>
+                    <label for="date" class="required">{{ __('offer::app.offer.end-date') }}</label>
                     <input type="date" class="control" name="end_date" value="{{$offer->end_date}}"  v-validate="'required'">
-                    <span class="control-error" v-if="errors.has('date')">@{{ errors.first('end_date') }}</span>
+                    <span class="control-error" v-if="errors.has('date')">@{{ errors.first('date') }}</span>
                 </div>
                 @endforeach
             </div>

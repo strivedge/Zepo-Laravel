@@ -22,12 +22,12 @@
         <div class="page-content">
             <table>
                 <tr>
-                    <th>{{ __('offer::app.offer.offer_title') }}</th>
+                    <th>{{ __('offer::app.offer.offer-title') }}</th>
                     <th>{{ __('offer::app.offer.desc') }}</th>
                     <th>{{ __('offer::app.offer.image') }}</th>
-                    <th>{{ __('offer::app.offer.offer_status') }}</th>
-                    <th>{{ __('offer::app.offer.start_date') }}</th>
-                    <th>{{ __('offer::app.offer.end_date') }}</th>
+                    <th>{{ __('offer::app.offer.offer-status') }}</th>
+                    <th>{{ __('offer::app.offer.start-date') }}</th>
+                    <th>{{ __('offer::app.offer.end-date') }}</th>
                     <th>{{ __('offer::app.offer.action') }}</th>
                 </tr>
                 <?php  //echo "<pre>";print_r($posts);exit(); ?>

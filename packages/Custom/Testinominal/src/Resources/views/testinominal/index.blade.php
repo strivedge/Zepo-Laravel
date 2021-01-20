@@ -22,7 +22,7 @@
         <div class="page-content">
             <table>
                 <tr>
-                    <th>{{ __('testinominal::app.testinominal.title') }}</th>
+                    <th>{{ __('testinominal::app.testinominal.testi-title') }}</th>
                     <th>{{ __('testinominal::app.testinominal.image') }}</th>
                     <th>{{ __('testinominal::app.testinominal.desc') }}</th>
                     <th>{{ __('testinominal::app.testinominal.date') }}</th>
