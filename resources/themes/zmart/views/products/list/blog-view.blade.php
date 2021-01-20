@@ -1,7 +1,9 @@
 <section class="featured-products">
 
     <div class="featured-grid product-grid-4">
+    <h2>{{ $posts_title }}</h2>
         <div class="row">
+    @if(isset($posts) && count($posts) > 0)
         @foreach($posts as $post)
             <div class="column">
                 <div class="container">
@@ -14,6 +16,13 @@
                 </div>
             </div>
         @endforeach
+        @else
+        <div class="column">
+            <div class="container">
+                <p>No Posts...!</p>
+            </div>
+        </div>
+        @endif
         </div>
     </div>
 
