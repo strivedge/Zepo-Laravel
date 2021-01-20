@@ -29,6 +29,7 @@
                     <th>{{ __('blog::app.blogs.blog_date') }}</th>
                     <th>{{ __('blog::app.blogs.blog_action') }}</th>
                 </tr>
+            @if(isset($posts) && count($posts) > 0)
                 @foreach($posts as $post)
                 <tr>
                     <td>{{ $post->id }}</td>
@@ -42,6 +43,12 @@
                         <a href="" id="{{ $post->id }}" onclick="return deleteAction({{ $post->id }})">Delete</a>
                     </td>
                 </tr>
+                @endforeach
+            @else
+                <tr>
+                    <td colspan="6">No data found....!</td>
+                </tr>
+            @endif
 <script type="text/javascript">
     BASE_URL="<?php echo url(''); ?>";
 	function deleteAction(id)
@@ -62,7 +69,6 @@
 		return false;
 	}
 </script>
-@endforeach
             </table>
         </div>
     </div>

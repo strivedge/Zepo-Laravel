@@ -5,6 +5,7 @@ namespace Custom\Offer\Http\Controllers;
 use App\Offer;
 use Illuminate\Http\Request;
 use DB;
+use Custom\Offer\Models\Testinominal;
 
 class OfferController extends Controller
 {
@@ -12,6 +13,7 @@ class OfferController extends Controller
 
     public function __construct()
     {
+        $this->middleware('admin');
         $this->_config = request('_config');
     }
 
@@ -137,7 +139,6 @@ class OfferController extends Controller
         }
         else
         {
-            echo "<pre>"; print_r($request->all()); exit();
             DB::table('master_offers')->where('id', $id)->update([
                 'title' => $request->title,
                 'desc' => $request->desc,
