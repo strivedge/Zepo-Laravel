@@ -5,8 +5,8 @@
 			    <div class="navbar-left-wrapper col-sm-6">
 			        <!-- @include('velocity::layouts.top-nav.locale-currency') -->
 			        <ul>
-	                    <li class="email"><a href="mailto:support@zepomart.com">support@zepomart.com</a></li>
-			        	<li class="phone"><a href="tel:021 269 962">021 269 962 </a></li>
+	                    <li class="email"><span class="material-icons"> email </span><a href="mailto:support@zepomart.com">support@zepomart.com</a></li>
+			        	<li class="phone"><span class="material-icons"> phone </span><a href="tel:021 269 962">021 269 962 </a></li>
 	                </ul>
 			    </div>
 

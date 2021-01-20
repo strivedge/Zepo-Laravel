@@ -50,21 +50,23 @@
 @include('velocity::UI.header')
 
 <script type="text/x-template" id="logo-template">
-    <a
+    <a class=" navbar-brand col-md-2"
         :class="`left ${addClass}`"
         href="{{ route('shop.home.index') }}">
 
         @if ($logo = core()->getCurrentChannel()->logo_url)
-            <img class="logo" src="{{ $logo }}" />
+            <img class="logo" src="{{ $logo }}" class="custom-logo" />
         @else
-            <img class="logo" src="{{ asset('themes/zmart/assets/images/logo-text.png') }}" />
+            <img class="logo custom-logo" src="{{ asset('themes/zmart/assets/images/logo-text.png') }}" />
         @endif
     </a>
 </script>
 
 <script type="text/x-template" id="searchbar-template">
-    <div class="row no-margin right searchbar">
-        <div class="col-lg-5 col-md-12 no-padding input-group">
+     <!-- <div class="row no-margin right searchbar"> -->
+    <div class="col-md-10 right searchbar">
+         <!--  <div class="col-lg-5 col-md-10 no-padding input-group"> -->
+        <div class="navbar--search col-md-9 no-padding input-group">
             <form
                 method="GET"
                 role="search"
@@ -124,7 +126,7 @@
             </form>
         </div>
 
-        <div class="col-lg-7 col-md-12">
+        <div class="navbar--addcart--wishlist col-md-3">
             {!! view_render_event('bagisto.shop.layout.header.cart-item.before') !!}
                 @include('shop::checkout.cart.mini-cart')
             {!! view_render_event('bagisto.shop.layout.header.cart-item.after') !!}

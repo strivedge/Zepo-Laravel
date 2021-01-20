@@ -2677,7 +2677,7 @@ body .container-margin {
 .velocity-divide-page {
     position: relative;
 }
-.velocity-divide-page .left {
+/*.velocity-divide-page .left {
     z-index: 1;
     width: 230px;
     position: absolute;
@@ -2685,7 +2685,7 @@ body .container-margin {
 .velocity-divide-page .right {
     width: 100%;
     padding-left: 230px!important;
-}
+}*/
 .container-right {
     width: 100%;
     display: inline-block;
@@ -9740,7 +9740,7 @@ button.close {
     padding: 9px 14px;
 }
 .carousel, .carousel-inner {
-    position: relative;
+  position: relative;
 }
 .carousel-inner {
     width: 100%;
@@ -9908,7 +9908,7 @@ button.close {
 }
 .carousel-caption .btn, .carousel-caption .quantity button, .carousel-caption .quantity input, .quantity .carousel-caption button, .quantity .carousel-caption input {
     text-shadow: none;
-}
+}*/
 @media screen and (min-width:768px) {
     .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev {
     width: 30px;
@@ -10202,7 +10202,7 @@ body {
     text-decoration: none;
 }
 #top { flex-direction: column; padding: 0; background: rgba(255,255,255,1); }
-#top .navbar-top { background: #B1CC1E; width: 100%; padding: 20px 0; }
+#top .navbar-top { background: #B1CC1E; width: 100%; /*padding: 20px 0;*/padding: 15px 0px; }
 #top .btn, #top .quantity button, #top .quantity input, .quantity #top button, .quantity #top input {
     font-family: Source Sans Pro, sans-serif;
     font-size: 14px;

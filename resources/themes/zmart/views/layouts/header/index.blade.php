@@ -1,7 +1,10 @@
-<header class="sticky-header" v-if="!isMobile()">
-    <div class="row col-12 remove-padding-margin velocity-divide-page">
-        <logo-component></logo-component>
-        <searchbar-component></searchbar-component>
+<header class="sticky-header navbar-middle" v-if="!isMobile()">
+    <div class="container">
+        <div class="navbar-middle-wrapper remove-padding-margin velocity-divide-page">
+        <!-- <div class="row col-12 remove-padding-margin velocity-divide-page"> -->
+            <logo-component></logo-component>
+            <searchbar-component></searchbar-component>
+        </div>
     </div>
 </header>
 

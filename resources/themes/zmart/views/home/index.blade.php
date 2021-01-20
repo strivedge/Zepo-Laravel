@@ -50,52 +50,81 @@
 @endpush
 
 @section('content-wrapper')
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
+<section id="slider" class="slider-img">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item active">
-      <img src="https://www.w3schools.com/bootstrap/la.jpg" alt="Chania">
-      <div class="carousel-caption">
-        <h3>Los Angeles</h3>
-        <p>LA is always so much fun!</p>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <div class="image-wrapper">
+            <img src="{{ asset('/themes/zmart/assets/images/home-banner.png') }}">
+        </div>
+        <div class="custom-slider-caption">
+          <div class="container">
+            <div class="col-left">
+              <h1>Face Mask  Thermometer</span></h1>
+              <p>Suspendisse turpis dui, posuere eget scelerisque a, porta eu elit. </p>
+              <div class="buttons">
+                  <button type="button" class="btn btn-primary">Shop Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+         <div class="image-wrapper">
+            <img src="{{ asset('/themes/zmart/assets/images/home-banner.png') }}">
+        </div>
+        <div class="custom-slider-caption">
+          <div class="container">
+            <div class="col-left">
+              <h1>Face Mask  Thermometer</span></h1>
+              <p>Suspendisse turpis dui, posuere eget scelerisque a, porta eu elit. </p>
+              <div class="buttons">
+                  <button type="button" class="btn btn-primary">Shop Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="image-wrapper">
+            <img src="{{ asset('/themes/zmart/assets/images/home-banner.png') }}">
+        </div>
+        <div class="custom-slider-caption">
+          <div class="container">
+            <div class="col-left">
+              <h1>Face Mask  Thermometer</span></h1>
+              <p>Suspendisse turpis dui, posuere eget scelerisque a, porta eu elit. </p>
+              <div class="buttons">
+                  <button type="button" class="btn btn-primary">Shop Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="item">
-      <img src="https://www.w3schools.com/bootstrap/chicago.jpg" alt="Chicago">
-      <div class="carousel-caption">
-        <h3>Chicago</h3>
-        <p>Thank you, Chicago!</p>
-      </div>
-    </div>
-
-    <div class="item">
-      <img src="https://www.w3schools.com/bootstrap/ny.jpg" alt="New York">
-      <div class="carousel-caption">
-        <h3>New York</h3>
-        <p>We love the Big Apple!</p>
-      </div>
-    </div>
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+      <span class=""><img src="{{ asset('/themes/zmart/assets/images/bx-bx-right-arrow-alt.png') }}"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+      <span class=""><img src="{{ asset('/themes/zmart/assets/images/bx-bx-left-arrow-alt.png') }}"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
-
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
     <!-- @include('shop::home.slider') -->
+</section>
 
 @endsection
 
