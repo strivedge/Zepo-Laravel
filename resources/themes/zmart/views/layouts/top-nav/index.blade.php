@@ -1,13 +1,21 @@
-<nav id="top" style="min-height: 55px;">
-    <div class="col-sm-6">
-        <!-- @include('velocity::layouts.top-nav.locale-currency') -->
-        <div><span>support@zepomart.com</span>
-        <span>021 269 962</span></div>
+<nav id="top" class="">
+	<div class="navbar-top">
+		<div class="container">
+			<div class="navbar-top-wrapper">
+			    <div class="navbar-left-wrapper col-sm-6">
+			        <!-- @include('velocity::layouts.top-nav.locale-currency') -->
+			        <ul>
+	                    <li class="email"><a href="mailto:support@zepomart.com">support@zepomart.com</a></li>
+			        	<li class="phone"><a href="tel:021 269 962">021 269 962 </a></li>
+	                </ul>
+			    </div>
 
-    </div>
-
-    <div class="col-sm-6">
-    	@include('velocity::layouts.top-nav.locale-currency')
-        @include('velocity::layouts.top-nav.login-section')
-    </div>
+			    <div class="navbar-right-wrapper col-sm-6">
+			    	@include('velocity::layouts.top-nav.locale-currency')
+			        @include('velocity::layouts.top-nav.login-section')
+			    </div>
+			</div>
+		</div>
+	</div>
 </nav>
+
