@@ -389,7 +389,7 @@
             <div class="content-list right">
                 <ul type="none" class="navbar-nav no-margin" id="primary-menu">
                     <li class="nav-item parent">
-                        <a href="http://localhost/html/public/brand" target="_blank">Brand</a>
+                        <a href="{{url('/brand')}}" target="_blank">Brand</a>
                         <ul class="sub-menu">
                                 <li><a href="#">Brand</a></li>
                                 <li><a href="#">Brand</a></li>

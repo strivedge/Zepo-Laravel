@@ -47,7 +47,7 @@
     ])->render());
 
 @endphp
-
+<?php //echo"<pre>";print_r($product);exit(); ?>
 {!! view_render_event('bagisto.shop.products.list.card.before', ['product' => $product]) !!}
     @if (isset($list) && $list)
         <div class="col-12 lg-card-container list-card product-card row">
