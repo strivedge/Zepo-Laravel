@@ -2638,21 +2638,23 @@ body .container-margin {
 .main-content-wrapper>.row.disabled {
     cursor: not-allowed;
 }
-.main-content-wrapper .main-category {
+/*.main-content-wrapper .main-category {
     padding: 8px 15px;
     border-top: 1px solid #ccc;
-}
+}*/
 .main-content-wrapper .content-list {
     margin: 0;
-    width: 100%;
-    height: 42px;
+    /*width: 100%;*/
+    width: auto;
+    /*height: 42px;*/
+    height: 100%;
     text-align: left;
     list-style: none;
     position: relative;
     vertical-align: top;
     display: inline-block;
 }
-.main-content-wrapper .content-list ul {
+/*.main-content-wrapper .content-list ul {
     width: 100%;
     height: 100%;
     display: -webkit-inline-box;
@@ -2673,7 +2675,7 @@ body .container-margin {
 }
 .main-content-wrapper .content-list ul li:hover {
     background-color: #42719a;
-}
+}*/
 .velocity-divide-page {
     position: relative;
 }

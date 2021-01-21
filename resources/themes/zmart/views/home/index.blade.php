@@ -115,11 +115,11 @@
 
     <!-- Left and right controls -->
     <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
-      <span class=""><img src="{{ asset('/themes/zmart/assets/images/bx-bx-right-arrow-alt.png') }}"></span>
+      <span class="arrows"><img src="{{ asset('/themes/zmart/assets/images/bx-bx-right-arrow-alt.png') }}"></span>
       <span class="sr-only">Previous</span>
     </a>
     <a class="carousel-control-next" href="#myCarousel" data-slide="next">
-      <span class=""><img src="{{ asset('/themes/zmart/assets/images/bx-bx-left-arrow-alt.png') }}"></span>
+      <span class="arrows"><img src="{{ asset('/themes/zmart/assets/images/bx-bx-left-arrow-alt.png') }}"></span>
       <span class="sr-only">Next</span>
     </a>
   </div>
@@ -136,8 +136,7 @@
             <li class="active"><a data-toggle="tab" href="#home">New product</a></li>
             <li><a data-toggle="tab" href="#menu1">Featured Product</a></li>
             <li><a data-toggle="tab" href="#menu2">Recently Viewed</a></li>
-            <li><a data-toggle="tab" href="#menu3">Offers</a></li>
-            <li><a data-toggle="tab" href="#menu4">Blogs</a></li>
+            <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
           </ul>
 
           <div class="tab-content">
@@ -151,15 +150,8 @@
               @include('shop::products.list.recently-viewed',['quantity' => 1])
             </div>
             <div id="menu3" class="tab-pane ">
-              <h3>Offers</h3>
-              <!-- offers files -->
-              @include('shop::home.offer-products')
-              <!-- <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p> -->
-            </div>
-            <div id="menu4" class="tab-pane ">
-              <h3>Blogs</h3>
-              <!-- blogs files -->
-              @include('shop::home.blog-products')
+              <h3>Menu 3</h3>
+              <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
             </div>
           </div>
         </div>
@@ -182,6 +174,8 @@
                 <!-- @include('shop::home.advertisements.advertisement-three') -->
                 <!--  @include('shop::home.new-products') -->
                 @include('shop::products.list.recently-viewed')
+                @include('shop::products.list.blog-view')
+                @include('shop::products.list.offer-view')
                 @include('shop::products.list.testinominal-view')
                 <!-- @include('shop::home.advertisements.advertisement-two') -->
 
