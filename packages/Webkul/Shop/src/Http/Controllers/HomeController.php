@@ -55,9 +55,9 @@ class HomeController extends Controller
 
         // fetched data for blogs (posts) and offers
         $offers_title = "Active Offers";
-        $offers = DB::table('master_offers')->orderby('id','desc')->take(1)->get();
+        // $offers = DB::table('master_offers')->orderby('id','desc')->take(1)->get();
         $posts_title = "Posts";
-        $posts = DB::table('master_posts')->orderby('id','desc')->get();
+        // $posts = DB::table('master_posts')->orderby('id','desc')->get();
 
         // testinominal title and fetched data for testinominals
         $testi_title = "What Our Customers are Saying";
@@ -69,7 +69,7 @@ class HomeController extends Controller
             ->get()
             ->toArray();
 
-        return view($this->_config['view'], compact('sliderData', 'offers_title', 'offers', 'posts_title', 'posts', 'testi_title', 'testinominals'));
+        return view($this->_config['view'], compact('sliderData', 'offers_title', 'posts_title', 'testi_title', 'testinominals'));
     }
 
     /**

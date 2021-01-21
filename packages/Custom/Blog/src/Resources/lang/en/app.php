@@ -9,6 +9,7 @@ return [
             'add-title' => 'Add Blog',
             'edit-title' => 'Edit Blog',
             'id' => 'Id',
+            'name' => 'Blogs',
             'title' => 'Blogs',
             'blog-title' => 'Title',
             'blog-image' => 'Image',

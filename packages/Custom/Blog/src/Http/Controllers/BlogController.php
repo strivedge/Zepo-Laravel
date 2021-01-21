@@ -3,14 +3,18 @@
 namespace Custom\Blog\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Custom\Blog\Repositories\BlogRepository;
+use Custom\Blog\Models\Blog;
 use DB;
 
 class BlogController extends Controller
 {
-    public function __construct()
+    private $blogRepository;
+    public function __construct(BlogRepository $blogRepository)
     {
         $this->middleware('admin');
         $this->_config = request('_config');
+        $this->blogRepository = $blogRepository;
     }
 
     /**
@@ -26,6 +30,18 @@ class BlogController extends Controller
         ->get();
         return view($this->_config['view'], compact('posts'));
     }
+
+    public function indexes()
+    {
+        $blogs = $this->blogRepository->all();
+        return view($this->_config['view'], compact('blogs'));
+    }
+
+    // public function show($blogId)
+    // {
+    //     $blog = $this->blogRepository->findById($blogId);
+    //     return $blog;
+    // }
 
     /**
      * Show the form for creating a new resource.

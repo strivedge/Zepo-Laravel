@@ -1,6 +1,7 @@
 <?php
 
 Route::view('/blogs', 'blog::blog.blog');
+// Route::get('admin/blogTest', 'Custom\Blog\Http\Controllers\BlogController@indexes')->defaults('_config', ['view' => 'blog::blog.blog'])->name('blog.blog');
 
 Route::get('admin/blog', 'Custom\Blog\Http\Controllers\BlogController@index')->defaults('_config', ['view' => 'blog::blog.index'])->name('blog.index');
 Route::get('admin/addBlog', 'Custom\Blog\Http\Controllers\BlogController@create')->defaults('_config', ['view' => 'blog::blog.create']);
