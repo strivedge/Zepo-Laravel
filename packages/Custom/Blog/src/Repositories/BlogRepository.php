@@ -16,7 +16,7 @@ class BlogRepository
 {
     public function all()
     {
-        return Blog::all();
+        return Blog::orderby('id', 'desc')->take(4)->get();
     }
 
     public function findById($blogId)

@@ -10,7 +10,7 @@ use DB;
 class TestinominalController extends Controller
 {
     private $testinominalRepository;
-    public function __construct(TestinominalRepository $testinominalRepository;)
+    public function __construct(TestinominalRepository $testinominalRepository)
     {
         $this->middleware('admin');
         $this->_config = request('_config');
