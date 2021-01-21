@@ -174,7 +174,6 @@
                 @include('shop::products.list.recently-viewed')
                 @include('shop::home.category-overlay')
                 
-                <!-- @include('shop::products.list.blog-view') -->
                 @include('shop::products.list.offer-view')
                 @include('shop::products.list.testinominal-view')
                 @include('shop::home.shipping-payment')
