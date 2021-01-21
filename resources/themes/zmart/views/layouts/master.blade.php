@@ -17,11 +17,16 @@
         <meta http-equiv="content-language" content="{{ app()->getLocale() }}">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+        
         <link rel="stylesheet" href="{{ asset('themes/zmart/assets/css/velocity.css') }}" />
+        <link rel="stylesheet" href="{{ asset('themes/zmart/assets/css/slick-theme.css') }}" />
+        <link rel="stylesheet" href="{{ asset('themes/zmart/assets/css/slick.css') }}" />
         <link rel="stylesheet" href="{{ asset('themes/zmart/assets/css/bootstrap.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('themes/zmart/assets/css/google-font.css') }}" />
         <link rel="stylesheet" href="{{ asset('themes/zmart/assets/css/custom.css') }}" />
         <link rel="stylesheet" href="{{ asset('themes/zmart/assets/css/boxicons.min.css') }}" />
+        
+
 
          <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
         
@@ -51,7 +56,7 @@
         <script
             type="text/javascript"
             src="{{ asset('themes/zmart/assets/js/jquery.ez-plus.js') }}">
-        </script>
+        </script> 
 
         @yield('head')
 
@@ -130,7 +135,7 @@
                     </div>
                 @show
 
-                <div class="container">
+                <!-- <div class="container"> -->
 
                     {!! view_render_event('bagisto.shop.layout.full-content.before') !!}
 
@@ -138,7 +143,7 @@
 
                     {!! view_render_event('bagisto.shop.layout.full-content.after') !!}
 
-                </div>
+                <!-- </div> -->
             </div>
 
             <div class="modal-parent" id="loader" style="top: 0" v-show="showPageLoader">
@@ -213,6 +218,21 @@
         <script
             type="text/javascript"
             src="{{ asset('vendor/webkul/ui/assets/js/ui.js') }}">
+        </script>
+        
+       <!--  <script
+            type="text/javascript"
+            src="{{ asset('themes/zmart/assets/js/slick.js') }}">
+        </script> -->
+         <script
+            type="text/javascript"
+            baseUrl="{{ url()->to('/') }}"
+            src="{{ asset('themes/zmart/assets/js/slick.min.js') }}">
+        </script>
+         <script
+            type="text/javascript"
+            baseUrl="{{ url()->to('/') }}"
+            src="{{ asset('themes/zmart/assets/js/custom.js') }}">
         </script>
 
         @stack('scripts')
