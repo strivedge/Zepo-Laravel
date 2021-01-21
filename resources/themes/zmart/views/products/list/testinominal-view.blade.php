@@ -11,7 +11,6 @@
                         <img src="{{ asset('uploadImages/'.$testinominal->image) }}" alt="{{ $testi_title }}" height="100" width="100" onerror="this.src='{{ asset('vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png') }}'">
                         <h3>{{ $testinominal->title }}</h3>
                         <p>{{ $testinominal->desc }}</p>
-                        <p>{{ $testinominal->date }}</p>
                     </div>
                 </div>
             </div>

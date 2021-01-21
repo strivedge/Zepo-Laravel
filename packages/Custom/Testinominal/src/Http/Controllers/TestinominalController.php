@@ -93,7 +93,6 @@ class TestinominalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // print_r($request->id);exit();
         $this->validate($request, [
             'title' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
