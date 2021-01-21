@@ -7,7 +7,7 @@
 @section('content')
 <div class="content">
     @foreach($offers as $offer)
-    <form method="POST" action="{{route('update', [$offer->id])}}" enctype="multipart/form-data" @submit.prevent="onSubmit">
+    <form method="POST" action="{{route('updateOffer', [$offer->id])}}" enctype="multipart/form-data" @submit.prevent="onSubmit">
 
         <div class="page-header">
             <div class="page-title">

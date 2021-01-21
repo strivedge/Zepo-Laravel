@@ -12,4 +12,4 @@ Route::get('admin/testinominal_delete/{id}', 'Custom\Testinominal\Http\Controlle
 
 Route::post('admin/saveTestinominal', 'Custom\Testinominal\Http\Controllers\TestinominalController@store')->defaults('_config', ['redirect' => 'testinominal.index']);
 
-Route::post('admin/updateTestinominal/{id}', 'Custom\Testinominal\Http\Controllers\TestinominalController@update')->defaults('_config', ['redirect' => 'testinominal.index'])->name('update');
+Route::post('admin/updateTestinominal/{id}', 'Custom\Testinominal\Http\Controllers\TestinominalController@update')->defaults('_config', ['redirect' => 'testinominal.index'])->name('updateTestinominal');
