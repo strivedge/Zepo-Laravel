@@ -387,8 +387,21 @@
             </div>
 
             <div class="content-list right">
-                <ul type="none" class="navbar-nav no-margin">
-                    <li v-for="(content, index) in headerContent" :key="index">
+                <ul type="none" class="navbar-nav no-margin" id="primary-menu">
+                    <li class="nav-item parent">
+                        <a href="http://localhost/html/public/brand" target="_blank">Brand</a>
+                        <ul class="sub-menu">
+                                <li><a href="#">Brand</a></li>
+                                <li><a href="#">Brand</a></li>
+                                <li><a href="#">Brand</a></li>
+                                <li><a href="#">Brand</a></li>
+                                <li><a href="#">Brand</a></li>
+                                <li><a href="#">Brand</a></li>
+                                <li><a href="#">Brand</a></li>
+                                <li><a href="#">Brand</a></li>
+                            </ul>
+                    </li>
+                    <li v-for="(content, index) in headerContent" :key="index" class="nav-item">
                         <a
                             v-text="content.title"
                             :href="`${$root.baseUrl}/${content['page_link']}`"

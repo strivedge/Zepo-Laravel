@@ -1,30 +1,74 @@
-<section class="featured-products">
+<section class="offers featured-products">
 
-    <div class="featured-grid product-grid-4">
-    <h2>{{ $offers_title }}</h2>
-        <div class="row">
+    <div class="container">
+    <div class="section-title"><h2>{{ $offers_title }}</h2></div>
+        <ul>
     @if(isset($offers) && count($offers) > 0)
         @foreach($offers as $offer)
-            <div class="column">
-                <div class="container">
-                    <div class="card-4">
-                        <img src="{{ asset('uploadImages/offer/'.$offer->image) }}" alt="{{ __('shop::app.home.offers-products') }}" height="100" width="100" onerror="this.src='{{ asset('vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png') }}'">
-                        <h3>{{ $offer->title }}</h3>
-                        <p>{{ $offer->desc }}</p>
-                        <p>{{ $offer->start_date }}</p>
-                        <p>{{ $offer->end_date }}</p>
-                    </div>
-                </div>
-            </div>
+           <!--  <li class="column"> -->
+                
+                        <li class="col-md-3 img">
+                            <img src="{{ asset('uploadImages/offer/'.$offer->image) }}" alt="{{ __('shop::app.home.offers-products') }}" height="100" width="100" onerror="this.src='{{ asset('vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png') }}'">
+                        </li>
+                        <!-- <h3>{{ $offer->title }}</h3> -->
+                        <li class="col-md-7 content-offers">
+                            <div class="content">
+                                {{ $offer->desc }}
+                                <span>From {{ $offer->start_date }} to {{ $offer->end_date }}</span>
+                            </div>
+                        </li>
+                        <li class="col-md-2 buttons">
+                                <a href="#">View all Offers</a>
+                        </li>
+
+            <!-- </li> -->
         @endforeach
         @else
-        <div class="column">
-            <div class="container">
+        <li class="column">
+            
                 <p>No Offers...!</p>
-            </div>
-        </div>
+            
+        </li>
         @endif
-        </div>
+        </ul>
     </div>
 
 </section>
+
+<!-- <section class="offers featured-products">
+
+    <div class="featured-grid product-grid-4 ">
+        <div class="section-title"><h2>{{ $offers_title }}</h2></div>
+        
+            @if(isset($offers) && count($offers) > 0)
+            <ul class="">
+                @foreach($offers as $offer)
+                <li class="col-md-3 img">
+                            <img src="{{ asset('uploadImages/offer/'.$offer->image) }}" alt="{{ __('shop::app.home.offers-products') }}" height="100" width="100" onerror="this.src='{{ asset('vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png') }}'">
+                </li>
+                <li class="col-md-7 content-offers">
+                                <div class="content">
+                                    <p>{{ $offer->desc }}</p>
+                                    <span>From {{ $offer->start_date }} to {{ $offer->end_date }}</span>
+                                </div>
+                            </li>
+                             <h3>{{ $offer->title }}</h3>                      
+                        </div>
+                    </div>
+                </li>
+                <li class="col-md-2 buttons">
+                                <a href="#">View all Offers</a>
+                </li>
+                @endforeach
+                @else
+                <li class="col-md-12">
+                    
+                        <p>No Offers...!</p>
+                   
+                </li>
+                </ul>
+                @endif
+        
+    </div>
+
+</section>  -->

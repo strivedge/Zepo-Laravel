@@ -65,8 +65,8 @@
         <div class="image-wrapper">
             <img src="{{ asset('/themes/zmart/assets/images/home-banner.png') }}">
         </div>
-        <div class="custom-slider-caption">
-          <div class="container">
+        <div class="container">
+          <div class="custom-slider-caption">
             <div class="col-left">
               <h1>Face Mask  Thermometer</span></h1>
               <p>Suspendisse turpis dui, posuere eget scelerisque a, porta eu elit. </p>
@@ -82,8 +82,8 @@
          <div class="image-wrapper">
             <img src="{{ asset('/themes/zmart/assets/images/home-banner.png') }}">
         </div>
-        <div class="custom-slider-caption">
-          <div class="container">
+        <div class="container">
+          <div class="custom-slider-caption">
             <div class="col-left">
               <h1>Face Mask  Thermometer</span></h1>
               <p>Suspendisse turpis dui, posuere eget scelerisque a, porta eu elit. </p>
@@ -99,8 +99,8 @@
         <div class="image-wrapper">
             <img src="{{ asset('/themes/zmart/assets/images/home-banner.png') }}">
         </div>
-        <div class="custom-slider-caption">
-          <div class="container">
+        <div class="container">
+          <div class="custom-slider-caption">
             <div class="col-left">
               <h1>Face Mask  Thermometer</span></h1>
               <p>Suspendisse turpis dui, posuere eget scelerisque a, porta eu elit. </p>
