@@ -36,4 +36,14 @@ class HelloWorldController extends Controller
     {
         return view($this->_config['view']);
     }
+
+    public function aboutUs()
+    {
+        return view($this->_config['view']);
+    }
+
+    public function contactUs()
+    {
+        return view($this->_config['view']);
+    }
 }
