@@ -98,9 +98,9 @@ class TestinominalController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'date' => 'required',
         ]);
-        if($request->blog_image != '')
+        if($request->image != '')
         {
-            if ($files = $request->blog_image) 
+            if ($files = $request->image) 
             {
                 $destinationPath = public_path('uploadImages'); // upload path
                 $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
