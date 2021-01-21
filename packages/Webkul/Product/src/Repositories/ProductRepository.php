@@ -390,6 +390,7 @@ class ProductRepository extends Repository
                 ->where('product_flat.visible_individually', 1)
                 ->where('product_flat.channel', $channel)
                 ->where('product_flat.locale', $locale)
+                ->where('catalog_rule_product_prices.ends_till', '>=', \DB::raw('NOW()'))
                 ->whereNotNull('product_flat.url_key')
                 ->groupBy('catalog_rule_product_prices.product_id');
                // ->inRandomOrder();
