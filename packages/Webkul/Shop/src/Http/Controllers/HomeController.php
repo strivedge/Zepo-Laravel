@@ -61,7 +61,7 @@ class HomeController extends Controller
 
         // testinominal title and fetched data for testinominals
         $testi_title = "What Our Customers are Saying";
-        $testinominals = DB::table('master_testinominal')->orderby('id','desc')->get();
+        // $testinominals = DB::table('master_testinominal')->orderby('id','desc')->get();
 
         $sliderData = $this->sliderRepository
             ->where('channel_id', $currentChannel->id)
@@ -69,7 +69,7 @@ class HomeController extends Controller
             ->get()
             ->toArray();
 
-        return view($this->_config['view'], compact('sliderData', 'offers_title', 'posts_title', 'testi_title', 'testinominals'));
+        return view($this->_config['view'], compact('sliderData', 'offers_title', 'posts_title', 'testi_title'));
     }
 
     /**
