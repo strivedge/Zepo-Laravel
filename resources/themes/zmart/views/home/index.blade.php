@@ -169,14 +169,16 @@
                 @include('shop::home.advertisements.advertisement-two')
             @endif -->
 
-                <!-- @include('shop::home.offer-products') -->
-                <!-- @include('shop::home.featured-products') -->
-                <!-- @include('shop::home.advertisements.advertisement-three') -->
-                <!--  @include('shop::home.new-products') -->
+
+                @include('shop::home.offer-products')
                 @include('shop::products.list.recently-viewed')
-                @include('shop::products.list.blog-view')
+                @include('shop::home.category-overlay')
+                
+                <!-- @include('shop::products.list.blog-view') -->
                 @include('shop::products.list.offer-view')
                 @include('shop::products.list.testinominal-view')
+                @include('shop::home.shipping-payment')
+                
                 <!-- @include('shop::home.advertisements.advertisement-two') -->
 
         <!-- {{ view_render_event('bagisto.shop.home.content.after') }} -->

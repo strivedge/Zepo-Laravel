@@ -2,7 +2,7 @@
     <section class="featured-products">
 
         <div class="featured-heading">
-            {{ __('shop::app.home.featured-products') }}<br/>
+            {{ __('shop::app.home.offer-products') }}<br/>
 
             <span class="featured-seperator" style="color:lightgrey;">_____</span>
         </div>
