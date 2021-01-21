@@ -12,8 +12,8 @@
         :class="`btn btn-link disable-box-shadow ${itemCount == 0 ? 'cursor-not-allowed' : ''}`">
 
         <div class="mini-cart-content">
-            <i class="material-icons-outlined text-down-3">shopping_cart</i>
-            <span class="badge" v-text="itemCount" v-if="itemCount != 0"></span>
+            <span class="addcart"><i class="material-icons-outlined text-down-3">shopping_cart</i>
+            <span class="badge" v-text="itemCount" v-if="itemCount != 0"></span></span>
             <!-- <span class="fs18 fw6 cart-text">{{ __('velocity::app.minicart.cart') }}</span> -->
         </div>
         <div class="down-arrow-container">
@@ -150,10 +150,11 @@
                         @endguest
                         >
 
-                        <i class="material-icons">compare_arrows</i>
-                        <div class="badge-container" v-if="compareCount > 0">
-                            <span class="badge" v-text="compareCount"></span>
-                        </div>
+                       <span class="compare"> <i class="material-icons">compare_arrows</i>
+                            <span class="badge-container" v-if="compareCount > 0">
+                                <span class="badge" v-text="compareCount"></span>
+                            </span>
+                        </span>
                        <!--  <span>{{ __('velocity::app.customer.compare.text') }}</span> -->
                     </a>
                 @endif
@@ -161,10 +162,11 @@
 
             {!! view_render_event('bagisto.shop.layout.header.wishlist.before') !!}
                 <a class="wishlist-btn unset" :href="`${isCustomer ? '{{ route('customer.wishlist.index') }}' : '{{ route('velocity.product.guest-wishlist') }}'}`">
-                    <i class="material-icons">favorite_border</i>
-                    <div class="badge-container" v-if="wishlistCount > 0">
+                    <span class="wishlist"><i class="material-icons">favorite_border</i>
+                    <span class="badge-container" v-if="wishlistCount > 0">
                         <span class="badge" v-text="wishlistCount"></span>
-                    </div>
+                    </span>
+                </span>
                     <!-- <span>{{ __('shop::app.layouts.wishlist') }}</span> -->
                 </a>
             {!! view_render_event('bagisto.shop.layout.header.wishlist.after') !!}
