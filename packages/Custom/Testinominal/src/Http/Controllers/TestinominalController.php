@@ -3,15 +3,18 @@
 namespace Custom\Testinominal\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
+use Custom\Testinominal\Repositories\TestinominalRepository;
 use Custom\Testinominal\Models\Testinominal;
+use DB;
 
 class TestinominalController extends Controller
 {
-    public function __construct()
+    private $testinominalRepository;
+    public function __construct(TestinominalRepository $testinominalRepository;)
     {
         $this->middleware('admin');
         $this->_config = request('_config');
+        $this->testinominalRepository = $testinominalRepository;
     }
 
     /**

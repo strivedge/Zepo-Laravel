@@ -2,19 +2,21 @@
 
 namespace Custom\Offer\Http\Controllers;
 
-use App\Offer;
 use Illuminate\Http\Request;
+use Custom\Offer\Repositories\OfferRepository;
+use Custom\Offer\Models\Offer;
 use DB;
-use Custom\Offer\Models\Testinominal;
 
 class OfferController extends Controller
 {
     protected $_config;
+    private $offerRepository;
 
-    public function __construct()
+    public function __construct(OfferRepository $offerRepository)
     {
         $this->middleware('admin');
         $this->_config = request('_config');
+        $this->offerRepository = $offerRepository;
     }
 
     /**
