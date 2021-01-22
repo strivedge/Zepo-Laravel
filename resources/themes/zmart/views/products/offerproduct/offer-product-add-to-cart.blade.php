@@ -19,7 +19,7 @@
         @endif
 
         @if (! (isset($showWishlist) && !$showWishlist))
-            @include('shop::products.wishlist', [
+            @include('shop::products.offerproduct.offer-product-wishlist', [
                 'addClass' => $addWishlistClass ?? ''
             ])
         @endif
@@ -38,6 +38,7 @@
                     {{ ($product->type == 'booking') ?  __('shop::app.products.book-now') :  __('shop::app.products.add-to-cart') }}
                 </button>
             @elseif(isset($addToCartForm) && !$addToCartForm)
+            <!-- offer add to cart -->
                 <form
                     method="POST"
                     action="{{ route('cart.add', $product->product_id) }}">
