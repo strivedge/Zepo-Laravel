@@ -130,28 +130,28 @@
 
 @section('home-full-content-wrapper')
     <div class="full-content-wrapper">
-
-        <div class="container">
-          <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#home">New product</a></li>
-            <li><a data-toggle="tab" href="#menu1">Featured Product</a></li>
-            <li><a data-toggle="tab" href="#menu2">Recently Viewed</a></li>
-            <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
-          </ul>
-
-          <div class="tab-content">
-            <div id="home" class="tab-pane  in active">
-              @include('shop::home.new-products')
-            </div>
-            <div id="menu1" class="tab-pane ">
-              @include('shop::home.featured-products')
-            </div>
-            <div id="menu2" class="tab-pane ">
-              @include('shop::products.list.recently-viewed',['quantity' => 1])
-            </div>
-            <div id="menu3" class="tab-pane ">
-              <h3>Menu 3</h3>
-              <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+        <div class="new-product">
+          <div class="container">
+            <ul class="nav nav-tabs">
+              <li class="active"><a data-toggle="tab" href="#home">COVID19 PRODUCTS</a></li>
+              <li><a data-toggle="tab" href="#menu1">MOST POPULAR</a></li>
+              <li><a data-toggle="tab" href="#menu2">NEW RELEASES</a></li>
+              <li><a data-toggle="tab" href="#menu3">BESTSELLERS ACCESSORIES</a></li>
+            </ul>
+                        
+            <div class="tab-content">
+              <div id="home" class="tab-pane  in active">
+                @include('shop::home.new-products')
+              </div>
+              <div id="menu1" class="tab-pane ">
+                @include('shop::home.featured-products')
+              </div>
+              <div id="menu2" class="tab-pane ">
+                @include('shop::products.list.recently-viewed',['quantity' => 1])
+              </div>
+              <div id="menu3" class="tab-pane ">
+               
+              </div>
             </div>
           </div>
         </div>

@@ -6,11 +6,103 @@
     $direction = core()->getCurrentLocale()->direction;
 @endphp
 
-<recently-viewed
+<!-- <recently-viewed
     add-class="{{ isset($addClass) ? $addClass . " $direction": '' }}"
     quantity="{{ isset($quantity) ? $quantity : null }}"
     add-class-wrapper="{{ isset($addClassWrapper) ? $addClassWrapper : '' }}">
-</recently-viewed>
+</recently-viewed> -->
+
+<section class="recently-viewed product-box">
+                    <div class="container">
+                        <div class="section-title"><h2>You Recently Viewed</h2></div>
+                        <ul class="row">
+                            <li class="">
+                                <div class="content-wrap">
+                                    <div class="product-code">ZM44841</div>
+                                    <div class="img">
+                                        <div class="discount badge badge-secondary"><span class="save">SAVE</span><span class="percentage">26%</span></div>
+                                        <img src="{{ asset('/themes/zmart/assets/images/venus-v4400-n95-face-mask.png') }}">
+                                    </div>
+                                    <div class="content">
+                                        <div class="star"><img src="{{ asset('/themes/zmart/assets/images/star-gray.png') }}"></div>
+                                        <div class="title"><a href="#">Venus V4400 N95 Face mask , Protection from pollution and virus</a></div>
+                                        <div class="price"><span class="amount">$74.68</span><span class="amount-price">$80.35</span><span class="including-tax">(Including tax)</span></div>
+                                    </div>
+                                </div>
+                            </li>
+                           <li class="">
+                                <div class="content-wrap">
+                                    <div class="product-code">ZM44841</div>
+                                    <div class="img">
+                                        <div class="discount badge badge-secondary"><span class="save">SAVE</span><span class="percentage">26%</span></div>
+                                        <img src="{{ asset('/themes/zmart/assets/images/venus-v4400-n95-face-mask.png') }}">
+                                    </div>
+                                    <div class="content">
+                                        <div class="star"><img src="{{ asset('/themes/zmart/assets/images/star-gray.png') }}"></div>
+                                        <div class="title"><a href="#">Venus V4400 N95 Face mask , Protection from pollution and virus</a></div>
+                                        <div class="price"><span class="amount">$74.68</span><span class="amount-price">$80.35</span><span class="including-tax">(Including tax)</span></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="">
+                                <div class="content-wrap">
+                                    <div class="product-code">ZM44841</div>
+                                    <div class="img">
+                                        <div class="discount badge badge-secondary"><span class="save">SAVE</span><span class="percentage">26%</span></div>
+                                        <img src="{{ asset('/themes/zmart/assets/images/venus-v4400-n95-face-mask.png') }}">
+                                    </div>
+                                    <div class="content">
+                                        <div class="star"><img src="{{ asset('/themes/zmart/assets/images/star-gray.png') }}"></div>
+                                        <div class="title"><a href="#">Venus V4400 N95 Face mask , Protection from pollution and virus</a></div>
+                                        <div class="price"><span class="amount">$74.68</span><span class="amount-price">$80.35</span><span class="including-tax">(Including tax)</span></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="">
+                                <div class="content-wrap">
+                                    <div class="product-code">ZM44841</div>
+                                    <div class="img">
+                                        <div class="discount badge badge-secondary"><span class="save">SAVE</span><span class="percentage">26%</span></div>
+                                        <img src="{{ asset('/themes/zmart/assets/images/venus-v4400-n95-face-mask.png') }}">
+                                    </div>
+                                    <div class="content">
+                                        <div class="star"><img src="{{ asset('/themes/zmart/assets/images/star-gray.png') }}"></div>
+                                        <div class="title"><a href="#">Venus V4400 N95 Face mask , Protection from pollution and virus</a></div>
+                                        <div class="price"><span class="amount">$74.68</span><span class="amount-price">$80.35</span><span class="including-tax">(Including tax)</span></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="">
+                                <div class="content-wrap">
+                                    <div class="product-code">ZM44841</div>
+                                    <div class="img">
+                                        <div class="discount badge badge-secondary"><span class="save">SAVE</span><span class="percentage">26%</span></div>
+                                        <img src="{{ asset('/themes/zmart/assets/images/venus-v4400-n95-face-mask.png') }}">
+                                    </div>
+                                    <div class="content">
+                                        <div class="star"><img src="{{ asset('/themes/zmart/assets/images/star-gray.png') }}"></div>
+                                        <div class="title"><a href="#">Venus V4400 N95 Face mask , Protection from pollution and virus</a></div>
+                                        <div class="price"><span class="amount">$74.68</span><span class="amount-price">$80.35</span><span class="including-tax">(Including tax)</span></div>
+                                    </div>
+                                </div>
+                            </li>
+                             <li class="">
+                                <div class="content-wrap">
+                                    <div class="product-code">ZM44841</div>
+                                    <div class="img">
+                                        <div class="discount badge badge-secondary"><span class="save">SAVE</span><span class="percentage">26%</span></div>
+                                        <img src="{{ asset('/themes/zmart/assets/images/venus-v4400-n95-face-mask.png') }}">
+                                    </div>
+                                    <div class="content">
+                                        <div class="star"><img src="{{ asset('/themes/zmart/assets/images/star-gray.png') }}"></div>
+                                        <div class="title"><a href="#">Venus V4400 N95 Face mask , Protection from pollution and virus</a></div>
+                                        <div class="price"><span class="amount">$74.68</span><span class="amount-price">$80.35</span><span class="including-tax">(Including tax)</span></div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
 
 @push('scripts')
     <script type="text/x-template" id="recently-viewed-template">
