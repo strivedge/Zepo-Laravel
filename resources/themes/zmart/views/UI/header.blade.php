@@ -1,5 +1,5 @@
 <script type="text/x-template" id="content-header-template">
-<div class="navbar-bottom">
+<div class="navbar-bottom vc-header">
     <div class="container">
         <header class="row velocity-divide-page vc-header header-shadow active">
             <div class="vc-small-screen container" v-if="isMobile()">
