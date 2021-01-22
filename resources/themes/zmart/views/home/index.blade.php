@@ -128,7 +128,7 @@
 
 @endsection
 
-@section('full-content-wrapper')
+@section('home-full-content-wrapper')
     <div class="full-content-wrapper">
 
         <div class="container">
@@ -171,7 +171,10 @@
 
 
                 @include('shop::home.offer-products')
-                @include('shop::products.list.recently-viewed')
+                @include ('shop::products.list.recently-viewed', [
+                                'quantity'          => 6,
+                                'addClass'          => 'col-lg-3 col-md-12',
+                            ])
                 @include('shop::home.category-overlay')
                 
                 @include('shop::products.list.offer-view')
