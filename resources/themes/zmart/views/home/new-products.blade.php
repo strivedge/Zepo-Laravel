@@ -1,12 +1,13 @@
 @if (app('Webkul\Product\Repositories\ProductRepository')->getNewProducts()->count())
-    <section class="featured-products">
+    <section class="featured-products product-box">
 
-        <div class="featured-heading">
+        <!-- <div class="featured-heading">
             {{ __('shop::app.home.new-products') }}<br/>
 
             <span class="featured-seperator" style="color:lightgrey;">_____</span>
-        </div>
-        <div class="featured-grid product-grid-4">
+        </div> -->
+        <!-- <div class="featured-grid product-grid-4"> -->
+        <ul class="row">
             <?php //echo"<pre>"; print_r(app('Webkul\Product\Repositories\ProductRepository')->getNewProducts());exit(); ?>
 
             @foreach (app('Webkul\Product\Repositories\ProductRepository')->getNewProducts() as $productFlat)
@@ -15,7 +16,8 @@
 
             @endforeach
 
-        </div>
+        <!-- </div> -->
+        </ul>
 
     </section>
 @endif

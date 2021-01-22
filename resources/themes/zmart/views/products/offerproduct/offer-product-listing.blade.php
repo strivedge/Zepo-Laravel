@@ -49,6 +49,7 @@
 @endphp
 <?php //echo"<pre>";print_r($product);exit(); ?>
 {!! view_render_event('bagisto.shop.products.list.card.before', ['product' => $product]) !!}
+    
     @if (isset($list) && $list)
         <div class="col-12 lg-card-container list-card product-card row">
             <div class="product-image">
@@ -101,73 +102,88 @@
         </div>
     @else
     <!-- offer add to cart -->
-        <div class="card grid-card product-card-new">
-            <a
-                href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
-                title="{{ $product->name }}"
-                class="product-image-container">
+        <!-- <div class="card grid-card product-card-new"> -->
+        
+            <li class="items">
+                <div class="content-wrap">
+                    <div class="product-code">ZM44841</div>
+                        <div class="img">
+                            <a
+                                href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
+                                title="{{ $product->name }}"
+                                class="product-image-container">
+                                 @if ($product->new)
+                                    <div class="sticker new">
+                                      <!-- <span class="new"> {{ __('shop::app.products.new') }}</span> -->
+                                       <span class="save">SAVE</span><span class="percentage">26%</span>
+                                    </div>
+                                @endif
+                                <img
+                                    loading="lazy"
+                                    class="card-img-top"
+                                    alt="{{ $product->name }}"
+                                    src="{{ $productBaseImage['large_image_url'] }}"
+                                    :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
 
-                <img
-                    loading="lazy"
-                    class="card-img-top"
-                    alt="{{ $product->name }}"
-                    src="{{ $productBaseImage['large_image_url'] }}"
-                    :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
+                                    <!-- {{-- <product-quick-view-btn :quick-view-details="product"></product-quick-view-btn> --}}
+                                    <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn> -->
+                            </a>
+                        </div>    
+                           
 
-                    <!-- {{-- <product-quick-view-btn :quick-view-details="product"></product-quick-view-btn> --}}
-                    <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn> -->
-            </a>
-            
-            @if ($product->new)
-                <div class="sticker new">
-                   {{ __('shop::app.products.new') }}
+                            <!-- <div class="card-body"> -->
+                            <div class="content">
+                                <div class="star">
+                                    @if ($totalReviews)
+                                        <div class="product-rating">
+                                            <star-ratings ratings="{{ $avgRatings }}"></star-ratings>
+                                            <span class="align-top">
+                                                {{ __('velocity::app.products.ratings', ['totalRatings' => $totalReviews ]) }}
+                                            </span>
+                                        </div>
+                                    @else
+                                        <div class="product-rating">
+                                            <!-- <span class="">{{ __('velocity::app.products.be-first-review') }}</span> --><img src="{{ asset('themes/zmart/assets/images/star-gray.png') }}">
+                                        </div>
+                                    @endif
+                                </div>
+                                <div class="product-name title">
+                                    <a
+                                        href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
+                                        title="{{ $product->name }}"
+                                        class="unset">
+
+                                        <span class="">{{ $product->name }}</span>
+                                    </a>
+                                </div>
+
+                                <div class="product-price price">
+                                    @include ('shop::products.offerproduct.price', ['product' => $product])
+                                    <span class="including-tax">(Including tax)</span>
+                                </div>
+                            </div>
+                                <!-- <div class="buttons"> -->
+                                    <!-- <div class="quick-view-in-list quick-view btn btn-primary">
+                                        <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn>
+                                    </div> -->
+                                    <div class="cart-wish-wrap">
+                                        @include ('shop::products.offerproduct.offer-product-add-to-cart', [
+                                            'product'           => $product,
+                                            'btnText'           => $btnText ?? null,
+                                            'moveToCart'        => $moveToCart ?? null,
+                                            'reloadPage'        => $reloadPage ?? null,
+                                            'addToCartForm'     => $addToCartForm ?? false,
+                                            'addToCartBtnClass' => $addToCartBtnClass ?? '',
+                                            'showCompare'       => core()->getConfigData('general.content.shop.compare_option') == "1"
+                                                                    ? true : false,
+                                        ])
+                                    </div>
+                                <!-- </div> -->
+                            
                 </div>
-            @endif
-
-            <div class="card-body">
-                <div class="product-name col-12 no-padding">
-                    <a
-                        href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
-                        title="{{ $product->name }}"
-                        class="unset">
-
-                        <span class="fs16">{{ $product->name }}</span>
-                    </a>
-                </div>
-
-                <div class="product-price fs16">
-                    @include ('shop::products.offerproduct.price', ['product' => $product])
-                </div>
-
-                @if ($totalReviews)
-                    <div class="product-rating col-12 no-padding">
-                        <star-ratings ratings="{{ $avgRatings }}"></star-ratings>
-                        <span class="align-top">
-                            {{ __('velocity::app.products.ratings', ['totalRatings' => $totalReviews ]) }}
-                        </span>
-                    </div>
-                @else
-                    <div class="product-rating col-12 no-padding">
-                        <span class="fs14">{{ __('velocity::app.products.be-first-review') }}</span>
-                    </div>
-                @endif
-                <div class="quick-view-in-list">
-                    <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn>
-                </div>
-                <div class="cart-wish-wrap no-padding ml0">
-                    @include ('shop::products.offerproduct.offer-product-add-to-cart', [
-                        'product'           => $product,
-                        'btnText'           => $btnText ?? null,
-                        'moveToCart'        => $moveToCart ?? null,
-                        'reloadPage'        => $reloadPage ?? null,
-                        'addToCartForm'     => $addToCartForm ?? false,
-                        'addToCartBtnClass' => $addToCartBtnClass ?? '',
-                        'showCompare'       => core()->getConfigData('general.content.shop.compare_option') == "1"
-                                                ? true : false,
-                    ])
-                </div>
-            </div>
-        </div>
+            </li>
+        
     @endif
+
 
 {!! view_render_event('bagisto.shop.products.list.card.after', ['product' => $product]) !!}

@@ -11,7 +11,7 @@
       });
       
   $('.our-customer-content').slick({
-    infinite: false,
+      infinite: false,
         slidesToShow: 4,
         slidesToScroll: 4,
         arrows: true,
@@ -36,6 +36,32 @@
             }
         ]
     });  
-   });
+  $('.addtocart').slick({
+    infinite: false,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        arrows: true,
+        dots: false,
+        autoplay : true,
+        autoplaySpeed:5000,
+        responsive: [
+            {
+                breakpoint: 1400,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 767,
+                settings: {
+                    centerMode: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 3
+                }
+            }
+        ]
+    });
+ });
 
 

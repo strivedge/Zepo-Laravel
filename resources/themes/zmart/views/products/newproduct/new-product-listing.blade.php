@@ -101,60 +101,74 @@
         </div>
     @else
     <!-- offer add to cart -->
-        <div class="card grid-card product-card-new">
-            <a
-                href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
-                title="{{ $product->name }}"
-                class="product-image-container">
-
-                <img
-                    loading="lazy"
-                    class="card-img-top"
-                    alt="{{ $product->name }}"
-                    src="{{ $productBaseImage['large_image_url'] }}"
-                    :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
-
-                    <!-- {{-- <product-quick-view-btn :quick-view-details="product"></product-quick-view-btn> --}}
-                    <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn> -->
-            </a>
-            
-            @if ($product->new)
-                <div class="sticker new">
-                   {{ __('shop::app.products.new') }}
-                </div>
-            @endif
-
-            <div class="card-body">
-                <div class="product-name col-12 no-padding">
+        <!-- <div class="card grid-card product-card-new"> -->
+        <li class="">
+            <div class="content-wrap">
+                <div class="product-code">ZM44841</div>
+                <div class="img">
                     <a
                         href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
                         title="{{ $product->name }}"
-                        class="unset">
+                        class="product-image-container">
 
-                        <span class="fs16">{{ $product->name }}</span>
+                        <img
+                            loading="lazy"
+                            class="card-img-top"
+                            alt="{{ $product->name }}"
+                            src="{{ $productBaseImage['large_image_url'] }}"
+                            :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
+
+                            <!-- {{-- <product-quick-view-btn :quick-view-details="product"></product-quick-view-btn> --}}
+                            <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn> -->
                     </a>
                 </div>
-
-                <div class="product-price fs16">
-                    @include ('shop::products.newproduct.price', ['product' => $product])
-                </div>
-
-                @if ($totalReviews)
-                    <div class="product-rating col-12 no-padding">
-                        <star-ratings ratings="{{ $avgRatings }}"></star-ratings>
-                        <span class="align-top">
-                            {{ __('velocity::app.products.ratings', ['totalRatings' => $totalReviews ]) }}
-                        </span>
-                    </div>
-                @else
-                    <div class="product-rating col-12 no-padding">
-                        <span class="fs14">{{ __('velocity::app.products.be-first-review') }}</span>
+                
+                @if ($product->new)
+                    <div class="sticker new">
+                       {{ __('shop::app.products.new') }}
                     </div>
                 @endif
-               
-                
+
+                <!-- <div class="card-body"> -->
+                <div class="content">
+                    <div class="star">
+                         @if ($totalReviews)
+                            <div class="product-rating">
+                                <star-ratings ratings="{{ $avgRatings }}"></star-ratings>
+                                <span class="align-top">
+                                    {{ __('velocity::app.products.ratings', ['totalRatings' => $totalReviews ]) }}
+                                </span>
+                            </div>
+                        @else
+                            <div class="product-rating">
+                                {{ __('velocity::app.products.be-first-review') }}
+                            </div>
+                        @endif
+                    </div>
+                    <!-- <div class="product-name"> -->
+                    <div class="title">
+                        <a
+                            href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
+                            title="{{ $product->name }}"
+                            class="unset">
+
+                            {{ $product->name }}
+                        </a>
+                    </div>
+
+                    <!-- <div class="product-price"> -->
+                    <div class="price">
+                        @include ('shop::products.newproduct.price', ['product' => $product])
+                        <span class="including-tax">(Including tax)</span>
+                    </div>
+                </div>
+                   
+                   
+                    
+                <!-- </div> -->
+        <!-- </div> -->
             </div>
-        </div>
+        </li>
     @endif
 
 {!! view_render_event('bagisto.shop.products.list.card.after', ['product' => $product]) !!}
