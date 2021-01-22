@@ -157,17 +157,7 @@
         </div>
 
 
-        <!-- {!! view_render_event('bagisto.shop.home.content.before') !!} -->
-
-            <!-- @if ($velocityMetaData)
-                {!! DbView::make($velocityMetaData)->field('home_page_content')->render() !!}
-            @else
-                @include('shop::home.advertisements.advertisement-four')
-                @include('shop::home.featured-products')
-                @include('shop::home.advertisements.advertisement-three')
-                @include('shop::home.new-products')
-                @include('shop::home.advertisements.advertisement-two')
-            @endif -->
+        
 
 
                 @include('shop::home.offer-products')
@@ -181,7 +171,7 @@
                 @include('shop::products.list.testinominal-view')
                 @include('shop::home.shipping-payment')
                 
-                <!-- @include('shop::home.advertisements.advertisement-two') -->
+               
 
         <!-- {{ view_render_event('bagisto.shop.home.content.after') }} -->
     </div>
