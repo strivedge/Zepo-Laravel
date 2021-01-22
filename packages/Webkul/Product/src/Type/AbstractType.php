@@ -705,6 +705,19 @@ abstract class AbstractType
         return $html;
     }
 
+    public function getOfferPriceHtml()
+    {
+        if ($this->haveSpecialPrice()) {
+            //'<div class="sticker sale">' . trans('shop::app.products.sale') . '</div>'
+            $html = '<span class="regular-price">' . core()->currency($this->product->price) . '</span>'
+                . '<span class="special-price">' . core()->currency($this->getSpecialPrice()) . '</span>';
+        } else {
+            $html = '<span>' . core()->currency($this->product->price) . '</span>';
+        }
+
+        return $html;
+    }
+
     /**
      * Add product. Returns error message if can't prepare product.
      *
