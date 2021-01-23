@@ -12,6 +12,7 @@ class Offer extends Model
         'image',
         'start_date',
         'end_date',
+        'status',
     ];
 
     protected $typeInstance;

@@ -24,9 +24,7 @@ class TestinominalController extends Controller
      */
     public function index()
     {
-        $posts = DB::table('master_testinominal')
-        ->orderby('id','desc')
-        ->get();
+        $posts = $this->testinominalRepository->getAll();
         return view($this->_config['view'], compact('posts'));
     }
 
@@ -47,7 +45,7 @@ class TestinominalController extends Controller
      */
     public function store(Request $request)
     {
-         
+        $data = request()->all();
         $this->validate($request, [
             'title' => 'required',
             'image' => 'mimes:jpeg,jpg,png,gif|required|max:10000',
@@ -59,19 +57,10 @@ class TestinominalController extends Controller
         {
             $imageName1 = time().'.'.$imageName->extension();  
             $imageName->move(public_path('uploadImages'), $imageName1);
-            $request->image = $imageName1;
-            //echo "<pre>"; print_r($imageName1);exit();
+            $data['image'] = $imageName1;
         }
-        
+        $this->testinominalRepository->create($data);
         //echo "<pre>"; print_r($request->all());exit();
-
-        DB::table('master_testinominal')
-    	->insert([
-    		'title' => $request->title,
-    		'image' => $request->image,
-    		'desc' => $request->desc,
- 			'date' => $request->date
-        ]);
 
         return redirect()->route($this->_config['redirect']);
     }
@@ -84,7 +73,7 @@ class TestinominalController extends Controller
      */
     public function edit($id)
     {
-        $posts = DB::table('master_testinominal')->where('id', $id)->get();
+        $posts = $this->testinominalRepository->findById($id);
         return view($this->_config['view'], compact('posts'));
     }
 
@@ -96,6 +85,7 @@ class TestinominalController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $data = request()->all();
         $this->validate($request, [
             'title' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
@@ -108,23 +98,10 @@ class TestinominalController extends Controller
                 $destinationPath = public_path('uploadImages'); // upload path
                 $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
                 $files->move($destinationPath, $profileImage);
-                
-                DB::table('master_testinominal')->where('id', $id)->update([
-                    'title' => $request->title,
-    		        'image' => $profileImage,
-    		        'desc' => $request->desc,
- 			        'date' => $request->date
-                ]);
+                $data['image'] = $profileImage;
             }
         }
-        else
-        {
-            DB::table('master_testinominal')->where('id', $id)->update([
-                'title' => $request->title,
-    		    'desc' => $request->desc,
-                'date' => $request->date
-            ]);
-        }
+        $this->testinominalRepository->update($data, $id);
         return redirect()->route($this->_config['redirect']);
     }
 
@@ -136,7 +113,7 @@ class TestinominalController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('master_testinominal')->where('id', $id)->delete();
+        $this->testinominalRepository->deleteData($id);
         return redirect()->route($this->_config['redirect']);
     }
 }

@@ -26,9 +26,7 @@ class OfferController extends Controller
      */
     public function index()
     {
-        $offers = DB::table('master_offers')
-        ->orderby('id','desc')
-        ->get();
+        $offers = $this->offerRepository->getAll();
         return view($this->_config['view'], compact('offers'));
     }
 
@@ -50,6 +48,7 @@ class OfferController extends Controller
      */
     public function store(Request $request)
     {
+        $data = request()->all();
         $this->validate($request, [
             'title' => 'required',
             'desc' => 'required',
@@ -64,18 +63,10 @@ class OfferController extends Controller
         {
             $imageName1 = time().'.'.$imageName->extension();  
             $imageName->move(public_path('uploadImages/offer'), $imageName1);
-            $request->image = $imageName1;
+            $data['image'] = $imageName1;
         }
 
-        DB::table('master_offers')
-    	->insert([
-    		'title' => $request->title,
-    		'desc' => $request->desc,
-    		'image' => $request->image,
-            'start_date' => $request->start_date,
-            'end_date' => $request->end_date,
-            'status' => $request->status
-        ]);
+        $this->offerRepository->create($data);
 
         return redirect()->route($this->_config['redirect']);
     }
@@ -99,7 +90,7 @@ class OfferController extends Controller
      */
     public function edit(Offer $offer, $id)
     {
-        $offers = DB::table('master_offers')->where('id', $id)->get();
+        $offers = $this->offerRepository->findById($id);
         return view($this->_config['view'], compact('offers'));
     }
 
@@ -112,6 +103,7 @@ class OfferController extends Controller
      */
     public function update(Request $request, Offer $offer, $id)
     {
+        $data = request()->all();
         $this->validate($request, [
             'title' => 'required',
             'desc' => 'required',
@@ -128,27 +120,11 @@ class OfferController extends Controller
                 $destinationPath = public_path('uploadImages/offer'); // upload path
                 $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
                 $files->move($destinationPath, $profileImage);
-
-                DB::table('master_offers')->where('id', $id)->update([
-                    'title' => $request->title,
-    		        'desc' => $request->desc,
-    		        'image' => $profileImage,
-                    'start_date' => $request->start_date,
-                    'end_date' => $request->end_date,
-                    'status' => $request->status
-                ]);
+                $data['image'] = $profileImage;
             }
         }
-        else
-        {
-            DB::table('master_offers')->where('id', $id)->update([
-                'title' => $request->title,
-                'desc' => $request->desc,
-                'start_date' => $request->start_date,
-                'end_date' => $request->end_date,
-                'status' => $request->status
-            ]);
-        }
+
+        $this->offerRepository->update($data, $id);
         return redirect()->route($this->_config['redirect']);
     }
 
@@ -160,7 +136,7 @@ class OfferController extends Controller
      */
     public function destroy(Offer $offer, $id)
     {
-        DB::table('master_offers')->where('id', $id)->delete();
+        $this->offerRepository->deleteData($id);
         return redirect()->route($this->_config['redirect']);
     }
 }
