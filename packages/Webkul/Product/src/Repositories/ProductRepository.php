@@ -303,6 +303,7 @@ class ProductRepository extends Repository
      */
     public function findBySlug($slug)
     {
+        //print_r($slug);exit()
         return app(ProductFlatRepository::class)->findOneWhere([
             'url_key' => $slug,
             'locale'  => app()->getLocale(),
@@ -330,7 +331,7 @@ class ProductRepository extends Repository
                 ->where('product_flat.channel', $channel)
                 ->where('product_flat.locale', $locale)
                 ->inRandomOrder();
-        })->paginate(4);
+        })->paginate(12);
 
         return $results;
     }
@@ -355,7 +356,7 @@ class ProductRepository extends Repository
                 ->where('product_flat.channel', $channel)
                 ->where('product_flat.locale', $locale)
                 ->inRandomOrder();
-        })->paginate(4);
+        })->paginate(12);
 
         return $results;
     }
@@ -394,7 +395,7 @@ class ProductRepository extends Repository
                 ->whereNotNull('product_flat.url_key')
                 ->groupBy('catalog_rule_product_prices.product_id');
                // ->inRandomOrder();
-        })->paginate(4);
+        })->paginate(12);
 
         return $results;
     }

@@ -6,13 +6,13 @@
     $direction = core()->getCurrentLocale()->direction;
 @endphp
 
-<!-- <recently-viewed
+<recently-viewed
     add-class="{{ isset($addClass) ? $addClass . " $direction": '' }}"
     quantity="{{ isset($quantity) ? $quantity : null }}"
     add-class-wrapper="{{ isset($addClassWrapper) ? $addClassWrapper : '' }}">
-</recently-viewed> -->
+</recently-viewed>
 
-<section class="recently-viewed product-box">
+<!-- <section class="recently-viewed product-box">
                     <div class="container">
                         <div class="section-title"><h2>You Recently Viewed</h2></div>
                         <ul class="row">
@@ -102,10 +102,53 @@
                             </li>
                         </ul>
                     </div>
-                </section>
+                </section> -->
 
 @push('scripts')
     <script type="text/x-template" id="recently-viewed-template">
+        <section class="recently-viewed product-box">
+                    <div class="container">
+                        <div class="section-title"><h2>{{ __('velocity::app.products.recently-viewed') }}</h2></div>
+                        <ul class="row">
+                            <li class="" :key="Math.random()"  v-for="(product, index) in recentlyViewed">
+                                <div class="content-wrap">
+                                    <div class="product-code">@{{ product.sku }}</div>
+                                    <a :href="`${baseUrl}/${product.urlKey}`" class="unset">
+                                    <div class="img">
+                                        <div class="discount badge badge-secondary"><span class="save">SAVE</span><span class="percentage">26%</span></div>
+                                        <img :src="`${product.image}`">
+
+                                    </div>
+                                </a>
+                                    <div class="content">
+
+                                        <star-ratings v-if="product.rating > 0"
+                                            push-class="display-inbl"
+                                            :ratings="product.rating">
+                                        </star-ratings>
+                                        <div class="star" v-else-if="product.rating == 0"
+                                            <img src="{{ asset('/themes/zmart/assets/images/star-gray.png') }}">
+                                        </div>
+                                        
+                                        <div class="title">
+                                            <a :href="`${baseUrl}/${product.urlKey}`" class="unset no-padding">@{{ product.name }}</a>
+                                        </div>
+                                            <div class="price">
+                                                <div v-html="product.priceHTML" class="fs18 card-current-price fw6">
+                                                </div>
+                                                <!-- <span class="amount">$74.68</span>
+                                                <span class="amount-price">$80.35</span> -->
+                                                <span class="including-tax">(Including tax)</span>
+                                            </div>
+                                     
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+    </script>
+    <!-- <script type="text/x-template" id="recently-viewed-template">
         <div :class="`${addClass} recently-viewed`">
             <div class="row remove-padding-margin">
                 <div class="col-12 no-padding">
@@ -118,6 +161,8 @@
                     :key="Math.random()"
                     class="row small-card-container"
                     v-for="(product, index) in recentlyViewed">
+
+                    <div> @{{product}}</div>
 
                     <div class="col-4 product-image-container mr15">
                         <a :href="`${baseUrl}/${product.urlKey}`" class="unset">
@@ -151,7 +196,7 @@
                 </span>
             </div>
         </div>
-    </script>
+    </script> -->
 
     <script type="text/javascript">
         (() => {
@@ -163,6 +208,7 @@
                     return {
                         recentlyViewed: (() => {
                             let storedRecentlyViewed = window.localStorage.recentlyViewed;
+                            //console.log("storedRecentlyViewed",storedRecentlyViewed)
                             if (storedRecentlyViewed) {
                                 var slugs = JSON.parse(storedRecentlyViewed);
                                 var updatedSlugs = {};

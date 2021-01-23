@@ -19,7 +19,7 @@
         @endif
 
         @if (! (isset($showWishlist) && !$showWishlist))
-            @include('shop::products.newproduct.new-product-wishlist', [
+            @include('shop::products.offerproduct.offer-product-wishlist', [
                 'addClass' => $addWishlistClass ?? ''
             ])
         @endif

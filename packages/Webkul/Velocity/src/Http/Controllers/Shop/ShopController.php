@@ -34,6 +34,7 @@ class ShopController extends Controller
                 'status'  => true,
                 'details' => [
                     'name'         => $product->name,
+                    'sku'         => $product->sku,
                     'urlKey'       => $product->url_key,
                     'priceHTML'    => $product->getTypeInstance()->getPriceHtml(),
                     'totalReviews' => $productReviewHelper->getTotalReviews($product),

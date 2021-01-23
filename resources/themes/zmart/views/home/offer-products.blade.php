@@ -1,3 +1,4 @@
+<?php //echo"<pre>"; print_r(app('Webkul\Product\Repositories\ProductRepository')->getOfferedProducts());exit(); ?>
 @if (app('Webkul\Product\Repositories\ProductRepository')->getOfferedProducts()->count())
    <section class="featured-products sales">
         <div class="container">

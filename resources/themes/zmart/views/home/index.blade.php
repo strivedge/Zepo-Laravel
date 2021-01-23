@@ -133,31 +133,29 @@
         <div class="new-product">
           <div class="container">
             <ul class="nav nav-tabs">
-              <li class="active"><a data-toggle="tab" href="#home">COVID19 PRODUCTS</a></li>
-              <li><a data-toggle="tab" href="#menu1">MOST POPULAR</a></li>
-              <li><a data-toggle="tab" href="#menu2">NEW RELEASES</a></li>
-              <li><a data-toggle="tab" href="#menu3">BESTSELLERS ACCESSORIES</a></li>
+              <li class="active"><a data-toggle="tab" href="#covid">COVID19 PRODUCTS</a></li>
+              <li><a data-toggle="tab" href="#popular">MOST POPULAR</a></li>
+              <li><a data-toggle="tab" href="#new-releases">NEW RELEASES</a></li>
+              <li><a data-toggle="tab" href="#bestseller">BESTSELLERS ACCESSORIES</a></li>
             </ul>
                         
             <div class="tab-content">
-              <div id="home" class="tab-pane  in active">
-                @include('shop::home.new-products')
+              <div id="covid" class="tab-pane  in active">
+                @include('shop::home.covid-product')
+                <!-- @include('shop::home.category', ['category' => 'covid19']) -->
               </div>
-              <div id="menu1" class="tab-pane ">
+              <div id="popular" class="tab-pane ">
                 @include('shop::home.featured-products')
               </div>
-              <div id="menu2" class="tab-pane ">
-                @include('shop::products.list.recently-viewed',['quantity' => 1])
+              <div id="new-releases" class="tab-pane ">
+                @include('shop::home.new-products')
               </div>
-              <div id="menu3" class="tab-pane ">
-               
+              <div id="bestseller" class="tab-pane ">
+                 @include('shop::home.new-products')
               </div>
             </div>
           </div>
         </div>
-
-
-        
 
 
                 @include('shop::home.offer-products')
@@ -165,14 +163,12 @@
                                 'quantity'          => 6,
                                 'addClass'          => 'col-lg-3 col-md-12',
                             ])
-                @include('shop::home.category-overlay')
                 
                 @include('shop::products.list.offer-view')
                 @include('shop::products.list.testinominal-view')
                 @include('shop::home.shipping-payment')
                 
                
-
         <!-- {{ view_render_event('bagisto.shop.home.content.after') }} -->
     </div>
 
