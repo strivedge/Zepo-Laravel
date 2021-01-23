@@ -39,7 +39,6 @@
                     <td>{{ $post->date }}</td>
                     <td>
                         <a href="blog_edit/{{ $post->id }}">Edit</a>
-                        <!-- <a href="blog_delete/{{ $post->id }}">Delete</a> -->
                         <a href="" id="{{ $post->id }}" onclick="return deleteAction({{ $post->id }})">Delete</a>
                     </td>
                 </tr>
@@ -50,16 +49,22 @@
                 </tr>
             @endif
 <script type="text/javascript">
-    BASE_URL="<?php echo url(''); ?>";
 	function deleteAction(id)
 	{
-		console.log(id);
+        console.log(id);
 		if (confirm('Are you sure you want to delete?'))
 		{
             $.ajax({
-			  	type: 'get',
-			    url: BASE_URL+"/admin/blog_delete/"+id,
-			})
+                url: '{{url("admin/blog_delete")}}/'+id,
+                type: 'get',
+                success: function (resp) {
+                    console.log(resp);
+                },
+                error: function(e) {
+                    console.log('Error: '+e);
+                }  
+            });
+            
 			return true;
 		}
 		else 

@@ -27,6 +27,9 @@ return [
         'verify-email' => 'Verify your email account',
         'resend-verify-email' => 'Resend Verification Email',
         'offer-products' => 'Offer Products',
+        'active-offers' => 'Active Offers',
+        'testi-title' => 'What Our Customers are Saying',
+        'blog-title' => 'Blogs',
     ],
 
     'header' => [

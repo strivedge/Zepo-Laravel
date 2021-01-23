@@ -16,6 +16,7 @@
 @endpush
 
 @php
+    
     if (isset($checkmode) && $checkmode && $toolbarHelper->getCurrentMode() == "list") {
         $list = true;
     }
@@ -46,6 +47,8 @@
     ])->render());
 
 @endphp
+
+
 
 {!! view_render_event('bagisto.shop.products.list.card.before', ['product' => $product]) !!}
     @if (isset($list) && $list)
