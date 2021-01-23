@@ -147,42 +147,6 @@
     </script>
 
     <script type="text/javascript">
-        (() => {
-            Vue.component('new-products', {
-                'template': '#new-products-template',
-                data: function () {
-                    return {
-                        'list': false,
-                        'isLoading': true,
-                        'newProducts': [],
-                        'isMobileView': this.$root.isMobile(),
-                    }
-                },
-
-                mounted: function () {
-                    this.getNewProducts();
-                },
-
-                methods: {
-                    'getNewProducts': function () {
-                        this.$http.get(`${this.baseUrl}/category-details?category-slug=new-products&count={{ $count }}`)
-                        .then(response => {
-                             var count = '{{$count}}';
-                            if (response.data.status && count != 0){
-                                this.newProducts = response.data.products;
-                            }else{
-                                this.newProducts = 0;
-                            }
-
-                            this.isLoading = false;
-                        })
-                        .catch(error => {
-                            this.isLoading = false;
-                            console.log(this.__('error.something_went_wrong'));
-                        })
-                    }
-                }
-            })
-        })()
+        
     </script>
 @endpush

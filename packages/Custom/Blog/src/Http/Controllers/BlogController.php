@@ -24,24 +24,9 @@ class BlogController extends Controller
      */
     public function index()
     {
-        // $data['posts'] = DB::table('posts')->get();
-        $posts = DB::table('master_posts')
-        ->orderby('id','desc')
-        ->get();
+        $posts = $this->blogRepository->getAll();
         return view($this->_config['view'], compact('posts'));
     }
-
-    public function indexes()
-    {
-        $blogs = $this->blogRepository->all();
-        return view($this->_config['view'], compact('blogs'));
-    }
-
-    // public function show($blogId)
-    // {
-    //     $blog = $this->blogRepository->findById($blogId);
-    //     return $blog;
-    // }
 
     /**
      * Show the form for creating a new resource.
@@ -60,8 +45,7 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        // echo "<pre>";
-        // print_r($request->all());exit();
+        $data = request()->all();
         $this->validate($request, [
             'title' => 'required',
             'image' => 'mimes:jpeg,jpg,png,gif|required|max:10000',
@@ -70,20 +54,14 @@ class BlogController extends Controller
         ]);
 
         $imageName = $request->image;
-        if($imageName!= null)
+        if($imageName != null)
         {
-            $imageName1 = time().'.'.$imageName->extension();  
+            $imageName1 = time().'.'.$imageName->extension();
             $imageName->move(public_path('uploadImages'), $imageName1);
+            $data['image'] = $imageName1;
         }
-        $request->image = $imageName1;
-
-        DB::table('master_posts')
-    	->insert([
-    		'title' => $request->title,
-    		'image' => $request->image,
-    		'content' => $request->content,
- 			'date' => $request->date
-        ]);
+        
+        $this->blogRepository->create($data);
 
         return redirect()->route($this->_config['redirect']);
     }
@@ -96,7 +74,7 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        $posts = DB::table('master_posts')->where('id', $id)->get();
+        $posts = $this->blogRepository->findById($id);
         return view($this->_config['view'], compact('posts'));
     }
 
@@ -108,13 +86,14 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // print_r($request->id);exit();
         $this->validate($request, [
             'title' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'content' => 'required',
             'date' => 'required',
         ]);
+
+        $data = request()->all();
         if($request->image != '')
         {
             if ($files = $request->image) 
@@ -122,23 +101,11 @@ class BlogController extends Controller
                 $destinationPath = public_path('uploadImages'); // upload path
                 $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
                 $files->move($destinationPath, $profileImage);
-                
-                DB::table('master_posts')->where('id', $id)->update([
-                    'title' => $request->title,
-    		        'image' => $profileImage,
-    		        'content' => $request->content,
- 			        'date' => $request->date
-                ]);
+                $data['image'] = $profileImage;
             }
         }
-        else
-        {
-            DB::table('master_posts')->where('id', $id)->update([
-                'title' => $request->title,
-    		    'content' => $request->content,
-                'date' => $request->date
-            ]);
-        }
+
+        $this->blogRepository->update($data, $id);
         return redirect()->route($this->_config['redirect']);
     }
 
@@ -150,7 +117,16 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('master_posts')->where('id', $id)->delete();
-        return redirect()->route($this->_config['redirect']);
+        if($id != null)
+        {
+            $result['status'] = true;
+            echo json_encode($result);
+            $this->blogRepository->deleteData($id);
+        }
+        else
+        {
+            $result['status'] = false;
+        }
+        // return redirect()->route($this->_config['redirect']);
     }
 }
