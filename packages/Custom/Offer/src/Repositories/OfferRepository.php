@@ -14,13 +14,39 @@ use Custom\Offer\Models\Offer;
 
 class OfferRepository
 {
+    // function for Homepage front end only data one row for active offer
     public function all()
     {
-        return Offer::orderby('id', 'desc')->take(1)->get();
+        return Offer::where('status', '0')->orderby('id', 'desc')->take(1)->get();
     }
 
-    public function findById($offerId)
+    // function for Admin side
+    public function create(array $data)
     {
-        return Offer::where('id', $offerId)->firstOrFail();
+        $offer = Offer::create($data);
+        return $offer;
+    }
+
+    public function getAll()
+    {
+        return Offer::orderby('id', 'desc')->get();
+    }
+
+    public function findById($id)
+    {
+        return Offer::where('id', $id)->firstOrFail();
+    }
+
+    public function update(array $data, $id)
+    {
+        $offer = Offer::find($id);
+        $offer->update($data);
+        return $offer;
+    }
+
+    public function deleteData($id)
+    {
+        $offer = Offer::find($id)->delete();
+        return $offer;
     }
 }

@@ -86,6 +86,7 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $data = request()->all();
         $this->validate($request, [
             'title' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
@@ -93,7 +94,6 @@ class BlogController extends Controller
             'date' => 'required',
         ]);
 
-        $data = request()->all();
         if($request->image != '')
         {
             if ($files = $request->image) 

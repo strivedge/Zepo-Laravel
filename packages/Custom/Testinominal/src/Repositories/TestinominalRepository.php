@@ -14,13 +14,39 @@ use Custom\Testinominal\Models\Testinominal;
 
 class TestinominalRepository
 {
+    // function for Homepage front end only 12 rows data of testinominal
     public function all()
     {
         return Testinominal::orderby('id', 'desc')->take(12)->get();
     }
 
-    public function findById($testinominalId)
+    // function for Admin side
+    public function create(array $data)
     {
-        return Blog::where('id', $testinominalId)->firstOrFail();
-    }  
+        $testinominal = Testinominal::create($data);
+        return $testinominal;
+    }
+
+    public function getAll()
+    {
+        return Testinominal::orderby('id', 'desc')->get();
+    }
+
+    public function findById($id)
+    {
+        return Testinominal::where('id', $id)->firstOrFail();
+    }
+
+    public function update(array $data, $id)
+    {
+        $testinominal = Testinominal::find($id);
+        $testinominal->update($data);
+        return $testinominal;
+    }
+
+    public function deleteData($id)
+    {
+        $testinominal = Testinominal::find($id)->delete();
+        return $testinominal;
+    } 
 }
