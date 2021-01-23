@@ -100,11 +100,12 @@
             </div>
         </div>
     @else
+    <?php //echo "<pre>";print_r($product->sku);exit(); ?>
     <!-- offer add to cart -->
         <!-- <div class="card grid-card product-card-new"> -->
         <li class="">
             <div class="content-wrap">
-                <div class="product-code">ZM44841</div>
+                <div class="product-code">{{$product->sku}}</div>
                 <div class="img">
                     <a
                         href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
@@ -141,7 +142,8 @@
                             </div>
                         @else
                             <div class="product-rating">
-                                {{ __('velocity::app.products.be-first-review') }}
+                                <img src="{{ asset('themes/zmart/assets/images/star-gray.png') }}">
+                                <!-- {{ __('velocity::app.products.be-first-review') }} -->
                             </div>
                         @endif
                     </div>

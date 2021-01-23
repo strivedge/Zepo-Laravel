@@ -7,7 +7,6 @@
     {{ trim($category->meta_title) != "" ? $category->meta_title : $category->name }}
 @stop
 
-
 @section('seo')
     <meta name="description" content="{{ $category->meta_description }}" />
     <meta name="keywords" content="{{ $category->meta_keywords }}" />
