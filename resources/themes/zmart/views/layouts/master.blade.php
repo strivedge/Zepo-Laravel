@@ -117,8 +117,7 @@
                                     add-class="category-list-container pt10">
                                 </sidebar-component>
 
-                                <div
-                                    class="col-12 no-padding content" id="home-right-bar-container">
+                                <div class="col-12 no-padding content" id="home-right-bar-container">
 
                                     <div class="container-right row no-margin col-12 no-padding">
 
@@ -135,11 +134,22 @@
                     </div>
                 @show
 
-                <!-- <div class="container"> -->
+
+                <div class="container">
 
                     {!! view_render_event('bagisto.shop.layout.full-content.before') !!}
 
                         @yield('full-content-wrapper')
+
+                    {!! view_render_event('bagisto.shop.layout.full-content.after') !!}
+
+                </div>
+
+                <!-- <div class="container"> -->
+
+                    {!! view_render_event('bagisto.shop.layout.full-content.before') !!}
+
+                        @yield('home-full-content-wrapper')
 
                     {!! view_render_event('bagisto.shop.layout.full-content.after') !!}
 
