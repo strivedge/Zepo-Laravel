@@ -695,11 +695,34 @@ abstract class AbstractType
     public function getPriceHtml()
     {
         if ($this->haveSpecialPrice()) {
-            $html = '<div class="sticker sale">' . trans('shop::app.products.sale') . '</div>'
+            $per = (($this->product->price - $this->getSpecialPrice()) * 100)/$this->product->price;
+
+             $html = '<div class="sticker sale">' . $per .'%'. '</div>'
                 . '<span class="regular-price">' . core()->currency($this->product->price) . '</span>'
                 . '<span class="special-price">' . core()->currency($this->getSpecialPrice()) . '</span>';
+
+            /*$html = '<div class="sticker sale">' . trans('shop::app.products.sale') . '</div>'
+                . '<span class="regular-price">' . core()->currency($this->product->price) . '</span>'
+                . '<span class="special-price">' . core()->currency($this->getSpecialPrice()) . '</span>';*/
         } else {
             $html = '<span>' . core()->currency($this->product->price) . '</span>';
+        }
+
+        return $html;
+    }
+
+    public function getOfferPercentage()
+    {
+        if ($this->haveSpecialPrice()) {
+            //'<div class="sticker sale">' . trans('shop::app.products.sale') . '</div>'
+            $per = (($this->product->price - $this->getSpecialPrice()) * 100)/$this->product->price;
+
+             $html = $per;
+
+            /*$html = '<span class="regular-price">' . core()->currency($this->product->price) . '</span>'
+                . '<span class="special-price">' . core()->currency($this->getSpecialPrice()) . '</span>';*/
+        } else {
+            $html = '';
         }
 
         return $html;
@@ -709,6 +732,8 @@ abstract class AbstractType
     {
         if ($this->haveSpecialPrice()) {
             //'<div class="sticker sale">' . trans('shop::app.products.sale') . '</div>'
+            //$per = (($this->product->price - $this->getSpecialPrice()) * 100)/$this->product->price;
+
             $html = '<span class="regular-price">' . core()->currency($this->product->price) . '</span>'
                 . '<span class="special-price">' . core()->currency($this->getSpecialPrice()) . '</span>';
         } else {

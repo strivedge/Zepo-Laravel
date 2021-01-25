@@ -113,20 +113,18 @@
                             <li class="" :key="Math.random()"  v-for="(product, index) in recentlyViewed">
                                 <div class="content-wrap">
                                     <div class="product-code">@{{ product.sku }}</div>
-                                    <a :href="`${baseUrl}/${product.urlKey}`" class="unset">
-                                    <div class="img">
-                                        <div class="discount badge badge-secondary"><span class="save">SAVE</span><span class="percentage">26%</span></div>
-                                        <img :src="`${product.image}`">
-
-                                    </div>
-                                </a>
+                                    <!-- <a :href="`${baseUrl}/${product.urlKey}`" class="unset"> -->
+                                        <div class="img" v-if="product.special_price">
+                                            <div class="discount badge badge-secondary"><span class="save">SAVE</span><span class="percentage">@{{ product.percentage }}%</span></div>
+                                            <img :src="`${product.image}`">
+                                        </div>
+                                    <!-- </a> -->
                                     <div class="content">
-
                                         <star-ratings v-if="product.rating > 0"
                                             push-class="display-inbl"
                                             :ratings="product.rating">
                                         </star-ratings>
-                                        <div class="star" v-else-if="product.rating == 0"
+                                        <div class="star" v-if="product.rating == 0">
                                             <img src="{{ asset('/themes/zmart/assets/images/star-gray.png') }}">
                                         </div>
                                         
@@ -134,7 +132,7 @@
                                             <a :href="`${baseUrl}/${product.urlKey}`" class="unset no-padding">@{{ product.name }}</a>
                                         </div>
                                             <div class="price">
-                                                <div v-html="product.priceHTML" class="fs18 card-current-price fw6">
+                                               <div v-html="product.priceHTML" >
                                                 </div>
                                                 <!-- <span class="amount">$74.68</span>
                                                 <span class="amount-price">$80.35</span> -->
@@ -153,7 +151,7 @@
                     </div>
                 </section>
     </script>
-    <!-- <script type="text/x-template" id="recently-viewed-template">
+    <script type="text/x-template" id="recently-viewed-template">
         <div :class="`${addClass} recently-viewed`">
             <div class="row remove-padding-margin">
                 <div class="col-12 no-padding">
@@ -201,7 +199,7 @@
                 </span>
             </div>
         </div>
-    </script> -->
+    </script>
 
     <script type="text/javascript">
         (() => {
