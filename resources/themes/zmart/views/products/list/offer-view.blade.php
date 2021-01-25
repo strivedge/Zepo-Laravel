@@ -5,7 +5,7 @@ $offers = $offerRepository->all();
 <section class="offers featured-products">
 
     <div class="container">
-    <div class="section-title"><h2>{{ $offers_title }}</h2></div>
+    <div class="section-title"><h2>Active Offers</h2></div>
         <ul>
     @if(isset($offers) && count($offers) > 0)
         @foreach($offers as $offer)
@@ -14,7 +14,6 @@ $offers = $offerRepository->all();
                         <li class="col-md-3 img">
                             <img src="{{ asset('uploadImages/offer/'.$offer->image) }}" alt="{{ __('shop::app.home.offers-products') }}" height="100" width="100" onerror="this.src='{{ asset('vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png') }}'">
                         </li>
-                        <!-- <h3>{{ $offer->title }}</h3> -->
                         <li class="col-md-7 content-offers">
                             <div class="content">
                                 {{ $offer->desc }}

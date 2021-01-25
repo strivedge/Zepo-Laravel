@@ -145,6 +145,11 @@
                                 </div>
                             </li>
                         </ul>
+                        <span
+                            class="fs16"
+                            v-if="!recentlyViewed ||(recentlyViewed && Object.keys(recentlyViewed).length == 0)"
+                            v-text="'{{ __('velocity::app.products.not-available') }}'">
+                        </span>
                     </div>
                 </section>
     </script>
