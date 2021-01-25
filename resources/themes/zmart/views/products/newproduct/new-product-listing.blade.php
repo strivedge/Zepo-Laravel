@@ -111,7 +111,11 @@
                         href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
                         title="{{ $product->name }}"
                         class="product-image-container">
-
+                        @if ($product->new)
+                            <div class="sticker new">
+                               {{ __('shop::app.products.new') }}
+                            </div>
+                        @endif
                         <img
                             loading="lazy"
                             class="card-img-top"
@@ -124,11 +128,7 @@
                     </a>
                 </div>
                 
-                @if ($product->new)
-                    <div class="sticker new">
-                       {{ __('shop::app.products.new') }}
-                    </div>
-                @endif
+                
 
                 <!-- <div class="card-body"> -->
                 <div class="content">

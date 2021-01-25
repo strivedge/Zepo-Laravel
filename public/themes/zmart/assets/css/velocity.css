@@ -2632,7 +2632,7 @@ body .container-margin {
 }
 .main-content-wrapper {
     margin: 0;
-    margin-bottom: 60px;
+    /*margin-bottom: 60px;*/
     display: inline-block;
 }
 .main-content-wrapper>.row.disabled {
