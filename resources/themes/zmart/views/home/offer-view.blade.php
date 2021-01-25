@@ -33,9 +33,7 @@
         @endforeach
         @else
         <li class="column">
-            
-                <p>No Offers...!</p>
-            
+            <p>No Offers...!</p>
         </li>
         @endif
         </ul>
