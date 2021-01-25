@@ -6,11 +6,11 @@
     $direction = core()->getCurrentLocale()->direction;
 @endphp
 
-<recently-viewed
+<!-- <recently-viewed
     add-class="{{ isset($addClass) ? $addClass . " $direction": '' }}"
     quantity="{{ isset($quantity) ? $quantity : null }}"
     add-class-wrapper="{{ isset($addClassWrapper) ? $addClassWrapper : '' }}">
-</recently-viewed>
+</recently-viewed> -->
 
 <!-- <section class="recently-viewed product-box">
                     <div class="container">
