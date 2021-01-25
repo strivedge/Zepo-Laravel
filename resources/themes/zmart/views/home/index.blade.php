@@ -164,8 +164,8 @@
                                 'addClass'          => 'col-lg-3 col-md-12',
                             ])
                 
-                @include('shop::products.list.offer-view')
-                @include('shop::products.list.testinominal-view')
+                @include('shop::home.offer-view')
+                @include('shop::home.testinominal-view')
                 @include('shop::home.shipping-payment')
                 
                

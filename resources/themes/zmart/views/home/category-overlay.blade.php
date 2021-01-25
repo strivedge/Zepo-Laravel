@@ -1,7 +1,7 @@
 @inject ('blogRepository', 'Custom\Blog\Repositories\BlogRepository')
-<?php
+@php
     $posts = $blogRepository->all();
-?>
+@endphp
 <section class="category-overlay">
     <div class="container">
         <ul class="row">

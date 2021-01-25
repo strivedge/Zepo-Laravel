@@ -197,7 +197,7 @@ header .navbar--addcart--wishlist a span.wishlist:hover .badge { background: #27
 .carousel-inner {height: 100%; }
 .carousel {width: 100%; height: 100%; }
 .carousel-inner .icofont-rounded-right.arrows,.carousel-inner .icofont-rounded-left.arrows { font-size: 82px; }
-.carousel-indicators {/*bottom: 73px;*/margin-left: 8%;right: auto;margin-bottom: 0;margin: 0;left: 0; }
+.carousel-indicators {/*bottom: 73px;*/margin-left: 8%;right: auto;margin-bottom: 0;margin: 0;left: 0; width: 100%; }
 .carousel-control-prev,.carousel-control-next,
 .carousel-control-prev:hover,.carousel-control-next:hover {width: 8.5%;color: #274985;opacity: 1; }
 .carousel-control-prev .arrows,.carousel-control-next .arrows { width: 40px; }
