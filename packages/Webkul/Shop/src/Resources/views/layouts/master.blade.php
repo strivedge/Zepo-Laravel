@@ -2,7 +2,6 @@
 <html lang="{{ app()->getLocale() }}">
 
 <head>
-
     <title>@yield('page_title')</title>
 
     <meta charset="UTF-8">

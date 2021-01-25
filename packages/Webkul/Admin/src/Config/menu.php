@@ -11,7 +11,7 @@ return [
         'key'        => 'sales',
         'name'       => 'admin::app.layouts.sales',
         'route'      => 'admin.sales.orders.index',
-        'sort'       => 2,
+        'sort'       => 4,
         'icon-class' => 'sales-icon',
     ], [
         'key'        => 'sales.orders',
@@ -41,7 +41,7 @@ return [
         'key'        => 'catalog',
         'name'       => 'admin::app.layouts.catalog',
         'route'      => 'admin.catalog.products.index',
-        'sort'       => 3,
+        'sort'       => 2,
         'icon-class' => 'catalog-icon',
     ], [
         'key'        => 'catalog.products',
@@ -71,7 +71,7 @@ return [
         'key'        => 'customers',
         'name'       => 'admin::app.layouts.customers',
         'route'      => 'admin.customer.index',
-        'sort'       => 4,
+        'sort'       => 3,
         'icon-class' => 'customer-icon',
     ], [
         'key'        => 'customers.customers',

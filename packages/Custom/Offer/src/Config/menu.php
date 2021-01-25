@@ -5,7 +5,7 @@ return [
         'key' => 'offer',
         'name' => 'Offer',
         'route' => 'offer.index',
-        'sort' => 3,
+        'sort' => 8,
         'icon-class' => 'dashboard-icon',
     ]
 ];

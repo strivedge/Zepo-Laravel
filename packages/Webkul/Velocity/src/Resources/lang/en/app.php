@@ -40,7 +40,7 @@ return [
             ]
         ],
         'layouts'   => [
-            'velocity' => 'Velocity',
+            'velocity' => 'Zepomart',
             'cms-pages' => 'CMS Pages',
             'meta-data' => 'Meta Data',
             'category-menu' => 'Category Menu',
