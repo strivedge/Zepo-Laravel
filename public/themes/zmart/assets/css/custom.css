@@ -77,7 +77,7 @@ a:focus { outline: 0; }
 .product-box ul li.items .content-wrap .compare-icon i { color: #B1CC1E;font-size: 30px; }
 .product-box ul li.items .content-wrap .wishlist-icon { left: 0; top: 10px; display: none; margin-left: 5px; margin-right: 5px; position: absolute; }
 .product-box ul li.items .content-wrap .wishlist-icon i { color: #B1CC1E;font-size: 30px; }
-.product-box ul li.items:hover .content-wrap .compare-icon, .sales ul li.items:hover .content-wrap .wishlist-icon { display: block;top: 20px; }
+.product-box ul li.items:hover .content-wrap .compare-icon, .product-box ul li.items:hover .content-wrap .wishlist-icon { display: block;top: 20px; }
 
 
 
@@ -265,6 +265,7 @@ header .navbar--addcart--wishlist a span.wishlist:hover .badge { background: #27
 .sales ul li .content-wrap .img .sticker.new .percentage { display: block;font-weight: 700;font-size: 16px; color: #274985; }
 .sales ul li .content-wrap .img img { margin: 0 auto; width:100%; }
 .sales ul li.items .content-wrap .img:hover img { transition: all .3s; transform: scale(1.03); }
+.sales ul li.items .content-wrap:hover .sticker.new { display: none; }
 .sales ul li .content-wrap .content { padding: 0px 10px 80px; }
 .sales ul li.items:hover .content-wrap .content { padding-top: 3px!important; }
 .sales ul li .content-wrap .content .product-rating .stars i { color: #FFC107;font-size: 16px; }
@@ -296,7 +297,7 @@ header .navbar--addcart--wishlist a span.wishlist:hover .badge { background: #27
 .sales ul li.items .content-wrap .compare-icon i { color: #B1CC1E;font-size: 30px; }
 .sales ul li.items .content-wrap .wishlist-icon { left: 0; top: 10px; display: none; margin-left: 5px; margin-right: 5px; position: absolute; }
 .sales ul li.items .content-wrap .wishlist-icon i { color: #B1CC1E;font-size: 30px; }
-.sales ul li.items .content-wrap .img:hover .compare-icon, .sales ul li.items .content-wrap .img:hover .wishlist-icon { display: block;top: 20px; }
+.sales ul li.items:hover .content-wrap .compare-icon, .sales ul li.items:hover .content-wrap .wishlist-icon { display: block;top: 20px; }
 
 
 .sales .slick-prev,.sales .slick-next { width: 30px; height: 30px; }

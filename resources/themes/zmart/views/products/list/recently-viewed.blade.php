@@ -12,7 +12,7 @@
     add-class-wrapper="{{ isset($addClassWrapper) ? $addClassWrapper : '' }}">
 </recently-viewed> -->
 
-<!-- <section class="recently-viewed product-box">
+<section class="recently-viewed product-box">
                     <div class="container">
                         <div class="section-title"><h2>You Recently Viewed</h2></div>
                         <ul class="row">
@@ -102,7 +102,7 @@
                             </li>
                         </ul>
                     </div>
-                </section> -->
+                </section>
 
 @push('scripts')
     <script type="text/x-template" id="recently-viewed-template">
