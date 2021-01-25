@@ -34,9 +34,9 @@
                 <ul type="none">
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact</a></li>
-                    <li><a href="https://webkul.com/about-us/company-profile/">Work with Us</a></li>
-                    <li><a href="https://webkul.com/about-us/company-profile/">Privacy Policy </a></li>
-                    <li><a href="https://webkul.com/about-us/company-profile/">Terms & Conditions  </a></li>
+                    <li><a href="#">Work with Us</a></li>
+                    <li><a href="#">Privacy Policy </a></li>
+                    <li><a href="#">Terms & Conditions  </a></li>
                 </ul>
             </div>
         </div>
