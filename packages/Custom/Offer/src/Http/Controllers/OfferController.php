@@ -137,6 +137,6 @@ class OfferController extends Controller
     public function destroy(Offer $offer, $id)
     {
         $this->offerRepository->deleteData($id);
-        return redirect()->route($this->_config['redirect']);
+        // return redirect()->route($this->_config['redirect']);
     }
 }

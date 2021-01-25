@@ -114,6 +114,6 @@ class TestinominalController extends Controller
     public function destroy($id)
     {
         $this->testinominalRepository->deleteData($id);
-        return redirect()->route($this->_config['redirect']);
+        // return redirect()->route($this->_config['redirect']);
     }
 }

@@ -117,16 +117,16 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        if($id != null)
-        {
-            $result['status'] = true;
-            echo json_encode($result);
-            $this->blogRepository->deleteData($id);
-        }
-        else
-        {
-            $result['status'] = false;
-        }
+        // if($id != null)
+        // {
+        //     $result['status'] = true;
+        //     echo json_encode($result);
+        $this->blogRepository->deleteData($id);
+        // }
+        // else
+        // {
+        //     $result['status'] = false;
+        // }
         // return redirect()->route($this->_config['redirect']);
     }
 }
