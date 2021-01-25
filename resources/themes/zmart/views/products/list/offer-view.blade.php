@@ -12,7 +12,7 @@ $offers = $offerRepository->all();
            <!--  <li class="column"> -->
                 
                         <li class="col-md-3 img">
-                            <img src="{{ asset('uploadImages/offer/'.$offer->image) }}" alt="{{ __('shop::app.home.offers-products') }}" height="100" width="100" onerror="this.src='{{ asset('vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png') }}'">
+                            <img src="{{ asset('uploadImages/offer/'.$offer->image) }}" alt="{{ __('shop::app.home.offers-products') }}" onerror="this.src='{{ asset('vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png') }}'">
                         </li>
                         <li class="col-md-7 content-offers">
                             <div class="content">
