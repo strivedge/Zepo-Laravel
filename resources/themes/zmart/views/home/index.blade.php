@@ -141,7 +141,7 @@
                         
             <div class="tab-content">
               <div id="covid" class="tab-pane  in active">
-                @include('shop::home.covid-product')
+                 @include('shop::home.new-products')
                 <!-- @include('shop::home.category', ['category' => 'covid19']) -->
               </div>
               <div id="popular" class="tab-pane ">
