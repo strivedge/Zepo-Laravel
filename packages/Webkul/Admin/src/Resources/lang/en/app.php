@@ -929,6 +929,34 @@ return [
             'help-title' => 'Add Note On This Customer'
         ],
 
+        'blogs' => [
+            'blog-image' => 'Images',
+            'blog-content' => 'Content',
+            'blog-date' => 'Date',
+            'edit-help-title' => 'Edit Blog',
+            'delete-help-title' => 'Delete Blog',
+            'help-title' => 'Create',
+        ],
+
+        'offers' => [
+            'offer-image' => 'Images',
+            'offer-desc' => 'Description',
+            'start-date' => 'Start Date',
+            'end-date' => 'End Date',
+            'edit-help-title' => 'Edit Offer',
+            'delete-help-title' => 'Delete Offer',
+            'help-title' => 'Create',
+        ],
+
+        'testinominals' => [
+            'testinominals-image' => 'Images',
+            'testinominals-desc' => 'Description',
+            'testinominals-date' => 'Date',
+            'edit-help-title' => 'Edit Testinominals',
+            'delete-help-title' => 'Delete Testinominals',
+            'help-title' => 'Create',
+        ],
+
         'customers' => [
             'add-title' => 'Add Customer',
             'edit-title' => 'Edit Customer',
