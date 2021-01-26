@@ -34,12 +34,12 @@
                 </div>
                 
                 <div class="control-group" :class="[errors.has('image') ? 'has-error' : '']">
-                    <label for="image" class="required">{{ __('blog::app.blogs.blog-image') }}</label>
-                    <div>
-                        <img src="{{ asset('uploadImages/'.$posts->image) }}" alt="Image" height="30" width="60">
+                    <label for="file-ip-1" class="required">{{ __('blog::app.blogs.blog-image') }}</label>
+                    <div class="preview">
+                        <img src="{{ asset('uploadImages/'.$posts->image) }}" id="file-ip-1-preview" alt="{{ __('blog::app.blogs.image') }}" height="70" width="110">
                     </div>
                     <div>
-                        <input type="file" name="image">
+                        <input type="file" name="image" id="file-ip-1" accept="image/*" onchange="showPreview(event);">
                     </div>
                     <span class="control-error" v-if="errors.has('image')">@{{ errors.first('image') }}</span>
                 </div>
@@ -60,3 +60,16 @@
     </form>
 </div>
 @stop
+
+<script>
+    function showPreview(event)
+    {
+        if(event.target.files.length > 0)
+        {
+            var src = URL.createObjectURL(event.target.files[0]);
+            var preview = document.getElementById("file-ip-1-preview");
+            preview.src = src;
+            preview.style.display = "block";
+        }
+    }
+</script>

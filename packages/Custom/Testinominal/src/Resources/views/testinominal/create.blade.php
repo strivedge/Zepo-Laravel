@@ -33,8 +33,11 @@
                 </div>
                 
                 <div class="control-group" :class="[errors.has('image') ? 'has-error' : '']">
-                    <label for="image" class="required">{{ __('testinominal::app.testinominal.image') }}</label>
-                    <input type="file" class="control" name="image"  v-validate="'required'">
+                    <label for="file-ip-1" class="required">{{ __('testinominal::app.testinominal.upload-image') }}</label>
+                    <input type="file" class="control" name="image" id="file-ip-1" accept="image/*" onchange="showPreview(event);" v-validate="'required'">
+                    <div class="preview">
+                        <img id="file-ip-1-preview">
+                    </div>
                     <span class="control-error" v-if="errors.has('image')">@{{ errors.first('image') }}</span>
                 </div>
 
@@ -55,3 +58,16 @@
     </form>
 </div>
 @stop
+
+<script>
+    function showPreview(event)
+    {
+        if(event.target.files.length > 0)
+        {
+            var src = URL.createObjectURL(event.target.files[0]);
+            var preview = document.getElementById("file-ip-1-preview");
+            preview.src = src;
+            preview.style.display = "block";
+        }
+    }
+</script>

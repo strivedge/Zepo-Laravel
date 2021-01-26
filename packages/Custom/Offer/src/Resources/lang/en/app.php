@@ -10,6 +10,7 @@ return [
             'title' => 'Offers',
             'offer-title' => 'Title',
             'image' => 'Image',
+            'upload-image' => 'Upload Image',
             'offer-status' => 'Status',
             'desc' => 'Description',
             'start-date' => 'Start Date',

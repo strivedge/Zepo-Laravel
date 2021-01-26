@@ -9,6 +9,7 @@ return [
             'title' => 'Testinominals',
             'testi-title' => 'Title',
             'image' => 'Image',
+            'upload-image' => 'Upload Image',
             'desc' => 'Dscription',
             'date' => 'Date',
             'action' => 'Actions',
