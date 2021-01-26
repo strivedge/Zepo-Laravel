@@ -101,21 +101,23 @@
             </div>
         </div>
     @else
+    <?php //echo"Test<pre>";print_r($product->getTypeInstance()->haveSpecialPrice());exit; ?>
     <!-- offer add to cart -->
         <!-- <div class="card grid-card product-card-new"> -->
         
             <li class="items">
                 <div class="content-wrap">
-                    <div class="product-code">ZM44841</div>
+                    <div class="product-code">{{$product->sku}}</div>
                         <div class="img">
                             <a
                                 href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
                                 title="{{ $product->name }}"
                                 class="product-image-container">
-                                 @if ($product->new)
+                                 @if ($product->getTypeInstance()->haveSpecialPrice())
+                                 <?php //echo"Test<pre>";print_r($product->getTypeInstance()->getOfferPercentage());exit; ?>
                                     <div class="sticker new">
                                       <!-- <span class="new"> {{ __('shop::app.products.new') }}</span> -->
-                                       <span class="save">SAVE</span><span class="percentage">26%</span>
+                                       <span class="save">SAVE</span><span class="percentage">{{$product->getTypeInstance()->getOfferPercentage()}}%</span>
                                     </div>
                                 @endif
                                 <img

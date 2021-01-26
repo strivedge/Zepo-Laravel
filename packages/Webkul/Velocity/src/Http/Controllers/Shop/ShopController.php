@@ -34,9 +34,11 @@ class ShopController extends Controller
                 'status'  => true,
                 'details' => [
                     'name'         => $product->name,
-                    'sku'         => $product->sku,
+                    'sku'          => $product->sku,
                     'urlKey'       => $product->url_key,
-                    'priceHTML'    => $product->getTypeInstance()->getPriceHtml(),
+                    'special_price'  => $product->getTypeInstance()->haveSpecialPrice(),
+                    'percentage'  => $product->getTypeInstance()->getOfferPercentage(),
+                    'priceHTML'    => $product->getTypeInstance()->getOfferPriceHtml(),
                     'totalReviews' => $productReviewHelper->getTotalReviews($product),
                     'rating'       => ceil($productReviewHelper->getAverageRating($product)),
                     'image'        => $galleryImages['small_image_url'],
