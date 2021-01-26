@@ -42,6 +42,7 @@ class ShopController extends Controller
                     'totalReviews' => $productReviewHelper->getTotalReviews($product),
                     'rating'       => ceil($productReviewHelper->getAverageRating($product)),
                     'image'        => $galleryImages['small_image_url'],
+                    'baseUrl'        => url('/'),
                 ]
             ];
         } else {

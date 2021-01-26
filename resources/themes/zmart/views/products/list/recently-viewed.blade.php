@@ -6,13 +6,13 @@
     $direction = core()->getCurrentLocale()->direction;
 @endphp
 
-<!-- <recently-viewed
+<recently-viewed
     add-class="{{ isset($addClass) ? $addClass . " $direction": '' }}"
     quantity="{{ isset($quantity) ? $quantity : null }}"
     add-class-wrapper="{{ isset($addClassWrapper) ? $addClassWrapper : '' }}">
-</recently-viewed> -->
+</recently-viewed>
 
-<section class="recently-viewed product-box">
+<!-- <section class="recently-viewed product-box">
                     <div class="container">
                         <div class="section-title"><h2>You Recently Viewed</h2></div>
                         <ul class="row">
@@ -102,7 +102,7 @@
                             </li>
                         </ul>
                     </div>
-                </section>
+                </section> -->
 
 @push('scripts')
     <script type="text/x-template" id="recently-viewed-template">
@@ -114,16 +114,20 @@
                                 <div class="content-wrap">
                                     <div class="product-code">@{{ product.sku }}</div>
                                     <!-- <a :href="`${baseUrl}/${product.urlKey}`" class="unset"> -->
-                                        <div class="img" v-if="product.special_price">
-                                            <div class="discount badge badge-secondary"><span class="save">SAVE</span><span class="percentage">@{{ product.percentage }}%</span></div>
-                                            <img :src="`${product.image}`">
+                                        <div class="img">
+                                            <div class="discount badge badge-secondary"  v-if="product.special_price"><span class="save">SAVE</span><span class="percentage">@{{ product.percentage }}%</span></div>
+                                            <!-- <img src="{{ asset('/themes/zmart/assets/images/venus-v4400-n95-face-mask.png') }}"> -->
+                                            <img :src="`${product.image}`" :onerror="`this.src='${product.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`">
                                         </div>
                                     <!-- </a> -->
                                     <div class="content">
-                                        <star-ratings v-if="product.rating > 0"
-                                            push-class="display-inbl"
-                                            :ratings="product.rating">
-                                        </star-ratings>
+                                        <div class="product-rating">
+                                            <star-ratings v-if="product.rating > 0"
+                                                push-class="display-inbl"
+                                                :ratings="product.rating">
+                                            </star-ratings>
+                                        </div>
+                                        
                                         <div class="star" v-if="product.rating == 0">
                                             <img src="{{ asset('/themes/zmart/assets/images/star-gray.png') }}">
                                         </div>
