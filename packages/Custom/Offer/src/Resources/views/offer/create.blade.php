@@ -40,18 +40,18 @@
 
                 <div class="control-group" :class="[errors.has('image') ? 'has-error' : '']">
                     <label for="file-ip-1" class="required">{{ __('offer::app.offer.upload-image') }}</label>
-                    <input type="file" class="control" name="image" id="file-ip-1" accept="image/*" onchange="showPreview(event);" v-validate="'required'">
                     <div class="preview">
                         <img id="file-ip-1-preview">
                     </div>
+                    <input type="file" name="image" id="file-ip-1" accept="image/*" onchange="showPreview(event);" v-validate="'required'">
                     <span class="control-error" v-if="errors.has('image')">@{{ errors.first('image') }}</span>
                 </div>
 
                 <div class="control-group" :class="[errors.has('status') ? 'has-error' : '']">
                     <label for="status" class="required">{{ __('offer::app.offer.offer-status') }}</label>
                     <select name="status" class="control" v-validate="'required'">
-                        <option value="0">Active</option>
-                        <option value="1">Inactive</option>
+                        <option value="1">Active</option>
+                        <option value="0">Inactive</option>
                     </select>
                     <span class="control-error" v-if="errors.has('status')">@{{ errors.first('status') }}</span>
                 </div>
