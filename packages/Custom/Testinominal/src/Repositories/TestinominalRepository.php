@@ -48,5 +48,15 @@ class TestinominalRepository
     {
         $testinominal = Testinominal::find($id)->delete();
         return $testinominal;
-    } 
+    }
+
+    public function massDataDelete($ids)
+    {
+        foreach($ids as $id)
+        {
+            $testinominal = $this->findById($id);
+            $testinominal->delete($testinominal);
+        }
+        return $testinominal;
+    }
 }

@@ -116,4 +116,17 @@ class TestinominalController extends Controller
         $this->testinominalRepository->deleteData($id);
         // return redirect()->route($this->_config['redirect']);
     }
+
+    public function massDestroy()
+    {
+        $ids = explode(',', request()->input('indexes'));
+
+        if ($ids != null) 
+        {
+            $this->testinominalRepository->massDataDelete($ids);
+            // session()->flash('success', trans('admin::app.customers.customers.mass-destroy-success'));
+
+        }
+        return redirect()->back();
+    }
 }

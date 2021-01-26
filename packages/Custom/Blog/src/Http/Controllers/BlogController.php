@@ -129,4 +129,16 @@ class BlogController extends Controller
         // }
         // return redirect()->route($this->_config['redirect']);
     }
+
+    public function massDestroy()
+    {
+        $ids = explode(',', request()->input('indexes'));
+
+        if ($ids != null) 
+        {
+            $this->blogRepository->massDataDelete($ids);
+            // session()->flash('success', trans('admin::app.customers.customers.mass-destroy-success'));
+        }
+        return redirect()->back();
+    }
 }

@@ -13,3 +13,7 @@ Route::post('admin/offer_delete/{id}', 'Custom\Offer\Http\Controllers\OfferContr
 Route::post('admin/saveOffer', 'Custom\Offer\Http\Controllers\OfferController@store')->defaults('_config', ['redirect' => 'offer.index']);
 
 Route::post('admin/updateOffer/{id}', 'Custom\Offer\Http\Controllers\OfferController@update')->defaults('_config', ['redirect' => 'offer.index'])->name('updateOffer');
+
+Route::post('admin/offer_masssdelete', 'Custom\Offer\Http\Controllers\OfferController@massDestroy')->name('offer_masssdelete');
+
+Route::post('admin/offer_masssupdate', 'Custom\Offer\Http\Controllers\OfferController@massUpdate')->name('offer_masssupdate');

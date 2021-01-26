@@ -16,7 +16,7 @@ class OfferDataGrid extends DataGrid
     public function prepareQueryBuilder()
     {
         $queryBuilder = DB::table('master_offers')
-        ->addSelect('id as offer_id', 'title', 'desc', 'image', 'start_date', 'end_date');
+        ->addSelect('id as offer_id', 'title', 'desc', 'image', 'start_date', 'end_date', 'status');
         $this->addFilter('offer_id', 'id');
         $this->addFilter('title', 'title');
         $this->addFilter('desc', 'desc');
@@ -83,6 +83,23 @@ class OfferDataGrid extends DataGrid
             'filterable' => false,
             'closure'    => true,
         ]);
+
+        $this->addColumn([
+            'index'      => 'status',
+            'label'      => trans('admin::app.customers.offers.status'),
+            'type'       => 'date',
+            'searchable' => false,
+            'sortable'   => true,
+            'filterable' => true,
+            'closure'    => true,
+            'wrapper'    => function ($row) {
+                if ($row->status == 0) {
+                    return '<span class="badge badge-md badge-success">'. trans('admin::app.customers.offers.active') .'</span>';
+                } else {
+                    return '<span class="badge badge-md badge-danger">'. trans('admin::app.customers.offers.inactive') .'</span>';
+                }
+            },
+        ]);
     }
 
     public function prepareActions()
@@ -106,24 +123,24 @@ class OfferDataGrid extends DataGrid
     /**
      * Customer Mass Action To Delete And Change Their
      */
-    // public function prepareMassActions()
-    // {
-    //     $this->addMassAction([
-    //         'type'   => 'delete',
-    //         'label'  => trans('admin::app.datagrid.delete'),
-    //         'action' => route('admin.customer.mass-delete'),
-    //         'method' => 'PUT',
-    //     ]);
+    public function prepareMassActions()
+    {
+        $this->addMassAction([
+            'type'   => 'delete',
+            'label'  => trans('admin::app.datagrid.delete'),
+            'action' => route('offer_masssdelete'),
+            'method' => 'PUT',
+        ]);
 
-    //     $this->addMassAction([
-    //         'type'    => 'update',
-    //         'label'   => trans('admin::app.datagrid.update-status'),
-    //         'action'  => route('admin.customer.mass-update'),
-    //         'method'  => 'PUT',
-    //         'options' => [
-    //             'Active'   => 1,
-    //             'Inactive' => 0,
-    //         ],
-    //     ]);
-    // }
+        $this->addMassAction([
+            'type'    => 'update',
+            'label'   => trans('admin::app.datagrid.update-status'),
+            'action'  => route('offer_masssupdate'),
+            'method'  => 'PUT',
+            'options' => [
+                'Active'   => 0,
+                'Inactive' => 1,
+            ],
+        ]);
+    }
 }

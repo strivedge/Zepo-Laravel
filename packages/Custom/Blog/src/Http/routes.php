@@ -14,3 +14,5 @@ Route::post('admin/blog_delete/{id}', 'Custom\Blog\Http\Controllers\BlogControll
 Route::post('admin/saveBlog', 'Custom\Blog\Http\Controllers\BlogController@store')->defaults('_config', ['redirect' => 'blog.index']);
 
 Route::post('admin/updateBlog/{id}', 'Custom\Blog\Http\Controllers\BlogController@update')->defaults('_config', ['redirect' => 'blog.index'])->name('blog_update');
+
+Route::post('admin/blog_masssdelete', 'Custom\Blog\Http\Controllers\BlogController@massDestroy')->name('blog_masssdelete');
