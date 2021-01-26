@@ -769,4 +769,24 @@ class ProductRepository extends Repository
             ]);
         }
     }
+
+     public function findByBrandOption()
+    {
+        $results = app(ProductFlatRepository::class)->scopeQuery(function ($query) {
+            $channel = request()->get('channel') ?: (core()->getCurrentChannelCode() ?: core()->getDefaultChannelCode());
+
+            $locale = request()->get('locale') ?: app()->getLocale();
+
+            return $query->distinct()
+                ->addSelect('product_flat.*')
+                ->where('product_flat.status', 1)
+                ->where('product_flat.visible_individually', 1)
+                ->where('product_flat.featured', 1)
+                ->where('product_flat.channel', $channel)
+                ->where('product_flat.locale', $locale)
+                ->inRandomOrder();
+        })->paginate(12);
+
+        return $results;
+    }
 }
