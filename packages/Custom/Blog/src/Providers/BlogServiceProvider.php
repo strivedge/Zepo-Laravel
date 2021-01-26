@@ -21,10 +21,10 @@ class BlogServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang', 'blog');
         $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'blog');
 
-        Event::listen('bagisto.admin.layout.head', function($viewRenderEventManager) 
-        {
-            $viewRenderEventManager->addTemplate('blog::layouts.style');
-        });
+        // Event::listen('bagisto.admin.layout.head', function($viewRenderEventManager) 
+        // {
+        //     $viewRenderEventManager->addTemplate('blog::layouts.style');
+        // });
 
         $this->loadMigrationsFrom(__DIR__ .'/../Database/Migrations');
     }
