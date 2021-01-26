@@ -38,5 +38,11 @@ Route::group(['middleware' => ['web', 'theme', 'locale', 'currency']], function 
 	        'view' => 'shop::static.brand'
 	]);
 
+	Route::get('/brand/{name}', 'ACME\HelloWorld\Http\Controllers\Shop\BrandProductController@productByBrand')
+	    ->name('brand-products')
+	    ->defaults('_config', [
+	        'view' => 'shop::brand.brand-products'
+	]);
+
     
 });

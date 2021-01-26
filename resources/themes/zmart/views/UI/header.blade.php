@@ -1,3 +1,8 @@
+<?php $AttributeValues = app('Webkul\Attribute\Repositories\AttributeRepository')->getAttributeOptionByCode('brand'); 
+
+    //echo "<pre>";print_r($AttributeValues);exit();
+?>
+
 <script type="text/x-template" id="content-header-template">
 <div class="navbar-bottom vc-header">
     <div class="container">
@@ -391,15 +396,16 @@
                     <li class="nav-item parent">
                         <a href="{{url('/brand')}}" target="_blank">Brand</a>
                         <ul class="sub-menu">
-                                <li><a href="#">Brand</a></li>
-                                <li><a href="#">Brand</a></li>
-                                <li><a href="#">Brand</a></li>
-                                <li><a href="#">Brand</a></li>
-                                <li><a href="#">Brand</a></li>
-                                <li><a href="#">Brand</a></li>
-                                <li><a href="#">Brand</a></li>
-                                <li><a href="#">Brand</a></li>
-                            </ul>
+                            <?php 
+                                foreach ($AttributeValues as $key => $val) {
+                                    $admin_name = str_replace(' ', '-', $val->admin_name);
+                                ?>    
+                                
+                                <li><a href="{{url('/').'/brand/'.$admin_name}}">{{$val->admin_name}}</a></li>
+                               
+                               <?php }
+                            ?>
+                        </ul>
                     </li>
                     <li v-for="(content, index) in headerContent" :key="index" class="nav-item">
                         <a

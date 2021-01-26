@@ -259,4 +259,37 @@ class AttributeRepository extends Repository
 
         return $trimmed;
     }
+
+    public function getAttributeOptionByCode($code)
+    {
+        static $attributes = [];
+
+        if (array_key_exists($code, $attributes)) {
+            return $attributes[$code];
+        }
+
+        $results = app(AttributeOptionRepository::class)->scopeQuery(function ($query) use ($code) {
+        
+            return $query->distinct()
+                ->leftJoin('attributes','attribute_options.attribute_id','=','attributes.id')
+                ->addSelect('attribute_options.*')
+                ->where('attributes.code', $code)
+                ->inRandomOrder();
+        })->paginate(12);
+
+        return $attributes[$code] = $results;
+    }
+
+    public function getAttributeOptionData($brand_name)
+    {
+        $results = app(AttributeOptionRepository::class)->scopeQuery(function ($query) use ($brand_name) {
+        
+            return $query->distinct()
+                ->addSelect('attribute_options.*')
+                ->where('attribute_options.admin_name', $brand_name);
+        });
+
+        return $results;
+    }
+
 }
