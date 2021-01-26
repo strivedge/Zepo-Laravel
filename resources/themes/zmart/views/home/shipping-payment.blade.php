@@ -1,7 +1,7 @@
 <section class="shipping-payment-price">
     <div class="container">
         <ul>
-            <li class="col-md-3">
+            <li class="col-sm-6 col-lg-3">
                 <div class="content-wrap">
                     <div class="img">
                         <img src="{{ asset('themes/zmart/assets/images/shipping.png') }}">
@@ -9,7 +9,7 @@
                     <div class="title">Free Shipping</div>
                 </div>
             </li>
-            <li class="col-md-3">
+            <li class="col-sm-6 col-lg-3">
                 <div class="content-wrap">
                     <div class="img">
                         <img src="{{ asset('themes/zmart/assets/images/price-gaurntee.png') }}">
@@ -17,7 +17,7 @@
                     <div class="title">Best Price Guarantee</div>
                 </div>
             </li>
-            <li class="col-md-3">
+            <li class="col-sm-6 col-lg-3">
                 <div class="content-wrap">
                     <div class="img">
                         <img src="{{ asset('themes/zmart/assets/images/return-undo.png') }}">
@@ -25,7 +25,7 @@
                     <div class="title">Easy Return</div>
                 </div>
             </li>
-            <li class="col-md-3">
+            <li class="col-sm-6 col-lg-3">
                 <div class="content-wrap">
                     <div class="img">
                         <img src="{{ asset('themes/zmart/assets/images/verfied.png') }}">

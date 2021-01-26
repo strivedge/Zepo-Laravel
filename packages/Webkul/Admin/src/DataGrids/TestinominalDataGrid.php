@@ -57,15 +57,15 @@ class TestinominalDataGrid extends DataGrid
             'index'      => 'desc',
             'label'      => trans('admin::app.customers.testinominals.testinominals-desc'),
             'type'       => 'string',
-            'searchable' => false,
+            'searchable' => true,
             'sortable'   => true,
-            'filterable' => true,
+            'filterable' => false,
         ]);
 
         $this->addColumn([
             'index'      => 'date',
             'label'      => trans('admin::app.customers.testinominals.testinominals-date'),
-            'type'       => 'number',
+            'type'       => 'date',
             'searchable' => true,
             'sortable'   => true,
             'filterable' => false,
@@ -94,24 +94,13 @@ class TestinominalDataGrid extends DataGrid
     /**
      * Customer Mass Action To Delete And Change Their
      */
-    // public function prepareMassActions()
-    // {
-    //     $this->addMassAction([
-    //         'type'   => 'delete',
-    //         'label'  => trans('admin::app.datagrid.delete'),
-    //         'action' => route('admin.customer.mass-delete'),
-    //         'method' => 'PUT',
-    //     ]);
-
-    //     $this->addMassAction([
-    //         'type'    => 'update',
-    //         'label'   => trans('admin::app.datagrid.update-status'),
-    //         'action'  => route('admin.customer.mass-update'),
-    //         'method'  => 'PUT',
-    //         'options' => [
-    //             'Active'   => 1,
-    //             'Inactive' => 0,
-    //         ],
-    //     ]);
-    // }
+    public function prepareMassActions()
+    {
+        $this->addMassAction([
+            'type'   => 'delete',
+            'label'  => trans('admin::app.datagrid.delete'),
+            'action' => route('testinominal_masssdelete'),
+            'method' => 'PUT',
+        ]);
+    }
 }

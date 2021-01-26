@@ -4,7 +4,7 @@
         <!-- @if ($velocityMetaData)
             {!! DbView::make($velocityMetaData)->field('footer_middle_content')->render() !!}
         @endif -->
-        <div class="col-12 col-md-12 col-lg-3 footer-block">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3 footer-block">
             <h3 class="footer-block-title">Quick Links</h3>
             <div class="footer-block-content">
                 <ul type="none">
@@ -16,7 +16,7 @@
                 </ul>
             </div>
         </div>
-        <div class="col-12 col-md-4 col-lg-3 footer-block">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3 footer-block">
             <h3 class="footer-block-title">Help</h3>
             <div class="footer-block-content">
                 <ul type="none">
@@ -28,7 +28,7 @@
                 </ul>
             </div>
         </div>
-        <div class="col-12 col-md-4 col-lg-2 footer-block">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer-block">
             <h3 class="footer-block-title">Contact Us</h3>
             <div class="footer-block-content">
                 <ul type="none">

@@ -17,7 +17,7 @@ class OfferRepository
     // function for Homepage front end only data one row for active offer
     public function all()
     {
-        return Offer::where('status', '0')->orderby('id', 'desc')->take(1)->get();
+        return Offer::where('status', '1')->orderby('id', 'desc')->take(1)->get();
     }
 
     // function for Admin side
@@ -47,6 +47,26 @@ class OfferRepository
     public function deleteData($id)
     {
         $offer = Offer::find($id)->delete();
+        return $offer;
+    }
+
+    public function massDataDelete($ids)
+    {
+        foreach($ids as $id)
+        {
+            $offer = $this->findById($id);
+            $offer->delete($offer);
+        }
+        return $offer;
+    }
+
+    public function massDataUpdate($ids, $updateOption)
+    {
+        foreach($ids as $id)
+        {
+            $offer = $this->findById($id);
+            $offer->update(['status' => $updateOption]);
+        }
         return $offer;
     }
 }
