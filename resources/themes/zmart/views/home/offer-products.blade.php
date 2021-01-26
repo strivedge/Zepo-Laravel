@@ -9,7 +9,7 @@
             </div> -->
 
             <div class="salesoffers-addtocart">
-                                <div class="col-md-3 salesoffers">
+                                <div class="col-md-12 col-lg-3 salesoffers">
                                     <div class="imgs"><img src="{{ asset('themes/zmart/assets/images/sales-new-year.png') }}"></div>
                                     <div class="salesoffers-content">
                                     <p>New Year Sale is Live !<br/>
@@ -24,7 +24,7 @@
                                 </div>
 
             
-                                <div class="featured-grid product-grid-4 col-md-9">
+                                <div class="featured-grid product-grid-4 col-md-12 col-lg-9">
                                     <ul class="card grid-card product-card-new addtocart">
                                     <?php //echo"<pre>"; print_r(app('Webkul\Product\Repositories\ProductRepository')->getOfferedProducts());exit(); ?>
 

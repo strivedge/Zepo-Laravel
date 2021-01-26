@@ -45,7 +45,7 @@
                 </div>
                
             </div> -->
-            <div class="partner-logo col-md-6">
+            <div class="partner-logo col-md-12 col-lg-6">
                 <ul>
                     <li><img src="{{ asset('/themes/zmart/assets/images/pay.png') }}"></li>
                     <li><img src="{{ asset('/themes/zmart/assets/images/discover.png') }}"></li>
@@ -56,7 +56,7 @@
                 </ul>
             </div>
             
-            <div class="social-icons social-links col-md-6">
+            <div class="social-icons social-links col-md-12 col-lg-6">
                 <ul>
                    <li>
                         <a href="#" target="_blank" class="unset" rel="noopener noreferrer">
