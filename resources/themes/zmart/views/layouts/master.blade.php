@@ -39,7 +39,7 @@
         @if ($favicon = core()->getCurrentChannel()->favicon_url)
             <link rel="icon" sizes="16x16" href="{{ $favicon }}" />
         @else
-            <link rel="icon" sizes="16x16" href="{{ asset('/themes/velocity/assets/images/static/v-icon.png') }}" />
+            <link rel="icon" sizes="16x16" href="{{ asset('/themes/zmart/assets/images/static/z-icon.ico') }}" />
         @endif
 
         <script

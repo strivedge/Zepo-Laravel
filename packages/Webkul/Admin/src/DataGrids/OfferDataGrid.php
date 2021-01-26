@@ -50,9 +50,9 @@ class OfferDataGrid extends DataGrid
             'index'      => 'desc',
             'label'      => trans('admin::app.customers.offers.offer-desc'),
             'type'       => 'string',
-            'searchable' => false,
+            'searchable' => true,
             'sortable'   => true,
-            'filterable' => true,
+            'filterable' => false,
         ]);
 
         // $this->addColumn([
@@ -87,13 +87,13 @@ class OfferDataGrid extends DataGrid
         $this->addColumn([
             'index'      => 'status',
             'label'      => trans('admin::app.customers.offers.status'),
-            'type'       => 'date',
+            'type'       => 'boolean',
             'searchable' => false,
             'sortable'   => true,
             'filterable' => true,
             'closure'    => true,
             'wrapper'    => function ($row) {
-                if ($row->status == 0) {
+                if ($row->status == 1) {
                     return '<span class="badge badge-md badge-success">'. trans('admin::app.customers.offers.active') .'</span>';
                 } else {
                     return '<span class="badge badge-md badge-danger">'. trans('admin::app.customers.offers.inactive') .'</span>';
@@ -138,8 +138,8 @@ class OfferDataGrid extends DataGrid
             'action'  => route('offer_masssupdate'),
             'method'  => 'PUT',
             'options' => [
-                'Active'   => 0,
-                'Inactive' => 1,
+                'Active'   => 1,
+                'Inactive' => 0,
             ],
         ]);
     }

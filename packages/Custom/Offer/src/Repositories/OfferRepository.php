@@ -17,7 +17,7 @@ class OfferRepository
     // function for Homepage front end only data one row for active offer
     public function all()
     {
-        return Offer::where('status', '0')->orderby('id', 'desc')->take(1)->get();
+        return Offer::where('status', '1')->orderby('id', 'desc')->take(1)->get();
     }
 
     // function for Admin side

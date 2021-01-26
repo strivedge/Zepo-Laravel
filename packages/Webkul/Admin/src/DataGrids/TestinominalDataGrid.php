@@ -57,15 +57,15 @@ class TestinominalDataGrid extends DataGrid
             'index'      => 'desc',
             'label'      => trans('admin::app.customers.testinominals.testinominals-desc'),
             'type'       => 'string',
-            'searchable' => false,
+            'searchable' => true,
             'sortable'   => true,
-            'filterable' => true,
+            'filterable' => false,
         ]);
 
         $this->addColumn([
             'index'      => 'date',
             'label'      => trans('admin::app.customers.testinominals.testinominals-date'),
-            'type'       => 'number',
+            'type'       => 'date',
             'searchable' => true,
             'sortable'   => true,
             'filterable' => false,
