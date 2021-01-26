@@ -1,4 +1,5 @@
-<div class="col-12 col-md-4 col-lg-4 footer-block software-description">
+<!-- <div class="col-12 col-md-4 col-lg-4 footer-block software-description"> -->
+    <div class="col-12 col-md-6 col-lg-6 col-xl-4 footer-block software-description">
     <!-- <div class="logo"> -->
         <!-- <a href="{{ route('shop.home.index') }}">
             @if ($logo = core()->getCurrentChannel()->logo_url)
