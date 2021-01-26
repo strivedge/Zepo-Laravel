@@ -50,4 +50,14 @@ class BlogRepository
         $blog = Blog::find($id)->delete();
         return $blog;
     }
+
+    public function massDataDelete($ids)
+    {
+        foreach($ids as $id)
+        {
+            $blog = $this->findById($id);
+            $blog->delete($blog);
+        }
+        return $blog;
+    }
 }

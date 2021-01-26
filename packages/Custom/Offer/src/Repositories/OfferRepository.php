@@ -49,4 +49,24 @@ class OfferRepository
         $offer = Offer::find($id)->delete();
         return $offer;
     }
+
+    public function massDataDelete($ids)
+    {
+        foreach($ids as $id)
+        {
+            $offer = $this->findById($id);
+            $offer->delete($offer);
+        }
+        return $offer;
+    }
+
+    public function massDataUpdate($ids, $updateOption)
+    {
+        foreach($ids as $id)
+        {
+            $offer = $this->findById($id);
+            $offer->update(['status' => $updateOption]);
+        }
+        return $offer;
+    }
 }

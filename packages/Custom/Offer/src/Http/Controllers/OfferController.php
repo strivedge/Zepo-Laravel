@@ -139,4 +139,29 @@ class OfferController extends Controller
         $this->offerRepository->deleteData($id);
         // return redirect()->route($this->_config['redirect']);
     }
+
+    public function massDestroy()
+    {
+        $ids = explode(',', request()->input('indexes'));
+
+        if ($ids != null) 
+        {
+            $this->offerRepository->massDataDelete($ids);
+            // session()->flash('success', trans('admin::app.customers.customers.mass-destroy-success'));
+        }
+        return redirect()->back();
+    }
+
+    public function massUpdate()
+    {
+        $ids = explode(',', request()->input('indexes'));
+        $updateOption = request()->input('update-options');
+
+        if ($ids != null && $updateOption != null) 
+        {
+            $this->offerRepository->massDataUpdate($ids, $updateOption);
+            // session()->flash('success', trans('admin::app.customers.customers.mass-destroy-success'));
+        }
+        return redirect()->back();
+    }
 }

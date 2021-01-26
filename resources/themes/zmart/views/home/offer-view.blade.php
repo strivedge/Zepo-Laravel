@@ -22,7 +22,7 @@
                                     $start_date = new DateTime($offer->start_date);
                                     $end_date = new DateTime($offer->end_date);
                                 @endphp
-                                <span>From {{ $start_date->format('d-m-Y') }} to {{ $end_date->format('d-m-Y') }}</span>
+                                <span>From {{ $start_date->format('d/m/Y') }} to {{ $end_date->format('d/m/Y') }}</span>
                             </div>
                         </li>
                         <li class="col-md-2 buttons">
