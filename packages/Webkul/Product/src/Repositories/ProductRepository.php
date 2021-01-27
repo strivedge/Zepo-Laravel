@@ -361,6 +361,21 @@ class ProductRepository extends Repository
         return $results;
     }
 
+    /*public function getFeaturedProductsImages($products_id)
+    {
+        print_r($products_id);exit();
+        $results = app(ProductImageRepository::class)->scopeQuery(function ($query) {
+
+            return $query->distinct()
+                ->addSelect('product_images.*')
+                ->where('product_images.product_id', $products_id)
+                ;})->paginate(20);
+
+        // echo "<pre>"; print_r($results); exit();
+
+        return $results;
+    }*/
+
     /**
      * Returns offer product
      *
