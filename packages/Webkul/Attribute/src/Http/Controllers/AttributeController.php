@@ -69,6 +69,16 @@ class AttributeController extends Controller
 
         $data = request()->all();
 
+        //echo "<pre>";print_r($data);exit();
+
+        if (isset($data['options'])) {
+            foreach ($data['options'] as $optionId => $optionInputs) {
+                $admin_name = str_replace(' ', '-', $optionInputs['admin_name']);
+                $option_slug = strtolower($admin_name);
+                $data['options'][$optionId]['option_slug'] = $option_slug;
+            }
+        }
+
         $data['is_user_defined'] = 1;
 
         $attribute = $this->attributeRepository->create($data);
@@ -105,7 +115,18 @@ class AttributeController extends Controller
             'type'       => 'required',
         ]);
 
-        $attribute = $this->attributeRepository->update(request()->all(), $id);
+        $data = request()->all();
+
+        if (isset($data['options'])) {
+                foreach ($data['options'] as $optionId => $optionInputs) {
+                    $admin_name = str_replace(' ', '-', $optionInputs['admin_name']);
+                    $option_slug = strtolower($admin_name);
+                    $data['options'][$optionId]['option_slug'] = $option_slug;
+                }
+            }
+        //echo "<pre>";print_r($data);exit();
+
+        $attribute = $this->attributeRepository->update($data, $id);
 
         session()->flash('success', trans('admin::app.response.update-success', ['name' => 'Attribute']));
 

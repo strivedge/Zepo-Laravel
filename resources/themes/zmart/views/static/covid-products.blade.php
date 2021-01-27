@@ -1,10 +1,7 @@
 @extends('shop::layouts.master')
 
 @section('content-wrapper')
-    <div class="account-content row no-margin velocity-divide-page">
-       Covid19 Product content
-        
-    </div>
+     @include('shop::home.covid-products')
 @endsection
 
 @push('scripts')
