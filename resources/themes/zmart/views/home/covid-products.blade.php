@@ -1,10 +1,10 @@
- <?php //$categoryDetails = app('Webkul\Category\Repositories\categoryRepository')->findByPath('covid19');
+ <?php $categoryDetails = app('Webkul\Category\Repositories\CategoryRepository')->findByPath('covid19');
 
- //$products = app('Webkul\Product\Repositories\ProductRepository')->getAll($categoryDetails->id)->count();
+//$products = app('Webkul\Product\Repositories\ProductRepository')->getAll($categoryDetails->id)->count();
 
-
- //echo "<pre>";print_r(app('Webkul\Category\Repositories\categoryRepository')->generateIncrementId());exit; ?>
-    @if (app('Webkul\Product\Repositories\ProductRepository')->getAll(5)->count())
+ //echo "<pre>";print_r(app('Webkul\Category\Repositories\categoryRepository')->findByPath('covid19')->count());exit; ?>
+ @if(!empty($categoryDetails))
+    @if (app('Webkul\Product\Repositories\ProductRepository')->getAll($categoryDetails->id)->count())
         <section class="featured-products product-box">
 
             <!-- <div class="featured-heading">
@@ -16,7 +16,7 @@
             <ul class="row">
                 <?php //echo"<pre>"; print_r(app('Webkul\Product\Repositories\ProductRepository')->getNewProducts());exit(); ?>
 
-                @foreach (app('Webkul\Product\Repositories\ProductRepository')->getAll(5) as $productFlat)
+                @foreach (app('Webkul\Product\Repositories\ProductRepository')->getAll($categoryDetails->id) as $productFlat)
 
                     @include ('shop::products.newproduct.new-product-listing', ['product' => $productFlat])
 
@@ -35,3 +35,4 @@
             </p>
         </div>
     @endif
+@endif
