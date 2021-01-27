@@ -33,8 +33,10 @@
             <!-- </li> -->
         @endforeach
         @else
-        <li class="column">
-            <p>No Offers...!</p>
+        <li class="column content-offers col-12 errors">
+            <div class="content col-12 text-center">
+                No Offers...!
+            </div>
         </li>
         @endif
         </ul>
