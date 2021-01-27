@@ -4,12 +4,23 @@
 ?>
 
 <script type="text/x-template" id="content-header-template">
-<div class="navbar-bottom vc-header">
-    <div class="container">
-        <header class="row velocity-divide-page vc-header header-shadow active">
+<!-- <div class="navbar-bottom">
+    <div class="container"> -->
+        <header class="navbar-bottom  velocity-divide-page vc-header header-shadow active">
             <div class="vc-small-screen container" v-if="isMobile()">
                 <div class="row">
                     <div class="col-6">
+                        
+
+                        <logo-component></logo-component>
+                    </div>
+
+                    @php
+                        $showCompare = core()->getConfigData('general.content.shop.compare_option') == "1" ? true : false;
+                       
+                    @endphp
+
+                    <div class="right-vc-header col-6">
                         <div v-if="hamburger" class="nav-container scrollable">
                             <div class="wrapper" v-if="this.rootCategories">
                                 <div class="greeting drawer-section fw6">
@@ -324,16 +335,6 @@
                         <div class="hamburger-wrapper" @click="toggleHamburger">
                             <i class="rango-toggle hamburger"></i>
                         </div>
-
-                        <logo-component></logo-component>
-                    </div>
-
-                    @php
-                        $showCompare = core()->getConfigData('general.content.shop.compare_option') == "1" ? true : false;
-                       
-                    @endphp
-
-                    <div class="right-vc-header col-6">
                         @if ($showCompare)
                             <a
                                 class="compare-btn unset"
@@ -421,8 +422,8 @@
                 </ul>
             </div>
         </header>
-    </div>
-</div>
+    <!-- </div>
+</div> -->
 </script>
 
 @php
