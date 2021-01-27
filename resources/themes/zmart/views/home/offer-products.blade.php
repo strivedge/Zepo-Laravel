@@ -68,4 +68,13 @@
                         </div>
                     </div>
                 </section> -->
+@else
+    <div class="product-list empty">
+        <h2>{{ __('shop::app.products.whoops') }}</h2>
+
+        <p>
+            No products available
+        </p>
+    </div>
+    
 @endif

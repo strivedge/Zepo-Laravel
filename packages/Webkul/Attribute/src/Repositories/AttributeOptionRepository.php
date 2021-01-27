@@ -38,6 +38,7 @@ class AttributeOptionRepository extends Repository
      */
     public function update(array $data, $id, $attribute = "id")
     {
+
         $option = parent::update($data, $id);
 
         $this->uploadSwatchImage($data, $id);

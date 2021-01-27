@@ -398,10 +398,13 @@
                         <ul class="sub-menu">
                             <?php 
                                 foreach ($AttributeValues as $key => $val) {
-                                    $admin_name = str_replace(' ', '-', $val->admin_name);
+                                    if (!empty($val->option_slug)) {
+                                        $slug = $val->option_slug;
+                                    }else{
+                                        $slug = str_replace(' ', '-', $val->admin_name);
+                                    }
                                 ?>    
-                                
-                                <li><a href="{{url('/').'/brand/'.$admin_name}}">{{$val->admin_name}}</a></li>
+                                <li><a href="{{url('/').'/brand/'.$slug}}">{{$val->admin_name}}</a></li>
                                
                                <?php }
                             ?>

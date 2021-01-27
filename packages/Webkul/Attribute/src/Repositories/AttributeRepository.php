@@ -108,6 +108,7 @@ class AttributeRepository extends Repository
             }
         }
 
+
         foreach ($previousOptionIds as $optionId) {
             $this->attributeOptionRepository->delete($optionId);
         }
@@ -282,12 +283,13 @@ class AttributeRepository extends Repository
 
     public function getAttributeOptionData($brand_name)
     {
+
         $results = app(AttributeOptionRepository::class)->scopeQuery(function ($query) use ($brand_name) {
         
             return $query->distinct()
                 ->addSelect('attribute_options.*')
-                ->where('attribute_options.admin_name', $brand_name);
-        });
+                ->where('attribute_options.option_slug', $brand_name);
+        })->paginate(1);
 
         return $results;
     }
