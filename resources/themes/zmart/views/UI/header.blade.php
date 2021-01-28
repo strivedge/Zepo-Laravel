@@ -11,7 +11,6 @@
                 <div class="row">
                     <div class="col-6">
                         
-
                         <logo-component></logo-component>
                     </div>
 
@@ -335,6 +334,7 @@
                         <div class="hamburger-wrapper" @click="toggleHamburger">
                             <i class="rango-toggle hamburger"></i>
                         </div>
+
                         @if ($showCompare)
                             <a
                                 class="compare-btn unset"

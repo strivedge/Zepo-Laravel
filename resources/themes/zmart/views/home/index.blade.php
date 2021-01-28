@@ -81,7 +81,6 @@
       </div>
 
       <div class="item">
-        
         <div class="container">
           <div class="custom-slider-caption">
             <div class="col-left col-lg-7 col-xl-8">

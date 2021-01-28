@@ -2,7 +2,7 @@
 	<div class="navbar-top">
 		<div class="container">
 			<div class="navbar-top-wrapper">
-			    <div class="navbar-left-wrapper col-sm-6">
+			    <div class="navbar-left-wrapper col-md-5 col-lg-6">
 			        <!-- @include('velocity::layouts.top-nav.locale-currency') -->
 			        <ul>
 	                    <li class="email"><span class="material-icons"> email </span><a href="mailto:support@zepomart.com">support@zepomart.com</a></li>
@@ -10,7 +10,7 @@
 	                </ul>
 			    </div>
 
-			    <div class="navbar-right-wrapper col-sm-6">
+			    <div class="navbar-right-wrapper col-md-7 col-lg-6">
 			    	@include('velocity::layouts.top-nav.locale-currency')
 			        @include('velocity::layouts.top-nav.login-section')
 			    </div>
