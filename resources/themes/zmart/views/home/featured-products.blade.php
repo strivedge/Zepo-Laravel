@@ -1,3 +1,4 @@
+<?php //echo"<pre>"; print_r(app('Webkul\Product\Repositories\ProductRepository')->getFeaturedProductsImages(102)); exit(); ?>
 @if (app('Webkul\Product\Repositories\ProductRepository')->getFeaturedProducts()->count())
     <section class="featured-products product-box">
 
@@ -20,15 +21,5 @@
         </ul>
 
     </section>
-
-@else
-    <div class="product-list empty">
-        <h2>{{ __('shop::app.products.whoops') }}</h2>
-
-        <p>
-            No products available
-        </p>
-    </div>
 @endif
-
 
