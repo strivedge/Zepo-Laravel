@@ -3,7 +3,7 @@
 {!! view_render_event('bagisto.shop.layout.header.account-item.after') !!}
 
 <script type="text/x-template" id="login-header-template">
-    <div class="pull-right">
+    <div class="pull-right login-register">
         <div class="dropdown">
             <div id="account">
 
@@ -23,7 +23,7 @@
                             <div class="modal-content">
                                 
                                    <!--  <div> -->
-                                        <a href="{{ route('customer.session.index') }}">
+                                        <a href="{{ route('customer.session.index') }}" class="login">
                                             <button
                                                 type="button"
                                                 class="theme-btn fs14 fw6">
@@ -34,7 +34,7 @@
                                     <!-- </div> -->
 
                                     <!-- <div> -->
-                                        <a href="{{ route('customer.register.index') }}">
+                                        <a href="{{ route('customer.register.index') }}" class="register">
                                             <button
                                                 type="button"
                                                 class="theme-btn fs14 fw6">

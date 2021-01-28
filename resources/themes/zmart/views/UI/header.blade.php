@@ -7,9 +7,9 @@
 <!-- <div class="navbar-bottom">
     <div class="container"> -->
         <header class="navbar-bottom  velocity-divide-page vc-header header-shadow active">
-            <div class="vc-small-screen container" v-if="isMobile()">
-                <div class="row">
-                    <div class="col-6">
+            <div class="vc-small-screen " v-if="isMobile()">
+                <div class="navbar-row">
+                    <div class="col-4 mobile-logo">
                         
                         <logo-component></logo-component>
                     </div>
@@ -19,7 +19,7 @@
                        
                     @endphp
 
-                    <div class="right-vc-header col-6">
+                    <div class="right-vc-header col-8">
                         <div v-if="hamburger" class="nav-container scrollable">
                             <div class="wrapper" v-if="this.rootCategories">
                                 <div class="greeting drawer-section fw6">
