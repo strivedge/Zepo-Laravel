@@ -127,6 +127,11 @@
         </div>
 
         <div class="navbar--addcart--wishlist col-md-3">
+            <!-- <a href="#" class="search-btn">
+                <span class="search-bar">
+                    <i class="fs16 fw6 rango-search"></i>
+                </span>
+            </a> -->
             {!! view_render_event('bagisto.shop.layout.header.cart-item.before') !!}
                 @include('shop::checkout.cart.mini-cart')
             {!! view_render_event('bagisto.shop.layout.header.cart-item.after') !!}
