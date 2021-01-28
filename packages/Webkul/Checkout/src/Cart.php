@@ -403,12 +403,14 @@ class Cart
     {
         $cart = null;
         if ($this->getCurrentCustomer()->check()) {
+            //echo"user id";print_r($this->getCurrentCustomer()->user()->id);exit();
             $cart = $this->cartRepository->findOneWhere([
                 'customer_id' => $this->getCurrentCustomer()->user()->id,
                 'is_active'   => 1,
             ]);
 
         } elseif (session()->has('cart')) {
+            //echo"cart id";print_r(session()->get('cart')->id);exit();
             $cart = $this->cartRepository->find(session()->get('cart')->id);
         }
 

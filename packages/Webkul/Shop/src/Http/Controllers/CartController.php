@@ -167,8 +167,9 @@ class CartController extends Controller
 
         try {
             if (strlen($couponCode)) {
-                Cart::setCouponCode($couponCode)->collectTotals();
 
+                Cart::setCouponCode($couponCode)->collectTotals();
+                //echo "couponCode:>".$couponCode.":2 couponCode:>";print_r(Cart::getCart()->coupon_code);exit();
                 if (Cart::getCart()->coupon_code == $couponCode) {
                     return response()->json([
                         'success' => true,

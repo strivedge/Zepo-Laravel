@@ -1,7 +1,9 @@
 @inject ('reviewHelper', 'Webkul\Product\Helpers\Review')
 @inject ('toolbarHelper', 'Webkul\Product\Helpers\Toolbar')
 @inject ('productImageHelper', 'Webkul\Product\Helpers\ProductImage')
-<?php //echo "payal<pre>"; print_r($product);exit(); ?>
+<?php //echo "payal<pre>"; print_r($product);exit(); 
+
+?>
 @push('css')
     <style type="text/css">
         .list-card .wishlist-icon i {

@@ -1,7 +1,7 @@
 @inject ('reviewHelper', 'Webkul\Product\Helpers\Review')
 @inject ('toolbarHelper', 'Webkul\Product\Helpers\Toolbar')
 @inject ('productImageHelper', 'Webkul\Product\Helpers\ProductImage')
-<?php //echo "payal<pre>"; print_r($product);exit(); ?>
+<?php //echo "payal<pre>"; print_r($image_total);exit(); ?>
 @push('css')
     <style type="text/css">
         .list-card .wishlist-icon i {
@@ -118,12 +118,35 @@
                                <span class="save">SAVE</span><span class="percentage">{{$product->getTypeInstance()->getOfferPercentage()}}%</span>
                             </div>
                         @endif
-                        <img
+                         <?php //echo "<pre>ttt"; print_r($galleryImages);exit(); ?>
+                        @if(count($galleryImages) > 0)
+                       
+                           @foreach($galleryImages as $image)
+                           <?php //echo "<pre>ttt"; print_r($image['path']);
+                           //echo "<pre>"; print_r($productBaseImage['large_image_url']);exit(); ?>
+                            <img
+                                loading="lazy"
+                                class="card-img-top"
+                                alt="{{ $product->name }}"
+                                src="{{ $image['large_image_url'] }}"
+                                :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
+
+                           @endforeach
+                        @else
+                            <img
                             loading="lazy"
                             class="card-img-top"
                             alt="{{ $product->name }}"
                             src="{{ $productBaseImage['large_image_url'] }}"
                             :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
+                        @endif
+
+                       <!--  <img
+                            loading="lazy"
+                            class="card-img-top"
+                            alt="{{ $product->name }}"
+                            src="{{ $productBaseImage['large_image_url'] }}"
+                            :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" /> -->
 
                             <!-- {{-- <product-quick-view-btn :quick-view-details="product"></product-quick-view-btn> --}}
                             <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn> -->
