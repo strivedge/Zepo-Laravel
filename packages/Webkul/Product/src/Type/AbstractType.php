@@ -719,6 +719,11 @@ abstract class AbstractType
 
              $html = $per;
 
+             /*echo "price:".$this->product->price;
+             echo "getSpecialPrice:".$this->getSpecialPrice();
+             echo"<pre>special_price2:";print_r($this->product->special_price); 
+             exit();*/
+
             /*$html = '<span class="regular-price">' . core()->currency($this->product->price) . '</span>'
                 . '<span class="special-price">' . core()->currency($this->getSpecialPrice()) . '</span>';*/
         } else {

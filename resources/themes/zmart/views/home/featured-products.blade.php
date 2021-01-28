@@ -12,7 +12,7 @@
             <?php //echo"<pre>"; print_r(app('Webkul\Product\Repositories\ProductRepository')->getNewProducts());exit(); ?>
 
             @foreach (app('Webkul\Product\Repositories\ProductRepository')->getFeaturedProducts() as $productFlat)
-
+            
                 @include ('shop::products.newproduct.new-product-listing', ['product' => $productFlat])
 
             @endforeach
