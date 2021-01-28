@@ -62,51 +62,54 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <div class="image-wrapper">
-            <img src="{{ asset('/themes/zmart/assets/images/home-banner.png') }}">
-        </div>
+        
         <div class="container">
           <div class="custom-slider-caption">
-            <div class="col-left">
+            
+            <div class="col-left col-lg-7 col-xl-8">
               <h1>Face Mask  Thermometer</span></h1>
               <p>Suspendisse turpis dui, posuere eget scelerisque a, porta eu elit. </p>
               <div class="buttons">
                   <button type="button" class="btn btn-primary">Shop Now</button>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="item">
-         <div class="image-wrapper">
-            <img src="{{ asset('/themes/zmart/assets/images/home-banner.png') }}">
-        </div>
-        <div class="container">
-          <div class="custom-slider-caption">
-            <div class="col-left">
-              <h1>Face Mask  Thermometer</span></h1>
-              <p>Suspendisse turpis dui, posuere eget scelerisque a, porta eu elit. </p>
-              <div class="buttons">
-                  <button type="button" class="btn btn-primary">Shop Now</button>
-              </div>
+            <div class="image-wrapper col-lg-5 col-xl-4">
+                <img src="{{ asset('/themes/zmart/assets/images/thermometer.png') }}">
             </div>
           </div>
         </div>
       </div>
 
       <div class="item">
-        <div class="image-wrapper">
-            <img src="{{ asset('/themes/zmart/assets/images/home-banner.png') }}">
-        </div>
         <div class="container">
           <div class="custom-slider-caption">
-            <div class="col-left">
+            <div class="col-left col-lg-7 col-xl-8">
               <h1>Face Mask  Thermometer</span></h1>
               <p>Suspendisse turpis dui, posuere eget scelerisque a, porta eu elit. </p>
               <div class="buttons">
                   <button type="button" class="btn btn-primary">Shop Now</button>
               </div>
+            </div>
+            <div class="image-wrapper col-lg-5 col-xl-4">
+                <img src="{{ asset('/themes/zmart/assets/images/thermometer.png') }}">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        
+        <div class="container">
+          <div class="custom-slider-caption">
+            <div class="col-left col-lg-7 col-xl-8">
+              <h1>Face Mask  Thermometer</span></h1>
+              <p>Suspendisse turpis dui, posuere eget scelerisque a, porta eu elit. </p>
+              <div class="buttons">
+                  <button type="button" class="btn btn-primary">Shop Now</button>
+              </div>
+            </div>
+            <div class="image-wrapper col-lg-5 col-xl-4">
+                <img src="{{ asset('/themes/zmart/assets/images/thermometer.png') }}">
             </div>
           </div>
         </div>

@@ -69,6 +69,14 @@
             }
         ]
     });
+
+  $('.search-btn').on('click', function(){
+    if($('.navbar--search').css('display') == 'block'){
+      $('.navbar--search').slideUp("fast");
+    } else{
+      $('.navbar--search').slideDown("fast");
+    }
+  });
  });
 
 
