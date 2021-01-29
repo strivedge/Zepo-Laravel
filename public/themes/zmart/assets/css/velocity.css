@@ -2803,8 +2803,8 @@ body:after {
     display: inline-block!important;
 }
 .cd-quick-view .quick-view-name {
-    font-size: 24px;
-    line-height: 25px;
+    /*font-size: 24px;
+    line-height: 25px;*/
 }
 .cd-quick-view .product-price {
     margin-top: 10px;
@@ -3020,7 +3020,7 @@ body:after {
 .padding-10, .padding-15 {
     padding: 15px;
 }
-.fw5 {
+/*.fw5 {
     font-weight: 500;
 }
 .fw6, .product-detail .right .info .price, .product-detail .right h3, .product-detail .right h4 {
@@ -3037,7 +3037,7 @@ body:after {
 }
 .fs15 {
     font-size: 15px;
-}
+}*/
 .account-content .account-layout .bottom-toolbar .pagination .page-item, .fs16, .product-detail .right {
     font-size: 16px;
 }
