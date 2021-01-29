@@ -14,7 +14,7 @@
                         @endguest -->
 
                         @auth('customer')
-                        <div class="welcome-content pull-right" @click="togglePopup">
+                        <div class="welcome-content login-content" @click="togglePopup">
                             {{ __('velocity::app.header.welcome-message', ['customer_name' => auth()->guard('customer')->user()->first_name]) }}
                         </div>
                         @endauth 
@@ -26,7 +26,7 @@
                                         <a href="{{ route('customer.session.index') }}" class="login">
                                             <button
                                                 type="button"
-                                                class="theme-btn fs14 fw6">
+                                                class="">
 
                                                 {{ __('shop::app.header.sign-in') }}
                                             </button>
@@ -37,7 +37,7 @@
                                         <a href="{{ route('customer.register.index') }}" class="register">
                                             <button
                                                 type="button"
-                                                class="theme-btn fs14 fw6">
+                                                class="">
                                                 {{ __('shop::app.header.sign-up') }}
                                             </button>
                                         </a>
@@ -105,15 +105,15 @@
                             </div>
 
                             <ul type="none">
-                                <li>
+                                <li><span><i class="icon profile text-down-3 profile"></i></span>
                                     <a href="{{ route('customer.profile.index') }}" class="unset">{{ __('shop::app.header.profile') }}</a>
                                 </li>
 
-                                <li>
+                                <li><span><i class="icon orders text-down-3 order"></i></span>
                                     <a href="{{ route('customer.orders.index') }}" class="unset">{{ __('velocity::app.shop.general.orders') }}</a>
                                 </li>
 
-                                <li>
+                                <li><span><i class="icon wishlist text-down-3 wishlist"></i></span>
                                     <a href="{{ route('customer.wishlist.index') }}" class="unset">{{ __('shop::app.header.wishlist') }}</a>
                                 </li>
 
@@ -123,13 +123,13 @@
                                 @endphp
                                 
                                 @if ($showCompare)
-                                    <li>
+                                    <li><span><i class="icon compare text-down-3 compare"></i></span>
                                         <a href="{{ route('velocity.customer.product.compare') }}" class="unset">{{ __('velocity::app.customer.compare.text') }}</a>
                                     </li>
                                 @endif
 
                                 <li>
-                                    <a href="{{ route('customer.session.destroy') }}" class="unset">{{ __('shop::app.header.logout') }}</a>
+                                    <a href="{{ route('customer.session.destroy') }}" class="unset"><span class="material-icons">logout</span>{{ __('shop::app.header.logout') }}</a>
                                 </li>
                             </ul>
                         </div>

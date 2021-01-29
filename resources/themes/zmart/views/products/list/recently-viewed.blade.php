@@ -113,13 +113,15 @@
                             <li class="" :key="Math.random()"  v-for="(product, index) in recentlyViewed">
                                 <div class="content-wrap">
                                     <div class="product-code">@{{ product.sku }}</div>
-                                    <!-- <a :href="`${baseUrl}/${product.urlKey}`" class="unset"> -->
-                                        <div class="img">
-                                            <div class="discount badge badge-secondary"  v-if="product.special_price"><span class="save">SAVE</span><span class="percentage">@{{ product.percentage }}%</span></div>
-                                            <!-- <img src="{{ asset('/themes/zmart/assets/images/venus-v4400-n95-face-mask.png') }}"> -->
-                                            <img :src="`${product.image}`" :onerror="`this.src='${product.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`">
-                                        </div>
-                                    <!-- </a> -->
+                                    <div class="img">
+                                        <a :href="`${baseUrl}/${product.urlKey}`" class="unset">
+                                            
+                                                <div class="discount badge badge-secondary"  v-if="product.special_price"><span class="save">SAVE</span><span class="percentage">@{{ product.percentage }}%</span></div>
+                                                <!-- <img src="{{ asset('/themes/zmart/assets/images/venus-v4400-n95-face-mask.png') }}"> -->
+                                                <img :src="`${product.image}`" :onerror="`this.src='${product.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`">
+                                            
+                                        </a> 
+                                    </div>
                                     <div class="content">
                                         <div class="product-rating">
                                             <star-ratings v-if="product.rating > 0"
