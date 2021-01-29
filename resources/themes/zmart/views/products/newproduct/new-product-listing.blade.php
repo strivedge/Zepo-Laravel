@@ -107,50 +107,58 @@
             <div class="content-wrap">
                 <div class="product-code">{{$product->sku}}</div>
                 <div class="img">
-                    <a
-                        href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
-                        title="{{ $product->name }}"
-                        class="product-image-container">
-                        @if ($product->getTypeInstance()->haveSpecialPrice())
-                            <?php //echo"Test<pre>";print_r($product->getTypeInstance()->getOfferPercentage());exit; ?>
-                            <div class="sticker new">
-                              <!-- <span class="new"> {{ __('shop::app.products.new') }}</span> -->
-                               <span class="save">SAVE</span><span class="percentage">{{$product->getTypeInstance()->getOfferPercentage()}}%</span>
-                            </div>
-                        @endif
-                         <?php //echo "<pre>ttt"; print_r($galleryImages);exit(); ?>
-                        @if(count($galleryImages) > 0)
-                       
-                           @foreach($galleryImages as $image)
-                           <?php //echo "<pre>ttt"; print_r($image['path']);
-                           //echo "<pre>"; print_r($productBaseImage['large_image_url']);exit(); ?>
-                            <img
-                                loading="lazy"
-                                class="card-img-top"
-                                alt="{{ $product->name }}"
-                                src="{{ $image['large_image_url'] }}"
-                                :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
+                    <!-- <div class=""> -->
+                        
+                            <a
+                                href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
+                                title="{{ $product->name }}"
+                                class="product-image-container">
+                                @if ($product->getTypeInstance()->haveSpecialPrice())
+                                    <?php //echo"Test<pre>";print_r($product->getTypeInstance()->getOfferPercentage());exit; ?>
+                                    <div class="sticker new">
+                                      <!-- <span class="new"> {{ __('shop::app.products.new') }}</span> -->
+                                       <span class="save">SAVE</span><span class="percentage">{{$product->getTypeInstance()->getOfferPercentage()}}%</span>
+                                    </div>
+                                @endif
+                                 <?php //echo "<pre>ttt"; print_r($galleryImages);exit(); ?>
+                                @if(count($galleryImages) > 0)
+                                <div class="product-imgs">
+                                   @foreach($galleryImages as $image)
 
-                           @endforeach
-                        @else
-                            <img
-                            loading="lazy"
-                            class="card-img-top"
-                            alt="{{ $product->name }}"
-                            src="{{ $productBaseImage['large_image_url'] }}"
-                            :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
-                        @endif
+                                   <?php //echo "<pre>ttt"; print_r($image['path']);
+                                   //echo "<pre>"; print_r($productBaseImage['large_image_url']);exit(); ?>
+                                   
+                                        <img
+                                            loading="lazy"
+                                            class="card-img-top items"
+                                            alt="{{ $product->name }}"
+                                            src="{{ $image['large_image_url'] }}"
+                                            :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
+                                        
 
-                       <!--  <img
-                            loading="lazy"
-                            class="card-img-top"
-                            alt="{{ $product->name }}"
-                            src="{{ $productBaseImage['large_image_url'] }}"
-                            :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" /> -->
+                                   @endforeach
+                                </div>
+                                @else
+                                    <img
+                                    loading="lazy"
+                                    class="card-img-top"
+                                    alt="{{ $product->name }}"
+                                    src="{{ $productBaseImage['large_image_url'] }}"
+                                    :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
+                                @endif
 
-                            <!-- {{-- <product-quick-view-btn :quick-view-details="product"></product-quick-view-btn> --}}
-                            <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn> -->
-                    </a>
+                               <!--  <img
+                                    loading="lazy"
+                                    class="card-img-top"
+                                    alt="{{ $product->name }}"
+                                    src="{{ $productBaseImage['large_image_url'] }}"
+                                    :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" /> -->
+
+                                    <!-- {{-- <product-quick-view-btn :quick-view-details="product"></product-quick-view-btn> --}}
+                                    <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn> -->
+                            </a>
+                        
+                    <!-- </div> -->
                 </div>
                 
                 

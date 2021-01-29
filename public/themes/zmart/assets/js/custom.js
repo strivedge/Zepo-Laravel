@@ -70,13 +70,39 @@
         ]
     });
 
-  $('.search-btn').on('click', function(){
+/*  $('.search-btn').on('click', function(){
     if($('.navbar--search').css('display') == 'block'){
       $('.navbar--search').slideUp("fast");
     } else{
       $('.navbar--search').slideDown("fast");
     }
-  });
+  });*/
+   $('.product-imgs').slick({
+    infinite: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        dots: false,
+        autoplay : false,
+        autoplaySpeed:5000,
+        responsive: [
+            {
+                breakpoint: 1400,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 767,
+                settings: {
+                    centerMode: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
  });
 
 

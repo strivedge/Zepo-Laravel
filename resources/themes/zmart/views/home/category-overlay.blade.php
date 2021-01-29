@@ -7,46 +7,25 @@
         <ul class="row">
     @if(isset($posts) && count($posts) > 0)
         @foreach($posts as $post)
-            <li class="col-md-3 imgs">
+            <li class="col-md-6 col-lg-4 col-xl-3 imgs">
                 <div class="content-wrap">
-                    <a href="#">
-                        <img src="{{ asset('uploadImages/'.$post->image) }}" alt="{{ __('shop::app.home.offers-products') }}" onerror="this.src='{{ asset('vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png') }}'">
-                        <div class="overlay"><span>{{ $post->title }}</span></div>
-                    </a>
+                    <div class="image-wrap">
+                        <a href="#">
+                            <img src="{{ asset('uploadImages/'.$post->image) }}" alt="{{ __('shop::app.home.offers-products') }}" onerror="this.src='{{ asset('vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png') }}'">
+                            <div class="overlay"><span>{{ $post->title }}</span></div>
+                        </a>
+                    </div>
                 </div>
             </li>
             @endforeach
         @else
-        <li class="imgs">
-            <div class="container">
-                <p>No Posts...!</p>
-            </div>
+        <li class="imgs col-12 errors">
+            
+                No Posts...!
+            
         </li>
         @endif
-            <!-- <li class="col-md-3 imgs">
-                <div class="content-wrap">
-                    <a href="#">
-                        <img src="{{ asset('themes/zmart/assets/images/category-image.png') }}">
-                        <div class="overlay"><span>ECG</span></div>
-                    </a>
-                </div>
-            </li>
-            <li class="col-md-3 imgs">
-                <div class="content-wrap">
-                    <a href="#">
-                        <img src="{{ asset('themes/zmart/assets/images/category-image.png') }}">
-                        <div class="overlay"><span>ECG</span></div>
-                    </a>
-                </div>
-            </li>
-            <li class="col-md-3 imgs">
-                <div class="content-wrap">
-                    <a href="#">
-                        <img src="{{ asset('themes/zmart/assets/images/category-image.png') }}">
-                        <div class="overlay"><span>ECG</span></div>
-                    </a>
-                </div>
-            </li> -->
+            
         </ul>
     </div>
 </section>
