@@ -1023,11 +1023,11 @@
 .account-content .sidebar .customer-sidebar .navigation, .account-content .sidebar .customer-sidebar .navigation li {
     width: 100%}
 .account-content .sidebar .customer-sidebar .navigation li.active, .account-content .sidebar .customer-sidebar .navigation li:hover {
-    color: #28557b;
+    /*color: #28557b;*/
     background-color: #ececec;
 }
 .account-content .sidebar .customer-sidebar .navigation li i.icon {
-    font-size: 18px;
+    /*font-size: 18px;*/
     padding-right: 5px;
 }
 .account-content .sidebar .customer-sidebar .navigation li i.icon.profile:before {
@@ -1056,7 +1056,7 @@
     padding-bottom: 60px;
 }
 .account-content .account-layout.right {
-    padding-left: 250px!important;
+    /*padding-left: 250px!important;*/
 }
 .account-content .account-layout .account-head {
     margin-bottom: 20px;
@@ -1069,20 +1069,20 @@
     margin-bottom: 30px;
 }
 .account-content .account-layout .account-table-content label {
-    font-weight: 500;
+    /*font-weight: 500;*/
 }
 .account-content .account-layout .account-table-content input, .account-content .account-layout .account-table-content select, .account-content .account-layout .account-table-content textarea {
-    width: 100%;
+    /*width: 100%;
     resize: none;
     font-size: 16px;
     padding: 5px 16px;
     border-radius: 1px;
     background: #fff;
-    border: 1px solid #ccc;
+    border: 1px solid #ccc;*/
 }
-.account-content .account-layout .account-table-content input:active, .account-content .account-layout .account-table-content input:focus, .account-content .account-layout .account-table-content select:active, .account-content .account-layout .account-table-content select:focus, .account-content .account-layout .account-table-content textarea:active, .account-content .account-layout .account-table-content textarea:focus {
+/*.account-content .account-layout .account-table-content input:active, .account-content .account-layout .account-table-content input:focus, .account-content .account-layout .account-table-content select:active, .account-content .account-layout .account-table-content select:focus, .account-content .account-layout .account-table-content textarea:active, .account-content .account-layout .account-table-content textarea:focus {
     border-color: #26a37c;
-}
+}*/
 .account-content .account-layout .account-table-content .address-holder {
     margin-top: 30px;
 }
@@ -1658,7 +1658,7 @@
 }
 .main-container-wrapper .sticky-header.header-shadow {
     -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
+    box-shadow: 0 3px 6px rgba(0, 0, 0,.16), 0 3px 6px rgba(0, 0, 0,.23);
 }
 .search-container {
     padding: 30px 20px;
@@ -1681,7 +1681,7 @@
     background-color: #141516;
 }
 .sidebar {
-    z-index: 1000000;
+    /*z-index: 1000000;*/
     width: 230px;
 }
 .sidebar .category-content .category-title {
@@ -10241,8 +10241,8 @@ body {
 #top .customer-name {
     font-size: 16px;
     font-weight: 600;
-    padding: 0 10px;
-    color: rgba(0, 0, 0, .83);
+    /*padding: 0 10px;
+    color: rgba(0, 0, 0, .83);*/
 }
 #top #account {
     font-size: 14px;
