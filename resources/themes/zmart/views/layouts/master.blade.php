@@ -118,34 +118,38 @@
                                     add-class="category-list-container pt10">
                                 </sidebar-component>
                             </div>
+                            <!-- <div class="inner-content"> -->
+                                <div class="container">
+                                    <div class="col-12 no-padding content" id="home-right-bar-container">
 
-                                <div class="col-12 no-padding content" id="home-right-bar-container">
+                                        <!-- <div class="container-right row no-margin col-12 no-padding"> -->
 
-                                    <div class="container-right row no-margin col-12 no-padding">
+                                            {!! view_render_event('bagisto.shop.layout.content.before') !!}
 
-                                        {!! view_render_event('bagisto.shop.layout.content.before') !!}
+                                            @yield('content-wrapper')
 
-                                        @yield('content-wrapper')
+                                            {!! view_render_event('bagisto.shop.layout.content.after') !!}
+                                        <!-- </div> -->
 
-                                        {!! view_render_event('bagisto.shop.layout.content.after') !!}
                                     </div>
-
                                 </div>
+                            <!-- </div> -->
                             
                         </div>
                     </div>
                 @show
 
 
-                <div class="container">
-
+                
+                
                     {!! view_render_event('bagisto.shop.layout.full-content.before') !!}
-
-                        @yield('full-content-wrapper')
+                        
+                            @yield('full-content-wrapper')
+                        
 
                     {!! view_render_event('bagisto.shop.layout.full-content.after') !!}
 
-                </div>
+                
 
                 <!-- <div class="container"> -->
 

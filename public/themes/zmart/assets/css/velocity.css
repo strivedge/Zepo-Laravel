@@ -2803,8 +2803,8 @@ body:after {
     display: inline-block!important;
 }
 .cd-quick-view .quick-view-name {
-    font-size: 24px;
-    line-height: 25px;
+    /*font-size: 24px;
+    line-height: 25px;*/
 }
 .cd-quick-view .product-price {
     margin-top: 10px;
@@ -3020,7 +3020,7 @@ body:after {
 .padding-10, .padding-15 {
     padding: 15px;
 }
-.fw5 {
+/*.fw5 {
     font-weight: 500;
 }
 .fw6, .product-detail .right .info .price, .product-detail .right h3, .product-detail .right h4 {
@@ -3037,7 +3037,7 @@ body:after {
 }
 .fs15 {
     font-size: 15px;
-}
+}*/
 .account-content .account-layout .bottom-toolbar .pagination .page-item, .fs16, .product-detail .right {
     font-size: 16px;
 }
@@ -3255,7 +3255,7 @@ body:after {
     color: #fff!important;
     background-color: #26a37c!important;
 }*/
-.account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container .quantity button:focus, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container .quantity button:hover, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button.btn:focus, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button.btn:hover, .account-content .account-layout .bottom-toolbar .pagination .page-item:focus, .account-content .account-layout .bottom-toolbar .pagination .page-item:hover, .cart-details .continue-shopping-btn:focus, .cart-details .continue-shopping-btn:hover, .quantity .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button:focus, .quantity .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button:hover, .theme-btn:focus, .theme-btn:hover {
+/*.account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container .quantity button:focus, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container .quantity button:hover, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button.btn:focus, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button.btn:hover, .account-content .account-layout .bottom-toolbar .pagination .page-item:focus, .account-content .account-layout .bottom-toolbar .pagination .page-item:hover, .cart-details .continue-shopping-btn:focus, .cart-details .continue-shopping-btn:hover, .quantity .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button:focus, .quantity .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button:hover, .theme-btn:focus, .theme-btn:hover {
     outline: none;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -3276,13 +3276,13 @@ body:after {
     border: 1px solid #247959;
     background-color: #f5f5f5!important;
 }
-/*.account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container .quantity button:hover, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button.btn:hover, .account-content .account-layout .bottom-toolbar .pagination .page-item:hover, .btn-add-to-cart:hover, .cart-details .continue-shopping-btn:hover, .quantity .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button:hover, .theme-btn:hover {
+.account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container .quantity button:hover, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button.btn:hover, .account-content .account-layout .bottom-toolbar .pagination .page-item:hover, .btn-add-to-cart:hover, .cart-details .continue-shopping-btn:hover, .quantity .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button:hover, .theme-btn:hover {
     border-color: #247959!important;
     background-color: #247959!important;
-}*/
+}
 .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container .bottom-toolbar .pagination .quantity button.page-item:hover, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container .bottom-toolbar .pagination button.btn.page-item:hover, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container .quantity button:hover.light, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button.btn:hover.light, .account-content .account-layout .bottom-toolbar .pagination .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button.btn.page-item:hover, .account-content .account-layout .bottom-toolbar .pagination .btn-add-to-cart.page-item:hover, .account-content .account-layout .bottom-toolbar .pagination .page-item:hover, .account-content .account-layout .bottom-toolbar .pagination .quantity .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button.page-item:hover, .btn-add-to-cart:hover.light, .cart-details .continue-shopping-btn:hover.light, .quantity .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container .bottom-toolbar .pagination button.page-item:hover, .quantity .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button:hover.light, .quantity .account-content .account-layout .bottom-toolbar .pagination .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button.page-item:hover, .theme-btn:hover.light {
     border: 1px solid rgba(0, 0, 0, .12)!important;
-}
+}*/
 .norm-btn {
     border: 1px solid #ccc;
     font-size: 14px;
@@ -10781,7 +10781,7 @@ i.within-circle {
 .center_div {
     margin: 0 auto;
     width: 80%}
-.form-style {
+/*.form-style {
     display: block;
     width: 100%;
     height: 34px;
@@ -10800,7 +10800,7 @@ i.within-circle {
     margin-bottom: 5px!important;
     font-weight: 100!important;
     font-size: 16px!important;
-}
+}*/
 .btn-white {
     color: #fff;
     height: 36px;
