@@ -96,6 +96,8 @@
                     {!! view_render_event('bagisto.shop.layout.header.after') !!}
 
                     <div class="main-content-wrapper col-12 no-padding">
+                        <div id="head">
+                        </div>
                         @php
                             $velocityContent = app('Webkul\Velocity\Repositories\ContentRepository')->getAllContents();
                         @endphp
@@ -118,9 +120,11 @@
                                     add-class="category-list-container pt10">
                                 </sidebar-component>
                             </div>
+                            @yield('home-banner-content-wrapper')
                             <!-- <div class="inner-content"> -->
                                 <div class="container">
-                                    <div class="col-12 no-padding content" id="home-right-bar-container">
+                                    <div class="col-12 content" id="home-right-bar-container">
+                                    <!-- <section class="col-12 content" id="home-right-bar-container"> -->
 
                                         <!-- <div class="container-right row no-margin col-12 no-padding"> -->
 
@@ -131,6 +135,7 @@
                                             {!! view_render_event('bagisto.shop.layout.content.after') !!}
                                         <!-- </div> -->
 
+                                    <!-- </section> -->
                                     </div>
                                 </div>
                             <!-- </div> -->

@@ -99,6 +99,9 @@
                     @auth('customer')
                         <div class="modal-content customer-options">
                             <div class="customer-session">
+                                <div class="customer-name text-uppercase">
+                                    P
+                                </div>
                                 <label class="">
                                     {{ auth()->guard('customer')->user()->first_name }}
                                 </label>

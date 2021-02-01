@@ -43,35 +43,35 @@
 
                     <tr>
                         <td>{{ __('shop::app.customer.account.profile.fname') }}</td>
-                        <td>{{ $customer->first_name }}</td>
+                        <td><b>:</b>&nbsp; {{ $customer->first_name }}</td>
                     </tr>
 
                     {!! view_render_event('bagisto.shop.customers.account.profile.view.table.first_name.after', ['customer' => $customer]) !!}
 
                     <tr>
                         <td>{{ __('shop::app.customer.account.profile.lname') }}</td>
-                        <td>{{ $customer->last_name }}</td>
+                        <td><b>:</b>&nbsp; {{ $customer->last_name }}</td>
                     </tr>
 
                     {!! view_render_event('bagisto.shop.customers.account.profile.view.table.last_name.after', ['customer' => $customer]) !!}
 
                     <tr>
                         <td>{{ __('shop::app.customer.account.profile.gender') }}</td>
-                        <td>{{ $customer->gender ?? '-' }}</td>
+                        <td><b>:</b>&nbsp; {{ $customer->gender ?? '-' }}</td>
                     </tr>
 
                     {!! view_render_event('bagisto.shop.customers.account.profile.view.table.gender.after', ['customer' => $customer]) !!}
 
                     <tr>
                         <td>{{ __('shop::app.customer.account.profile.dob') }}</td>
-                        <td>{{ $customer->date_of_birth ?? '-' }}</td>
+                        <td><b>:</b>&nbsp; {{ $customer->date_of_birth ?? '-' }}</td>
                     </tr>
 
                     {!! view_render_event('bagisto.shop.customers.account.profile.view.table.date_of_birth.after', ['customer' => $customer]) !!}
 
                     <tr>
                         <td>{{ __('shop::app.customer.account.profile.email') }}</td>
-                        <td>{{ $customer->email }}</td>
+                        <td><b>:</b>&nbsp; {{ $customer->email }}</td>
                     </tr>
 
                     {!! view_render_event(

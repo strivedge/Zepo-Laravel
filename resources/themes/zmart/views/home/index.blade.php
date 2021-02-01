@@ -49,85 +49,87 @@
     </style>
 @endpush
 
-@section('content-wrapper')
-<section id="slider" class="slider-img">
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
+@section('home-banner-content-wrapper')
+<div class="col-12 no-padding content" id="home-right-bar-container">
+  <section id="slider" class="slider-img">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
-        
-        <div class="container">
-          <div class="custom-slider-caption">
-            
-            <div class="col-left col-lg-7 col-xl-8">
-              <h1>Face Mask  Thermometer</span></h1>
-              <p>Suspendisse turpis dui, posuere eget scelerisque a, porta eu elit. </p>
-              <div class="buttons">
-                  <button type="button" class="btn btn-primary">Shop Now</button>
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="item active">
+          
+          <div class="container">
+            <div class="custom-slider-caption">
+              
+              <div class="col-left col-lg-7 col-xl-8">
+                <h1>Face Mask  Thermometer</span></h1>
+                <p>Suspendisse turpis dui, posuere eget scelerisque a, porta eu elit. </p>
+                <div class="buttons">
+                    <button type="button" class="btn btn-primary">Shop Now</button>
+                </div>
+              </div>
+              <div class="image-wrapper col-lg-5 col-xl-4">
+                  <img src="{{ asset('/themes/zmart/assets/images/thermometer.png') }}">
               </div>
             </div>
-            <div class="image-wrapper col-lg-5 col-xl-4">
-                <img src="{{ asset('/themes/zmart/assets/images/thermometer.png') }}">
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="container">
+            <div class="custom-slider-caption">
+              <div class="col-left col-lg-7 col-xl-8">
+                <h1>Face Mask  Thermometer</span></h1>
+                <p>Suspendisse turpis dui, posuere eget scelerisque a, porta eu elit. </p>
+                <div class="buttons">
+                    <button type="button" class="btn btn-primary">Shop Now</button>
+                </div>
+              </div>
+              <div class="image-wrapper col-lg-5 col-xl-4">
+                  <img src="{{ asset('/themes/zmart/assets/images/thermometer.png') }}">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          
+          <div class="container">
+            <div class="custom-slider-caption">
+              <div class="col-left col-lg-7 col-xl-8">
+                <h1>Face Mask  Thermometer</span></h1>
+                <p>Suspendisse turpis dui, posuere eget scelerisque a, porta eu elit. </p>
+                <div class="buttons">
+                    <button type="button" class="btn btn-primary">Shop Now</button>
+                </div>
+              </div>
+              <div class="image-wrapper col-lg-5 col-xl-4">
+                  <img src="{{ asset('/themes/zmart/assets/images/thermometer.png') }}">
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="item">
-        <div class="container">
-          <div class="custom-slider-caption">
-            <div class="col-left col-lg-7 col-xl-8">
-              <h1>Face Mask  Thermometer</span></h1>
-              <p>Suspendisse turpis dui, posuere eget scelerisque a, porta eu elit. </p>
-              <div class="buttons">
-                  <button type="button" class="btn btn-primary">Shop Now</button>
-              </div>
-            </div>
-            <div class="image-wrapper col-lg-5 col-xl-4">
-                <img src="{{ asset('/themes/zmart/assets/images/thermometer.png') }}">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="item">
-        
-        <div class="container">
-          <div class="custom-slider-caption">
-            <div class="col-left col-lg-7 col-xl-8">
-              <h1>Face Mask  Thermometer</span></h1>
-              <p>Suspendisse turpis dui, posuere eget scelerisque a, porta eu elit. </p>
-              <div class="buttons">
-                  <button type="button" class="btn btn-primary">Shop Now</button>
-              </div>
-            </div>
-            <div class="image-wrapper col-lg-5 col-xl-4">
-                <img src="{{ asset('/themes/zmart/assets/images/thermometer.png') }}">
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- Left and right controls -->
+      <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+        <span class="arrows"><img src="{{ asset('/themes/zmart/assets/images/bx-bx-right-arrow-alt.png') }}"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+        <span class="arrows"><img src="{{ asset('/themes/zmart/assets/images/bx-bx-left-arrow-alt.png') }}"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
-
-    <!-- Left and right controls -->
-    <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
-      <span class="arrows"><img src="{{ asset('/themes/zmart/assets/images/bx-bx-right-arrow-alt.png') }}"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#myCarousel" data-slide="next">
-      <span class="arrows"><img src="{{ asset('/themes/zmart/assets/images/bx-bx-left-arrow-alt.png') }}"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-    <!-- @include('shop::home.slider') -->
-</section>
+      <!-- @include('shop::home.slider') -->
+  </section>
+</div>
 
 @endsection
 
