@@ -128,8 +128,8 @@
                                     </li>
                                 @endif
 
-                                <li>
-                                    <a href="{{ route('customer.session.destroy') }}" class="unset"><span class="material-icons">logout</span>{{ __('shop::app.header.logout') }}</a>
+                                <li><span class="material-icons">logout</span>
+                                    <a href="{{ route('customer.session.destroy') }}" class="unset">{{ __('shop::app.header.logout') }}</a>
                                 </li>
                             </ul>
                         </div>
