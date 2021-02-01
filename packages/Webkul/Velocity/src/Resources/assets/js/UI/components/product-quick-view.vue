@@ -41,7 +41,7 @@
                         <span class="fs14" v-text="product.firstReviewText"></span>
                     </div>
 
-                    <p class="pt14 fs14 description-text" v-html="product.shortDescription"></p>
+                    <p class="pt14 fs14 description-text" v-html="product.shortDescription"> </p>
 
                     <div class="product-actions">
                         <vnode-injector :nodes="getDynamicHTML(product.addToCartHtml)"></vnode-injector>
@@ -85,6 +85,7 @@
 </template>
 
 <script type="text/javascript">
+console.log("Product quick view")
     export default {
         data: function () {
             return {

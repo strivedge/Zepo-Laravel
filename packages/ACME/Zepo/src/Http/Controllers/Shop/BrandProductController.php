@@ -1,6 +1,6 @@
 <?php
 
-namespace ACME\HelloWorld\Http\Controllers\Shop;
+namespace ACME\Zepo\Http\Controllers\Shop;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Foundation\Bus\DispatchesJobs;
