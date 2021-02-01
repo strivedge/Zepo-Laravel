@@ -101,6 +101,7 @@ class DashboardController extends Controller
         $this->customerRepository = $customerRepository;
 
         $this->productInventoryRepository = $productInventoryRepository;
+               
     }
 
     /**
@@ -216,6 +217,7 @@ class DashboardController extends Controller
      */
     public function getTopSellingProducts()
     {
+
         return $this->orderItemRepository->getModel()
                     ->select(DB::raw('SUM(qty_ordered) as total_qty_ordered'))
                     ->addSelect('id', 'product_id', 'product_type', 'name')

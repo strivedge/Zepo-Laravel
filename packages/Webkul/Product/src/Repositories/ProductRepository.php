@@ -400,7 +400,8 @@ class ProductRepository extends Repository
 
             return $query->distinct()
                 ->Join('catalog_rule_product_prices', 'catalog_rule_product_prices.product_id', '=', 'product_flat.product_id')
-               // ->select('product_flat.*','catalog_rule_product_prices.price')
+               //->select('product_flat.*','catalog_rule_product_prices.price as special_price')
+               // ->select('product_flat.id','product_flat.sku','product_flat.name','product_flat.description','product_flat.new','product_flat.featured','product_flat.status','product_flat.thumbnail','product_flat.price','product_flat.cost','product_flat.weight','product_flat.color','product_flat.color_label','product_flat.size','product_flat.size_label','product_flat.locale','product_flat.channel','product_flat.product_id','product_flat.parent_id','product_flat.visible_individually','product_flat.url_key','product_flat.min_price','product_flat.max_price','product_flat.short_description','product_flat.meta_title','product_flat.meta_keywords','product_flat.meta_description','product_flat.width','product_flat.height','product_flat.depth','catalog_rule_product_prices.price as special_price')
                 //->leftJoin('product_flat', 'catalog_rule_product_prices.product_id', '=', 'product_flat.product_id')
                 ->where('product_flat.status', 1)
                 ->where('product_flat.visible_individually', 1)
