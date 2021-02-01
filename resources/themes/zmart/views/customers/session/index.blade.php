@@ -5,7 +5,6 @@
 @endsection
 
 @section('content-wrapper')
-
     <div class="row">
         <div class="auth-content form-container login-rgister col-md-12">
 
