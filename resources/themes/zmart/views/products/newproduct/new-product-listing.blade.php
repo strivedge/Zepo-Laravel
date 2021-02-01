@@ -197,7 +197,18 @@
                         <span class="including-tax">(Including tax)</span>
                     </div>
                 </div>
-                   
+                <div class="cart-wish-wrap">
+                    @include ('shop::products.newproduct.new-product-add-to-cart', [
+                        'product'           => $product,
+                        'btnText'           => $btnText ?? null,
+                        'moveToCart'        => $moveToCart ?? null,
+                        'reloadPage'        => $reloadPage ?? null,
+                        'addToCartForm'     => $addToCartForm ?? false,
+                        'addToCartBtnClass' => $addToCartBtnClass ?? '',
+                        'showCompare'       => core()->getConfigData('general.content.shop.compare_option') == "1"
+                                                ? true : false,
+                    ])
+                </div>  
                    
                     
                 <!-- </div> -->
