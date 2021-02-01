@@ -5,25 +5,6 @@
 @endsection
 
 @section('content-wrapper')
-<<<<<<< HEAD
-    <div class="auth-content form-container test">
-
-        {!! view_render_event('bagisto.shop.customers.login.before') !!}
-
-            <div class="container">
-                <div class="col-lg-10 col-md-12 offset-lg-1">
-                    <div class="heading">
-                        <h2 class="fs24 fw6">
-                            {{ __('velocity::app.customer.login-form.customer-login')}}
-                        </h2>
-
-                        <a href="{{ route('customer.register.index') }}" class="btn-new-customer">
-                            <button type="button" class="theme-btn light">
-                                {{ __('velocity::app.customer.login-form.sign-up')}}
-                            </button>
-                        </a>
-                    </div>
-=======
     <div class="row">
         <div class="auth-content form-container login-rgister col-md-12">
 
@@ -43,7 +24,6 @@
                                 </button>
                             </a>
                         </div>
->>>>>>> 0a9d7566db4167d25c4ed8912ecb799391d23b4a
 
                         <!-- <div class="body col-12"> -->
                         <div class="body">
