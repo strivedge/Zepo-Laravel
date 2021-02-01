@@ -110,6 +110,7 @@
         "Webkul\\BookingProduct\\": "packages/Webkul/BookingProduct/src",
         "Webkul\\SocialLogin\\": "packages/Webkul/SocialLogin/src",
         "ACME\\HelloWorld\\": "packages/ACME/HelloWorld/src",
+        "ACME\\Zepo\\": "packages/ACME/Zepo/src",
         "Custom\\Blog\\": "packages/Custom/Blog/src",
         "Custom\\Testinominal\\": "packages/Custom/Testinominal/src",
         "Custom\\Offer\\": "packages/Custom/Offer/src"

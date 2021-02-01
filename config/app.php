@@ -284,6 +284,7 @@ return [
         Webkul\SocialLogin\Providers\SocialLoginServiceProvider::class,
 
         ACME\HelloWorld\Providers\HelloWorldServiceProvider::class,
+        ACME\Zepo\Providers\ZepoServiceProvider::class,
 
         Custom\Blog\Providers\BlogServiceProvider::class,
         Custom\Testinominal\Providers\TestinominalServiceProvider::class,

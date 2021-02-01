@@ -67,6 +67,7 @@
 </template>
 
 <script>
+console.log("Mini cart")
     export default {
         props: [
             'cartText',

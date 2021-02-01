@@ -1,12 +1,12 @@
 <?php
 
-namespace ACME\HelloWorld\Http\Controllers\Shop;
+namespace ACME\Zepo\Http\Controllers\Shop;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 
-class HelloWorldController extends Controller
+class HomeController extends Controller
 {
     use DispatchesJobs, ValidatesRequests;
 
@@ -36,6 +36,14 @@ class HelloWorldController extends Controller
     {
         return view($this->_config['view']);
     }
+    
+    public function aboutUs()
+    {
+        return view($this->_config['view']);
+    }
 
-   
+    public function contactUs()
+    {
+        return view($this->_config['view']);
+    }
 }

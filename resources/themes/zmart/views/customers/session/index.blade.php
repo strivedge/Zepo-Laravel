@@ -5,7 +5,7 @@
 @endsection
 
 @section('content-wrapper')
-    <div class="auth-content form-container">
+    <div class="auth-content form-container test">
 
         {!! view_render_event('bagisto.shop.customers.login.before') !!}
 
