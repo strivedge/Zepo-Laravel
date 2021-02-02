@@ -31,7 +31,7 @@
                     unset(
                         $menuItem['children']['profile'],
                         $menuItem['children']['orders'],
-                        $menuItem['children']['downloadables'],
+                        //$menuItem['children']['downloadables'],
                         $menuItem['children']['wishlist'],
                         $menuItem['children']['compare'],
                         $menuItem['children']['reviews'],

@@ -33,6 +33,7 @@ class ShopController extends Controller
             $response = [
                 'status'  => true,
                 'details' => [
+                    'product_id'   => $product->product_id,
                     'name'         => $product->name,
                     'sku'          => $product->sku,
                     'urlKey'       => $product->url_key,

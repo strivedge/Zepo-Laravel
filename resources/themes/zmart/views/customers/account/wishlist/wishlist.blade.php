@@ -26,13 +26,14 @@
     <div class="account-items-list row wishlist-container">
 
         @if ($items->count())
+        <?php //echo"<pre>"; print_r($items);exit; ?>
             @foreach ($items as $item)
                 @php
                     $currentMode = $toolbarHelper->getCurrentMode();
                     $moveToCartText = __('shop::app.customer.account.wishlist.move-to-cart');
                 @endphp
 
-                @include ('shop::products.list.card', [
+                @include ('shop::products.wishlistproduct.card', [
                     'checkmode'         => true,
                     'moveToCart'        => true,
                     'addToCartForm'     => true,
