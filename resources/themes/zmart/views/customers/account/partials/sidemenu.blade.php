@@ -7,6 +7,8 @@
         <div class="customer-email col-12 text-break">{{ auth('customer')->user()->email }}</div>
     </div>
 
+    <!-- $subMenuCollection['downloadables'] = $menuItem['children']['downloadables']; -->
+
     @foreach ($menu->items as $menuItem)
         <ul type="none" class="navigation">
             {{-- rearrange menu items --}}
@@ -18,7 +20,7 @@
                 try {
                     $subMenuCollection['profile'] = $menuItem['children']['profile'];
                     $subMenuCollection['orders'] = $menuItem['children']['orders'];
-                    $subMenuCollection['downloadables'] = $menuItem['children']['downloadables'];
+                    
                     $subMenuCollection['wishlist'] = $menuItem['children']['wishlist'];
 
                     if ($showCompare) {
@@ -31,7 +33,7 @@
                     unset(
                         $menuItem['children']['profile'],
                         $menuItem['children']['orders'],
-                        //$menuItem['children']['downloadables'],
+                        $menuItem['children']['downloadables'],
                         $menuItem['children']['wishlist'],
                         $menuItem['children']['compare'],
                         $menuItem['children']['reviews'],
