@@ -308,4 +308,7 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
             'category_view' => 'shop::products.index'
         ])
         ->name('shop.productOrCategory.index');
+
+    // Blog Details
+    Route::get('blogDetails/{id}', 'Custom\Blog\Http\Controllers\BlogController@edit')->defaults('_config', ['view' => 'shop::home.blog-details'])->name('blogDetails');
 });

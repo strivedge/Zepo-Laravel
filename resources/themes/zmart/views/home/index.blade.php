@@ -54,34 +54,52 @@
   <section id="slider" class="slider-img">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
+    @php 
+      $scount=0;
+      $textTitle = '';
+      $textContent = '';
+    @endphp
+    <ol class="carousel-indicators">
+    @foreach ($sliderData as $index => $slider)
+      @php 
+        $scount+=1;
+      @endphp
+        <li data-target="#myCarousel" data-slide-to="{{ $scount }}" class="{{$scount == '1' ? 'active' : ''}}"></li>
+      @endforeach
+    </ol>
+        <!-- <li data-target="#myCarousel" data-slide-to="1" class="active"></li> -->
+        <!-- <li data-target="#myCarousel" data-slide-to="2"></li> -->
+        
+        <!-- Slider Image URL from Admin Side Uploaded -->
+        <!-- src="{{ url()->to('/') . '/storage/' . $slider['path'] }}" -->
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
+      @foreach ($sliderData as $index => $slider)
+        @php 
+          $textTitle = str_replace("\r\n", '', $slider['title']);
+          $textContent = str_replace("\r\n", '', $slider['content']);
+        @endphp
         <div class="item active">
           
           <div class="container">
             <div class="custom-slider-caption">
               
               <div class="col-left col-lg-7 col-xl-8">
-                <h1>Face Mask  Thermometer</span></h1>
-                <p>Suspendisse turpis dui, posuere eget scelerisque a, porta eu elit. </p>
+                <h1>{{ $textTitle }}</span></h1>
+                <p>{{ $textContent }}</p>
                 <div class="buttons">
                     <button type="button" class="btn btn-primary">Shop Now</button>
                 </div>
               </div>
               <div class="image-wrapper col-lg-5 col-xl-4">
-                  <img src="{{ asset('/themes/zmart/assets/images/thermometer.png') }}">
+                  <img src="{{ asset('/themes/zmart/assets/images/thermometer.png') }}" onerror="this.src='{{ asset('vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png') }}'">
               </div>
             </div>
           </div>
         </div>
-
-        <div class="item">
+        @endforeach
+        <!-- <div class="item">
           <div class="container">
             <div class="custom-slider-caption">
               <div class="col-left col-lg-7 col-xl-8">
@@ -96,9 +114,9 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
-        <div class="item">
+        <!-- <div class="item">
           
           <div class="container">
             <div class="custom-slider-caption">
@@ -114,7 +132,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
 
       <!-- Left and right controls -->
