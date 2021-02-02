@@ -416,7 +416,7 @@
                             v-text="content.title"
                             :href="`${$root.baseUrl}/${content['page_link']}`"
                             v-if="(content['content_type'] == 'link' || content['content_type'] == 'category')"
-                            :target="content['link_target'] ? content['link_target'] : '_self'">
+                            :target="content['link_target'] ? '_self' : '_self'">
                         </a>
                     </li>
                 </ul>
