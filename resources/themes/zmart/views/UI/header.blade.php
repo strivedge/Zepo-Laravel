@@ -395,7 +395,7 @@
             <div class="content-list right">
                 <ul type="none" class="navbar-nav no-margin" id="primary-menu">
                     <li class="nav-item parent">
-                        <a href="{{url('/brand')}}" target="_blank">Brand</a>
+                        <a href="{{url('/brand')}}" target="_self">Brand</a>
                         <ul class="sub-menu">
                             <?php 
                                 foreach ($AttributeValues as $key => $val) {
@@ -416,7 +416,7 @@
                             v-text="content.title"
                             :href="`${$root.baseUrl}/${content['page_link']}`"
                             v-if="(content['content_type'] == 'link' || content['content_type'] == 'category')"
-                            :target="content['link_target'] ? '_blank' : '_self'">
+                            :target="content['link_target'] ? content['link_target'] : '_self'">
                         </a>
                     </li>
                 </ul>
