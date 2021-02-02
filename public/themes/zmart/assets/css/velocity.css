@@ -3380,11 +3380,11 @@ body:after {
 .lg-card-container.list-card .product-image {
     float: left;
     width: 30%;
-    height: 270px;
+    /*height: 270px;
     max-width: 200px;
     max-height: 200px;
     position: relative;
-    background: #f2f2f2;
+    background: #f2f2f2;*/
 }
 .lg-card-container.list-card .product-image .quick-view-btn-container button {
     left: calc(50% - 40px);
@@ -3426,9 +3426,9 @@ body:after {
     display: inline-table;
 }
 .lg-card-container.list-card .add-to-cart-btn {
-    float: left;
+    /*float: left;
     max-width: 150px;
-    display: inline-block;
+    display: inline-block;*/
 }
 .lg-card-container.grid-card {
     padding: 15px;
@@ -3563,7 +3563,7 @@ a.active-hover:hover {
     text-decoration: underline!important;
 }
 a.remove-decoration, a.remove-decoration:active, a.remove-decoration:focus, a.remove-decoration:hover {
-    text-decoration: none!important;
+    /*text-decoration: none!important;*/
 }
 .dropdown-icon:after {
     display: inline-block;

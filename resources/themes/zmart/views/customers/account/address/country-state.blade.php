@@ -3,8 +3,8 @@
 @push('scripts')
 
     <script type="text/x-template" id="country-state-template">
-        <div>
-            <div class="control-group" :class="[errors.has('country') ? 'has-error' : '']">
+         <div class="col-md-6 no-padding">
+            <div class="col-md-6" :class="[errors.has('country') ? 'has-error' : '']"><!-- control-group  -->
                 <label for="country" class="mandatory">
                     {{ __('shop::app.customer.account.address.create.country') }}
                 </label>
@@ -25,7 +25,7 @@
                 </span>
             </div>
 
-            <div class="control-group" :class="[errors.has('state') ? 'has-error' : '']">
+            <div class="col-md-6" :class="[errors.has('state') ? 'has-error' : '']"><!-- control-group  -->
                 <label for="state" class="mandatory">
                     {{ __('shop::app.customer.account.address.create.state') }}
                 </label>
