@@ -88,7 +88,7 @@
                     @endif
 
                     <div class="cart-wish-wrap mt5">
-                        @include ('shop::products.newproduct.new-product-add-to-cart', [
+                        @include ('shop::products.add-to-cart', [
                             'addWishlistClass'  => 'pl10',
                             'product'           => $product,
                             'addToCartBtnClass' => 'medium-padding',
