@@ -3,6 +3,7 @@
 namespace Webkul\Product\Repositories;
 
 use Exception;
+use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Webkul\Product\Models\Product;
@@ -16,6 +17,8 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Webkul\Product\Models\ProductAttributeValueProxy;
 use Webkul\Attribute\Repositories\AttributeRepository;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Webkul\Sales\Repositories\OrderRepository;
+use Webkul\Sales\Repositories\OrderItemRepository;
 
 class ProductRepository extends Repository
 {
@@ -27,6 +30,34 @@ class ProductRepository extends Repository
     protected $attributeRepository;
 
     /**
+     * OrderRepository object
+     *
+     * @var \Webkul\Sales\Repositories\OrderRepository
+     */
+    protected $orderRepository;
+
+    /**
+     * OrderItemRepository object
+     *
+     * @var \Webkul\Sales\Repositories\OrderItemRepository
+     */
+    protected $orderItemRepository;
+
+     /**
+     * string object
+     *
+     * @var \Illuminate\Support\Carbon
+     */
+    protected $startDate;
+
+    /**
+     * string object
+     *
+     * @var \Illuminate\Support\Carbon
+     */
+    protected $endDate;
+
+    /**
      * Create a new repository instance.
      *
      * @param \Webkul\Attribute\Repositories\AttributeRepository $attributeRepository
@@ -36,10 +67,18 @@ class ProductRepository extends Repository
      */
     public function __construct(
         AttributeRepository $attributeRepository,
+        OrderRepository $orderRepository,
+        OrderItemRepository $orderItemRepository,
         App $app
     )
     {
         $this->attributeRepository = $attributeRepository;
+
+        $this->orderRepository = $orderRepository;
+
+        $this->orderItemRepository = $orderItemRepository;
+
+        $this->setStartEndDate();
 
         parent::__construct($app);
     }
@@ -387,16 +426,6 @@ class ProductRepository extends Repository
             $channel = request()->get('channel') ?: (core()->getCurrentChannelCode() ?: core()->getDefaultChannelCode());
 
             $locale = request()->get('locale') ?: app()->getLocale();
-
-
-            /*$qb = $query->distinct()
-                ->select('product_flat.*')
-                ->join('product_flat as variants', 'product_flat.id', '=', DB::raw('COALESCE(' . DB::getTablePrefix() . 'variants.parent_id, ' . DB::getTablePrefix() . 'variants.id)'))
-                ->leftJoin('product_categories', 'product_categories.product_id', '=', 'product_flat.product_id')
-                ->leftJoin('product_attribute_values', 'product_attribute_values.product_id', '=', 'variants.product_id')
-                ->where('product_flat.channel', $channel)
-                ->where('product_flat.locale', $locale)
-                ->whereNotNull('product_flat.url_key');*/
 
             return $query->distinct()
                 ->Join('catalog_rule_product_prices', 'catalog_rule_product_prices.product_id', '=', 'product_flat.product_id')
@@ -805,4 +834,71 @@ class ProductRepository extends Repository
 
         return $results;
     }
+
+     /**
+     * Sets start and end date
+     *
+     * @return void
+     */
+    public function setStartEndDate()
+    {
+        $this->startDate = request()->get('start')
+                           ? Carbon::createFromTimeString(request()->get('start') . " 00:00:01")
+                           : Carbon::createFromTimeString(Carbon::now()->subDays(30)->format('Y-m-d') . " 00:00:01");
+
+        $this->endDate = request()->get('end')
+                         ? Carbon::createFromTimeString(request()->get('end') . " 23:59:59")
+                         : Carbon::now();
+
+        if ($this->endDate > Carbon::now()) {
+            $this->endDate = Carbon::now();
+        }
+
+        $this->lastStartDate = clone $this->startDate;
+        $this->lastEndDate = clone $this->startDate;
+
+        $this->lastStartDate->subDays($this->startDate->diffInDays($this->endDate));
+        // $this->lastEndDate->subDays($this->lastStartDate->diffInDays($this->lastEndDate));
+    }
+
+    public function getTopSellingProducts()
+    {
+
+        $channel = request()->get('channel') ?: (core()->getCurrentChannelCode() ?: core()->getDefaultChannelCode());
+
+                    $locale = request()->get('locale') ?: app()->getLocale();
+
+        $results = app(OrderItemRepository::class)->scopeQuery(function ($query) {
+                    $channel = request()->get('channel') ?: (core()->getCurrentChannelCode() ?: core()->getDefaultChannelCode());
+
+                    $locale = request()->get('locale') ?: app()->getLocale();
+
+                    return $query->distinct()
+                        ->leftJoin('product_flat', 'order_items.product_id', '=', 'product_flat.product_id')
+                    //->select(DB::raw('SUM(qty_ordered) as total_qty_ordered'))
+                    ->addSelect('product_flat.*')
+                    ->where('order_items.created_at', '>=', $this->startDate)
+                    ->where('order_items.created_at', '<=', $this->endDate)
+                    ->whereNull('order_items.parent_id')
+                    ->groupBy('order_items.product_id');
+                       // ->inRandomOrder();
+                })->paginate(12);
+
+        return $results;
+
+
+       /* return $this->orderItemRepository->getModel()
+                    ->leftJoin('product_flat', 'order_items.product_id', '=', 'product_flat.product_id')
+                    //->select(DB::raw('SUM(qty_ordered) as total_qty_ordered'))
+                    ->addSelect('product_flat.*')
+                    ->where('order_items.created_at', '>=', $this->startDate)
+                    ->where('order_items.created_at', '<=', $this->endDate)
+                    ->whereNull('order_items.parent_id')
+                    ->groupBy('order_items.product_id')
+                    //->orderBy('total_qty_ordered', 'DESC')
+                    ->limit(5)
+                    ->get();*/
+    }
+
+    
 }
