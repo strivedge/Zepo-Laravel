@@ -30,6 +30,7 @@ return [
         'active-offers' => 'Active Offers',
         'testi-title' => 'What Our Customers are Saying',
         'blog-title' => 'Blogs',
+        'blog-details' => 'Blog Details',
     ],
 
     'header' => [

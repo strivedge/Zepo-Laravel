@@ -22,6 +22,7 @@
                     @foreach ($sliderData as $index => $slider)
 
                     @php
+                        $textTitle = str_replace("\r\n", '', $slider['title']);
                         $textContent = str_replace("\r\n", '', $slider['content']);
                     @endphp
                         <slide slot="slide-{{ $index }}">
@@ -30,6 +31,8 @@
                                     class="col-12 no-padding banner-icon"
                                     src="{{ url()->to('/') . '/storage/' . $slider['path'] }}" />
 
+                                <div class="show-content" v-html="'{{ $textTitle }}'">
+                                </div>
                                 <div class="show-content" v-html="'{{ $textContent }}'">
                                 </div>
                             </a>

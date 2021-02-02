@@ -1,1 +1,0 @@
-<link rel="stylesheet" href="{{ asset('themes/demotheme/assets/css/velocity.css') }}">
