@@ -119,22 +119,22 @@
                                                 <div class="no-padding col-12 cursor-pointer fs16">
                                                     @auth('customer')
                                                         @if ($item->parent_id != 'null' ||$item->parent_id != null)
-                                                            @include('shop::products.wishlist', [
+                                                            @include('shop::checkout.cart.wishlist', [
                                                                 'route' => route('shop.movetowishlist', $item->id),
-                                                                'text' => "<span class='align-vertical-super'>$moveToWishlist</span>"
+                                                                'text' => ""
                                                             ])
                                                         @else
-                                                            @include('shop::products.wishlist', [
+                                                            @include('shop::checkout.cart.wishlist', [
                                                                 'route' => route('shop.movetowishlist', $item->child->id),
-                                                                'text' => "<span class='align-vertical-super'>$moveToWishlist</span>"
+                                                                'text' => ""
                                                             ])
                                                         @endif
                                                     @endauth
 
                                                     @guest('customer')
-                                                        @include('shop::products.wishlist', [
+                                                        @include('shop::checkout.cart.wishlist', [
                                                             'isMoveToWishlist' => route('shop.checkout.cart.remove', ['id' => $item->id]),
-                                                            'text' => "<span class='align-vertical-top'>$moveToWishlist</span>"
+                                                            'text' => ""
                                                         ])
                                                     @endguest
 
