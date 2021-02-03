@@ -24,12 +24,12 @@
     @include('shop::checkout.cart.coupon')
 
     <script type="text/x-template" id="cart-template">
-        <div class="container">
-            <section class="cart-details row no-margin col-12">
-                <h1 class="fw6 col-12">{{ __('shop::app.checkout.cart.title') }}</h1>
+        <!-- <div class="container"> -->
+            <section class="cart-details cart-details-full no-margin col-12"><!--  row -->
+                <h2 class="fw6 col-12">{{ __('shop::app.checkout.cart.title') }}</h2>
 
                 @if ($cart)
-                    <div class="cart-details-header col-lg-6 col-md-12">
+                    <div class="cart-details-header col-md-12"><!-- col-lg-6  -->
                         <div class="row cart-header col-12 no-padding">
                             <span class="col-8 fw6 fs16 pr0">
                                 {{ __('velocity::app.checkout.items') }}
@@ -228,21 +228,27 @@
 
                                     @endforeach
                                 </div>
+                                <div class="row col-md-12 coupon-buttons">
+                                    <div class="col-md-8">
+                                        <coupon-component></coupon-component>
+                                    </div>
+                                    <div class="col-md-4 continue-update-buttons">
+                                        {!! view_render_event('bagisto.shop.checkout.cart.controls.after', ['cart' => $cart]) !!}
+                                            <a
+                                                class="link-color remove-decoration fs16 no-padding theme-btn"
+                                                href="{{ route('shop.home.index') }}">
+                                                {{ __('shop::app.checkout.cart.continue-shopping') }}
+                                            </a>
 
-                                {!! view_render_event('bagisto.shop.checkout.cart.controls.after', ['cart' => $cart]) !!}
-                                    <a
-                                        class="col-12 link-color remove-decoration fs16 no-padding"
-                                        href="{{ route('shop.home.index') }}">
-                                        {{ __('shop::app.checkout.cart.continue-shopping') }}
-                                    </a>
+                                            <button
+                                                type="submit"
+                                                class="theme-btn light pull-right unset">
 
-                                    <button
-                                        type="submit"
-                                        class="theme-btn light mr15 pull-right unset">
-
-                                        {{ __('shop::app.checkout.cart.update-cart') }}
-                                    </button>
-                                {!! view_render_event('bagisto.shop.checkout.cart.controls.after', ['cart' => $cart]) !!}
+                                                {{ __('shop::app.checkout.cart.update-cart') }}
+                                            </button>
+                                        {!! view_render_event('bagisto.shop.checkout.cart.controls.after', ['cart' => $cart]) !!}
+                                    </div>
+                                </div>
                             </form>
                         </div>
 
@@ -253,10 +259,10 @@
                 {!! view_render_event('bagisto.shop.checkout.cart.summary.after', ['cart' => $cart]) !!}
 
                     @if ($cart)
-                        <div class="col-lg-4 col-md-12 offset-lg-2 row order-summary-container">
+                        <div class="col-lg-4 col-md-12 order-summary-container pull-right"><!--  row  -->
                             @include('shop::checkout.total.summary', ['cart' => $cart])
 
-                            <coupon-component></coupon-component>
+                            
                         </div>
                     @else
                         <div class="fs16 col-12 empty-cart-message">
@@ -276,7 +282,7 @@
                 {!! view_render_event('bagisto.shop.checkout.cart.summary.after', ['cart' => $cart]) !!}
 
             </section>
-        </div>
+        <!-- </div> -->
     </script>
 
     <script type="text/javascript" id="cart-template">

@@ -3,18 +3,22 @@
         <div class="coupon-container">
             <div class="discount-control">
                 <form class="custom-form" method="post" @submit.prevent="applyCoupon">
-                    <div class="control-group" :class="[error_message ? 'has-error' : '']">
-                        <input
-                            type="text"
-                            name="code"
-                            class="control"
-                            v-model="coupon_code"
-                            placeholder="{{ __('shop::app.checkout.onepage.enter-coupon-code') }}" />
+                    <div class="row">
+                        <div class="control-group" :class="[error_message ? 'has-error' : '']">
+                            <input
+                                type="text"
+                                name="code"
+                                class="control"
+                                v-model="coupon_code"
+                                placeholder="{{ __('shop::app.checkout.onepage.enter-coupon-code') }}" />
 
-                        <div class="control-error">@{{ error_message }}</div>
+                            
+                        </div>
+
+                        <button class="theme-btn light" :disabled="disable_button">{{ __('shop::app.checkout.onepage.apply-coupon') }}</button>
+                        
                     </div>
-
-                    <button class="theme-btn light" :disabled="disable_button">{{ __('shop::app.checkout.onepage.apply-coupon') }}</button>
+                    <div class="control-error">@{{ error_message }}</div>
                 </form>
             </div>
 
