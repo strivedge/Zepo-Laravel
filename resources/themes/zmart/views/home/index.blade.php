@@ -91,7 +91,7 @@
                   <h1>{{ $textTitle }}</h1>
                   <p>{{ $textContent }}</p>
                   <div class="buttons">
-                    <a href="#">
+                    <a @if($slider['slider_path']) href="{{ $slider['slider_path'] }}" @endif>
                       <button type="button" class="btn btn-primary">Shop Now</button>
                     </a>
                   </div>

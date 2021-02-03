@@ -18,7 +18,7 @@
 
 @section('page-detail-wrapper')
     <div class="account-content">
-        <div class="account-layout">
+        <!-- <div class="account-layout"> -->
             <div class="account-head">
                 <span class="back-icon"><a href="{{ route('customer.account.index') }}"><i class="icon icon-menu-back"></i></a></span>
                 <span class="account-heading">
@@ -97,7 +97,7 @@
                                                         @endif
                                                     </td>
 
-                                                    <td data-value="{{ __('shop::app.customer.account.order.view.price') }}">
+                                                    <td data-value="{{ __('shop::app.customer.account.order.view.price') }}" class="prices">
                                                         {{ core()->formatPrice($item->price, $order->order_currency_code) }}
                                                     </td>
 
@@ -572,6 +572,6 @@
             </div>
 
             {!! view_render_event('bagisto.shop.customers.account.orders.view.after', ['order' => $order]) !!}
-        </div>
+        <!-- </div> -->
     </div>
 @endsection
