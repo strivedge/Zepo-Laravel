@@ -51,107 +51,74 @@
 
 @section('home-banner-content-wrapper')
 <div class="col-12 no-padding content" id="home-right-bar-container">
-  <section id="slider" class="slider-img">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-    @php 
-      $scount=0;
-      $sscount=0;
-      $textTitle = '';
-      $textContent = '';
-    @endphp
-    <ol class="carousel-indicators">
-    @foreach ($sliderData as $index => $slider)
+  @if(isset($sliderData) && !empty($sliderData))
+    <section id="slider" class="slider-img">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
       @php 
-        $scount+=1;
+        $scount=0;
+        $sscount=0;
+        $textTitle = '';
+        $textContent = '';
       @endphp
-        <li data-target="#myCarousel" data-slide-to="{{ $index }}" class="{{$scount == '1' ? 'active' : ''}}"></li>
-
-      @endforeach
-    </ol>
-        <!-- <li data-target="#myCarousel" data-slide-to="1" class="active"></li> -->
-        <!-- <li data-target="#myCarousel" data-slide-to="2"></li> -->
-        
-        <!-- Slider Image URL from Admin Side Uploaded -->
-        <!-- src="{{ url()->to('/') . '/storage/' . $slider['path'] }}" -->
-
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner">
+      <ol class="carousel-indicators">
       @foreach ($sliderData as $index => $slider)
         @php 
-        $sscount+=1;
-          $textTitle = str_replace("\r\n", '', $slider['title']);
-          $textContent = str_replace("\r\n", '', $slider['content']);
-          $textContent = str_replace("<p>", '', $textContent);
-          $textContent = str_replace("</p>", '', $textContent);
+          $scount+=1;
         @endphp
-        <div class="item {{$sscount == '1' ? 'active' : ''}}">
-          
-          <div class="container">
-            <div class="custom-slider-caption">
-              
-              <div class="col-left col-lg-7 col-xl-8">
-                <h1>{{ $textTitle }}</h1>
-                <p>{{ $textContent }}</p>
-                <div class="buttons">
-                    <button type="button" class="btn btn-primary">Shop Now</button>
-                </div>
-              </div>
-              <div class="image-wrapper col-lg-5 col-xl-4">
-                  <img src="{{ asset('/themes/zmart/assets/images/thermometer.png') }}" onerror="this.src='{{ asset('vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png') }}'">
-              </div>
-            </div>
-          </div>
-        </div>
+          <li data-target="#myCarousel" data-slide-to="{{ $index }}" class="{{$scount == '1' ? 'active' : ''}}"></li>
+
         @endforeach
-        <!-- <div class="item">
-          <div class="container">
-            <div class="custom-slider-caption">
-              <div class="col-left col-lg-7 col-xl-8">
-                <h1>Face Mask  Thermometer</span></h1>
-                <p>Suspendisse turpis dui, posuere eget scelerisque a, porta eu elit. </p>
-                <div class="buttons">
-                    <button type="button" class="btn btn-primary">Shop Now</button>
+      </ol>
+         
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+        @foreach ($sliderData as $index => $slider)
+          @php 
+          $sscount+=1;
+            $textTitle = str_replace("\r\n", '', $slider['title']);
+            $textContent = str_replace("\r\n", '', $slider['content']);
+            $textContent = str_replace("<p>", '', $textContent);
+            $textContent = str_replace("</p>", '', $textContent);
+          @endphp
+          <div class="item {{$sscount == '1' ? 'active' : ''}}">
+            
+            <div class="container">
+              <div class="custom-slider-caption">
+                
+                <div class="col-left col-lg-7 col-xl-8">
+                  <h1>{{ $textTitle }}</h1>
+                  <p>{{ $textContent }}</p>
+                  <div class="buttons">
+                    <a href="#">
+                      <button type="button" class="btn btn-primary">Shop Now</button>
+                    </a>
+                  </div>
                 </div>
-              </div>
-              <div class="image-wrapper col-lg-5 col-xl-4">
-                  <img src="{{ asset('/themes/zmart/assets/images/thermometer.png') }}">
+                <div class="image-wrapper col-lg-5 col-xl-4">
+                    <img src="{{ url()->to('/') . '/storage/' . $slider['path'] }}" onerror="this.src='{{ asset('vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png') }}'">
+                </div>
               </div>
             </div>
           </div>
-        </div> -->
-
-        <!-- <div class="item">
+        @endforeach
           
-          <div class="container">
-            <div class="custom-slider-caption">
-              <div class="col-left col-lg-7 col-xl-8">
-                <h1>Face Mask  Thermometer</span></h1>
-                <p>Suspendisse turpis dui, posuere eget scelerisque a, porta eu elit. </p>
-                <div class="buttons">
-                    <button type="button" class="btn btn-primary">Shop Now</button>
-                </div>
-              </div>
-              <div class="image-wrapper col-lg-5 col-xl-4">
-                  <img src="{{ asset('/themes/zmart/assets/images/thermometer.png') }}">
-              </div>
-            </div>
-          </div>
-        </div> -->
-      </div>
+        </div>
 
-      <!-- Left and right controls -->
-      <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
-        <span class="arrows"><img src="{{ asset('/themes/zmart/assets/images/bx-bx-right-arrow-alt.png') }}"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#myCarousel" data-slide="next">
-        <span class="arrows"><img src="{{ asset('/themes/zmart/assets/images/bx-bx-left-arrow-alt.png') }}"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-      <!-- @include('shop::home.slider') -->
-  </section>
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+          <span class="arrows"><img src="{{ asset('/themes/zmart/assets/images/bx-bx-right-arrow-alt.png') }}"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+          <span class="arrows"><img src="{{ asset('/themes/zmart/assets/images/bx-bx-left-arrow-alt.png') }}"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+        <!-- @include('shop::home.slider') -->
+    </section>
+  @endif
 </div>
 
 @endsection
