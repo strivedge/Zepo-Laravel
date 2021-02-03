@@ -100,30 +100,22 @@
             </div>
         </div>
     @else
-    <?php //echo "<pre>";print_r($product->sku);exit(); ?>
-    <!-- offer add to cart -->
-        <!-- <div class="card grid-card product-card-new"> -->
+   
         <li class="">
             <div class="content-wrap">
                 <div class="product-code">{{$product->sku}}</div>
                 <div class="img">
-                    <!-- <div class=""> -->
-                        
-                            
+
                                 @if ($product->getTypeInstance()->haveSpecialPrice())
                                     <?php //echo"Test<pre>";print_r($product->getTypeInstance()->getOfferPercentage());exit; ?>
                                     <div class="sticker new">
-                                      <!-- <span class="new"> {{ __('shop::app.products.new') }}</span> -->
                                        <span class="save">SAVE</span><span class="percentage">{{$product->getTypeInstance()->getOfferPercentage()}}%</span>
                                     </div>
                                 @endif
-                                 <?php //echo "<pre>ttt"; print_r($galleryImages);exit(); ?>
                                 @if(count($galleryImages) > 0)
                                 <div class="product-imgs">
                                    @foreach($galleryImages as $image)
 
-                                   <?php //echo "<pre>ttt"; print_r($image['path']);
-                                   //echo "<pre>"; print_r($productBaseImage['large_image_url']);exit(); ?>
                                     <a
                                         href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
                                         title="{{ $product->name }}"
@@ -147,23 +139,9 @@
                                     :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
                                 @endif
 
-                               <!--  <img
-                                    loading="lazy"
-                                    class="card-img-top"
-                                    alt="{{ $product->name }}"
-                                    src="{{ $productBaseImage['large_image_url'] }}"
-                                    :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" /> -->
-
-                                    <!-- {{-- <product-quick-view-btn :quick-view-details="product"></product-quick-view-btn> --}}
-                                    <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn> -->
-                            
-                        
-                    <!-- </div> -->
                 </div>
                 
                 
-
-                <!-- <div class="card-body"> -->
                 <div class="content">
                     <div class="star">
                          @if ($totalReviews)
@@ -176,11 +154,10 @@
                         @else
                             <div class="product-rating">
                                 <img src="{{ asset('themes/zmart/assets/images/star-gray.png') }}">
-                                <!-- {{ __('velocity::app.products.be-first-review') }} -->
+                                
                             </div>
                         @endif
                     </div>
-                    <!-- <div class="product-name"> -->
                     <div class="title">
                         <a
                             href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
@@ -191,7 +168,6 @@
                         </a>
                     </div>
 
-                    <!-- <div class="product-price"> -->
                     <div class="price">
                         @include ('shop::products.newproduct.price', ['product' => $product])
                         <span class="including-tax">(Including tax)</span>
@@ -209,10 +185,7 @@
                                                 ? true : false,
                     ])
                 </div>  
-                   
-                    
-                <!-- </div> -->
-        <!-- </div> -->
+  
             </div>
         </li>
     @endif

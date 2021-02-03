@@ -6,6 +6,8 @@ use Hash;
 use Illuminate\Support\Facades\Event;
 use Webkul\Customer\Repositories\CustomerRepository;
 use Webkul\Product\Repositories\ProductReviewRepository;
+use Storage;
+use File;
 
 class CustomerController extends Controller
 {
@@ -91,12 +93,32 @@ class CustomerController extends Controller
             'gender'                => 'required',
             'date_of_birth'         => 'date|before:today',
             'email'                 => 'email|unique:customers,email,' . $id,
+            'image.*'               => 'mimes:jpeg,jpg,bmp,png',
             'password'              => 'confirmed|min:6|required_with:oldpassword',
             'oldpassword'           => 'required_with:password',
             'password_confirmation' => 'required_with:password',
         ]);
 
-        $data = collect(request()->input())->except('_token')->toArray();
+        $data = collect(request()->all())->except('_token')->toArray();
+
+        $old_data = $this->customerRepository->find($id);
+
+        $imageName = $data['image'];
+        if (request()->hasFile('image'))
+        {
+            if (isset($old_data['image']) && !empty($old_data['image'])) {
+               $file_path = public_path().'/'.$old_data['image'];
+                if(File::exists($file_path)) 
+                {
+                    unlink($file_path);
+                }
+            }
+            
+            $imageName1 = time().'.'.$imageName->extension();
+            $imageName->move(public_path('uploadImages/customer'), $imageName1);
+            $data['image'] = 'uploadImages/customer/'.$imageName1;
+
+        }
 
         if (isset ($data['date_of_birth']) && $data['date_of_birth'] == "") {
             unset($data['date_of_birth']);
@@ -119,7 +141,9 @@ class CustomerController extends Controller
 
         Event::dispatch('customer.update.before');
 
-        if ($customer = $this->customerRepository->update($data, $id)) {
+        $customer = $this->customerRepository->update($data, $id);
+
+        if ($customer) {
 
             if ($isPasswordChanged) {
                 Event::dispatch('user.admin.update-password', $customer);
