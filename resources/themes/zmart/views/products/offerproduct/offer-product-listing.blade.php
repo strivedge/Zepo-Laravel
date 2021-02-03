@@ -101,9 +101,6 @@
             </div>
         </div>
     @else
-    <?php //echo"Test<pre>";print_r($product->getTypeInstance()->haveSpecialPrice());exit; ?>
-    <!-- offer add to cart -->
-        <!-- <div class="card grid-card product-card-new"> -->
         
             <li class="items">
                 <div class="content-wrap">
@@ -116,7 +113,7 @@
                                  @if ($product->getTypeInstance()->haveSpecialPrice())
                                  <?php //echo"Test<pre>";print_r($product->getTypeInstance()->getOfferPercentage());exit; ?>
                                     <div class="sticker new">
-                                      <!-- <span class="new"> {{ __('shop::app.products.new') }}</span> -->
+                                      
                                        <span class="save">SAVE</span><span class="percentage">{{$product->getTypeInstance()->getOfferPercentage()}}%</span>
                                     </div>
                                 @endif
@@ -127,13 +124,9 @@
                                     src="{{ $productBaseImage['large_image_url'] }}"
                                     :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
 
-                                    <!-- {{-- <product-quick-view-btn :quick-view-details="product"></product-quick-view-btn> --}}
-                                    <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn> -->
                             </a>
                         </div>    
                            
-
-                            <!-- <div class="card-body"> -->
                             <div class="content">
                                 <div class="star">
                                     @if ($totalReviews)
@@ -145,7 +138,7 @@
                                         </div>
                                     @else
                                         <div class="product-rating">
-                                            <!-- <span class="">{{ __('velocity::app.products.be-first-review') }}</span> --><img src="{{ asset('themes/zmart/assets/images/star-gray.png') }}">
+                                            <img src="{{ asset('themes/zmart/assets/images/star-gray.png') }}">
                                         </div>
                                     @endif
                                 </div>
@@ -164,10 +157,7 @@
                                     <span class="including-tax">(Including tax)</span>
                                 </div>
                             </div>
-                                <!-- <div class="buttons"> -->
-                                    <!-- <div class="quick-view-in-list quick-view btn btn-primary">
-                                        <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn>
-                                    </div> -->
+                                
                                     <div class="cart-wish-wrap">
                                         @include ('shop::products.offerproduct.offer-product-add-to-cart', [
                                             'product'           => $product,
@@ -180,7 +170,6 @@
                                                                     ? true : false,
                                         ])
                                     </div>
-                                <!-- </div> -->
                             
                 </div>
             </li>
