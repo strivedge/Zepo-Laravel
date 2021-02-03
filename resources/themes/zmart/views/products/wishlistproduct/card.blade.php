@@ -50,7 +50,7 @@
 <?php //echo"<pre>";print_r($product);exit(); ?>
 {!! view_render_event('bagisto.shop.products.list.card.before', ['product' => $product]) !!}
     @if (isset($list) && $list)
-        <div class="col-12 lg-card-container list-card product-card row">
+        <div class="col-12 lg-card-container no-padding list-card product-card row">
             <div class="product-image">
                 <a
                     title="{{ $product->name }}"
@@ -72,7 +72,7 @@
                             href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
                             title="{{ $product->name }}" class="unset">
 
-                            <span class="fs16">{{ $product->name }}</span>
+                            <span>{{ $product->name }}</span><!--  class="fs16" -->
                         </a>
                     </div>
 

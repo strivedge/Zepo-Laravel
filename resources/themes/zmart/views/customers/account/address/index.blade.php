@@ -52,12 +52,12 @@
                                         </li>
                                     </ul>
 
-                                    <a class="card-link" href="{{ route('customer.address.edit', $address->id) }}">
+                                    <a class="card-link edit-btn" href="{{ route('customer.address.edit', $address->id) }}">
                                         {{ __('shop::app.customer.account.address.index.edit') }}
                                     </a>
 
                                     <a
-                                        class="card-link"
+                                        class="card-link delete-btn"
                                         href="{{ route('address.delete', $address->id) }}"
                                         onclick="deleteAddress('{{ __('shop::app.customer.account.address.index.confirm-delete') }}')">
 

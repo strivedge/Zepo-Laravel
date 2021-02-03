@@ -56,6 +56,7 @@
       <!-- Indicators -->
     @php 
       $scount=0;
+      $sscount=0;
       $textTitle = '';
       $textContent = '';
     @endphp
@@ -64,7 +65,8 @@
       @php 
         $scount+=1;
       @endphp
-        <li data-target="#myCarousel" data-slide-to="{{ $scount }}" class="{{$scount == '1' ? 'active' : ''}}"></li>
+        <li data-target="#myCarousel" data-slide-to="{{ $index }}" class="{{$scount == '1' ? 'active' : ''}}"></li>
+
       @endforeach
     </ol>
         <!-- <li data-target="#myCarousel" data-slide-to="1" class="active"></li> -->
@@ -77,16 +79,19 @@
       <div class="carousel-inner">
       @foreach ($sliderData as $index => $slider)
         @php 
+        $sscount+=1;
           $textTitle = str_replace("\r\n", '', $slider['title']);
           $textContent = str_replace("\r\n", '', $slider['content']);
+          $textContent = str_replace("<p>", '', $textContent);
+          $textContent = str_replace("</p>", '', $textContent);
         @endphp
-        <div class="item active">
+        <div class="item {{$sscount == '1' ? 'active' : ''}}">
           
           <div class="container">
             <div class="custom-slider-caption">
               
               <div class="col-left col-lg-7 col-xl-8">
-                <h1>{{ $textTitle }}</span></h1>
+                <h1>{{ $textTitle }}</h1>
                 <p>{{ $textContent }}</p>
                 <div class="buttons">
                     <button type="button" class="btn btn-primary">Shop Now</button>

@@ -1,3 +1,4 @@
+<?php print_r("payal");exit(); ?>
 @php
     $attributeRepository = app('\Webkul\Attribute\Repositories\AttributeFamilyRepository');
     $comparableAttributes = $attributeRepository->getComparableAttributesBelongsToFamily();
@@ -22,7 +23,7 @@
     <script type="text/x-template" id="compare-product-template">
         <section class="cart-details row no-margin col-12">
             <h1 class="fw6 col-6">
-                {{ __('velocity::app.customer.compare.compare_similar_items') }}
+                {{ __('velocity::app.customer.compare.compare_similar_items') }}444
             </h1>
 
             <div class="col-6" v-if="products.length > 0">

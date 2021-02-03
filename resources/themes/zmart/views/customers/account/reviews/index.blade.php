@@ -30,7 +30,8 @@
     <div class="reviews-container">
         @if (! $reviews->isEmpty())
             @foreach ($reviews as $review)
-                <div class="row col-12 fs16">
+                <!-- <div class="row col-12 no-padding no-margin fs16"> -->
+                <div class="col-12 no-padding no-margin fs16">
                     <div class="col-12 row">
                         @php
                             $image = $productImageHelper->getProductBaseImage($review->product);
@@ -46,7 +47,7 @@
                         <div class="col-8">
                             <div class="product-name">
                                 <a
-                                    class="remove-decoration"
+                                    class="remove-decoration fs24"
                                     href="{{ url()->to('/').'/'.$review->product->url_key }}"
                                     title="{{ $review->product->name }}">
                                     {{$review->product->name}}
@@ -55,13 +56,13 @@
 
                             <star-ratings ratings="{{ $review->rating }}"></star-ratings>
 
-                            <h2 class="fw6">{{ $review->title }}</h2>
+                            <!-- <h2 class="fw6"> --><h4 class="fw6">{{ $review->title }}<!-- </h2> --></h4>
 
                             <p>{{ $review->comment }}</p>
                         </div>
 
                         <div class="col-2">
-                            <a class="unset" href="{{ route('customer.review.delete', $review->id) }}">
+                            <a class="unset delete-btn" href="{{ route('customer.review.delete', $review->id) }}">
                                 <span class="rango-delete fs24"></span>
                                 <span class="align-vertical-top">{{ __('shop::app.checkout.cart.remove') }}</span>
                             </a>
