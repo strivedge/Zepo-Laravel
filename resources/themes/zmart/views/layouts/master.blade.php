@@ -176,7 +176,6 @@
                         @yield('home-full-blog-content')
 
             {!! view_render_event('bagisto.shop.layout.full-content.after') !!}
-        </div>
 
         <!-- below footer -->
         @section('footer')
