@@ -31,7 +31,7 @@
     $filterAttributes = collect($attributes);
 ?>
 
-<div class="layered-filter-wrapper left">
+<div class="layered-filter-wrapper sidebar left">
 
     {!! view_render_event('bagisto.shop.products.list.layered-nagigation.before') !!}
 
@@ -43,7 +43,7 @@
 
 @push('scripts')
     <script type="text/x-template" id="layered-navigation-template">
-        <div v-if="attributes.length > 0">
+        <div v-if="attributes.length > 0" class="attributes-value">
 
             <h3 class="filter-title fw6 mb20">
                 {{ __('shop::app.products.layered-nav-title') }}
@@ -80,7 +80,7 @@
             </div>
 
             <div class="filter-attributes-content">
-                <ul type="none" class="items ml15" v-if="attribute.type != 'price'">
+                <ul type="none" class="items" v-if="attribute.type != 'price'">
                     <li
                         class="item"
                         v-for='(option, index) in attribute.options'>

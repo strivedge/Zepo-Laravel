@@ -23,14 +23,14 @@
                         @if (isset($column['closure']) && $column['closure'] == true)
                             <td data-value="{{ $column['label'] }}">{!! $column['wrapper']($record) !!}</td>
                         @else
-                            <td data-value="{{ $column['label'] }}">{{ $column['wrapper']($record) }}</td>
+                            <td data-value="{{ $column['label'] }}" class="prices">{{ $column['wrapper']($record) }}</td>
                         @endif
                     @else
                         @if ($column['type'] == 'price')
                             @if (isset($column['currencyCode']))
-                                <td data-value="{{ $column['label'] }}">{{ core()->formatPrice($record->{$columnIndex}, $column['currencyCode']) }}</td>
+                                <td data-value="{{ $column['label'] }}" class="prices">{{ core()->formatPrice($record->{$columnIndex}, $column['currencyCode']) }}</td>
                             @else
-                                <td data-value="{{ $column['label'] }}">{{ core()->formatBasePrice($record->{$columnIndex}) }}</td>
+                                <td data-value="{{ $column['label'] }}" class="prices">{{ core()->formatBasePrice($record->{$columnIndex}) }}</td>
                             @endif
                         @else
                             <td data-value="{{ $column['label'] }}">{{ $record->{$columnIndex} }}</td>

@@ -23,7 +23,7 @@
 @push('scripts')
     <script type="text/x-template" id="compare-product-template">
         <section class="cart-details row no-margin col-12">
-            <h1 class="fw6 col-6">
+            <h1 class="fw6 col-6 account-heading">
                 {{ __('velocity::app.customer.compare.compare_similar_items') }}
             </h1>
 

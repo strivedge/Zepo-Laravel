@@ -940,10 +940,10 @@
     margin-bottom: 20px;
 }
 .cart-details .cart-details-header .cart-header {
-    max-height: 45px;
+    /*max-height: 45px;
     margin-bottom: 20px;
     padding-bottom: 20px!important;
-    border-bottom: 2px solid #e5e5e5;
+    border-bottom: 2px solid #e5e5e5;*/
 }
 .cart-details .cart-details-header .cart-header>h3 {
     font-size: 16px;
@@ -992,7 +992,7 @@
     margin-left: 15px;
 }
 .cart-details .coupon-container {
-    margin-top: 20px;
+    /*margin-top: 20px;*/
 }
 .cart-details .coupon-container .control-error {
     padding: 10px 0;
@@ -1129,7 +1129,7 @@
     max-width: 200px;
 }
 .account-content .account-layout .account-table-content #datagrid-filters>* input, .account-content .account-layout .account-table-content #datagrid-filters>* select {
-    height: 38px;
+    /*height: 38px;*/
 }
 .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters {
     font-size: 16px;
@@ -1149,16 +1149,16 @@
 }
 .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container .quantity button, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button.btn, .quantity .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button {
     display: block;
-    font-size: 14px;
+    /*font-size: 14px;
     margin-top: 10px;
     font-weight: 600;
-    padding: 5px 10px;
+    padding: 5px 10px;*/
 }
 .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container li:not(:last-child) {
     margin-bottom: 10px;
 }
 .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container li {
-    width: 150px;
+    /*width: 150px;*/
     display: inline-block;
 }
 .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .control-group {
@@ -1182,10 +1182,10 @@
     padding-left: 10px;
 }
 .account-content .account-layout .account-table-content #datagrid-filters~table.table tbody tr .action .eye-icon:hover {
-    color: #4d7ea8;
+    /*color: #4d7ea8;*/
 }
 .account-content .account-layout .account-table-content #datagrid-filters .filter-right {
-    top: -25px;
+    /*top: -25px;*/
     width: 70%;
     float: right;
     position: relative;
@@ -1490,16 +1490,16 @@
     font-weight: 500;
 }
 .custom-form input[type=password], .custom-form input[type=search], .custom-form input[type=text], .custom-form select {
-    width: 100%;
+    /*width: 100%;
     resize: none;
     font-size: 16px;
     padding: 5px 16px;
     border-radius: 1px;
     background: #fff;
-    border: 1px solid #ccc;
+    border: 1px solid #ccc;*/
 }
 .custom-form input:active, .custom-form input:focus, .custom-form select:active, .custom-form select:focus {
-    border-color: #26a37c;
+    /*border-color: #26a37c;*/
 }
 .payment-form .payment-methods>.row, .payment-form .shipping-methods>.row, .payment-form h3, .review-checkout-conainer .payment-methods>.row, .review-checkout-conainer .shipping-methods>.row, .review-checkout-conainer h3, .shipping-form .payment-methods>.row, .shipping-form .shipping-methods>.row, .shipping-form h3 {
     margin-bottom: 20px;
@@ -1947,8 +1947,8 @@
     box-shadow: .5px .5px 2px 1px rgba(0, 0, 0, .32);
 }
 .vue-slider .vue-slider-dot-tooltip-inner, .vue-slider .vue-slider-dot-tooltip-text {
-    border-color: #26a37c!important;
-    background-color: #26a37c!important;
+    /*border-color: #26a37c!important;
+    background-color: #26a37c!important;*/
 }
 .vue-slider .vue-slider-dot-tooltip-text {
     display: block;
@@ -2047,7 +2047,7 @@
     background-color: #fff;
 }
 .filter-attributes-item input[type=checkbox]+span {
-    margin-left: 10px!important;
+    /*margin-left: 10px!important;*/
 }
 .filter-attributes-content {
     display: none;
