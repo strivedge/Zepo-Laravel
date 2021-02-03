@@ -43,7 +43,7 @@
             <!--Footer-->
             <div class="modal-footer">
                 <h2 class="col-6 text-left fw6">
-                    {{ subtotalText }}
+                    {{ subtotalText }}efghmmhgfds
                 </h2>
 
                 <h2 class="col-6 text-right fw6 no-padding">{{ cartInformation.base_sub_total }}</h2>
@@ -57,7 +57,7 @@
                         <button
                             type="button"
                             class="theme-btn fs16 fw6">
-                            {{ checkoutText }}
+                            {{ checkoutText }}ghjkjhgf
                         </button>
                     </a>
                 </div>
