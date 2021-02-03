@@ -7,6 +7,8 @@
     $attributeOptionTranslations = DB::table('attribute_option_translations')->where('locale', $locale)->get()->toJson();
 @endphp
 
+ <?php //echo "string<pre>";print_r($comparableAttributes);exit(); ?>
+
 @push('css')
     <style>
         .btn-add-to-cart {
@@ -53,7 +55,10 @@
                         ]]);
                     @endphp
 
+                    <?php //echo "string<pre>";print_r($comparableAttributes);exit(); ?>
+
                     @foreach ($comparableAttributes as $attribute)
+
                         <tr>
                             <td>
                                 <span class="fs16">{{ isset($attribute['name']) ? $attribute['name'] : $attribute['admin_name'] }}</span>

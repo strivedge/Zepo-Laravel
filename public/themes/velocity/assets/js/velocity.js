@@ -40436,7 +40436,7 @@ var render = function() {
                                     _vm._v(
                                       "\n                                " +
                                         _vm._s(item.base_total) +
-                                        " dfggg\n                            "
+                                        "\n                            "
                                     )
                                   ]
                                 )
@@ -40456,7 +40456,7 @@ var render = function() {
                   _vm._v(
                     "\n                " +
                       _vm._s(_vm.subtotalText) +
-                      " ffffff ggg\n            "
+                      "\n            "
                   )
                 ]),
                 _vm._v(" "),
@@ -40488,7 +40488,7 @@ var render = function() {
                         _vm._v(
                           "\n                        " +
                             _vm._s(_vm.checkoutText) +
-                            " fgfgfgf\n                    "
+                            "\n                    "
                         )
                       ]
                     )
@@ -44032,16 +44032,10 @@ var render = function() {
                       })
                     ]),
                 _vm._v(" "),
-                _c(
-                  "p",
-                  {
-                    staticClass: "pt14 fs14 description-text",
-                    domProps: {
-                      innerHTML: _vm._s(_vm.product.shortDescription)
-                    }
-                  },
-                  [_vm._v(" sstghn ggg")]
-                ),
+                _c("p", {
+                  staticClass: "pt14 fs14 description-text",
+                  domProps: { innerHTML: _vm._s(_vm.product.shortDescription) }
+                }),
                 _vm._v(" "),
                 _c(
                   "div",
