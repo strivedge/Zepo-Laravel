@@ -20,16 +20,16 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
 
     //Upload image for search product
     Route::post('/upload-search-image', 'Webkul\Shop\Http\Controllers\HomeController@upload')->name('shop.image.search.upload');
-
+    
     //Country State Selector
     Route::get('get/countries', 'Webkul\Core\Http\Controllers\CountryStateController@getCountries')->defaults('_config', [
         'view' => 'shop::test'
-    ])->name('get.countries');
-
-    //Get States When Country is Passed
-    Route::get('get/states/{country}', 'Webkul\Core\Http\Controllers\CountryStateController@getStates')->defaults('_config', [
-        'view' => 'shop::test'
-    ])->name('get.states');
+        ])->name('get.countries');
+        
+        //Get States When Country is Passed
+        Route::get('get/states/{country}', 'Webkul\Core\Http\Controllers\CountryStateController@getStates')->defaults('_config', [
+            'view' => 'shop::test'
+            ])->name('get.states');
 
     //checkout and cart
     //Cart Items(listing)
@@ -298,9 +298,12 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
             });
         });
     });
-    //customer routes end here
 
+    //customer routes end here
     Route::get('page/{slug}', 'Webkul\CMS\Http\Controllers\Shop\PagePresenterController@presenter')->name('shop.cms.page');
+
+    // Blog Details on front end homepage
+    Route::get('blogDetails/{id}', 'Custom\Blog\Http\Controllers\BlogDetailController@edit')->defaults('_config', ['view' => 'shop::home.blog-details'])->name('blogDetails');
 
     Route::fallback(\Webkul\Shop\Http\Controllers\ProductsCategoriesProxyController::class . '@index')
         ->defaults('_config', [
@@ -309,6 +312,4 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
         ])
         ->name('shop.productOrCategory.index');
 
-    // Blog Details
-    Route::get('blogDetails/{id}', 'Custom\Blog\Http\Controllers\BlogController@edit')->defaults('_config', ['view' => 'shop::home.blog-details'])->name('blogDetails');
 });
