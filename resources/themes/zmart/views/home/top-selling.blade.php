@@ -7,7 +7,7 @@
 
             @foreach (app('Webkul\Product\Repositories\ProductRepository')->getTopSellingProducts() as $productFlat)
 
-            <?php //echo"<pre>";print_r($product);exit(); ?>
+            <?php //echo"<pre>";print_r($productFlat);exit(); ?>
 
                 @include ('shop::products.newproduct.new-product-listing', ['product' => $productFlat])
 
