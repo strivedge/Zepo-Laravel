@@ -863,26 +863,30 @@ class ProductRepository extends Repository
 
     public function getTopSellingProducts()
     {
-
         $channel = request()->get('channel') ?: (core()->getCurrentChannelCode() ?: core()->getDefaultChannelCode());
 
                     $locale = request()->get('locale') ?: app()->getLocale();
 
-        $results = app(OrderItemRepository::class)->scopeQuery(function ($query) {
+        $results = app(ProductFlatRepository::class)->scopeQuery(function ($query) {
                     $channel = request()->get('channel') ?: (core()->getCurrentChannelCode() ?: core()->getDefaultChannelCode());
 
                     $locale = request()->get('locale') ?: app()->getLocale();
 
                     return $query->distinct()
-                        ->leftJoin('product_flat', 'order_items.product_id', '=', 'product_flat.product_id')
-                    //->select(DB::raw('SUM(qty_ordered) as total_qty_ordered'))
+                        ->leftJoin('order_items', 'order_items.product_id', '=', 'product_flat.product_id')
+                    ->select(DB::raw('SUM(qty_ordered) as total_qty_ordered'))
                     ->addSelect('product_flat.*')
+                    ->where('product_flat.channel', $channel)
+                    ->where('product_flat.locale', $locale)
                     ->where('order_items.created_at', '>=', $this->startDate)
                     ->where('order_items.created_at', '<=', $this->endDate)
                     ->whereNull('order_items.parent_id')
-                    ->groupBy('order_items.product_id');
+                    ->groupBy('order_items.product_id')
+                    ->orderBy('total_qty_ordered', 'DESC');
                        // ->inRandomOrder();
                 })->paginate(12);
+                
+                // echo "<pre>"; print_r($results); exit();
 
         return $results;
 

@@ -146,12 +146,11 @@
                 @include('shop::home.new-products')
               </div>
               <div id="bestseller" class="tab-pane ">
-                 @include('shop::home.new-products')
+                 @include('shop::home.top-selling')
               </div>
             </div>
           </div>
         </div>
-
 
                 @include('shop::home.offer-products')
                 @include ('shop::products.list.recently-viewed', [
@@ -163,10 +162,8 @@
                 @include('shop::home.offer-view')
                 @include('shop::home.testinominal-view')
                 @include('shop::home.shipping-payment')
-                
-               
+                 
         <!-- {{ view_render_event('bagisto.shop.home.content.after') }} -->
     </div>
 
 @endsection
-
