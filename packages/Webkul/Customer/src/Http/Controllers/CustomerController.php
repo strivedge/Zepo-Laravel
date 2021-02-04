@@ -103,9 +103,10 @@ class CustomerController extends Controller
 
         $old_data = $this->customerRepository->find($id);
 
-        $imageName = $data['image'];
+        
         if (request()->hasFile('image'))
         {
+            $imageName = $data['image'];
             if (isset($old_data['image']) && !empty($old_data['image'])) {
                $file_path = public_path().'/'.$old_data['image'];
                 if(File::exists($file_path)) 
