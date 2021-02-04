@@ -247,8 +247,8 @@
                 if (existingViewed.indexOf(currentProductId) == -1) {
                     existingViewed.push(currentProductId);
 
-                    if (existingViewed.length > 3)
-                        existingViewed = existingViewed.slice(Math.max(existingViewed.length - 4, 1));
+                    if (existingViewed.length > 6)
+                        existingViewed = existingViewed.slice(Math.max(existingViewed.length - 7, 1));
 
                     window.localStorage.setItem('recentlyViewed', JSON.stringify(existingViewed));
                 } else {

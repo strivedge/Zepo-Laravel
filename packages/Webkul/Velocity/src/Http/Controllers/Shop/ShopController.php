@@ -44,6 +44,7 @@ class ShopController extends Controller
                     'rating'       => ceil($productReviewHelper->getAverageRating($product)),
                     'image'        => $galleryImages['small_image_url'],
                     'baseUrl'        => url('/'),
+                    'csrf_token'        => csrf_token()
                 ]
             ];
         } else {

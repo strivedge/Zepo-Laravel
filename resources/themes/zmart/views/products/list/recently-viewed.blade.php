@@ -55,14 +55,15 @@
                                      
                                     </div>
 
-                                    <!-- <div class="cart-wish-wrap no-padding ml0">
+
+                                   <!-- <div class="cart-wish-wrap no-padding ml0">
                                         <div class="mx-0 no-padding">
                                             <div class="add-to-cart-btn pl0">
                                                 <form
                                                     method="POST" :action="`${baseUrl}/checkout/cart/add/${product.product_id}`"
                                                     >
                                                     
-                                                    <input type="hidden" name="_token" value="{{csrf_token()}}"
+                                                    <input type="hidden" name="_token" :value="`${product.csrf_token}`">
                                                     <input type="hidden" name="product_id" :value="`${product.product_id}`">
                                                     <input type="hidden" name="quantity" value="1">
                                                     <button
@@ -99,9 +100,10 @@
                     return {
                         recentlyViewed: (() => {
                             let storedRecentlyViewed = window.localStorage.recentlyViewed;
-                            //console.log("storedRecentlyViewed",storedRecentlyViewed)
+                            console.log("storedRecentlyViewed",storedRecentlyViewed)
                             if (storedRecentlyViewed) {
                                 var slugs = JSON.parse(storedRecentlyViewed);
+                                console.log("slugs",slugs)
                                 var updatedSlugs = {};
 
                                 slugs = slugs.reverse();
