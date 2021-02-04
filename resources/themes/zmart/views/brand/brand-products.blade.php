@@ -7,28 +7,29 @@
  //echo "<pre>";print_r($product->count());exit; ?>
  @section('full-content-wrapper')
    @if ($product->count() > 0)
+        <div class="container">
+            <section class="featured-products product-box">
 
-        <section class="featured-products product-box">
+                <!-- <div class="featured-heading">
+                    {{ __('shop::app.home.new-products') }}<br/>
 
-            <!-- <div class="featured-heading">
-                {{ __('shop::app.home.new-products') }}<br/>
+                    <span class="featured-seperator" style="color:lightgrey;">_____</span>
+                </div> -->
+                <!-- <div class="featured-grid product-grid-4"> -->
+                <ul class="row">
+                    <?php //echo"<pre>"; print_r(app('Webkul\Product\Repositories\ProductRepository')->getNewProducts());exit(); ?>
 
-                <span class="featured-seperator" style="color:lightgrey;">_____</span>
-            </div> -->
-            <!-- <div class="featured-grid product-grid-4"> -->
-            <ul class="row">
-                <?php //echo"<pre>"; print_r(app('Webkul\Product\Repositories\ProductRepository')->getNewProducts());exit(); ?>
+                    @foreach ($product as $productFlat)
 
-                @foreach ($product as $productFlat)
+                        @include ('shop::products.newproduct.new-product-listing', ['product' => $productFlat])
 
-                    @include ('shop::products.newproduct.new-product-listing', ['product' => $productFlat])
+                    @endforeach
 
-                @endforeach
+                <!-- </div> -->
+                </ul>
 
-            <!-- </div> -->
-            </ul>
-
-        </section>
+            </section>
+        </div>
     @else
         <div class="product-list empty">
             <h2>{{ __('shop::app.products.whoops') }}</h2>

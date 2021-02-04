@@ -19,19 +19,21 @@ class ProductImage extends AbstractProduct
         }
 
         $images = [];
+        if (isset($product->images) && !empty($product->images)) {
+       
+            foreach ($product->images as $image) {
+                if (! Storage::has($image->path)) {
+                    continue;
+                }
 
-        foreach ($product->images as $image) {
-            if (! Storage::has($image->path)) {
-                continue;
+                $images[] = [
+                    'small_image_url'    => url('cache/small/' . $image->path),
+                    'medium_image_url'   => url('cache/medium/' . $image->path),
+                    'large_image_url'    => url('cache/large/' . $image->path),
+                    'original_image_url' => url('cache/original/' . $image->path),
+                ];
             }
-
-            $images[] = [
-                'small_image_url'    => url('cache/small/' . $image->path),
-                'medium_image_url'   => url('cache/medium/' . $image->path),
-                'large_image_url'    => url('cache/large/' . $image->path),
-                'original_image_url' => url('cache/original/' . $image->path),
-            ];
-        }
+         }
 
         if (! $product->parent_id && ! count($images)) {
             $images[] = [

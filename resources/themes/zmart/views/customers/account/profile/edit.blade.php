@@ -22,7 +22,7 @@
                 method="POST"
                 @submit.prevent="onSubmit"
                 class="account-table-content"
-                action="{{ route('customer.profile.store') }}">
+                action="{{ route('customer.profile.store') }}" enctype="multipart/form-data">
                 @csrf
 
                 {!! view_render_event('bagisto.shop.customers.account.profile.edit_form_controls.before', ['customer' => $customer]) !!}
@@ -103,7 +103,7 @@
                         </div>
                     </div>
 
-                {!! view_render_event('bagisto.shop.customers.account.profile.edit.gender.after', ['customer' => $customer]) !!}
+                   {!! view_render_event('bagisto.shop.customers.account.profile.edit.gender.after', ['customer' => $customer]) !!}
 
                     <div :class="`col-md-6 no-padding ${errors.has('date_of_birth') ? 'has-error' : ''}`">
                         <div class="form-group">
@@ -128,6 +128,25 @@
                 </div>
 
                 {!! view_render_event('bagisto.shop.customers.account.profile.edit.date_of_birth.after', ['customer' => $customer]) !!}
+
+                <div class="row">
+                    <label class="col-12 mandatory">
+                        Profile Photo
+                    </label>
+
+                    <div class="col-9">
+                        <input name="image" type="file"/>
+                        <span class="control-error" v-if="errors.has('image')">@{{ errors.first('image') }}</span>
+                    </div>
+                    <div class="col-3">
+                        @if(auth()->guard('customer')->user()->image)
+                          <img src="{{ asset('/').auth()->guard('customer')->user()->image }}" class="logo custom-logo" style="width: 100%;height: 100%;">
+                        @endif
+                    </div>
+
+                </div>
+
+                {!! view_render_event('bagisto.shop.customers.account.profile.edit.photo.after', ['customer' => $customer]) !!}
 
                 <div class="row">
                     <label class="col-12 mandatory">

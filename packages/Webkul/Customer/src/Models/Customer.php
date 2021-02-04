@@ -23,6 +23,7 @@ class Customer extends Authenticatable implements CustomerContract, JWTSubject
         'gender',
         'date_of_birth',
         'email',
+        'image',
         'phone',
         'password',
         'api_token',
@@ -42,6 +43,25 @@ class Customer extends Authenticatable implements CustomerContract, JWTSubject
     public function getNameAttribute()
     {
         return ucfirst($this->first_name) . ' ' . ucfirst($this->last_name);
+    }
+
+    /**
+     * Get image url for the category image.
+     */
+    public function image_url()
+    {
+        if (! $this->image)
+            return;
+
+        return Storage::url($this->image);
+    }
+
+    /**
+     * Get image url for the category image.
+     */
+    public function getImageUrlAttribute()
+    {
+        return $this->image_url();
     }
 
     /**

@@ -47,7 +47,6 @@
     ])->render());
 
 @endphp
-<?php //echo"<pre>";print_r($product);exit(); ?>
 {!! view_render_event('bagisto.shop.products.list.card.before', ['product' => $product]) !!}
     @if (isset($list) && $list)
         <div class="col-12 lg-card-container list-card product-card row">
@@ -100,9 +99,7 @@
             </div>
         </div>
     @else
-    <?php //echo "<pre>";print_r($product->sku);exit(); ?>
-    <!-- offer add to cart -->
-        <!-- <div class="card grid-card product-card-new"> -->
+   
         <li class="">
             <div class="content-wrap">
                 <div class="product-code">{{$product->sku}}</div>
@@ -118,9 +115,6 @@
                             alt="{{ $product->name }}"
                             src="{{ $productBaseImage['large_image_url'] }}"
                             :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
-
-                            <!-- {{-- <product-quick-view-btn :quick-view-details="product"></product-quick-view-btn> --}}
-                            <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn> -->
                     </a>
                 </div>
                 
@@ -130,7 +124,6 @@
                     </div>
                 @endif
 
-                <!-- <div class="card-body"> -->
                 <div class="content">
                     <div class="star">
                          @if ($totalReviews)
@@ -143,11 +136,9 @@
                         @else
                             <div class="product-rating">
                                 <img src="{{ asset('themes/zmart/assets/images/star-gray.png') }}">
-                                <!-- {{ __('velocity::app.products.be-first-review') }} -->
                             </div>
                         @endif
                     </div>
-                    <!-- <div class="product-name"> -->
                     <div class="title">
                         <a
                             href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
@@ -158,17 +149,12 @@
                         </a>
                     </div>
 
-                    <!-- <div class="product-price"> -->
                     <div class="price">
                         @include ('shop::products.newproduct.price', ['product' => $product])
                         <span class="including-tax">(Including tax)</span>
                     </div>
                 </div>
-                   
-                   
-                    
-                <!-- </div> -->
-        <!-- </div> -->
+                
             </div>
         </li>
     @endif

@@ -73,8 +73,11 @@
                 </div>
 
                 <div class="datagrid-filters" id="datagrid-filters">
-                    <div class="filter-left">
+                    <div class="filter-left col-md-3">
                         <div class="search-filter">
+                            <label>
+                                 Search
+                            </label>
                             <input type="search" id="search-field" class="control"
                                    placeholder="{{ __('ui::app.datagrid.search') }}" v-model="searchValue"
                                    v-on:keyup.enter="searchCollection(searchValue)"/>
@@ -86,8 +89,8 @@
                         </div>
                     </div>
 
-                    <div class="filter-right">
-                        <div class="dropdown-filters per-page">
+                    <div class="filter-right col-md-9">
+                        <div class="dropdown-filters per-page col-md-4">
                             <div class="control-group">
                                 <label class="per-page-label" for="perPage">
                                     {{ __('ui::app.datagrid.items-per-page') }}
@@ -104,10 +107,11 @@
                             </div>
                         </div>
 
-                        <div class="dropdown-filters">
+                        <div class="dropdown-filters col-md-8">
                             <div class="dropdown-toggle">
                                 <div class="grid-dropdown-header">
-                                    <span class="name">{{ __('ui::app.datagrid.filter') }}</span>
+                                    <label class="name">{{ __('ui::app.datagrid.filter') }}</label>
+                                    <!-- <span class="name">{{ __('ui::app.datagrid.filter') }}</span> -->
                                     <i class="icon arrow-down-icon active"></i>
                                 </div>
                             </div>
@@ -220,7 +224,7 @@
                                         </div>
                                     </li>
 
-                                    <button class="btn btn-sm btn-primary apply-filter"
+                                    <button class="btn btn-sm btn-primary apply-filter theme-btn"
                                             v-on:click="getResponse">{{ __('ui::app.datagrid.apply') }}</button>
                                 </ul>
                             </div>

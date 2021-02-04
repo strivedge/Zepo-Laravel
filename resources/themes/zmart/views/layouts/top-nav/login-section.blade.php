@@ -100,7 +100,11 @@
                         <div class="modal-content customer-options">
                             <div class="customer-session">
                                 <div class="customer-name text-uppercase">
-                                    P
+                                   @if(auth()->guard('customer')->user()->image)
+                                     <img src="{{ asset('/').auth()->guard('customer')->user()->image }}" class="logo custom-logo" style="width: 101%;height: 100%;">
+                                    @else
+                                        {{ substr(auth('customer')->user()->first_name, 0, 1) }}
+                                    @endif
                                 </div>
                                 <label class="">
                                     {{ auth()->guard('customer')->user()->first_name }}
