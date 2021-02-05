@@ -144,9 +144,6 @@
                     </div>
                 @show
 
-
-                
-                
                     {!! view_render_event('bagisto.shop.layout.full-content.before') !!}
                         
                             @yield('full-content-wrapper')
@@ -170,11 +167,7 @@
             <div class="modal-parent" id="loader" style="top: 0" v-show="showPageLoader">
                 <overlay-loader :is-open="true"></overlay-loader>
             </div>
-            {!! view_render_event('bagisto.shop.layout.full-content.before') !!}
-
-                        @yield('home-full-blog-content')
-
-            {!! view_render_event('bagisto.shop.layout.full-content.after') !!}
+           
         </div>
 
         <!-- below footer -->

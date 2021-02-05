@@ -37,14 +37,15 @@ class ShopController extends Controller
                     'name'         => $product->name,
                     'sku'          => $product->sku,
                     'urlKey'       => $product->url_key,
-                    'special_price'  => $product->getTypeInstance()->haveSpecialPrice(),
-                    'percentage'  => $product->getTypeInstance()->getOfferPercentage(),
+                    'special_price'=> $product->getTypeInstance()->haveSpecialPrice(),
+                    'percentage'   => $product->getTypeInstance()->getOfferPercentage(),
                     'priceHTML'    => $product->getTypeInstance()->getOfferPriceHtml(),
                     'totalReviews' => $productReviewHelper->getTotalReviews($product),
                     'rating'       => ceil($productReviewHelper->getAverageRating($product)),
                     'image'        => $galleryImages['small_image_url'],
-                    'baseUrl'        => url('/'),
-                    'csrf_token'        => csrf_token()
+                    'baseUrl'      => url('/'),
+                    'csrf_token'   => csrf_token(),
+                    'product'      => json_encode($product)
                 ]
             ];
         } else {

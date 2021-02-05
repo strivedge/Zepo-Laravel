@@ -562,6 +562,8 @@ abstract class AbstractType
             if ($rulePrice && $rulePrice->price < $this->product->price) {
                 $this->product->special_price = $rulePrice->price;
 
+                //echo"<pre>";print_r($rulePrice);exit();
+
                 $haveSpecialPrice = true;
             }
         } else {

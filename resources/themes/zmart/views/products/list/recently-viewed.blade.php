@@ -55,6 +55,69 @@
                                      
                                     </div>
 
+                                    <!-- <compare-component
+                                            @auth('customer')
+                                                customer="true"
+                                            @endif
+
+                                            @guest('customer')
+                                                customer="false"
+                                            @endif
+
+                                            :slug="`${product.urlKey}`"
+                                            :product-id="`${product.product_id}`"
+                                            add-tooltip="{{ __('velocity::app.customer.compare.add-tooltip') }}">
+                                    </compare-component> -->
+
+                                   <!--  @auth('customer')
+                                        @php
+                                            $isWished = $wishListHelper->getWishlistProduct($product);
+                                        @endphp
+
+                                        <a
+                                            class="unset wishlist-icon {{ $addWishlistClass ?? '' }} text-right"
+                                            @if(isset($route))
+                                                href="{{ $route }}"
+                                            @elseif (! $isWished)
+                                                href="{{ route('customer.wishlist.add', $product->product_id) }}"
+                                                title="{{ __('velocity::app.shop.wishlist.add-wishlist-text') }}"
+                                            @elseif (isset($itemId) && $itemId)
+                                                href="{{ route('customer.wishlist.remove', $itemId) }}"
+                                                title="{{ __('velocity::app.shop.wishlist.remove-wishlist-text') }}"
+                                            @endif>
+
+                                            <wishlist-component active="{{ !$isWished }}" is-customer="true"></wishlist-component>
+
+                                            @if (isset($text))
+                                                {!! $text !!}
+                                            @endif
+                                        </a>
+                                    @endauth
+
+                                    @guest('customer')
+                                        <wishlist-component
+                                            active="false"
+                                            is-customer="false"
+                                            text="{{ $text ?? null }}"
+                                            product-id="`${product.product_id}`"
+                                            item-id="{{ $item->id ?? null}}"
+                                            product-slug="`${product.urlKey}`"
+                                            add-class="{{ $addWishlistClass ?? '' }}"
+                                            move-to-wishlist="{{ $isMoveToWishlist ?? null}}"
+                                            added-text="{{ __('shop::app.customer.account.wishlist.add') }}"
+                                            remove-text="{{ __('shop::app.customer.account.wishlist.remove') }}"
+                                            add-tooltip="{{ __('velocity::app.shop.wishlist.add-wishlist-text') }}"
+                                            remove-tooltip="{{ __('velocity::app.shop.wishlist.remove-wishlist-text') }}">
+                                        </wishlist-component>
+                                    @endauth -->
+
+                                        
+
+
+                                    <!-- <div class="quick-view-in-list">
+                                        <product-quick-view-btn :quick-view-details="`${product}`"></product-quick-view-btn>
+                                    </div> -->
+                                     
 
                                    <!-- <div class="cart-wish-wrap no-padding ml0">
                                         <div class="mx-0 no-padding">
@@ -139,4 +202,11 @@
             })
         })()
     </script>
+
+     <script>
+        var a="Hello fff";
+    </script>
+    <?php 
+        echo $variable = "<script>document.write(a)</script>"; //I want above javascript variable 'a' value to be store here
+    ?>
 @endpush
