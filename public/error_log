@@ -1,0 +1,1173 @@
+[21-Jan-2021 14:42:49 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[02-Feb-2021 09:37:31 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 09:37:31 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 09:38:06 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 09:38:06 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 09:39:16 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 09:39:16 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:06 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:06 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:08 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:08 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:09 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:09 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:10 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:10 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:10 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:10 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:11 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:11 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:12 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:12 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:12 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:12 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:13 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:13 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:13 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:13 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:14 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:14 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:15 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:15 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:15 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:15 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:16 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:16 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:16 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:16 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:17 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:17 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:18 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:18 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:18 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:18 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:19 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:19 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:19 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:19 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:20 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:20 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:21 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:21 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:21 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:21 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:22 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:22 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:23 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:23 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:25 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:25 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:25 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:25 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:26 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:26 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:26 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:26 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:27 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:27 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:28 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:28 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:28 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:28 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:29 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:29 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:29 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:29 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:30 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[02-Feb-2021 10:46:30 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php:805
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(805): ReflectionClass->__construct('view')
+#1 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(687): Illuminate\Container\Container->build('view')
+#2 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('view', Array)
+#5 /home/devurlco/public_html/zepomart/vend in /home/devurlco/public_html/zepomart/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 807
+[05-Feb-2021 12:44:24 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:24 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:25 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:25 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:26 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:26 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:27 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:27 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:28 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:28 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:29 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:29 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:30 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:30 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:31 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:31 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:32 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:33 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:33 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:34 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:34 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:35 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:36 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:36 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:37 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:37 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:38 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:38 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:39 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:40 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:40 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:41 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:42 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:42 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:43 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:43 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:44 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:45 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:45 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:46 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:46 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:47 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:47 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:48 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:49 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:49 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:50 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:51 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:51 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:52 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:52 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:53 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:54 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:54 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:55 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:55 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:56 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:57 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:57 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:58 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:58 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:59 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:44:59 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:00 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:01 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:01 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:02 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:03 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:03 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:04 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:04 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:05 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:05 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:06 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:07 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:07 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:08 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:09 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:09 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:10 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:10 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:11 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:12 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:12 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:13 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:13 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:14 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:14 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:15 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:16 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:16 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:17 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:18 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:18 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:19 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:19 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:20 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:21 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:21 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:22 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:22 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:23 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:23 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:24 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:25 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:25 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:26 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:26 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:27 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:28 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:28 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
+[05-Feb-2021 12:45:29 Europe/London] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/devurlco/public_html/zepomart/bootstrap/app.php:14
+Stack trace:
+#0 /home/devurlco/public_html/zepomart/public/index.php(57): require_once()
+#1 {main}
+  thrown in /home/devurlco/public_html/zepomart/bootstrap/app.php on line 14
