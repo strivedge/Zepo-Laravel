@@ -107,7 +107,7 @@
                             </div>
                         </div>
 
-                        <div class="dropdown-filters col-md-8">
+                        <div class="dropdown-filters col-md-8 filters">
                             <div class="dropdown-toggle">
                                 <div class="grid-dropdown-header">
                                     <label class="name">{{ __('ui::app.datagrid.filter') }}</label>

@@ -3,14 +3,14 @@
 
     <div class="order-summary-content"><!-- row  -->
         <span class="col-7">{{ __('velocity::app.checkout.sub-total') }}</span>
-        <b>:</b>
+        <b class="com-md-1">:</b>
         <span class="col-4 text-right prices">{{ core()->currency($cart->base_sub_total) }}</span>
     </div>
 
     @if ($cart->selected_shipping_rate)
         <div class="order-summary-content"><!-- row  -->
             <span class="col-7">{{ __('shop::app.checkout.total.delivery-charges') }}</span>
-            <b>:</b>
+            <b class="com-md-1">:</b>
             <span class="col-4 text-right prices">{{ core()->currency($cart->selected_shipping_rate->base_price) }}</span>
         </div>
     @endif
@@ -19,7 +19,7 @@
         @foreach (Webkul\Tax\Helpers\Tax::getTaxRatesWithAmount($cart, true) as $taxRate => $baseTaxAmount )
             <div class="order-summary-content"><!-- row  -->
                 <span class="col-7" id="taxrate-{{ core()->taxRateAsIdentifier($taxRate) }}">{{ __('shop::app.checkout.total.tax') }} {{ $taxRate }} %</span>
-                <b>:</b>
+                <b class="com-md-1">:</b>
                 <span class="col-4 text-right prices" id="basetaxamount-{{ core()->taxRateAsIdentifier($taxRate) }}">{{ core()->currency($baseTaxAmount) }}</span>
             </div>
         @endforeach
@@ -31,9 +31,10 @@
     )
         <div
             id="discount-detail"
-            class="row">
+            class="order-summary-content"><!-- row  -->
 
-            <span class="col-8">{{ __('shop::app.checkout.total.disc-amount') }}</span>
+            <span class="col-7">{{ __('shop::app.checkout.total.disc-amount') }}</span>
+            <b class="com-md-1">:</b>
             <span class="col-4 text-right">
                 -{{ core()->currency($cart->base_discount_amount) }}
             </span>

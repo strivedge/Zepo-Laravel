@@ -1225,7 +1225,7 @@
     border: 1px solid rgba(0, 0, 0, .125);
 }
 .account-content .account-layout .account-table-content.profile-page-content .table td {
-    border: unset;
+    /*border: unset;*/
     padding: 6px 12px;
 }
 .account-content .account-layout .account-table-content .accordian .accordian-header {
@@ -3984,7 +3984,7 @@ button[disabled] {
 .table {
     width: 90%;
     margin-bottom: 1rem;
-    margin-top: 68px;
+    /*margin-top: 68px;*/
     color: #212529;
     overflow-x: auto;
 }
