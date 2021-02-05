@@ -12,12 +12,12 @@
     @include('shop::checkout.cart.coupon')
 
     <script type="text/x-template" id="checkout-template">
-        <div class="container">
-            <div id="checkout" class="checkout-process row offset-lg-1 col-lg-11 col-md-12">
+        
+            <div id="checkout" class="checkout-process  col-lg-12 col-md-12"><!-- row offset-lg-1 col-lg-11 -->
 
                 <h1 class="col-12">{{ __('velocity::app.checkout.checkout') }}</h1>
 
-                <div class="col-lg-7 col-md-12">
+                <div class="col-lg-8 col-md-12"><!-- col-lg-7 -->
                     <div class="step-content information" id="address-section">
                         @include('shop::checkout.onepage.customer-info')
                     </div>
@@ -51,17 +51,17 @@
                         id="summary-section">
 
                         <review-section :key="reviewComponentKey">
-                            <div slot="summary-section">
+                            <!-- <div slot="summary-section">
                                 <summary-section
                                     discount="1"
                                     :key="summeryComponentKey"
                                     @onApplyCoupon="getOrderSummary"
                                     @onRemoveCoupon="getOrderSummary"
                                 ></summary-section>
-                            </div>
+                            </div> -->
 
                             <div slot="place-order-btn">
-                                <div class="mb20">
+                                <div class="mb20 text-center">
                                     <button
                                         type="button"
                                         class="theme-btn"
@@ -76,11 +76,11 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-12 offset-lg-1 order-summary-container top pt0">
+                <div class="col-lg-4 col-md-12 order-summary-container top pt0">
                     <summary-section :key="summeryComponentKey"></summary-section>
                 </div>
             </div>
-        </div>
+        
     </script>
 
     <script type="text/javascript">

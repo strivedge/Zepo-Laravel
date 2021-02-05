@@ -3,44 +3,46 @@
 @endphp
 
     @if (isset($shipping) && $shipping)
-        <div :class="`col-12 form-field mb30 ${errors.has('address-form.shipping[first_name]') ? 'has-error' : ''}`">
-            <label for="shipping[first_name]" class="mandatory" style="width: unset;">
-                {{ __('shop::app.checkout.onepage.first-name') }}
-            </label>
+        <div class="col-md-12 no-padding first-last-name">
+            <div :class="`col-md-6 first-name form-field mb30 ${errors.has('address-form.shipping[first_name]') ? 'has-error' : ''}`">
+                <label for="shipping[first_name]" class="mandatory" style="width: unset;">
+                    {{ __('shop::app.checkout.onepage.first-name') }}
+                </label>
 
-            <input
-                type="text"
-                class="control"
-                v-validate="'required'"
-                id="shipping[first_name]"
-                name="shipping[first_name]"
-                v-model="address.shipping.first_name"
-                @change="validateForm('address-form')"
-                data-vv-as="&quot;{{ __('shop::app.checkout.onepage.first-name') }}&quot;" />
+                <input
+                    type="text"
+                    class="control"
+                    v-validate="'required'"
+                    id="shipping[first_name]"
+                    name="shipping[first_name]"
+                    v-model="address.shipping.first_name"
+                    @change="validateForm('address-form')"
+                    data-vv-as="&quot;{{ __('shop::app.checkout.onepage.first-name') }}&quot;" />
 
-            <span class="control-error" v-if="errors.has('address-form.shipping[first_name]')">
-                @{{ errors.first('address-form.shipping[first_name]') }}
-            </span>
-        </div>
+                <span class="control-error" v-if="errors.has('address-form.shipping[first_name]')">
+                    @{{ errors.first('address-form.shipping[first_name]') }}
+                </span>
+            </div>
 
-        <div :class="`col-12 form-field ${errors.has('address-form.shipping[last_name]') ? 'has-error' : ''}`">
-            <label for="shipping[last_name]" class="mandatory">
-                {{ __('shop::app.checkout.onepage.last-name') }}
-            </label>
+            <div :class="`col-md-6 last-name form-field ${errors.has('address-form.shipping[last_name]') ? 'has-error' : ''}`">
+                <label for="shipping[last_name]" class="mandatory">
+                    {{ __('shop::app.checkout.onepage.last-name') }}
+                </label>
 
-            <input
-                type="text"
-                class="control"
-                v-validate="'required'"
-                id="shipping[last_name]"
-                name="shipping[last_name]"
-                v-model="address.shipping.last_name"
-                @change="validateForm('address-form')"
-                data-vv-as="&quot;{{ __('shop::app.checkout.onepage.last-name') }}&quot;" />
+                <input
+                    type="text"
+                    class="control"
+                    v-validate="'required'"
+                    id="shipping[last_name]"
+                    name="shipping[last_name]"
+                    v-model="address.shipping.last_name"
+                    @change="validateForm('address-form')"
+                    data-vv-as="&quot;{{ __('shop::app.checkout.onepage.last-name') }}&quot;" />
 
-            <span class="control-error" v-if="errors.has('address-form.shipping[last_name]')">
-                @{{ errors.first('address-form.shipping[last_name]') }}
-            </span>
+                <span class="control-error" v-if="errors.has('address-form.shipping[last_name]')">
+                    @{{ errors.first('address-form.shipping[last_name]') }}
+                </span>
+            </div>
         </div>
 
         <div :class="`col-12 form-field ${errors.has('address-form.shipping[email]') ? 'has-error' : ''}`">
@@ -193,8 +195,8 @@
                 @{{ errors.first('address-form.shipping[state]') }}
             </span>
         </div>
-
-        <div :class="`col-12 form-field ${errors.has('address-form.shipping[postcode]') ? 'has-error' : ''}`">
+    <div class="col-md-12 no-padding first-last-name">
+        <div :class="`col-md-6 first-name form-field ${errors.has('address-form.shipping[postcode]') ? 'has-error' : ''}`">
             <label for="shipping[postcode]" class="mandatory">
                 {{ __('shop::app.checkout.onepage.postcode') }}
             </label>
@@ -214,7 +216,7 @@
             </span>
         </div>
 
-        <div :class="`col-12 form-field ${errors.has('address-form.shipping[phone]') ? 'has-error' : ''}`">
+        <div :class="`col-md-6 last-name form-field ${errors.has('address-form.shipping[phone]') ? 'has-error' : ''}`">
             <label for="shipping[phone]" class="mandatory">
                 {{ __('shop::app.checkout.onepage.phone') }}
             </label>
@@ -233,6 +235,7 @@
                 @{{ errors.first('address-form.shipping[phone]') }}
             </span>
         </div>
+    </div>
 
         @auth('customer')
             <div class="mb10">
@@ -253,6 +256,7 @@
         @endauth
 
     @elseif (isset($billing) && $billing)
+        
         <div :class="`col-12 form-field ${errors.has('address-form.billing[company_name]') ? 'has-error' : ''}`">
             <label for="billing[company_name]">
                 {{ __('shop::app.checkout.onepage.company-name') }}
@@ -271,45 +275,47 @@
                 @{{ errors.first('address-form.billing[company_name]') }}
             </span>
         </div>
+        <div class="col-md-12 no-padding first-last-name">
+            <div :class="`col-md-6 first-name form-field ${errors.has('address-form.billing[first_name]') ? 'has-error' : ''}`">
+                <label for="billing[first_name]" class="mandatory">
+                    {{ __('shop::app.checkout.onepage.first-name') }}
+                </label>
 
-        <div :class="`col-12 form-field ${errors.has('address-form.billing[first_name]') ? 'has-error' : ''}`">
-            <label for="billing[first_name]" class="mandatory">
-                {{ __('shop::app.checkout.onepage.first-name') }}
-            </label>
+                <input
+                    type="text"
+                    class="control"
+                    v-validate="'required'"
+                    id="billing[first_name]"
+                    name="billing[first_name]"
+                    v-model="address.billing.first_name"
+                    @change="validateForm('address-form')"
+                    data-vv-as="&quot;{{ __('shop::app.checkout.onepage.first-name') }}&quot;" />
 
-            <input
-                type="text"
-                class="control"
-                v-validate="'required'"
-                id="billing[first_name]"
-                name="billing[first_name]"
-                v-model="address.billing.first_name"
-                @change="validateForm('address-form')"
-                data-vv-as="&quot;{{ __('shop::app.checkout.onepage.first-name') }}&quot;" />
+                <span class="control-error" v-if="errors.has('address-form.billing[first_name]')">
+                    @{{ errors.first('address-form.billing[first_name]') }}
+                </span>
+            </div>
+        
 
-            <span class="control-error" v-if="errors.has('address-form.billing[first_name]')">
-                @{{ errors.first('address-form.billing[first_name]') }}
-            </span>
-        </div>
+            <div :class="`col-md-6 last-name form-field ${errors.has('address-form.billing[last_name]') ? 'has-error' : ''}`">
+                <label for="billing[last_name]" class="mandatory">
+                    {{ __('shop::app.checkout.onepage.last-name') }}
+                </label>
 
-        <div :class="`col-12 form-field ${errors.has('address-form.billing[last_name]') ? 'has-error' : ''}`">
-            <label for="billing[last_name]" class="mandatory">
-                {{ __('shop::app.checkout.onepage.last-name') }}
-            </label>
+                <input
+                    type="text"
+                    v-validate="'required'"
+                    class="control"
+                    id="billing[last_name]"
+                    name="billing[last_name]"
+                    v-model="address.billing.last_name"
+                    @change="validateForm('address-form')"
+                    data-vv-as="&quot;{{ __('shop::app.checkout.onepage.last-name') }}&quot;" />
 
-            <input
-                type="text"
-                v-validate="'required'"
-                class="control"
-                id="billing[last_name]"
-                name="billing[last_name]"
-                v-model="address.billing.last_name"
-                @change="validateForm('address-form')"
-                data-vv-as="&quot;{{ __('shop::app.checkout.onepage.last-name') }}&quot;" />
-
-            <span class="control-error" v-if="errors.has('address-form.billing[last_name]')">
-                @{{ errors.first('address-form.billing[last_name]') }}
-            </span>
+                <span class="control-error" v-if="errors.has('address-form.billing[last_name]')">
+                    @{{ errors.first('address-form.billing[last_name]') }}
+                </span>
+            </div>
         </div>
 
         <div :class="`col-12 form-field ${errors.has('address-form.billing[email]') ? 'has-error' : ''}`">
@@ -465,8 +471,8 @@
                 @{{ errors.first('address-form.billing[state]') }}
             </span>
         </div>
-
-        <div :class="`col-12 form-field ${errors.has('address-form.billing[postcode]') ? 'has-error' : ''}`">
+    <div class="col-md-12 no-padding first-last-name">
+        <div :class="`col-md-6 first-name form-field ${errors.has('address-form.billing[postcode]') ? 'has-error' : ''}`">
             <label for="billing[postcode]" class="mandatory">
                 {{ __('shop::app.checkout.onepage.postcode') }}
             </label>
@@ -486,7 +492,7 @@
             </span>
         </div>
 
-        <div :class="`col-12 form-field ${errors.has('address-form.billing[phone]') ? 'has-error' : ''}`">
+        <div :class="`col-md-6 last-name form-field ${errors.has('address-form.billing[postcode]') ? 'has-error' : ''} form-field ${errors.has('address-form.billing[phone]') ? 'has-error' : ''}`">
             <label for="billing[phone]" class="mandatory">
                 {{ __('shop::app.checkout.onepage.phone') }}
             </label>
@@ -505,6 +511,7 @@
                 @{{ errors.first('address-form.billing[phone]') }}
             </span>
         </div>
+    </div>
 
         @if ($cart->haveStockableItems())
             <div class="mb10">

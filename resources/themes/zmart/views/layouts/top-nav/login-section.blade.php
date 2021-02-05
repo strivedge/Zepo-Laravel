@@ -99,13 +99,17 @@
                     @auth('customer')
                         <div class="modal-content customer-options">
                             <div class="customer-session">
-                                <div class="customer-name text-uppercase">
+                                
                                    @if(auth()->guard('customer')->user()->image)
-                                     <img src="{{ asset('/').auth()->guard('customer')->user()->image }}" class="logo custom-logo" style="width: 101%;height: 100%;">
+                                      <div class="customer-name customer-img text-uppercase">
+                                        <img src="{{ asset('/').auth()->guard('customer')->user()->image }}" class="logo custom-logo">
+                                      </div>
                                     @else
+                                      <div class="customer-name text-uppercase">
                                         {{ substr(auth('customer')->user()->first_name, 0, 1) }}
+                                      </div>
                                     @endif
-                                </div>
+                                
                                 <label class="">
                                     {{ auth()->guard('customer')->user()->first_name }}
                                 </label>

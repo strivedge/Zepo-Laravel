@@ -1436,10 +1436,10 @@
     position: absolute;
 }
 .checkout-process .coupon-container input {
-    max-width: 200px;
+    /*max-width: 200px;*/
 }
 .checkout-process .coupon-container button {
-    margin: 20px 0 30px;
+    /*margin: 20px 0 30px;*/
 }
 .checkout-process .coupon-container .applied-coupon-details {
     font-size: 16px;
@@ -1487,7 +1487,7 @@
     margin-bottom: 30px;
 }
 .custom-form label {
-    font-weight: 500;
+    /*font-weight: 500;*/
 }
 .custom-form input[type=password], .custom-form input[type=search], .custom-form input[type=text], .custom-form select {
     /*width: 100%;
@@ -1547,7 +1547,7 @@
     height: max-content;
     position: -webkit-sticky!important;
     position: sticky!important;
-    max-width: 500px!important;
+    /*max-width: 500px!important;*/
 }
 .order-summary-container>div {
     width: 100%}

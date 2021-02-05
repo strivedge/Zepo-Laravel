@@ -94,7 +94,7 @@
 
                             {!! view_render_event('bagisto.shop.checkout.name.after', ['item' => $item]) !!}
 
-                            <div class="row col-12">
+                            <div class="row col-12 quantity">
                                 {!! view_render_event('bagisto.shop.checkout.price.before', ['item' => $item]) !!}
                                         <span class="value">
                                             {{ core()->currency($item->base_price) }}
@@ -110,7 +110,7 @@
                                 {!! view_render_event('bagisto.shop.checkout.quantity.after', ['item' => $item]) !!}
                             </div>
 
-                            <div class="row col-12">
+                            <div class="row col-12 price">
                                 <b>{{ core()->currency($item->base_total) }}</b>
                             </div>
 
@@ -133,7 +133,7 @@
             </div>
 
             <div class="order-description row fs16 cart-details">
-                <div class="col-lg-4 col-md-12">
+                <div class="col-lg-12 col-md-12">
                     @if ($cart->haveStockableItems())
                         <div class="shipping mb20">
                             <div class="decorator">
