@@ -5,3 +5,5 @@ node_modules
 public/storage
 /public/uploadImages
 public/uploadImages
+/storage
+storage

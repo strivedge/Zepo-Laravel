@@ -66,7 +66,7 @@
             </div>
 
             <div class="product-information">
-                <div>
+                <!-- <div> -->
                     <div class="product-name">
                         <a
                             href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
@@ -96,7 +96,7 @@
                                                    ? true : false,
                         ])
                     </div>
-                </div>
+                <!-- </div> -->
             </div>
         </div>
     @else

@@ -81,7 +81,7 @@
                     {!! view_render_event('bagisto.shop.customers.account.address.create_form_controls.country-state.after') !!}
                     
 
-                    <div class="col-md-6" :class="[errors.has('city') ? 'has-error' : '']"><!-- control-group  -->
+                    <div class="col-md-12 col-lg-6 control-group" :class="[errors.has('city') ? 'has-error' : '']"><!-- control-group  -->
                         <label for="city" class="mandatory">{{ __('shop::app.customer.account.address.create.city') }}</label>
                         <input type="text" class="control" name="city" value="{{ old('city') }}" v-validate="'required'" data-vv-as="&quot;{{ __('shop::app.customer.account.address.create.city') }}&quot;">
                         <span class="control-error" v-if="errors.has('city')">@{{ errors.first('city') }}</span>
@@ -90,7 +90,7 @@
                     {!! view_render_event('bagisto.shop.customers.account.address.create_form_controls.city.after') !!}
                 </div>
                 <div class="row">
-                    <div class="col-md-6" :class="[errors.has('postcode') ? 'has-error' : '']">
+                    <div class="col-md-6 control-group" :class="[errors.has('postcode') ? 'has-error' : '']">
                         <label for="postcode" class="mandatory">{{ __('shop::app.customer.account.address.create.postcode') }}</label>
                         <input type="text" class="control" name="postcode" value="{{ old('postcode') }}" v-validate="'required'" data-vv-as="&quot;{{ __('shop::app.customer.account.address.create.postcode') }}&quot;">
                         <span class="control-error" v-if="errors.has('postcode')">@{{ errors.first('postcode') }}</span>
@@ -98,7 +98,7 @@
 
                     {!! view_render_event('bagisto.shop.customers.account.address.create_form_controls.postcode.after') !!}
 
-                    <div class="col-md-6" :class="[errors.has('phone') ? 'has-error' : '']">
+                    <div class="col-md-6 control-group" :class="[errors.has('phone') ? 'has-error' : '']">
                         <label for="phone" class="mandatory">{{ __('shop::app.customer.account.address.create.phone') }}</label>
                         <input type="text" class="control" name="phone" value="{{ old('phone') }}" v-validate="'required'" data-vv-as="&quot;{{ __('shop::app.customer.account.address.create.phone') }}&quot;">
                         <span class="control-error" v-if="errors.has('phone')">@{{ errors.first('phone') }}</span>

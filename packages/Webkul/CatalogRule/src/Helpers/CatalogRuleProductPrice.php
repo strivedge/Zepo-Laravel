@@ -214,7 +214,7 @@ class CatalogRuleProductPrice
             'product_id'        => $product->id,
             'channel_id'        => core()->getCurrentChannel()->id,
             'customer_group_id' => $customerGroupId,
-            'rule_date'         => Carbon::now()->format('Y-m-d'),
+            //'rule_date'         => Carbon::now()->format('Y-m-d'),
         ]);
     }
 }

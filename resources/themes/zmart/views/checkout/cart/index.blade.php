@@ -35,11 +35,11 @@
                                 {{ __('velocity::app.checkout.items') }}
                             </span>
 
-                            <span class="col-2 fw6 fs16 no-padding">
+                            <span class="col-1 fw6 fs16 no-padding">
                                 {{ __('velocity::app.checkout.qty') }}
                             </span>
 
-                            <span class="col-1 fw6 fs16 pr0">
+                            <span class="col-2 fw6 fs16 pr0">
                                 {{ __('velocity::app.checkout.subtotal') }}
                             </span>
                         </div>
@@ -72,7 +72,7 @@
                                         @endphp
 
                                         <div class="col-12 cart-product-details no-padding" v-if="!isMobileDevice">
-                                            <div class="col-2 no-padding">
+                                            <div class="col-2 no-padding product-image">
                                                 <a
                                                     title="{{ $product->name }}"
                                                     class="product-image-container col-2"
@@ -155,14 +155,14 @@
                                                 </div>
                                             </div>
 
-                                            <div class="product-quantity col-2 no-padding">
+                                            <div class="product-quantity col-1 no-padding">
                                                 <quantity-changer
                                                     :control-name="'qty[{{$item->id}}]'"
                                                     quantity="{{ $item->quantity }}">
                                                 </quantity-changer>
                                             </div>
 
-                                            <div class="product-price fs18 col-1">
+                                            <div class="product-price fs18 col-2 text-center">
                                                 <span class="card-current-price fw6 mr10">
                                                     {{ core()->currency( $item->base_total) }}
                                                 </span>
@@ -176,7 +176,7 @@
                                         </div>
 
                                         <div class="col-12 cart-product-details" v-else>
-                                            <div class="col-2 no-padding">
+                                            <div class="col-2 no-padding product-image">
                                                 <a
                                                     title="{{ $product->name }}"
                                                     class="product-image-container"
@@ -232,7 +232,7 @@
 
                                     @endforeach
                                 </div>
-                                <div class="row col-md-12 coupon-buttons">
+                                <div class="col-md-12 coupon-buttons"><!-- row  -->
                                     <div class="col-md-8">
                                         <coupon-component></coupon-component>
                                     </div>
