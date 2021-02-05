@@ -7,19 +7,19 @@
 @section('content-wrapper')
     <!-- <div class="container"> -->
         <div class="order-success-content col-md-12"><!-- row col-12 offset-1 -->
-            <h1 class="row col-12">{{ __('shop::app.checkout.success.thanks') }}</h1>
+            <h1 class="col-12 no-padding">{{ __('shop::app.checkout.success.thanks') }}</h1>
 
-            <p class="row col-12">
+            <p class="col-12 no-padding">
                 {{ __('shop::app.checkout.success.order-id-info', ['order_id' => $order->increment_id]) }}
             </p>
 
-            <p class="row col-12">
+            <p class="col-12 no-padding email-message">
                 {{ __('shop::app.checkout.success.info') }}
             </p>
 
             {{ view_render_event('bagisto.shop.checkout.continue-shopping.before', ['order' => $order]) }}
 
-            <div class="mt15 row-col-12">
+            <div class="mt15 no-padding text-center row-col-12">
                 <a href="{{ route('shop.home.index') }}" class="theme-btn remove-decoration">
                     {{ __('shop::app.checkout.cart.continue-shopping') }}
                 </a>
