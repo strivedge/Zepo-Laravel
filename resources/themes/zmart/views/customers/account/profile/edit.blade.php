@@ -134,13 +134,13 @@
                         Profile Photo
                     </label>
 
-                    <div class="col-9">
+                    <div class="col-md-6">
                         <input name="image" type="file"/>
                         <span class="control-error" v-if="errors.has('image')">@{{ errors.first('image') }}</span>
                     </div>
-                    <div class="col-3">
+                    <div class="col-md-6 profile-photo">
                         @if(auth()->guard('customer')->user()->image)
-                          <img src="{{ asset('/').auth()->guard('customer')->user()->image }}" class="logo custom-logo" style="width: 100%;height: 100%;">
+                          <img src="{{ asset('/').auth()->guard('customer')->user()->image }}" class="logo custom-logo">
                         @endif
                     </div>
 

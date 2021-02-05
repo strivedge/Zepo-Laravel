@@ -5,8 +5,8 @@
 @stop
 
 @section('content-wrapper')
-    <div class="container">
-        <div class="order-success-content row col-12 offset-1">
+    <!-- <div class="container"> -->
+        <div class="order-success-content col-md-12"><!-- row col-12 offset-1 -->
             <h1 class="row col-12">{{ __('shop::app.checkout.success.thanks') }}</h1>
 
             <p class="row col-12">
@@ -28,5 +28,5 @@
             {{ view_render_event('bagisto.shop.checkout.continue-shopping.after', ['order' => $order]) }}
 
         </div>
-    </div>
+    <!-- </div> -->
 @endsection

@@ -1,13 +1,16 @@
 <div class="customer-sidebar row no-margin no-padding">
-    <div class="account-details col-12">
-        <div class="customer-name col-12 text-uppercase">
+    <div class="account-details col-12">            
             @if(auth()->guard('customer')->user()->image)
-              <img src="{{ asset('/').auth()->guard('customer')->user()->image }}" class="logo custom-logo" style="width: 100%;height: 100%;">
+                <div class="customer-name customer-img text-uppercase">
+                    <img src="{{ asset('/').auth()->guard('customer')->user()->image }}" class="logo custom-logo">
+                </div>
             @else
-                {{ substr(auth('customer')->user()->first_name, 0, 1) }}
+                <div class="customer-name text-uppercase">
+                    {{ substr(auth('customer')->user()->first_name, 0, 1) }}
+                </div>
             @endif
             
-        </div>
+        
         <div class="col-12 customer-name-text text-capitalize text-break">{{ auth('customer')->user()->first_name . ' ' . auth('customer')->user()->last_name}}</div>
         <div class="customer-email col-12 text-break">{{ auth('customer')->user()->email }}</div>
     </div>
