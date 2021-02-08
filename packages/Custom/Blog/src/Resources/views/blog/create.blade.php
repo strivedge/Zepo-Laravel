@@ -3,15 +3,10 @@
 @section('page_title')
 {{__('blog::app.blogs.add-title') }}
 @stop
-<style>
-    .errSpan
-    {
-        color: red;
-    }
-</style>
 @section('content')
+
 <div class="content">
-    <form method="POST" action="saveBlog" enctype="multipart/form-data" @submit.prevent="onSubmit">
+    <form method="POST" action="{{ route('admin.blog.save') }}" enctype="multipart/form-data" @submit.prevent="onSubmit">
 
         <div class="page-header">
             <div class="page-title">
@@ -29,7 +24,6 @@
         </div>
 
         <div class="page-content">
-
             <div class="form-container">
                 @csrf()
                 <div class="control-group" :class="[errors.has('title') ? 'has-error' : '']">
@@ -45,6 +39,12 @@
                     </div>
                     <input type="file" name="image" id="file-ip-1" accept="image/*" onchange="showPreview(event);" v-validate="'required'">
                     <span class="control-error" v-if="errors.has('image')">@{{ errors.first('image') }}</span>
+                </div>
+
+                <div class="control-group" :class="[errors.has('slug') ? 'has-error' : '']">
+                    <label for="slug" class="required">{{ __('blog::app.blogs.blog-slug') }}</label>
+                    <input type="text" class="control" name="slug" placeholder="Slug must be unique" v-validate="'required'" data-vv-as="&quot;{{ __('blog::app.blogs.blog-slug') }}&quot;" v-slugify>
+                    <span class="control-error" v-if="errors.has('slug')">@{{ errors.first('slug') }}</span>
                 </div>
 
                 <div class="control-group" :class="[errors.has('content') ? 'has-error' : '']">
@@ -64,7 +64,7 @@
     </form>
 </div>
 @stop
-
+@push('scripts')
 <script>
     function showPreview(event)
     {
@@ -77,3 +77,4 @@
         }
     }
 </script>
+@endpush

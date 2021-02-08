@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Blog extends Model
 {
+    protected $table = 'master_posts';
 
 	protected $fillable = [
         'title',
         'image',
+        'slug',
         'content',
         'date',
     ];
@@ -20,7 +22,6 @@ class Blog extends Model
      *
      * @var string
      */
-    protected $table = 'master_posts';
 
 	public function getAll()
     {

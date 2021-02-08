@@ -13,7 +13,7 @@
             </div>
             <div class="page-action">
 
-                <a href="addOffer" class="btn btn-lg btn-primary">
+                <a href="{{ route('admin.offer.create') }}" class="btn btn-lg btn-primary">
                     {{ __('offer::app.offer.add-title') }}
                 </a>
             </div>

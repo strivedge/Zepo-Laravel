@@ -106,7 +106,7 @@ class OfferDataGrid extends DataGrid
     {
         $this->addAction([
             'method' => 'GET',
-            'route'  => 'offer_edit',
+            'route'  => 'admin.offer.edit',
             'icon'   => 'icon pencil-lg-icon',
             'title'  => trans('admin::app.customers.offers.edit-help-title'),
         ]);
@@ -114,7 +114,7 @@ class OfferDataGrid extends DataGrid
 
         $this->addAction([
             'method' => 'POST',
-            'route'  => 'offer_delete',
+            'route'  => 'admin.offer.delete',
             'icon'   => 'icon trash-icon',
             'title'  => trans('admin::app.customers.offers.delete-help-title'),
         ]);
@@ -128,14 +128,14 @@ class OfferDataGrid extends DataGrid
         $this->addMassAction([
             'type'   => 'delete',
             'label'  => trans('admin::app.datagrid.delete'),
-            'action' => route('offer_masssdelete'),
+            'action' => route('admin.offer.massdelete'),
             'method' => 'PUT',
         ]);
 
         $this->addMassAction([
             'type'    => 'update',
             'label'   => trans('admin::app.datagrid.update-status'),
-            'action'  => route('offer_masssupdate'),
+            'action'  => route('admin.offer.massupdate'),
             'method'  => 'PUT',
             'options' => [
                 'Active'   => 1,
