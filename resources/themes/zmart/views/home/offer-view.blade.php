@@ -9,7 +9,6 @@
         <ul>
     @if(isset($offers) && count($offers) > 0)
         @foreach($offers as $offer)
-           <!--  <li class="column"> -->
                 
                         <li class="col-lg-4 col-xl-3 img">
                             <img src="{{ asset('uploadImages/offer/'.$offer->image) }}" alt="{{ __('shop::app.home.active-offers') }}" height="100" width="100" onerror="this.src='{{ asset('vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png') }}'">
@@ -28,9 +27,7 @@
                                 <a href="#">View all Offers</a>
                             </div>
                         </li>
-                        
 
-            <!-- </li> -->
         @endforeach
         @else
         <li class="column content-offers col-12 errors">

@@ -726,4 +726,14 @@ return [
         'delete-success' => ':name deleted successfully.',
         'submit-success' => ':name submitted successfully.'
     ],
+
+    'contact' => [
+        'name' => 'Name',
+        'email' => 'Email',
+        'phone' => 'Phone Number',
+        'message' => 'Message',
+        'success' => "We'll get in touch very soon",
+        'error' => "Something went wrong",
+        'submit' => 'Submit'
+    ],
 ];

@@ -210,11 +210,26 @@ class CatalogRuleProductPrice
             $customerGroupId = $customerGroup->id;
         }
 
-        return $this->catalogRuleProductPriceRepository->findOneWhere([
+        $product = $this->catalogRuleProductPriceRepository
+                ->where('product_id', $product->id)
+                ->where('channel_id', core()->getCurrentChannel()->id)
+                ->where('customer_group_id', $customerGroupId)
+                ->where('starts_from', '<=' ,Carbon::now()->format('Y-m-d'))
+                ->where('ends_till', '>=' ,Carbon::now()->format('Y-m-d'))
+                ->first();
+
+        /*if (!empty($product)) {
+           echo "getRulePrice<pre>";print_r($product);exit();
+        }*/
+
+        return $product;
+
+        
+       /* return $this->catalogRuleProductPriceRepository->findOneWhere([
             'product_id'        => $product->id,
             'channel_id'        => core()->getCurrentChannel()->id,
             'customer_group_id' => $customerGroupId,
             //'rule_date'         => Carbon::now()->format('Y-m-d'),
-        ]);
+        ]);*/
     }
 }

@@ -51,15 +51,7 @@
                         id="summary-section">
 
                         <review-section :key="reviewComponentKey">
-                            <!-- <div slot="summary-section">
-                                <summary-section
-                                    discount="1"
-                                    :key="summeryComponentKey"
-                                    @onApplyCoupon="getOrderSummary"
-                                    @onRemoveCoupon="getOrderSummary"
-                                ></summary-section>
-                            </div> -->
-
+                            
                             <div slot="place-order-btn">
                                 <div class="mb20 text-center">
                                     <button

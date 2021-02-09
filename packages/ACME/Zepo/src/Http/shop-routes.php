@@ -17,12 +17,18 @@ Route::group(['middleware' => ['web', 'theme', 'locale', 'currency']], function 
 	    ->defaults('_config', [
 	        'view' => 'shop::static.contact-us'
 	]);
-	Route::get('/store-directory', 'ACME\Zepo\Http\Controllers\Shop\HomeController@contactUs')
+
+    //Contact Us
+    Route::post('/contact-us', 'ACME\Zepo\Http\Controllers\Shop\HomeController@postContactUs')->defaults('_config', [
+        'redirect' => 'shop::static.contact-us'
+    ])->name('contact-us.store');
+
+	Route::get('/store-directory', 'ACME\Zepo\Http\Controllers\Shop\HomeController@storeDirectory')
 	    ->name('store-directory')
 	    ->defaults('_config', [
 	        'view' => 'shop::static.store-directory'
 	]);
-	Route::get('/covid-products', 'ACME\Zepo\Http\Controllers\Shop\HomeController@contactUs')
+	Route::get('/covid-products', 'ACME\Zepo\Http\Controllers\Shop\HomeController@covidProducts')
 	    ->name('covid-products')
 	    ->defaults('_config', [
 	        'view' => 'shop::static.covid-products'

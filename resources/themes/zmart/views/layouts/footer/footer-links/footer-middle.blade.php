@@ -1,9 +1,4 @@
-<!-- <div class="col-lg-4 col-md-12 col-sm-12 footer-ct-content">
-	<div class="row"> -->
 
-        <!-- @if ($velocityMetaData)
-            {!! DbView::make($velocityMetaData)->field('footer_middle_content')->render() !!}
-        @endif -->
         <div class="col-12 col-md-6 col-lg-4 col-xl-3 footer-block">
             <h3 class="footer-block-title">Quick Links</h3>
             <div class="footer-block-content">
@@ -40,6 +35,4 @@
                 </ul>
             </div>
         </div>
-        
-	<!-- </div>
-</div> -->
+
