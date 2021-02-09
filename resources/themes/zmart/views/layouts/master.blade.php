@@ -50,7 +50,7 @@
         <script
             type="text/javascript"
             baseUrl="{{ url()->to('/') }}"
-            src="{{ asset('themes/zmart/assets/js/velocity.js') }}">
+            src="{{ asset('themes/velocity/assets/js/velocity.js') }}">
         </script>
 
         <script
@@ -121,25 +121,16 @@
                                 </sidebar-component>
                             </div>
                             @yield('home-banner-content-wrapper')
-                            <!-- <div class="inner-content"> -->
                                 <div class="container">
                                     <div class="col-12 content" id="home-right-bar-container">
-                                    <!-- <section class="col-12 content" id="home-right-bar-container"> -->
-
-                                        <!-- <div class="container-right row no-margin col-12 no-padding"> -->
 
                                             {!! view_render_event('bagisto.shop.layout.content.before') !!}
 
                                             @yield('content-wrapper')
 
                                             {!! view_render_event('bagisto.shop.layout.content.after') !!}
-                                        <!-- </div> -->
-
-                                    <!-- </section> -->
                                     </div>
                                 </div>
-                            <!-- </div> -->
-                            
                         </div>
                     </div>
                 @show
@@ -151,7 +142,6 @@
 
                     {!! view_render_event('bagisto.shop.layout.full-content.after') !!}
 
-                
 
                 <!-- <div class="container"> -->
 
@@ -239,10 +229,6 @@
             src="{{ asset('vendor/webkul/ui/assets/js/ui.js') }}">
         </script>
         
-       <!--  <script
-            type="text/javascript"
-            src="{{ asset('themes/zmart/assets/js/slick.js') }}">
-        </script> -->
          <script
             type="text/javascript"
             baseUrl="{{ url()->to('/') }}"

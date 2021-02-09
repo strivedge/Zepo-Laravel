@@ -8,93 +8,18 @@
             <div id="account">
 
                 
-                    <!--<span class="text-center"> -->
-                       <!--  @guest('customer')
-                            {{ __('velocity::app.header.welcome-message', ['customer_name' => trans('velocity::app.header.guest')]) }}!
-                        @endguest -->
-
                         @auth('customer')
                         <div class="welcome-content login-content" @click="togglePopup">
                             {{ __('velocity::app.header.welcome-message', ['customer_name' => auth()->guard('customer')->user()->first_name]) }}
                         </div>
                         @endauth 
-                        @guest('customer')
-                        <div class="welcome-content pull-right">
-                            <div class="modal-content">
-                                
-                                   <!--  <div> -->
-                                        <a href="{{ route('customer.session.index') }}" class="login">
-                                            <button
-                                                type="button"
-                                                class="">
-
-                                                {{ __('shop::app.header.sign-in') }}
-                                            </button>
-                                        </a>
-                                    <!-- </div> -->
-
-                                    <!-- <div> -->
-                                        <a href="{{ route('customer.register.index') }}" class="register">
-                                            <button
-                                                type="button"
-                                                class="">
-                                                {{ __('shop::app.header.sign-up') }}
-                                            </button>
-                                        </a>
-                                    <!-- </div> -->
-                                
-                            </div>
-                        </div>
-                    @endguest
-
-                    
-                    <!--</span> -->
+                        
                 
             </div>
 
             <div class="account-modal sensitive-modal hide mt5">
                 <!--Content-->
-                    @guest('customer')
-                        <!-- <div class="modal-content">
-                           
-                            <div class="modal-header no-border pb0">
-                                <label class="fs18 grey">{{ __('shop::app.header.title') }}</label>
-
-                                <button type="button" class="close disable-box-shadow" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true" class="white-text fs20" @click="togglePopup">×</span>
-                                </button>
-                            </div>
-
-                            
-                            <div class="pl10 fs14">
-                                <p>{{ __('shop::app.header.dropdown-text') }}</p>
-                            </div>
-
-                            
-                            <div class="modal-footer">
-                                <div>
-                                    <a href="{{ route('customer.session.index') }}">
-                                        <button
-                                            type="button"
-                                            class="theme-btn fs14 fw6">
-
-                                            {{ __('shop::app.header.sign-in') }}
-                                        </button>
-                                    </a>
-                                </div>
-
-                                <div>
-                                    <a href="{{ route('customer.register.index') }}">
-                                        <button
-                                            type="button"
-                                            class="theme-btn fs14 fw6">
-                                            {{ __('shop::app.header.sign-up') }}
-                                        </button>
-                                    </a>
-                                </div>
-                            </div>
-                        </div> -->
-                    @endguest
+                    
 
                     @auth('customer')
                         <div class="modal-content customer-options">

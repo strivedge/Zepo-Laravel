@@ -42,7 +42,9 @@
 
                 <template v-else-if="isProductListLoaded && products.length > 0">
                     @php
-                        $comparableAttributes = $comparableAttributes->toArray();
+                        $tempArr = array_unique(array_column($comparableAttributes->toArray(), 'admin_name'));
+                        $comparableAttributes = array_intersect_key($comparableAttributes->toArray(), $tempArr);
+
 
                         array_splice($comparableAttributes, 1, 0, [[
                             'code' => 'product_image',

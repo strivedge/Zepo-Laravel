@@ -3,7 +3,7 @@
         <cart-btn :item-count="cartItems.length"></cart-btn>
 
         <div
-            id="cart-modal-content-ls"
+            id="cart-modal-content"
             v-if="cartItems.length > 0"
             class="modal-content sensitive-modal cart-modal-content hide">
 

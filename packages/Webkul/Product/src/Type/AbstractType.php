@@ -719,7 +719,7 @@ abstract class AbstractType
             //'<div class="sticker sale">' . trans('shop::app.products.sale') . '</div>'
             $per = (($this->product->price - $this->getSpecialPrice()) * 100)/$this->product->price;
 
-             $html = $per;
+             $html = round($per);
 
              /*echo "price:".$this->product->price;
              echo "getSpecialPrice:".$this->getSpecialPrice();

@@ -38,15 +38,7 @@
 @endsection
 
 @section('content-wrapper')
-<!-- <div class="section-title"><h2>{{ __('shop::app.home.blog-details') }}</h2></div>
-<table>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    <tr>
-</table> -->
+
 <main id="main" class="site-main single single-blog-post">
     <div class="container">
                 
@@ -63,14 +55,13 @@
                     </div>
                     <!-- .entry-meta -->
             </div>  
-            <header class="entry-header"><!--  section-title -->
-                <!-- <h1 class="entry-title">{{ $posts->title }}</h1>  -->
+            <header class="entry-header">
                 <h2 class="entry-title">{{ $posts->title }}</h2>  
-            </header><!-- .entry-header -->
+            </header>
 
             <div class="entry-content">
                 <p>{{ $posts->content }}</p>
-            </div><!-- .entry-content -->
+            </div>
 
         </article>
     </div>

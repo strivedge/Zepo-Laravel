@@ -1,14 +1,8 @@
-<?php 
-//echo"<pre>"; print_r(app('Webkul\Product\Repositories\ProductRepository')->getTopSellingProducts()->count());exit(); ?>
+
 @if (app('Webkul\Product\Repositories\ProductRepository')->getOfferedProducts()->count())
    <section class="featured-products sales">
         <div class="container">
-            <!-- <div class="featured-heading">
-                {{ __('shop::app.home.offer-products') }}<br/>
-
-                <span class="featured-seperator" style="color:lightgrey;">_____</span>
-            </div> -->
-
+            
             <div class="salesoffers-addtocart">
                                 <div class="col-md-12 col-lg-3 salesoffers">
                                     <div class="imgs"><img src="{{ asset('themes/zmart/assets/images/sales-new-year.png') }}"></div>
@@ -27,7 +21,7 @@
             
                                 <div class="featured-grid product-grid-4 col-md-12 col-lg-9">
                                     <ul class="card grid-card product-card-new addtocart">
-                                    <?php //echo"<pre>"; print_r(app('Webkul\Product\Repositories\ProductRepository')->getOfferedProducts());exit(); ?>
+                                   
 
                                     @foreach (app('Webkul\Product\Repositories\ProductRepository')->getOfferedProducts() as $productFlat)
 

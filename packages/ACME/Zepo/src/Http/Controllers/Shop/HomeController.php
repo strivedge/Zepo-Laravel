@@ -3,8 +3,10 @@
 namespace ACME\Zepo\Http\Controllers\Shop;
 
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use ACME\Zepo\Mail\ContactEmail;
 
 class HomeController extends Controller
 {
@@ -42,8 +44,45 @@ class HomeController extends Controller
         return view($this->_config['view']);
     }
 
+    public function storeDirectory()
+    {
+        return view($this->_config['view']);
+    }
+
+    public function covidProducts()
+    {
+        return view($this->_config['view']);
+    }
+
     public function contactUs()
     {
         return view($this->_config['view']);
     }
+    public function postContactUs(){
+
+         $this->validate(request(), [
+            'name'            => 'string|required',
+            'email'           => 'required|email',
+        ]);
+
+        $data = collect(request()->all())->except('_token')->toArray();
+
+        //echo"Contact data<pre>"; print_r($data);exit();
+
+            $subscriptionData['email'] = $data['email'];
+
+            try {
+                Mail::queue(new ContactEmail($subscriptionData));
+
+                session()->flash('success', trans('shop::app.contact.success'));
+            } catch (\Exception $e) {
+                report($e);
+                session()->flash('error', trans('shop::app.contact.error'));
+            }
+
+
+            return redirect()->back();
+
+    }
+
 }

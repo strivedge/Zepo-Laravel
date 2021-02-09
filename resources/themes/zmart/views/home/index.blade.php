@@ -153,17 +153,13 @@
         </div>
 
                 @include('shop::home.offer-products')
-                @include ('shop::products.list.recently-viewed', [
-                                'quantity'          => 6,
-                                'addClass'          => 'col-lg-3 col-md-12',
-                            ])
+                @include ('shop::products.list.recently-viewed')
                 
                 @include('shop::home.category-overlay')
                 @include('shop::home.offer-view')
                 @include('shop::home.testinominal-view')
                 @include('shop::home.shipping-payment')
                  
-        <!-- {{ view_render_event('bagisto.shop.home.content.after') }} -->
     </div>
 
 @endsection
