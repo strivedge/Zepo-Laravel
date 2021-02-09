@@ -60,7 +60,8 @@ class TestinominalController extends Controller
             $data['image'] = $imageName1;
         }
         $this->testinominalRepository->create($data);
-        //echo "<pre>"; print_r($request->all());exit();
+
+        session()->flash('success', trans('admin::app.response.create-success', ['name' => 'Testinominal']));
 
         return redirect()->route($this->_config['redirect']);
     }
@@ -102,6 +103,9 @@ class TestinominalController extends Controller
             }
         }
         $this->testinominalRepository->update($data, $id);
+
+        session()->flash('success', trans('admin::app.response.update-success', ['name' => 'Testinominal']));
+
         return redirect()->route($this->_config['redirect']);
     }
 
@@ -114,6 +118,8 @@ class TestinominalController extends Controller
     public function destroy($id)
     {
         $this->testinominalRepository->deleteData($id);
+
+        session()->flash('success', trans('admin::app.response.delete-success', ['name' => 'Testinominal']));
         // return redirect()->route($this->_config['redirect']);
     }
 
@@ -124,7 +130,7 @@ class TestinominalController extends Controller
         if ($ids != null) 
         {
             $this->testinominalRepository->massDataDelete($ids);
-            // session()->flash('success', trans('admin::app.customers.customers.mass-destroy-success'));
+            session()->flash('success', trans('testinominal::app.testinominal.mass-destroy-success'));
 
         }
         return redirect()->back();

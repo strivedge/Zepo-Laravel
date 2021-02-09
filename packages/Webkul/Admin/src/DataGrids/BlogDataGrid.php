@@ -16,7 +16,7 @@ class BlogDataGrid extends DataGrid
     public function prepareQueryBuilder()
     {
         $queryBuilder = DB::table('master_posts')
-        ->addSelect('id as blog_id', 'title', 'image', 'content', 'date');
+        ->addSelect('id as blog_id', 'title', 'image', 'slug', 'content', 'date');
         $this->addFilter('blog_id', 'id');
         $this->addFilter('title', 'title');
         $this->addFilter('date', 'date');
@@ -54,13 +54,22 @@ class BlogDataGrid extends DataGrid
         // ]);
 
         $this->addColumn([
-            'index'      => 'content',
-            'label'      => trans('admin::app.customers.blogs.blog-content'),
+            'index'      => 'slug',
+            'label'      => trans('admin::app.customers.blogs.blog-slug'),
             'type'       => 'string',
             'searchable' => true,
             'sortable'   => true,
             'filterable' => false,
         ]);
+
+        // $this->addColumn([
+        //     'index'      => 'content',
+        //     'label'      => trans('admin::app.customers.blogs.blog-content'),
+        //     'type'       => 'string',
+        //     'searchable' => true,
+        //     'sortable'   => true,
+        //     'filterable' => false,
+        // ]);
 
         $this->addColumn([
             'index'      => 'date',
@@ -77,7 +86,7 @@ class BlogDataGrid extends DataGrid
     {
         $this->addAction([
             'method' => 'GET',
-            'route'  => 'blog_edit',
+            'route'  => 'admin.blog.edit',
             'icon'   => 'icon pencil-lg-icon',
             'title'  => trans('admin::app.customers.blogs.edit-help-title'),
         ]);
@@ -85,7 +94,7 @@ class BlogDataGrid extends DataGrid
 
         $this->addAction([
             'method' => 'POST',
-            'route'  => 'blog_delete',
+            'route'  => 'admin.blog.delete',
             'icon'   => 'icon trash-icon',
             'title'  => trans('admin::app.customers.blogs.delete-help-title'),
         ]);
@@ -99,7 +108,7 @@ class BlogDataGrid extends DataGrid
         $this->addMassAction([
             'type'   => 'delete',
             'label'  => trans('admin::app.datagrid.delete'),
-            'action' => route('blog_masssdelete'),
+            'action' => route('admin.blog.massdelete'),
             'method' => 'PUT',
         ]);
     }

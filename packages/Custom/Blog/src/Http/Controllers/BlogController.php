@@ -4,8 +4,6 @@ namespace Custom\Blog\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Custom\Blog\Repositories\BlogRepository;
-use Custom\Blog\Models\Blog;
-use DB;
 
 class BlogController extends Controller
 {
@@ -45,14 +43,16 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        $data = request()->all();
-        $this->validate($request, [
-            'title' => 'required',
-            'image' => 'mimes:jpeg,jpg,png,gif|required|max:10000',
-            'content' => 'required',
-            'date' => 'required',
+        $this->validate(request(), [
+            'title'    => 'required',
+            'image'    => 'mimes:jpeg,jpg,png,gif|required|max:10000',
+            'slug'     => 'required|unique:master_posts,slug',
+            'content'  => 'required',
+            'date'     => 'required',
         ]);
-
+            
+        $data = request()->all();
+        // echo "<pre>"; print_r($validator); exit();
         $imageName = $request->image;
         if($imageName != null)
         {
@@ -62,6 +62,8 @@ class BlogController extends Controller
         }
         
         $this->blogRepository->create($data);
+
+        session()->flash('success', trans('admin::app.response.create-success', ['name' => 'Blog']));
 
         return redirect()->route($this->_config['redirect']);
     }
@@ -90,6 +92,7 @@ class BlogController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            'slug' => 'nullable|slug|unique:master_posts',
             'content' => 'required',
             'date' => 'required',
         ]);
@@ -106,6 +109,9 @@ class BlogController extends Controller
         }
 
         $this->blogRepository->update($data, $id);
+
+        session()->flash('success', trans('admin::app.response.update-success', ['name' => 'Blog']));
+
         return redirect()->route($this->_config['redirect']);
     }
 
@@ -117,16 +123,10 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        // if($id != null)
-        // {
-        //     $result['status'] = true;
-        //     echo json_encode($result);
         $this->blogRepository->deleteData($id);
-        // }
-        // else
-        // {
-        //     $result['status'] = false;
-        // }
+
+        session()->flash('success', trans('admin::app.response.delete-success', ['name' => 'Blog']));
+
         // return redirect()->route($this->_config['redirect']);
     }
 
@@ -137,7 +137,7 @@ class BlogController extends Controller
         if ($ids != null) 
         {
             $this->blogRepository->massDataDelete($ids);
-            // session()->flash('success', trans('admin::app.customers.customers.mass-destroy-success'));
+            session()->flash('success', trans('blog::app.blogs.mass-destroy-success'));
         }
         return redirect()->back();
     }

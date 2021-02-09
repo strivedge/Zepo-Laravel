@@ -13,7 +13,7 @@
             </div>
             <div class="page-action">
 
-                <a href="addTestinominal" class="btn btn-lg btn-primary">
+                <a href="{{ route('admin.testinominal.create') }}" class="btn btn-lg btn-primary">
                     {{ __('testinominal::app.testinominal.add-title') }}
                 </a>
             </div>

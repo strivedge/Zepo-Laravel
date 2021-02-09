@@ -13,7 +13,7 @@
             </div>
             <div class="page-action">
 
-                <a href="addBlog" class="btn btn-lg btn-primary">
+                <a href="{{ route('admin.blog.create') }}" class="btn btn-lg btn-primary">
                     {{ __('blog::app.blogs.add-title') }}
                 </a>
             </div>
