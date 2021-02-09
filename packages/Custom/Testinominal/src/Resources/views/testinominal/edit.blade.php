@@ -7,7 +7,7 @@
 @section('content')
 <div class="content">
 
-    <form method="POST" action="{{route('updateTestinominal', [$posts->id])}}" enctype="multipart/form-data" @submit.prevent="onSubmit">
+    <form method="POST" action="{{route('admin.testinominal.update', [$posts->id])}}" enctype="multipart/form-data" @submit.prevent="onSubmit">
 
         <div class="page-header">
             <div class="page-title">

@@ -68,6 +68,8 @@ class OfferController extends Controller
 
         $this->offerRepository->create($data);
 
+        session()->flash('success', trans('admin::app.response.create-success', ['name' => 'Offer']));
+
         return redirect()->route($this->_config['redirect']);
     }
 
@@ -125,6 +127,9 @@ class OfferController extends Controller
         }
 
         $this->offerRepository->update($data, $id);
+
+        session()->flash('success', trans('admin::app.response.update-success', ['name' => 'Offer']));
+
         return redirect()->route($this->_config['redirect']);
     }
 
@@ -137,6 +142,7 @@ class OfferController extends Controller
     public function destroy(Offer $offer, $id)
     {
         $this->offerRepository->deleteData($id);
+        session()->flash('success', trans('admin::app.response.delete-success', ['name' => 'Offer']));
         // return redirect()->route($this->_config['redirect']);
     }
 
@@ -147,7 +153,7 @@ class OfferController extends Controller
         if ($ids != null) 
         {
             $this->offerRepository->massDataDelete($ids);
-            // session()->flash('success', trans('admin::app.customers.customers.mass-destroy-success'));
+            session()->flash('success', trans('offer::app.offer.mass-destroy-success'));
         }
         return redirect()->back();
     }
@@ -160,7 +166,7 @@ class OfferController extends Controller
         if ($ids != null && $updateOption != null) 
         {
             $this->offerRepository->massDataUpdate($ids, $updateOption);
-            // session()->flash('success', trans('admin::app.customers.customers.mass-destroy-success'));
+            session()->flash('success', trans('offer::app.offer.mass-update-success'));
         }
         return redirect()->back();
     }

@@ -77,7 +77,7 @@ class TestinominalDataGrid extends DataGrid
     {
         $this->addAction([
             'method' => 'GET',
-            'route'  => 'testinominal_edit',
+            'route'  => 'admin.testinominal.edit',
             'icon'   => 'icon pencil-lg-icon',
             'title'  => trans('admin::app.customers.testinominals.edit-help-title'),
         ]);
@@ -85,7 +85,7 @@ class TestinominalDataGrid extends DataGrid
 
         $this->addAction([
             'method' => 'POST',
-            'route'  => 'testinominal_delete',
+            'route'  => 'admin.testinominal.delete',
             'icon'   => 'icon trash-icon',
             'title'  => trans('admin::app.customers.testinominals.delete-help-title'),
         ]);
@@ -99,7 +99,7 @@ class TestinominalDataGrid extends DataGrid
         $this->addMassAction([
             'type'   => 'delete',
             'label'  => trans('admin::app.datagrid.delete'),
-            'action' => route('testinominal_masssdelete'),
+            'action' => route('admin.testinominal.massdelete'),
             'method' => 'PUT',
         ]);
     }

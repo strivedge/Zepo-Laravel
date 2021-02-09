@@ -3,19 +3,23 @@
 Route::view('/offer', 'offer::offer.test');
 
 Route::group(['middleware' => ['admin']], function () {
-	Route::get('admin/offers', 'Custom\Offer\Http\Controllers\OfferController@index')->defaults('_config', ['view' => 'offer::offer.index'])->name('offer.index');
+	Route::prefix('admin')->group(function () {
+		Route::prefix('offer')->group(function () {
+			Route::get('/', 'Custom\Offer\Http\Controllers\OfferController@index')->defaults('_config', ['view' => 'offer::offer.index'])->name('offer.index');
 
-	Route::get('admin/addOffer', 'Custom\Offer\Http\Controllers\OfferController@create')->defaults('_config', ['view' => 'offer::offer.create'])->name('addOffer');
+			Route::get('/create', 'Custom\Offer\Http\Controllers\OfferController@create')->defaults('_config', ['view' => 'offer::offer.create'])->name('admin.offer.create');
 
-	Route::get('admin/offer_edit/{id}', 'Custom\Offer\Http\Controllers\OfferController@edit')->defaults('_config', ['view' => 'offer::offer.edit'])->name('offer_edit');
+			Route::get('/edit/{id}', 'Custom\Offer\Http\Controllers\OfferController@edit')->defaults('_config', ['view' => 'offer::offer.edit'])->name('admin.offer.edit');
 
-	Route::post('admin/offer_delete/{id}', 'Custom\Offer\Http\Controllers\OfferController@destroy')->defaults('_config', ['redirect' => 'offer.index'])->name('offer_delete');
+			Route::post('/delete/{id}', 'Custom\Offer\Http\Controllers\OfferController@destroy')->defaults('_config', ['redirect' => 'offer.index'])->name('admin.offer.delete');
 
-	Route::post('admin/saveOffer', 'Custom\Offer\Http\Controllers\OfferController@store')->defaults('_config', ['redirect' => 'offer.index']);
+			Route::post('/save', 'Custom\Offer\Http\Controllers\OfferController@store')->defaults('_config', ['redirect' => 'offer.index'])->name('admin.offer.save');
 
-	Route::post('admin/updateOffer/{id}', 'Custom\Offer\Http\Controllers\OfferController@update')->defaults('_config', ['redirect' => 'offer.index'])->name('updateOffer');
+			Route::post('/update/{id}', 'Custom\Offer\Http\Controllers\OfferController@update')->defaults('_config', ['redirect' => 'offer.index'])->name('admin.offer.update');
 
-	Route::post('admin/offer_masssdelete', 'Custom\Offer\Http\Controllers\OfferController@massDestroy')->name('offer_masssdelete');
+			Route::post('/masssdelete', 'Custom\Offer\Http\Controllers\OfferController@massDestroy')->name('admin.offer.massdelete');
 
-	Route::post('admin/offer_masssupdate', 'Custom\Offer\Http\Controllers\OfferController@massUpdate')->name('offer_masssupdate');
+			Route::post('/masssupdate', 'Custom\Offer\Http\Controllers\OfferController@massUpdate')->name('admin.offer.massupdate');
+		});
+	});
 });

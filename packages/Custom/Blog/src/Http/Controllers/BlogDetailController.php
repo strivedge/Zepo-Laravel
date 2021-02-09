@@ -55,6 +55,12 @@ class BlogDetailController extends Controller
         return view($this->_config['view'], compact('posts'));
     }
 
+    public function slug($slug)
+    {
+        $posts = $this->blogRepository->findBySlug($slug);
+        return view($this->_config['view'], compact('posts'));
+    }
+
     /**
      * Update the specified resource in storage.
      *

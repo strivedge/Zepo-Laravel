@@ -3,19 +3,18 @@
 return [
 
     'testinominal' => [
-            'add-title' => 'Add',
-            'edit-title' => 'Edit',
+            'add-title' => 'Add Testinominal',
+            'edit-title' => 'Edit Testinominal',
             'id' => 'Id',
-            'title' => 'Testinominals',
+            'title' => 'Testinominal',
             'testi-title' => 'Title',
             'image' => 'Image',
             'upload-image' => 'Upload Image',
             'desc' => 'Dscription',
             'date' => 'Date',
             'action' => 'Actions',
-            'save-btn-title' => 'Save',
+            'save-btn-title' => 'Save Testinominal',
             'delete-help-title' => 'Delete',
             'mass-destroy-success' => 'Testinominals deleted successfully',
-            'mass-update-success' => 'Testinominals updated successfully',
         ]
 ];

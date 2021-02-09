@@ -930,6 +930,7 @@ return [
         ],
 
         'blogs' => [
+            'blog-slug' => 'Slug',
             'blog-image' => 'Images',
             'blog-content' => 'Content',
             'blog-date' => 'Date',

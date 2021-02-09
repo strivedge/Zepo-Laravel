@@ -20,6 +20,11 @@ class BlogRepository
     {
         return Blog::orderby('id', 'desc')->take(4)->get();
     }
+
+    public function findBySlug($slug)
+    {
+        return Blog::where('slug', $slug)->firstOrFail();
+    }
     
     // function for Admin side
     public function create(array $data)

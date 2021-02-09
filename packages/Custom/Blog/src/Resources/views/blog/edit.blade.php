@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="content">
-    <form method="POST" action="{{route('blog_update', [$posts->id])}}" enctype="multipart/form-data" @submit.prevent="onSubmit">
+    <form method="POST" action="{{route('admin.blog.update', [$posts->id])}}" enctype="multipart/form-data" @submit.prevent="onSubmit">
 
         <div class="page-header">
             <div class="page-title">
@@ -42,6 +42,12 @@
                         <input type="file" name="image" id="file-ip-1" accept="image/*" onchange="showPreview(event);">
                     </div>
                     <span class="control-error" v-if="errors.has('image')">@{{ errors.first('image') }}</span>
+                </div>
+
+                <div class="control-group" :class="[errors.has('slug') ? 'has-error' : '']">
+                    <label for="slug" class="required">{{ __('blog::app.blogs.blog-slug') }}</label>
+                    <input type="text" class="control" name="slug" id="slug" value="{{$posts->slug}}" v-validate="'required'" data-vv-as="&quot;{{ __('blog::app.blogs.blog-slug') }}&quot;" v-slugify>
+                    <span class="control-error" v-if="errors.has('slug')">@{{ errors.first('slug') }}</span>
                 </div>
 
                 <div class="control-group" :class="[errors.has('content') ? 'has-error' : '']">
