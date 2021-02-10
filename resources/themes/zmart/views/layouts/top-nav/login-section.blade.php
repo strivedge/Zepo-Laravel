@@ -7,14 +7,38 @@
         <div class="dropdown">
             <div id="account">
 
-                
+
                         @auth('customer')
                         <div class="welcome-content login-content" @click="togglePopup">
                             {{ __('velocity::app.header.welcome-message', ['customer_name' => auth()->guard('customer')->user()->first_name]) }}
                         </div>
                         @endauth 
-                        
-                
+                        @guest('customer')
+                        <div class="welcome-content pull-right">
+                            <div class="modal-content">
+                                
+                                        <a href="{{ route('customer.session.index') }}" class="login">
+                                            <button
+                                                type="button"
+                                                class="">
+
+                                                {{ __('shop::app.header.sign-in') }}
+                                            </button>
+                                        </a>
+
+                                        <a href="{{ route('customer.register.index') }}" class="register">
+                                            <button
+                                                type="button"
+                                                class="">
+                                                {{ __('shop::app.header.sign-up') }}
+                                            </button>
+                                        </a>
+                                
+                            </div>
+                        </div>
+                    @endguest
+
+                    
             </div>
 
             <div class="account-modal sensitive-modal hide mt5">
