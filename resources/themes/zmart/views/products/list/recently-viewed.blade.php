@@ -202,11 +202,4 @@
             })
         })()
     </script>
-
-     <script>
-        var a="Hello fff";
-    </script>
-    <?php 
-        echo $variable = "<script>document.write(a)</script>"; //I want above javascript variable 'a' value to be store here
-    ?>
 @endpush
