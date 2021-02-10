@@ -36,7 +36,7 @@ class ContactEmail extends Mailable
     {
        return $this->from(core()->getSenderEmailDetails()['email'], core()->getSenderEmailDetails()['name'])
             ->to($this->data['email'])
-            ->subject(trans('shop::app.mail.customer.registration.customer-registration'))
+            ->subject(trans('shop::app.contact.subject'))
             ->view('shop::emails.customer.contact-us')->with('data', $this->data);
     }
 }
