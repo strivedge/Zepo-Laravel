@@ -734,6 +734,8 @@ return [
         'message' => 'Message',
         'success' => "We'll get in touch very soon",
         'error' => "Something went wrong",
-        'submit' => 'Submit'
+        'submit' => 'Submit',
+        'subject' => 'Conatct Email',
+        'greeting' => ' Welcome to ' . config('app.name'),
     ],
 ];

@@ -69,10 +69,14 @@ class HomeController extends Controller
 
         //echo"Contact data<pre>"; print_r($data);exit();
 
-            $subscriptionData['email'] = $data['email'];
+            $conatctData = ['email' => $data['email'],
+                            'name' => $data['name'],
+                            'phone' => $data['phone'],
+                            'message' => $data['message']
+                        ];
 
             try {
-                Mail::queue(new ContactEmail($subscriptionData));
+                Mail::queue(new ContactEmail($conatctData));
 
                 session()->flash('success', trans('shop::app.contact.success'));
             } catch (\Exception $e) {

@@ -8,19 +8,20 @@
         </div>
 
         <div  style="font-size:16px; color:#242424; font-weight:600; margin-top: 60px; margin-bottom: 15px">
-            {!! __('shop::app.mail.customer.subscription.greeting') !!}
+            {!! __('shop::app.contact.greeting') !!}
         </div>
 
         <div>
-            {!! __('shop::app.mail.customer.subscription.summary') !!}
+            <b>Name: </b>{{ $data['name'] }}
+        </div>
+        <div>
+            <b>Phone Number: </b>{{$data['phone']}}
+        </div>
+        <div>
+            <b>Message: </b>{{$data['message'] }}
         </div>
 
-        <div  style="margin-top: 40px; text-align: center">
-            <a href="#" style="font-size: 16px;
-            color: #FFFFFF; text-align: center; background: #0031F0; padding: 10px 100px;text-decoration: none;">
-                {!! __('shop::app.mail.customer.subscription.unsubscribe') !!}
-            </a>
-        </div>
+        
     </div>
 
 @endcomponent
