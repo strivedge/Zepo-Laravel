@@ -4,8 +4,7 @@ namespace Custom\Testinominal\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Custom\Testinominal\Repositories\TestinominalRepository;
-use Custom\Testinominal\Models\Testinominal;
-use DB;
+use File;
 
 class TestinominalController extends Controller
 {
@@ -86,22 +85,31 @@ class TestinominalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = request()->all();
         $this->validate($request, [
             'title' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'date' => 'required',
         ]);
-        if($request->image != '')
+
+        $data = request()->all();
+        $old_data = $this->testinominalRepository->findById($id);
+        
+        if (request()->hasFile('image'))
         {
-            if ($files = $request->image) 
-            {
-                $destinationPath = public_path('uploadImages'); // upload path
-                $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
-                $files->move($destinationPath, $profileImage);
-                $data['image'] = $profileImage;
+            $imageName = $data['image'];
+            if (isset($old_data['image']) && !empty($old_data['image'])) {
+                $file_path = public_path('uploadImages').'/'.$old_data['image'];
+                if(File::exists($file_path)) 
+                {
+                    unlink($file_path);
+                }
             }
+            
+            $imageName1 = time().'.'.$imageName->extension();
+            $imageName->move(public_path('uploadImages'), $imageName1);
+            $data['image'] = $imageName1;
         }
+
         $this->testinominalRepository->update($data, $id);
 
         session()->flash('success', trans('admin::app.response.update-success', ['name' => 'Testinominal']));

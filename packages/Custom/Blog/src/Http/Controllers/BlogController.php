@@ -4,6 +4,7 @@ namespace Custom\Blog\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Custom\Blog\Repositories\BlogRepository;
+use File;
 
 class BlogController extends Controller
 {
@@ -88,24 +89,31 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = request()->all();
-        $this->validate($request, [
+        $this->validate(request(), [
             'title' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'slug' => 'nullable|slug|unique:master_posts',
             'content' => 'required',
             'date' => 'required',
         ]);
-
-        if($request->image != '')
+            
+        $data = request()->all();
+        $old_data = $this->blogRepository->findById($id);
+        
+        if (request()->hasFile('image'))
         {
-            if ($files = $request->image) 
-            {
-                $destinationPath = public_path('uploadImages'); // upload path
-                $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
-                $files->move($destinationPath, $profileImage);
-                $data['image'] = $profileImage;
+            $imageName = $data['image'];
+            if (isset($old_data['image']) && !empty($old_data['image'])) {
+                $file_path = public_path('uploadImages').'/'.$old_data['image'];
+                if(File::exists($file_path)) 
+                {
+                    unlink($file_path);
+                }
             }
+            
+            $imageName1 = time().'.'.$imageName->extension();
+            $imageName->move(public_path('uploadImages'), $imageName1);
+            $data['image'] = $imageName1;
         }
 
         $this->blogRepository->update($data, $id);

@@ -4,8 +4,7 @@ namespace Custom\Offer\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Custom\Offer\Repositories\OfferRepository;
-use Custom\Offer\Models\Offer;
-use DB;
+use File;
 
 class OfferController extends Controller
 {
@@ -79,10 +78,6 @@ class OfferController extends Controller
      * @param  \App\Offer  $offer
      * @return \Illuminate\Http\Response
      */
-    public function show(Offer $offer)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -90,7 +85,7 @@ class OfferController extends Controller
      * @param  \App\Offer  $offer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Offer $offer, $id)
+    public function edit($id)
     {
         $offers = $this->offerRepository->findById($id);
         return view($this->_config['view'], compact('offers'));
@@ -103,9 +98,8 @@ class OfferController extends Controller
      * @param  \App\Offer  $offer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Offer $offer, $id)
+    public function update(Request $request, $id)
     {
-        $data = request()->all();
         $this->validate($request, [
             'title' => 'required',
             'desc' => 'required',
@@ -115,15 +109,23 @@ class OfferController extends Controller
             'end_date' => 'required',
         ]);
 
-        if($request->image != '')
+        $data = request()->all();
+        $old_data = $this->offerRepository->findById($id);
+
+        if (request()->hasFile('image'))
         {
-            if ($files = $request->image) 
-            {
-                $destinationPath = public_path('uploadImages/offer'); // upload path
-                $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
-                $files->move($destinationPath, $profileImage);
-                $data['image'] = $profileImage;
+            $imageName = $data['image'];
+            if (isset($old_data['image']) && !empty($old_data['image'])) {
+                $file_path = public_path('uploadImages/offer').'/'.$old_data['image'];
+                if(File::exists($file_path)) 
+                {
+                    unlink($file_path);
+                }
             }
+            
+            $imageName1 = time().'.'.$imageName->extension();
+            $imageName->move(public_path('uploadImages/offer'), $imageName1);
+            $data['image'] = $imageName1;
         }
 
         $this->offerRepository->update($data, $id);
@@ -139,7 +141,7 @@ class OfferController extends Controller
      * @param  \App\Offer  $offer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Offer $offer, $id)
+    public function destroy($id)
     {
         $this->offerRepository->deleteData($id);
         session()->flash('success', trans('admin::app.response.delete-success', ['name' => 'Offer']));

@@ -303,7 +303,7 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
     Route::get('page/{slug}', 'Webkul\CMS\Http\Controllers\Shop\PagePresenterController@presenter')->name('shop.cms.page');
 
     // Blog Details on front end homepage
-    Route::get('blogDetails/{slug}', 'Custom\Blog\Http\Controllers\BlogDetailController@slug')->defaults('_config', ['view' => 'shop::home.blog-details'])->name('blogDetails');
+    Route::get('blog-detail/{slug}', 'Custom\Blog\Http\Controllers\BlogDetailController@slug')->defaults('_config', ['view' => 'shop::home.blog-details'])->name('blog-detail');
 
     Route::fallback(\Webkul\Shop\Http\Controllers\ProductsCategoriesProxyController::class . '@index')
         ->defaults('_config', [
