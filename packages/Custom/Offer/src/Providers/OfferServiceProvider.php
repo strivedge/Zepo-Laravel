@@ -35,5 +35,9 @@ class OfferServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             dirname(__DIR__) . '/Config/menu.php', 'menu.admin'
         );
+
+        $this->mergeConfigFrom(
+            dirname(__DIR__) . '/Config/acl.php', 'acl'
+        );
     }
 }
