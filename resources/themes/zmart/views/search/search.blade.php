@@ -111,9 +111,9 @@
 
                     @foreach ($results as $productFlat)
                         @if ($toolbarHelper->getCurrentMode() == 'grid')
-                            @include('shop::products.list.card', ['product' => $productFlat->product])
+                            @include('shop::search.list', ['product' => $productFlat->product])
                         @else
-                            @include('shop::products.list.card', [
+                            @include('shop::search.list', [
                                 'list' => true,
                                 'product' => $productFlat->product
                             ])
