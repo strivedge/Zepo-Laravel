@@ -10,6 +10,7 @@ use Webkul\Product\Helpers\ProductType;
 use Webkul\Core\Contracts\Validations\Slug;
 use Webkul\Product\Http\Requests\ProductForm;
 use Webkul\Product\Repositories\ProductRepository;
+use Webkul\User\Repositories\AdminRepository;
 use Webkul\Category\Repositories\CategoryRepository;
 use Webkul\Attribute\Repositories\AttributeFamilyRepository;
 use Webkul\Inventory\Repositories\InventorySourceRepository;
@@ -39,6 +40,8 @@ class ProductController extends Controller
      * @var \Webkul\Product\Repositories\ProductRepository
      */
     protected $productRepository;
+
+    protected $adminRepository;
 
     /**
      * ProductDownloadableLinkRepository object
@@ -91,6 +94,7 @@ class ProductController extends Controller
     public function __construct(
         CategoryRepository $categoryRepository,
         ProductRepository $productRepository,
+        AdminRepository $adminRepository,
         ProductDownloadableLinkRepository $productDownloadableLinkRepository,
         ProductDownloadableSampleRepository $productDownloadableSampleRepository,
         AttributeFamilyRepository $attributeFamilyRepository,
@@ -103,6 +107,8 @@ class ProductController extends Controller
         $this->categoryRepository = $categoryRepository;
 
         $this->productRepository = $productRepository;
+
+        $this->adminRepository = $adminRepository;
 
         $this->productDownloadableLinkRepository = $productDownloadableLinkRepository;
 
@@ -134,13 +140,15 @@ class ProductController extends Controller
     {
         $families = $this->attributeFamilyRepository->all();
 
+        $sellers = $this->adminRepository->allSeller();
+
         $configurableFamily = null;
 
         if ($familyId = request()->get('family')) {
             $configurableFamily = $this->attributeFamilyRepository->find($familyId);
         }
 
-        return view($this->_config['view'], compact('families', 'configurableFamily'));
+        return view($this->_config['view'], compact('families', 'configurableFamily', 'sellers'));
     }
 
     /**
@@ -190,11 +198,13 @@ class ProductController extends Controller
     {
         $product = $this->productRepository->with(['variants', 'variants.inventories'])->findOrFail($id);
 
+        $sellers = $this->adminRepository->allSeller();
+
         $categories = $this->categoryRepository->getCategoryTree();
 
         $inventorySources = $this->inventorySourceRepository->findWhere(['status' => 1]);
 
-        return view($this->_config['view'], compact('product', 'categories', 'inventorySources'));
+        return view($this->_config['view'], compact('product', 'categories', 'inventorySources', 'sellers'));
     }
 
     /**

@@ -89,6 +89,24 @@
                             <input type="text" v-validate="{ required: true, regex: /^[a-z0-9]+(?:-[a-z0-9]+)*$/ }" class="control" id="sku" name="sku" value="{{ request()->input('sku') ?: old('sku') }}" data-vv-as="&quot;{{ __('admin::app.catalog.products.sku') }}&quot;"/>
                             <span class="control-error" v-if="errors.has('sku')">@{{ errors.first('sku') }}</span>
                         </div>
+        @if(auth()->guard('admin')->user()->role->id == 1)
+            <div class="control-group">
+                <label for="seller_id">{{ __('admin::app.catalog.products.sellers') }}</label>
+                <select class="control" id="seller_id" name="seller_id" {{ $familyId ? 'disabled' : '' }} data-vv-as="&quot;{{ __('admin::app.catalog.products.sellers') }}&quot;">
+                    <option value="0">{{ __('admin::app.catalog.products.product-admin') }}</option>
+                    @foreach ($sellers as $seller)
+                        <option value="{{ $seller->id }}">
+                            {{ $seller->name }}
+                        </option>
+                    @endforeach
+                </select>
+                @if ($familyId)
+                    <input type="hidden" name="seller_id" value="{{ $seller->id }}"/>
+                @endif
+            </div>
+            @else
+                <input type="hidden" name="seller_id" value="{{ auth()->guard('admin')->id() }}">
+            @endif
 
                         {!! view_render_event('bagisto.admin.catalog.product.create_form_accordian.general.controls.after') !!}
 

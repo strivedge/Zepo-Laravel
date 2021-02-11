@@ -57,7 +57,9 @@ class ProductDataGrid extends DataGrid
         }
 
         /* query builder */
-        $queryBuilder = DB::table('product_flat')
+        if(auth()->guard('admin')->user()->role->id == 1)
+        {
+            $queryBuilder = DB::table('product_flat')
             ->leftJoin('products', 'product_flat.product_id', '=', 'products.id')
             ->leftJoin('attribute_families', 'products.attribute_family_id', '=', 'attribute_families.id')
             ->leftJoin('product_inventories', 'product_flat.product_id', '=', 'product_inventories.product_id')
@@ -70,9 +72,32 @@ class ProductDataGrid extends DataGrid
                 'products.type as product_type',
                 'product_flat.status',
                 'product_flat.price',
+                'products.seller_id as seller_id',
                 'attribute_families.name as attribute_family',
                 DB::raw('SUM(DISTINCT ' . DB::getTablePrefix() . 'product_inventories.qty) as quantity')
             );
+        }
+        if(auth()->guard('admin')->user()->role->id == 2)
+        {
+            $queryBuilder = DB::table('product_flat')
+            ->leftJoin('products', 'product_flat.product_id', '=', 'products.id')
+            ->leftJoin('attribute_families', 'products.attribute_family_id', '=', 'attribute_families.id')
+            ->leftJoin('product_inventories', 'product_flat.product_id', '=', 'product_inventories.product_id')
+            ->where('products.seller_id', auth()->guard('admin')->id())
+            ->select(
+                'product_flat.locale',
+                'product_flat.channel',
+                'product_flat.product_id',
+                'products.sku as product_sku',
+                'product_flat.name as product_name',
+                'products.type as product_type',
+                'product_flat.status',
+                'product_flat.price',
+                'products.seller_id as seller_id',
+                'attribute_families.name as attribute_family',
+                DB::raw('SUM(DISTINCT ' . DB::getTablePrefix() . 'product_inventories.qty) as quantity')
+            );
+        }
 
         $queryBuilder->groupBy('product_flat.product_id', 'product_flat.channel');
 
@@ -174,6 +199,26 @@ class ProductDataGrid extends DataGrid
                     return 0;
                 } else {
                     return $value->quantity;
+                }
+            },
+        ]);
+
+        $this->addColumn([
+            'index'      => 'seller_id',
+            'label'      => trans('admin::app.catalog.products.product-by'),
+            'type'       => 'number',
+            'sortable'   => true,
+            'searchable' => false,
+            'filterable' => false,
+            'wrapper'    => function ($value) {
+                if ($value->seller_id == auth()->guard('admin')->user()->role->id) {
+                    if(auth()->guard('admin')->user()->role->id == 1)
+                    {
+                        return trans('admin::app.catalog.products.product-admin');
+                    }
+                    else {
+                        return trans('admin::app.catalog.products.sellers');
+                    }
                 }
             },
         ]);

@@ -76,7 +76,7 @@
 
                                 @foreach ($customAttributes as $attribute)
 
-                                    <?php
+                                    @php
                                         if ($attribute->code == 'guest_checkout' && ! core()->getConfigData('catalog.products.guest-checkout.allow-guest-checkout')) {
                                             continue;
                                         }
@@ -104,7 +104,7 @@
                                         array_push($validations, $attribute->validation);
 
                                         $validations = implode('|', array_filter($validations));
-                                    ?>
+                                    @endphp
 
                                     @if (view()->exists($typeView = 'admin::catalog.products.field-types.' . $attribute->type))
 
