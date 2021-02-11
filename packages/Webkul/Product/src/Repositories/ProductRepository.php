@@ -904,5 +904,17 @@ class ProductRepository extends Repository
                     ->get();*/
     }
 
+    public function findbySeller($id)
+    {
+        // $sellers = $this->model->where('role_id', 2)->get();
+        $sellers = $this->model
+        ->select('product_flat.id', 'product_flat.product_id', 'products.seller_id')
+        ->leftJoin('product_flat', 'product_flat.product_id', '=', 'products.id')
+        ->where('products.id', $id)
+        ->get();
+
+        return $sellers;
+    }
+
     
 }

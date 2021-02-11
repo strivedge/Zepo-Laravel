@@ -72,11 +72,27 @@
                         <accordian :title="'{{ __($attributeGroup->name) }}'"
                                    :active="{{$index == 0 ? 'true' : 'false'}}">
                             <div slot="body">
+
                                 {!! view_render_event('bagisto.admin.catalog.product.edit_form_accordian.' . $attributeGroup->name . '.controls.before', ['product' => $product]) !!}
+                @if(auth()->guard('admin')->user()->role->id == 1)
+                    <div class="control-group">
+                        <label for="seller_id">{{ __('admin::app.catalog.products.sellers') }}</label>
+                            <select class="control" id="seller_id" name="seller_id" data-vv-as="&quot;{{ __('admin::app.catalog.products.sellers') }}&quot;">
+                                <option value="{{ auth()->guard('admin')->id() }}">{{ __('admin::app.catalog.products.product-admin') }}</option>
+                                @foreach ($sellers as $seller)
+                                    <option value="{{ $seller->id }}" {{ $seller->id == $product->seller_id ? 'selected' : ''}}>
+                                        {{ $seller->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                    </div>
+                @else
+                    <input type="hidden" name="seller_id" value="{{ auth()->guard('admin')->id() }}">
+                @endif
 
                                 @foreach ($customAttributes as $attribute)
 
-                                    <?php
+                                    @php
                                         if ($attribute->code == 'guest_checkout' && ! core()->getConfigData('catalog.products.guest-checkout.allow-guest-checkout')) {
                                             continue;
                                         }
@@ -104,7 +120,7 @@
                                         array_push($validations, $attribute->validation);
 
                                         $validations = implode('|', array_filter($validations));
-                                    ?>
+                                    @endphp
 
                                     @if (view()->exists($typeView = 'admin::catalog.products.field-types.' . $attribute->type))
 
@@ -140,7 +156,7 @@
                                             @include ($typeView)
 
                                             <span class="control-error"
-                                                  @if ($attribute->type == 'multiselect') v-if="errors.has('{{ $attribute->code }}[]')"
+                                                @if ($attribute->type == 'multiselect') v-if="errors.has('{{ $attribute->code }}[]')"
                                                   @else  v-if="errors.has('{{ $attribute->code }}')"  @endif>
                                                 @if ($attribute->type == 'multiselect')
                                                     @{{ errors.first('{!! $attribute->code !!}[]') }}
