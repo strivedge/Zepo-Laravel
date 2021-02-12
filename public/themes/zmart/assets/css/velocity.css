@@ -1664,7 +1664,7 @@
     padding: 30px 20px;
 }
 .search-container .lg-card-container.list-card {
-    margin: 0 15px;
+    /*margin: 0 15px;*/
 }
 .search-container :first-child {
     margin-top: 0;
@@ -3402,7 +3402,7 @@ body:after {
 }
 .lg-card-container.list-card .product-information {
     height: 200px;
-    display: table;
+    /*display: table;*/
 }
 .lg-card-container.list-card .product-information>div {
     display: table-cell;

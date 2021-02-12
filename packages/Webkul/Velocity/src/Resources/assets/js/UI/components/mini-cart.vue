@@ -11,11 +11,12 @@
             <div class="mini-cart-container">
                 <div class="row small-card-container" :key="index" v-for="(item, index) in cartItems">
                     <div class="col-3 product-image-container mr15">
-                        <a @click="removeProduct(item.id)">
-                            <span class="rango-close"></span>
-                        </a>
+                        
+                           
+                       
 
-                        <a class="unset" :href="`${$root.baseUrl}/${item.url_key}`">
+                        <a class="unset" :href="`${$root.baseUrl}/${item.url_key}`" @click="removeProduct(item.id)">
+                             <span class="rango-close"></span>
                             <div
                                 class="product-image"
                                 :style="`background-image: url(${item.images.medium_image_url});`">
@@ -24,14 +25,14 @@
                     </div>
                     <div class="col-9 no-padding card-body align-vertical-top">
                         <div class="no-padding">
-                            <div class="fs16 text-nowrap fw6" v-html="item.name"></div>
+                            <div class="text-nowrap productname" v-html="item.name"></div>
 
-                            <div class="fs18 card-current-price fw6">
+                            <div class="card-current-price">
                                 <div class="display-inbl">
-                                    <label class="fw5">{{ __('checkout.qty') }}</label>
+                                    <label>{{ __('checkout.qty') }}</label>
                                     <input type="text" disabled :value="item.quantity" class="ml5" />
                                 </div>
-                                <span class="card-total-price fw6">
+                                <span class="card-total-price">
                                     {{ item.base_total }}
                                 </span>
                             </div>
@@ -42,11 +43,11 @@
 
             <!--Footer-->
             <div class="modal-footer">
-                <h2 class="col-6 text-left fw6">
+                <h2 class="col-6 text-left no-padding">
                     {{ subtotalText }}
                 </h2>
 
-                <h2 class="col-6 text-right fw6 no-padding">{{ cartInformation.base_sub_total }}</h2>
+                <h2 class="col-6 text-right no-padding total-price">{{ cartInformation.base_sub_total }}</h2>
             </div>
 
             <div class="modal-footer">

@@ -50,7 +50,7 @@
 <?php //echo"<pre>";print_r($product);exit(); ?>
 {!! view_render_event('bagisto.shop.products.list.card.before', ['product' => $product]) !!}
     @if (isset($list) && $list)
-        <div class="col-12 lg-card-container list-card product-card row">
+        <li class="col-12 lg-card-container list-card product-card row">
             <div class="product-image">
                 <a
                     title="{{ $product->name }}"
@@ -66,7 +66,7 @@
             </div>
 
             <div class="product-information">
-                <div>
+                <!-- <div> -->
                     <div class="product-name">
                         <a
                             href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
@@ -96,9 +96,9 @@
                                                    ? true : false,
                         ])
                     </div>
-                </div>
+                <!-- </div> -->
             </div>
-        </div>
+        </li>
     @else
    
         <li class="">
