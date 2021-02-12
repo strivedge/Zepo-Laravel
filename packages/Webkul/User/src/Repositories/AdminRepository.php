@@ -19,7 +19,13 @@ class AdminRepository extends Repository
 
     public function allSeller()
     {
-    	$sellers = $this->model->where('role_id', 2)->get();
+    	$sellers = $this->model->where('role_id', 2)
+        ->select('admins.id as id',
+        'admins.name as name',
+        'admins.role_id as admin_role_id',
+        'roles.name as role_name')
+        ->leftJoin('roles', 'roles.id', '=', 'admins.role_id')
+        ->get();
 
     	return $sellers;
     }
