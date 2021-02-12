@@ -72,16 +72,20 @@
                         <accordian :title="'{{ __($attributeGroup->name) }}'"
                                    :active="{{$index == 0 ? 'true' : 'false'}}">
                             <div slot="body">
-
                                 {!! view_render_event('bagisto.admin.catalog.product.edit_form_accordian.' . $attributeGroup->name . '.controls.before', ['product' => $product]) !!}
+
+            @if($attributeGroup->name == "General")
                 @if(auth()->guard('admin')->user()->role->id == 1)
                     <div class="control-group">
                         <label for="seller_id">{{ __('admin::app.catalog.products.sellers') }}</label>
                             <select class="control" id="seller_id" name="seller_id" data-vv-as="&quot;{{ __('admin::app.catalog.products.sellers') }}&quot;">
-                                <option value="{{ auth()->guard('admin')->id() }}">{{ __('admin::app.catalog.products.product-admin') }}</option>
+                                <option value="{{ auth()->guard('admin')->id() }}">
+                                    {{ auth()->guard('admin')->user()->name }} 
+                                    ({{ auth()->guard('admin')->user()->role->name }})
+                                </option>
                                 @foreach ($sellers as $seller)
                                     <option value="{{ $seller->id }}" {{ $seller->id == $product->seller_id ? 'selected' : ''}}>
-                                        {{ $seller->name }}
+                                        {{ $seller->name }} ({{ $seller->role_name }})
                                     </option>
                                 @endforeach
                             </select>
@@ -89,6 +93,7 @@
                 @else
                     <input type="hidden" name="seller_id" value="{{ auth()->guard('admin')->id() }}">
                 @endif
+            @endif
 
                                 @foreach ($customAttributes as $attribute)
 
@@ -122,8 +127,9 @@
                                         $validations = implode('|', array_filter($validations));
                                     @endphp
 
-                                    @if (view()->exists($typeView = 'admin::catalog.products.field-types.' . $attribute->type))
+                                @if (view()->exists($typeView = 'admin::catalog.products.field-types.' . $attribute->type))
 
+                                    @if(auth()->guard('admin')->user()->role->id == 1)
                                         <div class="control-group {{ $attribute->type }}"
                                              @if ($attribute->type == 'multiselect') :class="[errors.has('{{ $attribute->code }}[]') ? 'has-error' : '']"
                                              @else :class="[errors.has('{{ $attribute->code }}') ? 'has-error' : '']" @endif>
@@ -165,8 +171,95 @@
                                                 @endif
                                             </span>
                                         </div>
-
                                     @endif
+                                    
+                                    @if(auth()->guard('admin')->user()->role->id == 2)
+                                        @if($attribute->code == "status")
+                                        <div class="control-group {{ $attribute->type }}"
+                                             @if ($attribute->type == 'multiselect') :class="[errors.has('{{ $attribute->code }}[]') ? 'has-error' : '']"
+                                             @else :class="[errors.has('{{ $attribute->code }}') ? 'has-error' : '']" @endif>
+
+                                            <label for="{{ $attribute->code }}">
+
+                                                @if ($attribute->type == 'price')
+                                                    <span class="currency-code">({{ core()->currencySymbol(core()->getBaseCurrencyCode()) }})</span>
+                                                @endif
+
+                                                <?php
+                                                $channel_locale = [];
+
+                                                if ($attribute->value_per_channel) {
+                                                    array_push($channel_locale, $channel);
+                                                }
+
+                                                if ($attribute->value_per_locale) {
+                                                    array_push($channel_locale, $locale);
+                                                }
+                                                ?>
+
+                                                @if (count($channel_locale))
+                                                    <span class="locale">[{{ implode(' - ', $channel_locale) }}]</span>
+                                                @endif
+                                            </label>
+
+                                            @include ($typeView)
+
+                                            <span class="control-error"
+                                                @if ($attribute->type == 'multiselect') v-if="errors.has('{{ $attribute->code }}[]')"
+                                                  @else  v-if="errors.has('{{ $attribute->code }}')"  @endif>
+                                                @if ($attribute->type == 'multiselect')
+                                                    @{{ errors.first('{!! $attribute->code !!}[]') }}
+                                                @else
+                                                    @{{ errors.first('{!! $attribute->code !!}') }}
+                                                @endif
+                                            </span>
+                                        </div>
+                                        @else
+                                        <div class="control-group {{ $attribute->type }}"
+                                             @if ($attribute->type == 'multiselect') :class="[errors.has('{{ $attribute->code }}[]') ? 'has-error' : '']"
+                                             @else :class="[errors.has('{{ $attribute->code }}') ? 'has-error' : '']" @endif>
+
+                                            <label
+                                                for="{{ $attribute->code }}" {{ $attribute->is_required ? 'class=required' : '' }}>
+                                                {{ $attribute->admin_name }}
+
+                                                @if ($attribute->type == 'price')
+                                                    <span class="currency-code">({{ core()->currencySymbol(core()->getBaseCurrencyCode()) }})</span>
+                                                @endif
+
+                                                <?php
+                                                $channel_locale = [];
+
+                                                if ($attribute->value_per_channel) {
+                                                    array_push($channel_locale, $channel);
+                                                }
+
+                                                if ($attribute->value_per_locale) {
+                                                    array_push($channel_locale, $locale);
+                                                }
+                                                ?>
+
+                                                @if (count($channel_locale))
+                                                    <span class="locale">[{{ implode(' - ', $channel_locale) }}]</span>
+                                                @endif
+                                            </label>
+
+                                            @include ($typeView)
+
+                                            <span class="control-error"
+                                                @if ($attribute->type == 'multiselect') v-if="errors.has('{{ $attribute->code }}[]')"
+                                                  @else  v-if="errors.has('{{ $attribute->code }}')"  @endif>
+                                                @if ($attribute->type == 'multiselect')
+                                                    @{{ errors.first('{!! $attribute->code !!}[]') }}
+                                                @else
+                                                    @{{ errors.first('{!! $attribute->code !!}') }}
+                                                @endif
+                                            </span>
+                                        </div>
+                                        @endif
+                                    @endif
+
+                                @endif
 
                                 @endforeach
 
@@ -190,10 +283,9 @@
                   'bagisto.admin.catalog.product.edit_form_accordian.additional_views.before',
                    ['product' => $product])
                 !!}
+
                 @foreach ($product->getTypeInstance()->getAdditionalViews() as $view)
-
                     @include ($view)
-
                 @endforeach
 
                 {!! view_render_event(

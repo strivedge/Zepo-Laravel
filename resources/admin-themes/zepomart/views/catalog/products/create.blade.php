@@ -93,10 +93,13 @@
             <div class="control-group">
                 <label for="seller_id">{{ __('admin::app.catalog.products.sellers') }}</label>
                 <select class="control" id="seller_id" name="seller_id" {{ $familyId ? 'disabled' : '' }} data-vv-as="&quot;{{ __('admin::app.catalog.products.sellers') }}&quot;">
-                    <option value="0">{{ __('admin::app.catalog.products.product-admin') }}</option>
+                    <option value="{{ auth()->guard('admin')->id() }}">
+                        {{ auth()->guard('admin')->user()->name }} 
+                        ({{ auth()->guard('admin')->user()->role->name }})
+                    </option>
                     @foreach ($sellers as $seller)
                         <option value="{{ $seller->id }}">
-                            {{ $seller->name }}
+                            {{ $seller->name }} ({{ $seller->role_name }})
                         </option>
                     @endforeach
                 </select>
