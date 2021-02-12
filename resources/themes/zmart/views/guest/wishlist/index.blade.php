@@ -20,17 +20,19 @@
 
 @push('scripts')
     <script type="text/x-template" id="wishlist-product-template">
-        <section class="cart-details row no-margin col-12">
-            <h1 class="fw6 col-6">
-                {{ __('shop::app.customer.account.wishlist.title') }}
-            </h1>
+        <section class="cart-details no-margin col-12 product-box">
+            <div class="row">
+                <h1 class="wishlist-title col-6">
+                    {{ __('shop::app.customer.account.wishlist.title') }}
+                </h1>
 
-            <div class="col-6" v-if="products.length > 0">
-                <button
-                    class="theme-btn light pull-right"
-                    @click="removeProduct('all')">
-                    {{ __('shop::app.customer.account.wishlist.deleteall') }}
-                </button>
+                <div class="wishlist-delete-btn col-6" v-if="products.length > 0">
+                    <button
+                        class="theme-btn light pull-right"
+                        @click="removeProduct('all')">
+                        {{ __('shop::app.customer.account.wishlist.deleteall') }}
+                    </button>
+                </div>
             </div>
 
             {!! view_render_event('bagisto.shop.customers.account.guest-customer.view.before') !!}
@@ -41,11 +43,12 @@
                 <template v-else-if="isProductListLoaded && products.length > 0">
                     <carousel-component
                         slides-per-page="6"
-                        navigation-enabled="hide"
+                        navigation-enabled="true"
                         pagination-enabled="hide"
                         id="wishlist-products-carousel"
                         locale-direction="{{ core()->getCurrentLocale()->direction == 'rtl' ? 'rtl' : 'ltr' }}"
-                        :slides-count="products.length">
+                        :slides-count="products.length"
+                        :perPageCustom="[[480, 2], [768, 3]]">
 
                         <slide
                             :key="index"
