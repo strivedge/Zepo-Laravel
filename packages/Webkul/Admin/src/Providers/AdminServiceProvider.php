@@ -101,6 +101,7 @@ class AdminServiceProvider extends ServiceProvider
 
             $types = core()->sortItems($items);
 
+
             $view->with('productTypes', $types);
         });
     }

@@ -19,7 +19,16 @@ return [
                 'type'          => 'textarea',
                 'channel_based' => false,
                 'locale_based'  => true,
-            ], [
+            ], 
+            [
+              'name'          => 'default_rate',
+              'title'         => 'admin::app.admin.system.rate',
+              'type'          => 'text',
+              'channel_based' => true,
+              'locale_based'  => false
+            ],
+
+            [
                 'name'          => 'active',
                 'title'         => 'admin::app.admin.system.status',
                 'type'          => 'boolean',

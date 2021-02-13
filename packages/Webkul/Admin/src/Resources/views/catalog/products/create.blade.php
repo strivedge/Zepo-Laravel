@@ -1,4 +1,4 @@
-@extends('admin::layouts.content')
+Q@extends('admin::layouts.content')
 
 @section('page_title')
     {{ __('admin::app.catalog.products.add-title') }}
