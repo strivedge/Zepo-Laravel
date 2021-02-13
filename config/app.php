@@ -289,6 +289,9 @@ return [
         Custom\Blog\Providers\BlogServiceProvider::class,
         Custom\Testinominal\Providers\TestinominalServiceProvider::class,
         Custom\Offer\Providers\OfferServiceProvider::class,
+        
+        ACME\FedEx\Providers\FedExServiceProvider::class,
+        ACME\RazorPay\Providers\RazorPayServiceProvider::class,
 
     ],
 

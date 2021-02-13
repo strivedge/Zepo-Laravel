@@ -75,6 +75,94 @@
         
     </script>
 
+    <script type="text/javascript" src="https://checkout.razorpay.com/v1/checkout.js"></script>
+      <script type="text/javascript">
+         var SITEURL = '{{URL::to('')}}';
+         var logo = "{{ asset('themes/zmart/assets/images/logo-text.png') }}";
+         var key = "{{ Config::get('custom.razor_key') }}";
+         $.ajaxSetup({
+           headers: {
+               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+           }
+         }); 
+         function razorPay(cart_data){
+            console.log("razorPay function call")
+            console.log(cart_data)
+               var totalAmount = cart_data.grand_total;
+               var sub_total = cart_data.sub_total;
+               var tax_total = cart_data.tax_total;
+               var discount_amount = cart_data.discount_amount;
+               var currency = cart_data.base_currency_code;
+               var cust_email = cart_data.customer_email;
+               var customer_id = cart_data.customer_id;
+               
+               var options = {
+               "key": key,
+               "amount": (totalAmount*100), //amt in paisa, 2000 paise = INR 20
+               "name": cart_data.customer_first_name,
+               "description": "Payment",
+               "currency" : "INR",
+               "image": logo,
+               "handler": function (response){
+                 console.log("response",response)
+                     $.ajax({
+                       url: SITEURL + '/payment',
+                       type: 'post',
+                       dataType: 'json',
+                       data: {
+                        cart_id:cart_data.id,customer_id:customer_id,
+                        razorpay_payment_id: response.razorpay_payment_id,sub_total: sub_total,
+                        totalAmount : totalAmount,currency : currency,is_guest:cart_data.is_guest,
+                        customer_first_name:cart_data.customer_first_name, customer_last_name:cart_data.customer_last_name
+                       }, 
+                       success: function (res) {
+                            if (res.success) {
+                                window.location.href = SITEURL + '/checkout/success';
+                            }else{
+                                this.disable_button = true;
+                                
+                                window.showAlert(`alert-danger`, 'Danger', res.msg);
+                            }
+              
+                       }
+                   });
+                 
+               },
+                "modal": {
+                    "ondismiss": function(){
+                        $('#checkout-place-order-button').removeAttr('disabled');
+                         console.log("ondismiss")
+                          window.showAlert(`alert-danger`, 'Danger', 'Payment Failed');
+                     }
+                },
+               "prefill": {
+                   "contact": '9898989898',
+                   "email":   cust_email,
+                },
+                "theme": {
+                   "color": "#274985"
+                }
+         };
+         var rzp1 = new Razorpay(options);
+             rzp1.open();
+             e.preventDefault();
+
+         }
+
+         document.write()
+    
+
+    $( document ).ready(function() {
+        console.log("payalbbh")
+        $("#checkout-place-order-button").on("click", function(){ 
+            console.log("Checkout btn clicked")
+            placeOrder();
+
+         });
+    });
+         document.getElementById('checkout-place-order-button').onclick =  placeOrder();
+      </script>
+
     <script type="text/javascript">
         (() => {
             var reviewHtml = '';
@@ -467,10 +555,18 @@
 
                             this.$http.post("{{ route('shop.checkout.save-order') }}", {'_token': "{{ csrf_token() }}"})
                             .then(response => {
+                                console.log("placeOrder",response)
                                 if (response.data.success) {
                                     if (response.data.redirect_url) {
                                         this.$root.hideLoader();
-                                        window.location.href = response.data.redirect_url;
+                                        if (response.data.redirect_url == "razorpay") {
+                                            console.log("razorpay call")
+                                            console.log(response)
+                                            razorPay(response.data.cart);
+
+                                        }else{
+                                            window.location.href = response.data.redirect_url;
+                                        }
                                     } else {
                                         this.$root.hideLoader();
                                         window.location.href = "{{ route('shop.checkout.success') }}";

@@ -34,8 +34,8 @@ class FedEx extends AbstractShipping
         $object->method = 'fedex_fedex';
         $object->method_title = $this->getConfigData('title');
         $object->method_description = $this->getConfigData('description');
-        $object->price = 0;
-        $object->base_price = 0;
+        $object->price = $this->getConfigData('default_rate');
+        $object->base_price = $this->getConfigData('default_rate');
 
         return $object;
     }
