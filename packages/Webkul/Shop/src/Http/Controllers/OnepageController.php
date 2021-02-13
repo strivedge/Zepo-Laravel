@@ -187,10 +187,13 @@ class OnepageController extends Controller
 
         $cart = Cart::getCart();
 
+        //echo"<pre>"; print_r($cart);exit;
+
         if ($redirectUrl = Payment::getRedirectUrl($cart)) {
             return response()->json([
                 'success'      => true,
                 'redirect_url' => $redirectUrl,
+                'cart' => $cart,
             ]);
         }
 

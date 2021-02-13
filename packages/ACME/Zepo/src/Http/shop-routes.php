@@ -46,4 +46,5 @@ Route::group(['middleware' => ['web', 'theme', 'locale', 'currency']], function 
 	        'view' => 'shop::brand.brand-products'
 	]);
 
+	   
 });
