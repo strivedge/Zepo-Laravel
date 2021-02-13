@@ -142,7 +142,7 @@
                         </div>
                     </div>
                 </div>
-
+    @if(auth()->guard('admin')->user()->role->id == 1)
                 <div class="right-card-container category">
                     <div class="card">
                         <div class="card-title">
@@ -354,7 +354,7 @@
 
                         @endif
                     </div>
-
+    @endif
                 </div>
             </div>
         </div>

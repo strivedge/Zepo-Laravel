@@ -129,15 +129,23 @@ class DashboardController extends Controller
     {
         $this->setStartEndDate();
 
+        if(auth()->guard('admin')->user()->role->id != 1)
+        {
+            $currents = ['previous' => $previous = $this->sellerUserCount()->count(),
+            'current'  => $current = $this->sellerUserCount()->count(),
+            'progress' => $this->getPercentageChange($previous, $current)];
+        }
+        else
+        {
+            $currents = ['previous' => $previous = $this->previousOrders()->count(),
+            'current'  => $current = $this->currentOrders()->count(),
+            'progress' => $this->getPercentageChange($previous, $current)];
+        }
+
         $statistics = [
             'total_customers'          => [
                 'previous' => $previous = $this->getCustomersBetweenDates($this->lastStartDate, $this->lastEndDate)->count(),
                 'current'  => $current = $this->getCustomersBetweenDates($this->startDate, $this->endDate)->count(),
-                'progress' => $this->getPercentageChange($previous, $current),
-            ],
-            'total_orders'             =>  [
-                'previous' => $previous = $this->previousOrders()->count(),
-                'current'  => $current = $this->currentOrders()->count(),
                 'progress' => $this->getPercentageChange($previous, $current),
             ],
             'total_sales'              =>  [
@@ -155,6 +163,8 @@ class DashboardController extends Controller
             'customer_with_most_sales' => $this->getCustomerWithMostSales(),
             'stock_threshold'          => $this->getStockThreshold(),
         ];
+
+        $statistics['total_orders'] = $currents;
 
         foreach (core()->getTimeInterval($this->startDate, $this->endDate) as $interval) {
             $statistics['sale_graph']['label'][] = $interval['start']->format('d M');
@@ -298,6 +308,29 @@ class DashboardController extends Controller
     private function currentOrders()
     {
         return $this->getOrdersBetweenDate($this->startDate, $this->endDate);
+    }
+
+    // counting orders for other users except admin
+    public function sellerUserCount()
+    {
+        $dbPrefix = DB::getTablePrefix();
+
+        return $this->orderRepository->getModel()
+                    ->leftJoin('refunds', 'orders.id', 'refunds.order_id')
+                    ->leftJoin('order_items', 'order_items.order_id', 'orders.id')
+                    ->leftJoin('products', 'products.id', 'order_items.product_id')
+                    ->select(DB::raw("(SUM({$dbPrefix}orders.base_grand_total) - SUM(IFNULL({$dbPrefix}refunds.base_grand_total, 0))) as total_base_grand_total"))
+                    ->addSelect(DB::raw("COUNT({$dbPrefix}orders.id) as total_orders"))
+                    ->addSelect('orders.id', 'customer_id', 'customer_email', 'customer_first_name', 'customer_last_name')
+                    ->where('orders.created_at', '>=', $this->startDate)
+                    ->where('orders.created_at', '<=', $this->endDate)
+                    ->where('orders.status', '<>', 'closed')
+                    ->where('orders.status', '<>', 'canceled')
+                    ->where('products.seller_id', auth()->guard('admin')->id())
+                    ->groupBy('customer_email')
+                    ->orderBy('total_base_grand_total', 'DESC')
+                    ->limit(5)
+                    ->get();
     }
 
     /**
