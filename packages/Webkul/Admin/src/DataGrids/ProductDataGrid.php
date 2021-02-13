@@ -59,6 +59,8 @@ class ProductDataGrid extends DataGrid
         /* query builder */
         $queryBuilder = DB::table('product_flat')
             ->leftJoin('products', 'product_flat.product_id', '=', 'products.id')
+            ->leftJoin('admins', 'admins.id', '=', 'products.seller_id')
+            ->leftJoin('roles', 'roles.id', '=', 'admins.role_id')
             ->leftJoin('attribute_families', 'products.attribute_family_id', '=', 'attribute_families.id')
             ->leftJoin('product_inventories', 'product_flat.product_id', '=', 'product_inventories.product_id')
             ->select(
@@ -70,9 +72,19 @@ class ProductDataGrid extends DataGrid
                 'products.type as product_type',
                 'product_flat.status',
                 'product_flat.price',
+                'products.seller_id as seller_id',
+                'admins.id as admin_id',
+                'admins.name as admin_name',
+                'roles.id as role_id',
+                'roles.name as role_name',
                 'attribute_families.name as attribute_family',
                 DB::raw('SUM(DISTINCT ' . DB::getTablePrefix() . 'product_inventories.qty) as quantity')
-            );
+        );
+
+        if(auth()->guard('admin')->user()->role->id != 1)
+        {
+            $queryBuilder->where('products.seller_id', auth()->guard('admin')->id());
+        }
 
         $queryBuilder->groupBy('product_flat.product_id', 'product_flat.channel');
 
@@ -89,7 +101,6 @@ class ProductDataGrid extends DataGrid
 
         $this->setQueryBuilder($queryBuilder);
     }
-
     public function addColumns()
     {
         $this->addColumn([
@@ -177,6 +188,25 @@ class ProductDataGrid extends DataGrid
                 }
             },
         ]);
+    if(auth()->guard('admin')->user()->role->id == 1)
+    {
+        $this->addColumn([
+            'index'      => 'seller_id',
+            'label'      => trans('admin::app.catalog.products.product-by'),
+            'type'       => 'number',
+            'sortable'   => true,
+            'searchable' => false,
+            'filterable' => false,
+            'wrapper'    => function ($value) {
+                if($value->seller_id == null && $value->seller_id == "") {
+                    return trans('admin::app.catalog.products.none');
+                }
+                if ($value->seller_id == $value->admin_id) {
+                    return $value->admin_name." (".$value->role_name.")";
+                }
+            },
+        ]);
+        }
     }
 
     public function prepareActions()

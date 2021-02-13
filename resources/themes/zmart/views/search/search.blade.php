@@ -48,9 +48,8 @@
 
 @section('content-wrapper')
     <div
-        style="padding-left: 50px !important;"
-        class="container category-page-wrapper"
-    >
+        class="search-category category-page-wrapper"
+    ><!--  style="padding-left: 50px !important;" -->
         <search-component></search-component>
     </div>
 @endsection
@@ -77,20 +76,12 @@
     </script>
 
     <script type="text/x-template" id="seach-component-template">
-        <section class="search-container row category-container">
+        <section class="search-container  category-container">
             @if (request('image-search'))
                 <image-search-result-component></image-search-result-component>
             @endif
 
-            @if ($results && $results->count())
-                <div class="filters-container col-12" style="
-                    margin-top: 20px;
-                    padding-left: 0px !important;
-                    padding-bottom: 10px !important;
-                ">
-                    @include ('shop::products.list.toolbar')
-                </div>
-            @endif
+            
 
             @if (! $results)
                 <h1 class="fw6 col-12">{{ __('shop::app.search.no-results') }}</h1>
@@ -99,26 +90,36 @@
                     <h1 class="fw6 col-12">{{ __('shop::app.products.whoops') }}</h1>
                     <span class="col-12">{{ __('shop::app.search.no-results') }}</span>
                 @else
-                    @if ($results->total() == 1)
-                        <h2 class="fw6 col-12 mb20">
-                            {{ $results->total() }} {{ __('shop::app.search.found-result') }}
-                        </h2>
-                    @else
-                        <h2 class="fw6 col-12 mb20">
-                            {{ $results->total() }} {{ __('shop::app.search.found-results') }}
-                        </h2>
-                    @endif
-
-                    @foreach ($results as $productFlat)
-                        @if ($toolbarHelper->getCurrentMode() == 'grid')
-                            @include('shop::search.list', ['product' => $productFlat->product])
+                    <div class="row filter-heading">
+                        @if ($results->total() == 1)
+                            <h2 class="col-md-6 mb20">
+                                {{ $results->total() }} {{ __('shop::app.search.found-result') }}
+                            </h2>
                         @else
-                            @include('shop::search.list', [
-                                'list' => true,
-                                'product' => $productFlat->product
-                            ])
+                            <h2 class="col-md-6 mb20">
+                                {{ $results->total() }} {{ __('shop::app.search.found-results') }}
+                            </h2>
                         @endif
-                    @endforeach
+                         @if ($results && $results->count())
+                            <div class="filters-container col-md-12 col-lg-6">
+                                @include ('shop::products.list.toolbar')
+                            </div>
+                        @endif
+                    </div>
+                    <section class="product-box">
+                        <ul class="row">
+                            @foreach ($results as $productFlat)
+                                @if ($toolbarHelper->getCurrentMode() == 'grid')
+                                    @include('shop::products.newproduct.new-product-listing', ['product' => $productFlat->product])
+                                @else
+                                    @include('shop::products.newproduct.new-product-listing', [
+                                        'list' => true,
+                                        'product' => $productFlat->product
+                                    ])
+                                @endif
+                            @endforeach
+                        </ul>
+                    </section>
 
                     @include('ui::datagrid.pagination')
                 @endif

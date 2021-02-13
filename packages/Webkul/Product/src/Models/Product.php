@@ -20,6 +20,7 @@ class Product extends Model implements ProductContract
         'attribute_family_id',
         'sku',
         'parent_id',
+        'seller_id',
     ];
 
     protected $typeInstance;

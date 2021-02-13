@@ -332,34 +332,38 @@ class Helper extends Review
 
         $isProductNew = ($product->new && ! strpos($priceHTML, 'sticker sale') > 0) ? __('shop::app.products.new') : false;
 
-        return [
-            'priceHTML'         => $priceHTML,
-            'avgRating'         => $avgRatings,
-            'totalReviews'      => $totalReviews,
-            'image'             => $productImage,
-            'new'               => $isProductNew,
-            'galleryImages'     => $galleryImages,
-            'name'              => $product->name,
-            'slug'              => $product->url_key,
-            'description'       => $product->description,
-            'shortDescription'  => $product->short_description,
-            'firstReviewText'   => trans('velocity::app.products.be-first-review'),
-            'defaultAddToCart'  => view('shop::products.add-buttons', ['product' => $product])->render(),
-            'addToCartHtml'     => view('shop::products.add-to-cart', [
-                'product'           => $product,
-                'addWishlistClass'  => ! (isset($list) && $list) ? '' : '',
+    return [
+        'avgRating' => $avgRatings,
+        'totalReviews' => $totalReviews,
+        'image' => $productImage,
+        'new' => $isProductNew,
+        'galleryImages' => $galleryImages,
+        'sku' => $product->sku,
+        'special_price' => $product->getTypeInstance()->haveSpecialPrice(),
+        'percentage' => $product->getTypeInstance()->getOfferPercentage(),
+        'priceHTML' => $product->getTypeInstance()->getOfferPriceHtml(),
+        'name' => $product->name,
+        'slug' => $product->url_key,
+        'description' => $product->description,
+        'shortDescription' => $product->short_description,
+        'star_icon' => asset('/themes/zmart/assets/images/star-gray.png'),
+        'defaultAddToCart' => view('shop::products.add-buttons', ['product' => $product])->render(),
+        'addToCartHtml' => view('shop::products.add-to-cart', [
+        'product' => $product,
+        'addWishlistClass' => ! (isset($list) && $list) ? '' : 'pl10',
 
-                'showCompare'       => core()->getConfigData('general.content.shop.compare_option') == "1"
-                                       ? true : false,
+        'showCompare' => core()->getConfigData('general.content.shop.compare_option') == "1"
+        ? true : false,
 
-                'btnText'           => (isset($metaInformation['btnText']) && $metaInformation['btnText'])
-                                       ? $metaInformation['btnText'] : null,
+        'btnText' => (isset($metaInformation['btnText']) && $metaInformation['btnText'])
+        ? $metaInformation['btnText'] : null,
 
-                'moveToCart'        => (isset($metaInformation['moveToCart']) && $metaInformation['moveToCart'])
-                                       ? $metaInformation['moveToCart'] : null,
+        'moveToCart' => (isset($metaInformation['moveToCart']) && $metaInformation['moveToCart'])
+        ? $metaInformation['moveToCart'] : null,
 
-                'addToCartBtnClass' => ! (isset($list) && $list) ? 'small-padding' : '',
-            ])->render(),
+        'addToCartBtnClass' => ! (isset($list) && $list) ? 'small-padding' : '',
+        ])->render()
+
         ];
     }
 

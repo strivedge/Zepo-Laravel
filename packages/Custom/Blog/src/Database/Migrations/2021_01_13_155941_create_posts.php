@@ -15,9 +15,9 @@ class CreatePosts extends Migration
     {
         Schema::create('master_posts', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 200)->nullable();
-            $table->string('image', 200)->nullable();
-            $table->string('slug', 200);
+            $table->string('title')->nullable();
+            $table->string('image')->nullable();
+            $table->string('slug')->unique();
             $table->longtext('content')->nullable();
             $table->date('date')->nullable();
             $table->timestamps();

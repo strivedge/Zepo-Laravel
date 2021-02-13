@@ -149,63 +149,72 @@
                 {!! view_render_event('bagisto.shop.customers.account.profile.edit.photo.after', ['customer' => $customer]) !!}
 
                 <div class="row">
-                    <label class="col-12 mandatory">
-                        {{ __('shop::app.customer.account.profile.email') }}
-                    </label>
+                    <div class="form-group col-md-12 no-padding">
+                        <label class="col-12 mandatory">
+                            {{ __('shop::app.customer.account.profile.email') }}
+                        </label>
 
-                    <div class="col-12">
-                        <input value="{{ $customer->email }}" name="email" type="text" v-validate="'required'" />
-                        <span class="control-error" v-if="errors.has('email')">@{{ errors.first('email') }}</span>
+
+                        <div class="col-12">
+                            <input value="{{ $customer->email }}" name="email" type="text" v-validate="'required'" />
+                            <span class="control-error" v-if="errors.has('email')">@{{ errors.first('email') }}</span>
+                        </div>
                     </div>
                 </div>
 
                 {!! view_render_event('bagisto.shop.customers.account.profile.edit.email.after', ['customer' => $customer]) !!}
 
                 <div class="row">
-                    <label class="col-12">
-                        {{ __('velocity::app.shop.general.enter-current-password') }}
-                    </label>
+                    <div class="form-group col-md-12 no-padding">
+                        <label class="col-12">
+                            {{ __('velocity::app.shop.general.enter-current-password') }}
+                        </label>
 
-                    <div :class="`col-12 ${errors.has('oldpassword') ? 'has-error' : ''}`">
-                        <input value="" name="oldpassword" type="password" />
+                        <div :class="`col-12 ${errors.has('oldpassword') ? 'has-error' : ''}`">
+                            <input value="" name="oldpassword" type="password" />
+                        </div>
                     </div>
                 </div>
 
                 {!! view_render_event('bagisto.shop.customers.account.profile.edit.oldpassword.after', ['customer' => $customer]) !!}
 
                 <div class="row">
-                    <label class="col-12">
-                        {{ __('velocity::app.shop.general.new-password') }}
-                    </label>
+                    <div class="form-group col-md-12 no-padding">
+                        <label class="col-12">
+                            {{ __('velocity::app.shop.general.new-password') }}
+                        </label>
 
-                    <div :class="`col-12 ${errors.has('password') ? 'has-error' : ''}`">
-                        <input
-                            value=""
-                            name="password"
-                            ref="password"
-                            type="password"
-                            v-validate="'min:6|max:18'" />
+                        <div :class="`col-12 ${errors.has('password') ? 'has-error' : ''}`">
+                            <input
+                                value=""
+                                name="password"
+                                ref="password"
+                                type="password"
+                                v-validate="'min:6|max:18'" />
 
-                        <span class="control-error" v-if="errors.has('password')">
-                            @{{ errors.first('password') }}
-                        </span>
+                            <span class="control-error" v-if="errors.has('password')">
+                                @{{ errors.first('password') }}
+                            </span>
+                        </div>
                     </div>
                 </div>
 
                 {!! view_render_event('bagisto.shop.customers.account.profile.edit.password.after', ['customer' => $customer]) !!}
 
                 <div class="row">
-                    <label class="col-12">
-                        {{ __('velocity::app.shop.general.confirm-new-password') }}
-                    </label>
+                    <div class="form-group col-md-12 no-padding">
+                        <label class="col-12">
+                            {{ __('velocity::app.shop.general.confirm-new-password') }}
+                        </label>
 
-                    <div :class="`col-12 ${errors.has('password_confirmation') ? 'has-error' : ''}`">
-                        <input value="" name="password_confirmation" type="password"
-                        v-validate="'min:6|confirmed:password'" data-vv-as="confirm password" />
+                        <div :class="`col-12 ${errors.has('password_confirmation') ? 'has-error' : ''}`">
+                            <input value="" name="password_confirmation" type="password"
+                            v-validate="'min:6|confirmed:password'" data-vv-as="confirm password" />
 
-                        <span class="control-error" v-if="errors.has('password_confirmation')">
-                            @{{ errors.first('password_confirmation') }}
-                        </span>
+                            <span class="control-error" v-if="errors.has('password_confirmation')">
+                                @{{ errors.first('password_confirmation') }}
+                            </span>
+                        </div>
                     </div>
                 </div>
 

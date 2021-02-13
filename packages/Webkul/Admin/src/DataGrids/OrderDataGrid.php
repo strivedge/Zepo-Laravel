@@ -23,9 +23,21 @@ class OrderDataGrid extends DataGrid
                 $leftJoin->on('order_address_billing.order_id', '=', 'orders.id')
                          ->where('order_address_billing.address_type', OrderAddress::ADDRESS_TYPE_BILLING);
             })
+            ->leftJoin('order_items as order_items', function($leftJoin) {
+                $leftJoin->on('order_items.order_id', '=', 'orders.id');
+            })
             ->addSelect('orders.id','orders.increment_id', 'orders.base_sub_total', 'orders.base_grand_total', 'orders.created_at', 'channel_name', 'status')
             ->addSelect(DB::raw('CONCAT(' . DB::getTablePrefix() . 'order_address_billing.first_name, " ", ' . DB::getTablePrefix() . 'order_address_billing.last_name) as billed_to'))
             ->addSelect(DB::raw('CONCAT(' . DB::getTablePrefix() . 'order_address_shipping.first_name, " ", ' . DB::getTablePrefix() . 'order_address_shipping.last_name) as shipped_to'));
+
+        if(auth()->guard('admin')->user()->role->id != 1)
+        {
+            $queryBuilder->leftJoin('products as products', function($leftJoin) {
+                $leftJoin->on('products.id', '=', 'order_items.product_id')
+                         ->where('products.seller_id', auth()->guard('admin')->id());
+            })
+            ->where('products.seller_id', auth()->guard('admin')->id());
+        }
 
         $this->addFilter('billed_to', DB::raw('CONCAT(' . DB::getTablePrefix() . 'order_address_billing.first_name, " ", ' . DB::getTablePrefix() . 'order_address_billing.last_name)'));
         $this->addFilter('shipped_to', DB::raw('CONCAT(' . DB::getTablePrefix() . 'order_address_shipping.first_name, " ", ' . DB::getTablePrefix() . 'order_address_shipping.last_name)'));
