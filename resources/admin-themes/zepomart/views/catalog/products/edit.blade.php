@@ -173,7 +173,7 @@
                                         </div>
                                     @endif
                                     
-                                    @if(auth()->guard('admin')->user()->role->id == 2)
+                                    @if(auth()->guard('admin')->user()->role->id != 1)
                                         @if($attribute->code == "status")
                                         <div class="control-group {{ $attribute->type }}"
                                              @if ($attribute->type == 'multiselect') :class="[errors.has('{{ $attribute->code }}[]') ? 'has-error' : '']"
