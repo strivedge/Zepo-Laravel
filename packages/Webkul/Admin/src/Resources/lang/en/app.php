@@ -469,6 +469,7 @@ return [
             'product-type' => 'Product Type',
             'sellers' => 'Seller',
             'product-by' => 'Product By',
+            'none' => 'None',
             'simple' => 'Simple',
             'configurable' => 'Configurable',
             'familiy' => 'Attribute Family',

@@ -198,6 +198,9 @@ class ProductDataGrid extends DataGrid
             'searchable' => false,
             'filterable' => false,
             'wrapper'    => function ($value) {
+                if($value->seller_id == null && $value->seller_id == "") {
+                    return trans('admin::app.catalog.products.none');
+                }
                 if ($value->seller_id == $value->admin_id) {
                     return $value->admin_name." (".$value->role_name.")";
                 }
