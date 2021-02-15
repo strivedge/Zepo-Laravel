@@ -152,14 +152,13 @@
     
 
     $( document ).ready(function() {
-        console.log("payalbbh")
-        $("#checkout-place-order-button").on("click", function(){ 
-            console.log("Checkout btn clicked")
+        
+        $(document).on("click", "#checkout-place-order-button" , function() {
+            console.log("on click event")
             placeOrder();
-
-         });
+        });
     });
-         document.getElementById('checkout-place-order-button').onclick =  placeOrder();
+         //document.getElementById('checkout-place-order-button').onclick =  placeOrder();
       </script>
 
     <script type="text/javascript">
@@ -196,6 +195,7 @@
                         current_step: 1,
                         completed_step: 0,
                         isCheckPayment: true,
+                        isRazorPayPayment:false,
                         is_customer_exist: 0,
                         disable_button: false,
                         reviewComponentKey: 0,
@@ -559,9 +559,12 @@
                                     if (response.data.redirect_url) {
                                         this.$root.hideLoader();
                                         if (response.data.redirect_url == "razorpay") {
-                                            console.log("razorpay call")
+                                            console.log("razorpay call..")
                                             console.log(response)
-                                            razorPay(response.data.cart);
+                                            
+                                            this.isRazorPayPayment = true;
+                                            this.razorPayPayment(response.data.cart);
+                                            //razorPay(response.data.cart);
 
                                         }else{
                                             window.location.href = response.data.redirect_url;
@@ -575,12 +578,97 @@
                             .catch(error => {
                                 this.disable_button = true;
                                 this.$root.hideLoader();
-
+                                console.log('error',error)
                                 window.showAlert(`alert-danger`, this.__('shop.general.alert.danger'), "{{ __('shop::app.common.error') }}");
                             })
                         } else {
                             this.disable_button = true;
                         }
+                    },
+
+                    razorPayPayment: function (cart_data) {
+                        console.log("this razorpay")
+                        if (this.isRazorPayPayment) {
+                            this.disable_button = false;
+                            this.isRazorPayPayment = false;
+
+                            //this.$root.showLoader();
+                         console.log("razorPayPayment function call")
+            console.log(cart_data)
+               var totalAmount = cart_data.grand_total;
+               var sub_total = cart_data.sub_total;
+               var tax_total = cart_data.tax_total;
+               var discount_amount = cart_data.discount_amount;
+               var currency = cart_data.base_currency_code;
+               var cust_email = cart_data.customer_email;
+               var customer_id = cart_data.customer_id;
+               
+               var options = {
+               "key": key,
+               "amount": (totalAmount*100), //amt in paisa, 2000 paise = INR 20
+               "name": cart_data.customer_first_name,
+               "description": "Payment",
+               "currency" : "INR",
+               "image": logo,
+               "handler": function (response){
+                     $.ajax({
+                       url: SITEURL + '/payment',
+                       type: 'post',
+                       dataType: 'json',
+                       data: {
+                        cart_id:cart_data.id,customer_id:customer_id,
+                        razorpay_payment_id: response.razorpay_payment_id,sub_total: sub_total,
+                        totalAmount : totalAmount,currency : currency,is_guest:cart_data.is_guest,
+                        customer_first_name:cart_data.customer_first_name, customer_last_name:cart_data.customer_last_name
+                       }, 
+                       success: function (res) {
+                        console.log(res)
+                        this.$root.hideLoader();
+                            if (res.success) {
+                                console.log("SITEURL:"+SITEURL)
+                                window.location.href = SITEURL + '/checkout/success';
+                            }else{
+                                this.disable_button = true;
+                            
+                                window.showAlert(`alert-danger`, 'Danger', res.msg);
+                            }
+              
+                       }
+                   });
+                 
+               },
+                "modal": {
+                    "ondismiss": function(){
+                        //this.$parent.hideLoader();
+                        $('#checkout-place-order-button').removeAttr('disabled');
+                         console.log("ondismiss")
+                         this.placeOrder();
+                         this.disable_button = true;
+                          window.showAlert(`alert-danger`, 'Danger', 'Payment Failed');
+                     }
+                },
+               "prefill": {
+                   "contact": '9898989898',
+                   "email":   cust_email,
+                },
+                "theme": {
+                   "color": "#274985"
+                }
+         };
+            var rzp1 = new Razorpay(options);
+             rzp1.open();
+             //e.preventDefault();                            
+                            
+                        } else {
+                            this.disable_button = true;
+                        }
+                    },
+                    modalDismiss: function () {
+                        this.$root.hideLoader();
+                        //$('#checkout-place-order-button').removeAttr('disabled');
+                         console.log("ondismiss")
+                         this.disable_button = true;
+                          window.showAlert(`alert-danger`, 'Danger', 'Payment Failed');
                     },
 
                     handleErrorResponse: function (response, scope) {

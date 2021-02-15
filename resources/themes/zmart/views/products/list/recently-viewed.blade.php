@@ -1,6 +1,7 @@
 @inject ('velocityHelper', 'Webkul\Velocity\Helpers\Helper')
 @inject ('productRatingHelper', 'Webkul\Product\Helpers\Review')
 @inject ('productImageHelper', 'Webkul\Product\Helpers\ProductImage')
+@inject ('wishListHelper', 'Webkul\Customer\Helpers\Wishlist')
 
 @php
     $direction = core()->getCurrentLocale()->direction;
@@ -69,48 +70,7 @@
                                             add-tooltip="{{ __('velocity::app.customer.compare.add-tooltip') }}">
                                     </compare-component> -->
 
-                                   <!--  @auth('customer')
-                                        @php
-                                            $isWished = $wishListHelper->getWishlistProduct($product);
-                                        @endphp
-
-                                        <a
-                                            class="unset wishlist-icon {{ $addWishlistClass ?? '' }} text-right"
-                                            @if(isset($route))
-                                                href="{{ $route }}"
-                                            @elseif (! $isWished)
-                                                href="{{ route('customer.wishlist.add', $product->product_id) }}"
-                                                title="{{ __('velocity::app.shop.wishlist.add-wishlist-text') }}"
-                                            @elseif (isset($itemId) && $itemId)
-                                                href="{{ route('customer.wishlist.remove', $itemId) }}"
-                                                title="{{ __('velocity::app.shop.wishlist.remove-wishlist-text') }}"
-                                            @endif>
-
-                                            <wishlist-component active="{{ !$isWished }}" is-customer="true"></wishlist-component>
-
-                                            @if (isset($text))
-                                                {!! $text !!}
-                                            @endif
-                                        </a>
-                                    @endauth
-
-                                    @guest('customer')
-                                        <wishlist-component
-                                            active="false"
-                                            is-customer="false"
-                                            text="{{ $text ?? null }}"
-                                            product-id="`${product.product_id}`"
-                                            item-id="{{ $item->id ?? null}}"
-                                            product-slug="`${product.urlKey}`"
-                                            add-class="{{ $addWishlistClass ?? '' }}"
-                                            move-to-wishlist="{{ $isMoveToWishlist ?? null}}"
-                                            added-text="{{ __('shop::app.customer.account.wishlist.add') }}"
-                                            remove-text="{{ __('shop::app.customer.account.wishlist.remove') }}"
-                                            add-tooltip="{{ __('velocity::app.shop.wishlist.add-wishlist-text') }}"
-                                            remove-tooltip="{{ __('velocity::app.shop.wishlist.remove-wishlist-text') }}">
-                                        </wishlist-component>
-                                    @endauth -->
-
+                                   
                                         
 
 
