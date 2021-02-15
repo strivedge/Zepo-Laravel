@@ -17,9 +17,14 @@ use Webkul\Inventory\Repositories\InventorySourceRepository;
 use Webkul\Product\Repositories\ProductDownloadableLinkRepository;
 use Webkul\Product\Repositories\ProductDownloadableSampleRepository;
 use Webkul\Product\Repositories\ProductAttributeValueRepository;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Webkul\Product\Mail\AdminProductEmail;
 
 class ProductController extends Controller
 {
+    use DispatchesJobs, ValidatesRequests;
     /**
      * Contains route related configuration
      *
@@ -244,6 +249,26 @@ class ProductController extends Controller
         }
 
         $product = $this->productRepository->update($data, $id);
+
+        if(auth()->guard('admin')->user()->role->id != 1)
+        {
+            $toAdmin = ['id' => $id,
+                        'sku' => $data['sku'],
+                        'pname' => $data['name']
+                    ];
+
+            try 
+            {
+                Mail::queue(new AdminProductEmail($toAdmin));
+
+                session()->flash('success', trans('admin::app.response.email-success', ['name' => 'Verification']));
+            } 
+            catch (\Exception $e) 
+            {
+                report($e);
+                session()->flash('error', trans('admin::app.response.email-error'));
+            }
+        }
 
         session()->flash('success', trans('admin::app.response.update-success', ['name' => 'Product']));
 
