@@ -27,6 +27,7 @@ class Razorpay extends Model
         'pay_method',
         'currency',
         'payment_status',
+        'payment_error',
         'date'
     ];
 

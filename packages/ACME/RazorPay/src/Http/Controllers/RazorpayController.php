@@ -128,6 +128,23 @@ class RazorpayController extends Controller
                 return  $e->getMessage();
                 \Session::put('error',$e->getMessage());
                 //return redirect()->back();
+
+                    $tranData = array(
+                          'customer_id' => $input['customer_id'],
+                          'is_guest' => $input['is_guest'],
+                          'customer_first_name' => $input['customer_first_name'],
+                          'customer_last_name' => $input['customer_last_name'], 
+                          'sub_total' => $input['sub_total'],
+                          'grand_total' => $input['totalAmount'],
+                          'cart_id' => $input['cart_id'], 
+                          'payment_method' => 'razorpay',
+                          'date' => date('Y-m-d', strtotime($response->created_at)),
+                          'payment_status' => 'failed',
+                          'payment_error' => $e->getMessage(),
+                        );
+
+                    $this->razorpayRepository->create($tranData);
+
                 return response()->json([
                         'success'      => false,
                         'msg'      => $e->getMessage()

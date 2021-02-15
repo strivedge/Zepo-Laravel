@@ -224,6 +224,26 @@
             })();
         </script>
 
+        <script
+            type="text/javascript"
+            src="{{ asset('vendor/webkul/ui/assets/js/ui.js') }}">
+        </script>
+        
+       <!--  <script
+            type="text/javascript"
+            src="{{ asset('themes/zmart/assets/js/slick.js') }}">
+        </script> -->
+         <script
+            type="text/javascript"
+            baseUrl="{{ url()->to('/') }}"
+            src="{{ asset('themes/zmart/assets/js/slick.min.js') }}">
+        </script>
+         <script
+            type="text/javascript"
+            baseUrl="{{ url()->to('/') }}"
+            src="{{ asset('themes/zmart/assets/js/custom.js') }}">
+        </script>
+
        
 
         @stack('scripts')
