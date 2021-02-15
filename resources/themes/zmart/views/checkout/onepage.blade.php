@@ -104,7 +104,6 @@
                "currency" : "INR",
                "image": logo,
                "handler": function (response){
-                 console.log("response",response)
                      $.ajax({
                        url: SITEURL + '/payment',
                        type: 'post',
@@ -116,7 +115,9 @@
                         customer_first_name:cart_data.customer_first_name, customer_last_name:cart_data.customer_last_name
                        }, 
                        success: function (res) {
+                        console.log(res)
                             if (res.success) {
+                                console.log("SITEURL:"+SITEURL)
                                 window.location.href = SITEURL + '/checkout/success';
                             }else{
                                 this.disable_button = true;
@@ -148,8 +149,6 @@
              e.preventDefault();
 
          }
-
-         document.write()
     
 
     $( document ).ready(function() {

@@ -50,19 +50,5 @@ class RazorpayRepository
         return $trans;
     }
 
-    public function deleteData($id)
-    {
-        $trans = Razorpay::find($id)->delete();
-        return $trans;
-    }
-
-    public function massDataDelete($ids)
-    {
-        foreach($ids as $id)
-        {
-            $trans = $this->findById($id);
-            $trans->delete($trans);
-        }
-        return $trans;
-    }
+    
 }

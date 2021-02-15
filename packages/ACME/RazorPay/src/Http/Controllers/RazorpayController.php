@@ -104,9 +104,9 @@ class RazorpayController extends Controller
                     //echo"trans"; print_r( $trans );
                     //echo"order"; print_r( $order );exit();
 
-                    //Cart::deActivateCart();
+                    Cart::deActivateCart();
 
-                    //session()->flash('order', $order);
+                    session()->flash('order', $order);
 
 
                     return response()->json([

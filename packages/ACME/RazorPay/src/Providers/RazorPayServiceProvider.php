@@ -28,9 +28,9 @@ class RazorPayServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'razorpay');
 
-        Event::listen('bagisto.admin.layout.head', function($viewRenderEventManager) {
+        /*Event::listen('bagisto.admin.layout.head', function($viewRenderEventManager) {
             $viewRenderEventManager->addTemplate('razorpay::admin.layouts.style');
-        });
+        });*/
     }
 
     /**
