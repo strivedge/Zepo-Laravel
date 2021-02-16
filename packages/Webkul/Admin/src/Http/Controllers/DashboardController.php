@@ -321,7 +321,7 @@ class DashboardController extends Controller
                     ->leftJoin('products', 'products.id', 'order_items.product_id')
                     ->select(DB::raw("(SUM({$dbPrefix}orders.base_grand_total) - SUM(IFNULL({$dbPrefix}refunds.base_grand_total, 0))) as total_base_grand_total"))
                     ->addSelect(DB::raw("COUNT({$dbPrefix}orders.id) as total_orders"))
-                    ->addSelect('orders.id', 'customer_id', 'customer_email', 'customer_first_name', 'customer_last_name')
+                    ->addSelect('orders.id', 'customer_id', 'customer_email', 'customer_first_name', 'customer_last_name', 'products.seller_id')
                     ->where('orders.created_at', '>=', $this->startDate)
                     ->where('orders.created_at', '<=', $this->endDate)
                     ->where('orders.status', '<>', 'closed')
