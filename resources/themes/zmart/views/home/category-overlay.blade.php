@@ -11,7 +11,7 @@
                 <div class="content-wrap">
                     <div class="image-wrap">
                         <a href="blog-detail/{{$post->slug}}">
-                            <img src="{{ asset('uploadImages/'.$post->image) }}" alt="{{ __('shop::app.home.offers-products') }}" onerror="this.src='{{ asset('vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png') }}'">
+                            <img src="{{ asset('uploadImages/'.$post->image) }}" alt="{{ __('shop::app.home.blog-title') }}" onerror="this.src='{{ asset('vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png') }}'">
                             <div class="overlay"><span>{{ $post->title }}</span></div>
                         </a>
                     </div>

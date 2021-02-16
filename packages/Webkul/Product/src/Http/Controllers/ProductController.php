@@ -250,6 +250,7 @@ class ProductController extends Controller
 
         $product = $this->productRepository->update($data, $id);
 
+        // Mail to admin for sellers prosuct activation
         if(auth()->guard('admin')->user()->role->id != 1)
         {
             $toAdmin = ['id' => $id,
@@ -257,14 +258,11 @@ class ProductController extends Controller
                         'pname' => $data['name']
                     ];
 
-            try 
-            {
-                Mail::queue(new AdminProductEmail($toAdmin));
+            try {
+                    Mail::queue(new AdminProductEmail($toAdmin));
 
-                session()->flash('success', trans('admin::app.response.email-success', ['name' => 'Verification']));
-            } 
-            catch (\Exception $e) 
-            {
+                    session()->flash('success', trans('admin::app.response.email-success', ['name' => 'Verification']));
+            } catch (\Exception $e) {
                 report($e);
                 session()->flash('error', trans('admin::app.response.email-error'));
             }
