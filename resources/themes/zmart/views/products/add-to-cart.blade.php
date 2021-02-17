@@ -23,61 +23,57 @@
                 'addClass' => $addWishlistClass ?? ''
             ])
         @endif
-        <div class="buttons">
-            <div class="quick-view-in-list quick-view btn btn-primary">
-                    <product-quick-view-btn :quick-view-details="product"></product-quick-view-btn>
-            </div>
-            <div class="add-to-cart-btn  add-to-cart btn btn-primary">
-                @if (isset($form) && !$form)
+
+        <div class="add-to-cart-btn pl0">
+            @if (isset($form) && !$form)
+                <button
+                    type="submit"
+                    {{ ! $product->isSaleable() ? 'disabled' : '' }}
+                    class="theme-btn {{ $addToCartBtnClass ?? '' }}">
+
+                    @if (! (isset($showCartIcon) && !$showCartIcon))
+                        <i class="material-icons text-down-3">shopping_cart</i>
+                    @endif
+
+                    {{ ($product->type == 'booking') ?  __('shop::app.products.book-now') :  __('shop::app.products.add-to-cart') }}
+                </button>
+            @elseif(isset($addToCartForm) && !$addToCartForm)
+                <form
+                    method="POST"
+                    action="{{ route('cart.add', $product->product_id) }}">
+
+                    @csrf
+
+                    <input type="hidden" name="product_id" value="{{ $product->product_id }}">
+                    <input type="hidden" name="quantity" value="1">
                     <button
                         type="submit"
                         {{ ! $product->isSaleable() ? 'disabled' : '' }}
-                        class="theme-btn {{ $addToCartBtnClass ?? '' }}">
+                        class="btn btn-add-to-cart {{ $addToCartBtnClass ?? '' }}">
 
                         @if (! (isset($showCartIcon) && !$showCartIcon))
                             <i class="material-icons text-down-3">shopping_cart</i>
                         @endif
 
-                        {{ ($product->type == 'booking') ?  __('shop::app.products.book-now') :  __('shop::app.products.add-to-cart') }}
+                        <span class="fs14 fw6 text-uppercase text-up-4">
+                            {{ ($product->type == 'booking') ?  __('shop::app.products.book-now') : $btnText ?? __('shop::app.products.add-to-cart') }}
+                        </span>
                     </button>
-                @elseif(isset($addToCartForm) && !$addToCartForm)
-                    <form
-                        method="POST"
-                        action="{{ route('cart.add', $product->product_id) }}">
-
-                        @csrf
-
-                        <input type="hidden" name="product_id" value="{{ $product->product_id }}">
-                        <input type="hidden" name="quantity" value="1">
-                        <button
-                            type="submit"
-                            {{ ! $product->isSaleable() ? 'disabled' : '' }}
-                            class="btn btn-add-to-cart {{ $addToCartBtnClass ?? '' }}">
-
-                            @if (! (isset($showCartIcon) && !$showCartIcon))
-                                <i class="material-icons text-down-3">shopping_cart</i>
-                            @endif
-
-                            <span class="fs14 fw6 text-uppercase text-up-4">
-                                {{ ($product->type == 'booking') ?  __('shop::app.products.book-now') : $btnText ?? __('shop::app.products.add-to-cart') }}
-                            </span>
-                        </button>
-                    </form>
-                @else
-                    <add-to-cart
-                        form="true"
-                        csrf-token='{{ csrf_token() }}'
-                        product-flat-id="{{ $product->id }}"
-                        product-id="{{ $product->product_id }}"
-                        reload-page="{{ $reloadPage ?? false }}"
-                        move-to-cart="{{ $moveToCart ?? false }}"
-                        add-class-to-btn="{{ $addToCartBtnClass ?? '' }}"
-                        is-enable={{ ! $product->isSaleable() ? 'false' : 'true' }}
-                        show-cart-icon={{ !(isset($showCartIcon) && !$showCartIcon) }}
-                        btn-text="{{ ($product->type == 'booking') ?  __('shop::app.products.book-now') : $btnText ?? __('shop::app.products.add-to-cart') }}">
-                    </add-to-cart>
-                @endif
-            </div>
+                </form>
+            @else
+                <add-to-cart
+                    form="true"
+                    csrf-token='{{ csrf_token() }}'
+                    product-flat-id="{{ $product->id }}"
+                    product-id="{{ $product->product_id }}"
+                    reload-page="{{ $reloadPage ?? false }}"
+                    move-to-cart="{{ $moveToCart ?? false }}"
+                    add-class-to-btn="{{ $addToCartBtnClass ?? '' }}"
+                    is-enable={{ ! $product->isSaleable() ? 'false' : 'true' }}
+                    show-cart-icon={{ !(isset($showCartIcon) && !$showCartIcon) }}
+                    btn-text="{{ ($product->type == 'booking') ?  __('shop::app.products.book-now') : $btnText ?? __('shop::app.products.add-to-cart') }}">
+                </add-to-cart>
+            @endif
         </div>
     </div>
 

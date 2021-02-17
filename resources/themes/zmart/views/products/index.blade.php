@@ -59,7 +59,7 @@
 
 @push('scripts')
     <script type="text/x-template" id="category-template">
-        <section class="row col-12 velocity-divide-page category-page-wrapper product-box">
+        <section class="row col-12 velocity-divide-page category-page-wrapper">
             {!! view_render_event('bagisto.shop.productOrCategory.index.before', ['category' => $category]) !!}
     
             @if (in_array($category->display_mode, [null, 'products_only', 'products_and_description']))
@@ -68,8 +68,8 @@
     
             <div class="category-container right">
                 <div class="row remove-padding-margin">
-                    <div class="pl0 col-12 category-title">
-                        <h2 class="mb10">{{ $category->name }}</h2>
+                    <div class="pl0 col-12">
+                        <h1 class="fw6 mb10">{{ $category->name }}</h1>
     
                         @if ($isDescriptionDisplayMode)
                             @if ($category->description)
@@ -90,7 +90,7 @@
                 </div>
 
                 @if ($isProductsDisplayMode)
-                    <div class="filters-container col-md-12">
+                    <div class="filters-container">
                         <template v-if="products.length >= 0">
                             @include ('shop::products.list.toolbar')
                         </template>
@@ -106,7 +106,7 @@
 
                         <template v-else-if="products.length > 0">
                             @if ($toolbarHelper->getCurrentMode() == 'grid')
-                                <div class="row">
+                                <div class="row col-12 remove-padding-margin">
                                     <product-card
                                         :key="index"
                                         :product="product"

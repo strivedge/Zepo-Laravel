@@ -1256,7 +1256,7 @@ return [
         'upload-success' => ':name uploaded successfully.',
         'email-success' => ':name email sent successfully.',
         'email-error' => "Something went wrong",
-        'email-subject' => "for Product Activation",
+        'email-subject' => "For product activation",
         'delete-category-root' => 'Cannot delete the root category',
         'create-root-failure' => 'Category with name root already exists',
         'cancel-success' => ':name canceled successfully.',

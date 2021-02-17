@@ -51,20 +51,18 @@
 {!! view_render_event('bagisto.shop.products.list.card.before', ['product' => $product]) !!}
     @if (isset($list) && $list)
         <li class="col-12 lg-card-container list-card product-card row">
-            <div class="content-wrap">
-                <div class="product-image">
-                    <a
-                        title="{{ $product->name }}"
-                        href="{{ route('shop.productOrCategory.index', $product->url_key) }}">
+            <div class="product-image">
+                <a
+                    title="{{ $product->name }}"
+                    href="{{ route('shop.productOrCategory.index', $product->url_key) }}">
 
-                        <img
-                            src="{{ $productBaseImage['medium_image_url'] }}"
-                            :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
-                        <div class="quick-view-in-list">
-                            <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn>
-                        </div>
-                    </a>
-                </div>
+                    <img
+                        src="{{ $productBaseImage['medium_image_url'] }}"
+                        :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
+                    <div class="quick-view-in-list">
+                        <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn>
+                    </div>
+                </a>
             </div>
 
             <div class="product-information">
