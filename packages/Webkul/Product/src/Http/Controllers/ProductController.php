@@ -255,7 +255,9 @@ class ProductController extends Controller
         {
             $toAdmin = ['id' => $id,
                         'sku' => $data['sku'],
-                        'pname' => $data['name']
+                        'pname' => $data['name'],
+                        'user_name' => auth()->guard('admin')->user()->name,
+                        'user_role' => auth()->guard('admin')->user()->role->name
                     ];
 
             try {

@@ -1,25 +1,22 @@
 <template>
     <div class="col-12 lg-card-container list-card product-card row" v-if="list">
-        <div class="content-wrap">    
-
-            <div class="product-image">
-                
-                <a :title="product.name" :href="`${baseUrl}/${product.slug}`">
-                    <div class="product-code">{{ product.sku}}</div>
-                    <div class="sticker new"  v-if="product.special_price">
-                        <span class="save">SAVE</span>
-                        <span class="percentage">{{ product.percentage }}%</span>
-                    </div>
-                    <img
-                        :src="product.image || product.product_image"
-                        :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
-
-                    <div class="quick-view-in-list">
-                        <product-quick-view-btn :quick-view-details="product" v-if="!isMobile()"></product-quick-view-btn>
-                    </div>
-                </a>
+            <div class="product-code">{{ product.sku}}</div>
+            <div class="sticker new"  v-if="product.special_price">
+                <span class="save">SAVE</span>
+                <span class="percentage">{{ product.percentage }}%</span>
             </div>
+
+        <div class="product-image">
+            <a :title="product.name" :href="`${baseUrl}/${product.slug}`">
+                <img
+                    :src="product.image || product.product_image"
+                    :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
+
+
+                <product-quick-view-btn :quick-view-details="product" v-if="!isMobile()"></product-quick-view-btn>
+            </a>
         </div>
+
         <div class="product-information">
             <div>
                 <div class="product-name">
@@ -44,8 +41,8 @@
         </div>
     </div>
 
-    <div class="list-li" v-else>
-        <div class="content-wrap">
+    
+        <div class="content-wrap" v-else>
             <div class="product-code">{{ product.sku}}</div>
             <div class="sticker new"  v-if="product.special_price">
                 <span class="save">SAVE</span>
@@ -101,7 +98,6 @@
                 </div>
             </div>
         </div>
-    </div>
     
 </template>
 
