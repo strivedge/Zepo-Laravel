@@ -10,7 +10,7 @@ return [
         'key'   => 'sales',
         'name'  => 'admin::app.acl.sales',
         'route' => 'admin.sales.orders.index',
-        'sort'  => 2,
+        'sort'  => 4,
     ], [
         'key'   => 'sales.orders',
         'name'  => 'admin::app.acl.orders',
@@ -30,7 +30,7 @@ return [
         'key'   => 'catalog',
         'name'  => 'admin::app.acl.catalog',
         'route' => 'admin.catalog.index',
-        'sort'  => 3,
+        'sort'  => 2,
     ], [
         'key'   => 'catalog.products',
         'name'  => 'admin::app.acl.products',
@@ -115,7 +115,7 @@ return [
         'key'   => 'customers',
         'name'  => 'admin::app.acl.customers',
         'route' => 'admin.customer.index',
-        'sort'  => 4,
+        'sort'  => 3,
     ], [
         'key'   => 'customers.customers',
         'name'  => 'admin::app.acl.customers',
@@ -175,7 +175,7 @@ return [
         'key'   => 'configuration',
         'name'  => 'admin::app.acl.configure',
         'route' => 'admin.configuration.index',
-        'sort'  => 5,
+        'sort'  => 7,
     ], [
         'key'   => 'settings',
         'name'  => 'admin::app.acl.settings',
@@ -395,7 +395,7 @@ return [
         'key'   => 'promotions',
         'name'  => 'admin::app.acl.promotions',
         'route' => 'admin.cart-rules.index',
-        'sort'  => 7,
+        'sort'  => 5,
     ], [
         'key'   => 'promotions.cart-rules',
         'name'  => 'admin::app.acl.cart-rules',
