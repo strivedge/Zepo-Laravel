@@ -502,7 +502,7 @@
     display: inline-block;
 }
 .filters-container .toolbar-wrapper>div label {
-    font-weight: 500;
+    /*font-weight: 500;*/
     margin-right: 10px;
 }
 .filters-container .toolbar-wrapper>div select {
@@ -3405,7 +3405,7 @@ body:after {
     /*display: table;*/
 }
 .lg-card-container.list-card .product-information>div {
-    display: table-cell;
+    /*display: table-cell;*/
 }
 .lg-card-container.list-card .product-price .sticker {
     display: block;
@@ -3559,7 +3559,7 @@ ul.circle-list li.circle:not(:last-child) {
     text-decoration: none!important;
 }
 a.active-hover:hover {
-    color: #4d7ea8!important;
+    /*color: #4d7ea8!important;*/
     text-decoration: underline!important;
 }
 a.remove-decoration, a.remove-decoration:active, a.remove-decoration:focus, a.remove-decoration:hover {
