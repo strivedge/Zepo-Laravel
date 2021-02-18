@@ -131,15 +131,17 @@ class DashboardController extends Controller
 
         if(auth()->guard('admin')->user()->role->id != 1)
         {
-            $currents = ['previous' => $previous = $this->sellerUserCount()->count(),
-            'current'  => $current = $this->sellerUserCount()->count(),
-            'progress' => $this->getPercentageChange($previous, $current)];
+            $total_orders = [
+                'previous' => $previous = $this->sellerOrdersCount()->count(),
+                'current'  => $current = $this->sellerOrdersCount()->count(),
+                'progress' => $this->getPercentageChange($previous, $current) ];
         }
         else
         {
-            $currents = ['previous' => $previous = $this->previousOrders()->count(),
-            'current'  => $current = $this->currentOrders()->count(),
-            'progress' => $this->getPercentageChange($previous, $current)];
+            $total_orders = [
+                'previous' => $previous = $this->previousOrders()->count(),
+                'current'  => $current = $this->currentOrders()->count(),
+                'progress' => $this->getPercentageChange($previous, $current) ];
         }
 
         $statistics = [
@@ -164,7 +166,7 @@ class DashboardController extends Controller
             'stock_threshold'          => $this->getStockThreshold(),
         ];
 
-        $statistics['total_orders'] = $currents;
+        $statistics['total_orders'] = $total_orders;
 
         foreach (core()->getTimeInterval($this->startDate, $this->endDate) as $interval) {
             $statistics['sale_graph']['label'][] = $interval['start']->format('d M');
@@ -311,7 +313,7 @@ class DashboardController extends Controller
     }
 
     // counting orders for other users except admin
-    public function sellerUserCount()
+    public function sellerOrdersCount()
     {
         $dbPrefix = DB::getTablePrefix();
 
@@ -321,7 +323,7 @@ class DashboardController extends Controller
                     ->leftJoin('products', 'products.id', 'order_items.product_id')
                     ->select(DB::raw("(SUM({$dbPrefix}orders.base_grand_total) - SUM(IFNULL({$dbPrefix}refunds.base_grand_total, 0))) as total_base_grand_total"))
                     ->addSelect(DB::raw("COUNT({$dbPrefix}orders.id) as total_orders"))
-                    ->addSelect('orders.id', 'customer_id', 'customer_email', 'customer_first_name', 'customer_last_name')
+                    ->addSelect('orders.id', 'customer_id', 'customer_email', 'customer_first_name', 'customer_last_name', 'products.seller_id')
                     ->where('orders.created_at', '>=', $this->startDate)
                     ->where('orders.created_at', '<=', $this->endDate)
                     ->where('orders.status', '<>', 'closed')

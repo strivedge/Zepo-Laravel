@@ -51,6 +51,7 @@
     @if (isset($list) && $list)
         <div class="col-12 lg-card-container list-card product-card row">
             <div class="product-image">
+                <div class="product-code">{{$product->sku}}</div>
                 <a
                     title="{{ $product->name }}"
                     href="{{ route('shop.productOrCategory.index', $product->url_key) }}">

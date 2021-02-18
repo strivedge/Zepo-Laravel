@@ -51,6 +51,7 @@
 {!! view_render_event('bagisto.shop.products.list.card.before', ['product' => $product]) !!}
     @if (isset($list) && $list)
         <div class="col-12 lg-card-container list-card product-card row">
+            <div class="product-code">{{$product->sku}}</div>
             <div class="product-image">
                 <a
                     title="{{ $product->name }}"
@@ -100,6 +101,7 @@
             </div>
         </div>
     @else
+        <div class="product-code">{{$product->sku}}</div>
         <div class="card grid-card product-card-new">
             <a
                 href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
@@ -117,11 +119,11 @@
                     <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn>
             </a>
             
-           @if ($product->getTypeInstance()->haveSpecialPrice())
+           <!-- @if ($product->getTypeInstance()->haveSpecialPrice())
                 <div class="sticker new">
                    <span class="save">SAVE</span><span class="percentage">{{$product->getTypeInstance()->getOfferPercentage()}}%</span>
                 </div>
-            @endif
+            @endif -->
 
             <div class="card-body">
                 <div class="product-name col-12 no-padding">
