@@ -18,15 +18,19 @@ class NewInvoiceNotification extends Mailable
      */
     public $invoice;
 
+    public $file;
+
     /**
      * Create a new message instance.
      *
      * @param  \Webkul\Customer\Contracts\Invoice  $invoice
      * @return void
      */
-    public function __construct($invoice)
+    public function __construct($invoice,$file = '')
     {
         $this->invoice = $invoice;
+
+        $this->file = $file;
     }
 
     /**
@@ -38,9 +42,21 @@ class NewInvoiceNotification extends Mailable
     {
         $order = $this->invoice->order;
 
-        return $this->from(core()->getSenderEmailDetails()['email'], core()->getSenderEmailDetails()['name'])
+        if (isset($this->file) && !empty($this->file) ) {
+
+            return $this->from(core()->getSenderEmailDetails()['email'], core()->getSenderEmailDetails()['name'])
+                    ->to($order->customer_email, $order->customer_full_name)
+                    ->subject(trans('shop::app.mail.invoice.subject', ['order_id' => $order->increment_id]))
+                    ->view('shop::emails.sales.new-invoice')
+                    ->attach($this->file);
+
+        }else{
+            return $this->from(core()->getSenderEmailDetails()['email'], core()->getSenderEmailDetails()['name'])
                     ->to($order->customer_email, $order->customer_full_name)
                     ->subject(trans('shop::app.mail.invoice.subject', ['order_id' => $order->increment_id]))
                     ->view('shop::emails.sales.new-invoice');
+        }
+
+        
     }
 }

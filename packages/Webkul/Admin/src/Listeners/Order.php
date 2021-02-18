@@ -29,6 +29,9 @@ class Order
             /* email to customer */
             $configKey = 'emails.general.notifications.emails.general.notifications.new-order';
             if (core()->getConfigData($configKey)) {
+                
+                //$file = public_path().'/order/invoice_32.pdf';
+
                 $this->prepareMail($customerLocale, new NewOrderNotification($order));
             }
 
@@ -60,7 +63,17 @@ class Order
             /* email to customer */
             $configKey = 'emails.general.notifications.emails.general.notifications.new-invoice';
             if (core()->getConfigData($configKey)) {
-                $this->prepareMail($customerLocale, new NewInvoiceNotification($invoice));
+                $file = public_path().'/invoice/invoice_'.$invoice->id.'.pdf';
+                if(file_exists($file)){
+                    
+                    $this->prepareMail($customerLocale, new NewInvoiceNotification($invoice,$file));
+                }else{
+                    $this->prepareMail($customerLocale, new NewInvoiceNotification($invoice));
+                }
+
+              //echo "<pre>";  print_r($invoice);exit();
+                
+                
             }
         } catch (\Exception $e) {
             report($e);

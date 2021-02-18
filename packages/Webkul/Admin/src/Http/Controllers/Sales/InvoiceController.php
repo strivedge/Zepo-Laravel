@@ -111,7 +111,7 @@ class InvoiceController extends Controller
             return redirect()->back();
         }
 
-        $this->invoiceRepository->create(array_merge($data, ['order_id' => $orderId]));
+         $this->invoiceRepository->create(array_merge($data, ['order_id' => $orderId]));
 
         session()->flash('success', trans('admin::app.response.create-success', ['name' => 'Invoice']));
 

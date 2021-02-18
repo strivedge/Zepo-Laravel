@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\DB;
 use Webkul\Core\Eloquent\Repository;
 use Webkul\Sales\Contracts\Invoice;
+use PDF;
 
 class InvoiceRepository extends Repository
 {
@@ -197,6 +198,18 @@ class InvoiceRepository extends Repository
 
             $this->orderRepository->updateOrderStatus($order);
 
+            if ($invoice) {
+                $filename = "invoice_".$invoice->id.".pdf";
+
+                if(!file_exists(public_path().'/invoice/'.$filename)){
+                    // Save file to the directory
+                     $pdf = PDF::loadView('admin::sales.invoices.pdf', compact('invoice'))->setPaper('a4');
+
+                    $isSave = $pdf->save(public_path().'/invoice/'.$filename);
+
+                }
+            }
+
             Event::dispatch('sales.invoice.save.after', $invoice);
         } catch (\Exception $e) {
             DB::rollBack();
@@ -254,6 +267,12 @@ class InvoiceRepository extends Repository
 
         $invoice->save();
 
+        return $invoice;
+    }
+
+    public function getInvoice($id)
+    {
+        $invoice = $this->findOrFail($id);
         return $invoice;
     }
 }

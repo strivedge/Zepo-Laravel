@@ -13,6 +13,9 @@ use Session;
 use Redirect;
 use ACME\RazorPay\Repositories\RazorpayRepository;
 use Webkul\Sales\Repositories\OrderRepository;
+use Webkul\Shop\src\Http\Controller\OrderController;
+use Webkul\Sales\Repositories\InvoiceRepository;
+use PDF;
 
 class RazorpayController extends Controller
 {   
@@ -28,17 +31,25 @@ class RazorpayController extends Controller
     private $razorpayRepository;
 
     protected $orderRepository;
+
+     /**
+     * InvoiceRepository object
+     *
+     * @var \Webkul\Sales\Repositories\InvoiceRepository
+     */
+    protected $invoiceRepository;
     /**
      * Create a new controller instance.
      *
      * @return void
      */
 
-    public function __construct(RazorpayRepository $razorpayRepository,OrderRepository $orderRepository)
+    public function __construct(RazorpayRepository $razorpayRepository,OrderRepository $orderRepository,InvoiceRepository $invoiceRepository)
     {
         $this->_config = request('_config');
         $this->razorpayRepository = $razorpayRepository;
         $this->orderRepository = $orderRepository;
+        $this->invoiceRepository = $invoiceRepository;
     }
 
     public function payWithRazorpay()
@@ -77,6 +88,26 @@ class RazorpayController extends Controller
 
                     $order = $this->orderRepository->create(Cart::prepareDataForOrder());
 
+                      /*$filename = "invoice_".$order->id.".pdf";
+
+                      if(!file_exists(public_path().'/order/'.$filename)){
+                          // Save file to the directory
+                        $order = $this->orderRepository->findOneWhere([
+                            'customer_id' => auth()->guard('customer')->user()->id,
+                            'id'          => $order->id,
+                        ]);
+
+                        if (! $order) {
+                            abort(404);
+                        }
+
+                        $pdf = PDF::loadView('shop::customers.account.orders.order_pdf', compact('order'))->setPaper('a4');
+
+                        $isSave = $pdf->save(public_path().'/order/'.$filename);
+                      }*/
+
+                      //echo"<pre>"; print_r($order);;exit();
+
                     $tranData = array(
                           'customer_id' => $input['customer_id'],
                           'is_guest' => $input['is_guest'],
@@ -104,9 +135,9 @@ class RazorpayController extends Controller
                     //echo"trans"; print_r( $trans );
                     //echo"order"; print_r( $order );exit();
 
-                    Cart::deActivateCart();
+                    //Cart::deActivateCart();
 
-                    session()->flash('order', $order);
+                    //session()->flash('order', $order);
 
 
                     return response()->json([
