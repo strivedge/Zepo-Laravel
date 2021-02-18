@@ -35,8 +35,9 @@ class AdminProductEmail extends Mailable
     public function build()
     {
         return $this->from(auth()->guard('admin')->user()->email, auth()->guard('admin')->user()->name)
-            ->to(env("ADMIN_MAIL_TO"))
+            // ->to(env("ADMIN_MAIL_TO"))
+            ->to("kuldeep.strivedge@gmail.com")
             ->subject(trans('admin::app.response.email-subject'))
-            ->view('shop::emails.sales.seller-product-status')->with('data', $this->data);
+            ->view('shop::emails.admin.seller-product-status')->with('data', $this->data);
     }
 }

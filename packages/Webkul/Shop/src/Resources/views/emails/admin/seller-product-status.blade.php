@@ -16,6 +16,10 @@
         </div>
 
         <div>
+            <b>Email : </b><a href="mailto:{{ $data['user_email'] }}">{{ $data['user_email'] }}</a>
+        </div>
+
+        <div>
             <b>Product SKU : </b>{{ $data['sku'] }}
         </div>
 

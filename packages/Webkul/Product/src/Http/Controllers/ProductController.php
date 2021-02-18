@@ -257,6 +257,7 @@ class ProductController extends Controller
                         'sku' => $data['sku'],
                         'pname' => $data['name'],
                         'user_name' => auth()->guard('admin')->user()->name,
+                        'user_email' => auth()->guard('admin')->user()->email,
                         'user_role' => auth()->guard('admin')->user()->role->name
                     ];
 
