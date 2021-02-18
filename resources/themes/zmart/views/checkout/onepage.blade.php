@@ -158,7 +158,7 @@
             placeOrder();
         });
     });
-         //document.getElementById('checkout-place-order-button').onclick =  placeOrder();
+
       </script>
 
     <script type="text/javascript">

@@ -81,11 +81,29 @@ class OrderController extends Controller
      */
     public function print($id)
     {
+
         $invoice = $this->invoiceRepository->findOrFail($id);
+
+        //echo"<pre>";print_r($invoice);exit();
 
         $pdf = PDF::loadView('shop::customers.account.orders.pdf', compact('invoice'))->setPaper('a4');
 
         return $pdf->download('invoice-' . $invoice->created_at->format('d-m-Y') . '.pdf');
+    }
+
+    public function saveInvoice($id)
+    {
+        $invoice = $this->invoiceRepository->findOrFail($id);
+
+        $pdf = PDF::loadView('shop::customers.account.orders.pdf', compact('invoice'))->setPaper('a4');
+
+        $filename = "invoice_".$id.".pdf";
+        // Save file to the directory
+        $isSave = $pdf->save(storage_path('order/'.$filename));
+
+        return $isSave;
+
+
     }
 
     /**

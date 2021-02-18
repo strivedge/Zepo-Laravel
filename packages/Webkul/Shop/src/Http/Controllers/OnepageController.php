@@ -10,6 +10,7 @@ use Webkul\Payment\Facades\Payment;
 use Webkul\Checkout\Http\Requests\CustomerAddressForm;
 use Webkul\Sales\Repositories\OrderRepository;
 use Webkul\Customer\Repositories\CustomerRepository;
+use PDF;
 
 class OnepageController extends Controller
 {
@@ -198,6 +199,24 @@ class OnepageController extends Controller
         }
 
         $order = $this->orderRepository->create(Cart::prepareDataForOrder());
+
+        /*$filename = "invoice_".$order->id.".pdf";
+
+        if(!file_exists(public_path().'/order/'.$filename)){
+                          // Save file to the directory
+            $order = $this->orderRepository->findOneWhere([
+                'customer_id' => auth()->guard('customer')->user()->id,
+                'id'          => $order->id,
+            ]);
+
+            if (! $order) {
+                abort(404);
+            }
+
+            $pdf = PDF::loadView('shop::customers.account.orders.order_pdf', compact('order'))->setPaper('a4');
+
+            $isSave = $pdf->save(public_path().'/order/'.$filename);
+        }*/
 
         Cart::deActivateCart();
 

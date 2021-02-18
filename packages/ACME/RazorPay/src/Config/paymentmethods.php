@@ -6,6 +6,7 @@ return [
         'title'       => 'RazorPay',
         'description' => 'RazorPay',
         'class'       => 'ACME\RazorPay\Payment\RazorPay',
+        'sandbox'     => true,
         'active'      => true,
         'sort'        => 1,
     ],
