@@ -8,10 +8,16 @@
 {!! view_render_event('bagisto.shop.products.view.gallery.before', ['product' => $product]) !!}
 
     <div class="product-image-group">
+        <div class="product-code">{{$product->sku}}</div>
         <div class="row col-12">
             <magnify-image src="{{ $images[0]['large_image_url'] }}" v-if="!isMobile()">
             </magnify-image>
 
+        @if ($product->getTypeInstance()->haveSpecialPrice())
+            <div class="sticker new">
+               <span class="save">SAVE </span><span class="percentage">{{$product->getTypeInstance()->getOfferPercentage()}}%</span>
+            </div>
+        @endif
             <img
                 v-else
                 class="vc-small-product-image"
