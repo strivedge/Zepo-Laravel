@@ -30,12 +30,13 @@ return [
         'active-offers' => 'Active Offers',
         'testi-title' => 'What Our Customers are Saying',
         'blog-title' => 'Blogs',
-        'blog-details' => 'Blog Details',
+        'blog-detail' => 'Blog Detail',
     ],
 
     'header' => [
         'title' => 'Account',
         'dropdown-text' => 'Manage Cart, Orders & Wishlist',
+        'support-ticket' => 'Support Ticket',
         'sign-in' => 'Sign In',
         'sign-up' => 'Sign Up',
         'account' => 'Account',
@@ -94,6 +95,18 @@ return [
         'percentage' => ':percentage %',
         'id-star' => 'star',
         'name' => 'Name',
+    ],
+
+    'support-ticket' => [
+        'create' => 'Create Support Ticket',
+        'name' => 'Name',
+        'email' => 'Email',
+        'message' => 'Message',
+        'status' => 'Status',
+        'attachment' => 'Attachment',
+        'btn-send' => 'Send',
+        'response-message' => 'Your response recorded you ticket no #0',
+        'success-message' => 'Your message recorded successfully.'
     ],
 
     'customer' => [

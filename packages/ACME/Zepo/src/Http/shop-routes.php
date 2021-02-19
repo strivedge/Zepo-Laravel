@@ -46,5 +46,16 @@ Route::group(['middleware' => ['web', 'theme', 'locale', 'currency']], function 
 	        'view' => 'shop::brand.brand-products'
 	]);
 
+	Route::get('/support-ticket', 'ACME\Zepo\Http\Controllers\Admin\SupportTicketController@create')
+	    ->name('user.support-ticket')
+	    ->defaults('_config', [
+	        'view' => 'shop::support-ticket.create'
+	]);
+
+	Route::post('/support-ticket', 'ACME\Zepo\Http\Controllers\Admin\SupportTicketController@store')
+		->name('support-ticket.send')
+		->defaults('_config', ['redirect' => 'user.support-ticket'
+	]);
+
 	   
 });

@@ -16,6 +16,15 @@
                         @guest('customer')
                         <div class="welcome-content pull-right">
                             <div class="modal-content">
+
+                                        <a href="{{ route('user.support-ticket') }}" class="login">
+                                            <button
+                                                type="button"
+                                                class="">
+
+                                                {{ __('shop::app.header.support-ticket') }}
+                                            </button>
+                                        </a>
                                 
                                         <a href="{{ route('customer.session.index') }}" class="login">
                                             <button
