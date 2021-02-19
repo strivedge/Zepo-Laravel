@@ -87,7 +87,7 @@
                 <h1 class="fw6 col-12">{{ __('shop::app.search.no-results') }}</h1>
             @else
                 @if ($results->isEmpty())
-                    <h1 class="fw6 col-12">{{ __('shop::app.products.whoops') }}</h1>
+                    <h2 class="col-12">{{ __('shop::app.products.whoops') }}</h1>
                     <span class="col-12">{{ __('shop::app.search.no-results') }}</span>
                 @else
                     <div class="row filter-heading">
