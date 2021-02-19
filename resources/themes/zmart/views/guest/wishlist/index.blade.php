@@ -22,9 +22,9 @@
     <script type="text/x-template" id="wishlist-product-template">
         <section class="cart-details no-margin col-12 product-box">
             <div class="row">
-                <h1 class="wishlist-title col-6">
+                <h2 class="wishlist-title col-6">
                     {{ __('shop::app.customer.account.wishlist.title') }}
-                </h1>
+                </h2>
 
                 <div class="wishlist-delete-btn col-6" v-if="products.length > 0">
                     <button

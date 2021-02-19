@@ -45,24 +45,26 @@
         'moveToCart'        => null,
         'addToCartBtnClass' => '',
     ])->render());
-
+    
 @endphp
 <?php //echo"<pre>";print_r($product);exit(); ?>
 {!! view_render_event('bagisto.shop.products.list.card.before', ['product' => $product]) !!}
     @if (isset($list) && $list)
         <div class="col-12 lg-card-container no-padding list-card product-card row">
-            <div class="product-image">
-                <a
-                    title="{{ $product->name }}"
-                    href="{{ route('shop.productOrCategory.index', $product->url_key) }}">
+            <div class="content-wrap">
+                <div class="product-image">
+                    <a
+                        title="{{ $product->name }}"
+                        href="{{ route('shop.productOrCategory.index', $product->url_key) }}">
 
-                    <img
-                        src="{{ $productBaseImage['medium_image_url'] }}"
-                        :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
-                    <div class="quick-view-in-list">
-                        <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn>
-                    </div>
-                </a>
+                        <img
+                            src="{{ $productBaseImage['medium_image_url'] }}"
+                            :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
+                        <div class="quick-view-in-list">
+                            <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn>
+                        </div>
+                    </a>
+                </div>
             </div>
 
             <div class="product-information">

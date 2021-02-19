@@ -52,7 +52,6 @@
     
     @if (isset($list) && $list)
         <div class="col-12 lg-card-container list-card product-card row">
-            <div class="product-code">{{$product->sku}}</div>
             <div class="product-image">
                 <a
                     title="{{ $product->name }}"

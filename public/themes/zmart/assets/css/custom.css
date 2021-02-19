@@ -50,7 +50,7 @@ a.theme-btn:hover { color: #274985;background: transparent!important; }
 
 #home-right-bar-container { padding-left: 0px;padding-right: 0; }
 
-.product-list.empty { text-align: center; padding: 50px 0px; color: #274985; }
+.product-list.empty { text-align: center; padding: 50px 0px; color: #274985;display: inline-block;width: 100%; }
 .product-list.empty h2,
 .order-success-content h1 { text-align: center; color: #274985;font-weight: 500; }
 .product-list.empty p,
