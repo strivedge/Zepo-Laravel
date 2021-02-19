@@ -14,9 +14,9 @@ class Testinominal extends Migration
     public function up()
     {
         Schema::create('master_testinominal', function (Blueprint $table) {
-            $table->id();
-            $table->string('title', 100)->nullable();
-            $table->string('image', 100)->nullable();
+            $table->increments('id');
+            $table->string('title')->nullable();
+            $table->string('image')->nullable();
             $table->longtext('desc')->nullable();
             $table->date('date')->nullable();
             $table->timestamps();

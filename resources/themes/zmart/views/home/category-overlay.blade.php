@@ -10,7 +10,7 @@
             <li class="col-md-6 col-lg-4 col-xl-3 imgs">
                 <div class="content-wrap">
                     <div class="image-wrap">
-                        <a href="blog-detail/{{$post->slug}}">
+                        <a href="{{ route('blog-detail', [$post->slug]) }}">
                             <img src="{{ asset('uploadImages/'.$post->image) }}" alt="{{ __('shop::app.home.blog-title') }}" onerror="this.src='{{ asset('vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png') }}'">
                             <div class="overlay"><span>{{ $post->title }}</span></div>
                         </a>
@@ -20,9 +20,7 @@
             @endforeach
         @else
         <li class="imgs col-12 errors">
-            
-                No Posts...!
-            
+            No Posts...!
         </li>
         @endif
             

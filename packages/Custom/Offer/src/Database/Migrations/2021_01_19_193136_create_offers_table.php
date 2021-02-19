@@ -14,13 +14,13 @@ class CreateOffersTable extends Migration
     public function up()
     {
         Schema::create('master_offers', function (Blueprint $table) {
-            $table->id();
-            $table->string('title', 100)->nullable();
+            $table->increments('id');
+            $table->string('title')->nullable();
             $table->longtext('desc')->nullable();
             $table->string('image')->nullable();
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
-            $table->boolean('status');
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }
