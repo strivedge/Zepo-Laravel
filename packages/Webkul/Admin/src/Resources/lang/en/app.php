@@ -937,8 +937,8 @@ return [
             'blog-image' => 'Images',
             'blog-content' => 'Content',
             'blog-date' => 'Date',
-            'edit-help-title' => 'Edit Blog',
-            'delete-help-title' => 'Delete Blog',
+            'edit-help-title' => 'Edit',
+            'delete-help-title' => 'Delete',
             'help-title' => 'Create',
         ],
 
@@ -950,8 +950,8 @@ return [
             'status' => 'Status',
             'active' => 'Active',
             'inactive' => 'Inactive',
-            'edit-help-title' => 'Edit Offer',
-            'delete-help-title' => 'Delete Offer',
+            'edit-help-title' => 'Edit',
+            'delete-help-title' => 'Delete',
             'help-title' => 'Create',
         ],
 
@@ -959,8 +959,8 @@ return [
             'testinominals-image' => 'Images',
             'testinominals-desc' => 'Description',
             'testinominals-date' => 'Date',
-            'edit-help-title' => 'Edit Testinominals',
-            'delete-help-title' => 'Delete Testinominals',
+            'edit-help-title' => 'Edit',
+            'delete-help-title' => 'Delete',
             'help-title' => 'Create',
         ],
 

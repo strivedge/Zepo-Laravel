@@ -22,7 +22,7 @@ class SupportTicketController extends Controller
      */
     public function index()
     {
-        //
+        return view($this->_config['view']);
     }
 
     /**
@@ -61,6 +61,8 @@ class SupportTicketController extends Controller
 
         $this->supportTicketRepository->create($data);
 
+        // $check = $this->supportTicketRepository->create($data);
+
         Session()->flash('success', trans('shop::app.support-ticket.success-message'));
 
         return redirect()->route($this->_config['redirect']);
@@ -83,9 +85,10 @@ class SupportTicketController extends Controller
      * @param  \App\SupportTicket  $supportTicket
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id)
     {
-        //
+        $supportTicket = $this->supportTicketRepository->findById($id);
+        return view($this->_config['view'], compact('supportTicket'));
     }
 
     /**
@@ -95,9 +98,38 @@ class SupportTicketController extends Controller
      * @param  \App\SupportTicket  $supportTicket
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        //
+        // $this->validate(request(), [
+        //     'name'    => 'required',
+        //     'email'    => 'required|email',
+        //     'attachment'    => 'mimes:jpeg,jpg,png,gif|max:10000',
+        // ]);
+        
+        $data = request()->all();
+        $old_data = $this->supportTicketRepository->findById($id);
+
+        if (request()->hasFile('attachment'))
+        {
+            $imageName = $data['attachment'];
+            if (isset($old_data['attachment']) && !empty($old_data['attachment'])) {
+                $file_path = public_path('uploadImages/supportTicket').'/'.$old_data['attachment'];
+                if(File::exists($file_path)) 
+                {
+                    unlink($file_path);
+                }
+            }
+            
+            $imageName1 = time().'.'.$imageName->extension();
+            $imageName->move(public_path('uploadImages/supportTicket'), $imageName1);
+            $data['attachment'] = $imageName1;
+        }
+
+        $this->supportTicketRepository->update($data, $id);
+
+        session()->flash('success', trans('admin::app.response.update-success', ['name' => 'Support Ticket']));
+
+        return redirect()->route($this->_config['redirect']);
     }
 
     /**
@@ -106,8 +138,22 @@ class SupportTicketController extends Controller
      * @param  \App\SupportTicket  $supportTicket
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
+    public function destroy($id)
     {
-        //
+        $this->supportTicketRepository->deleteData($id);
+        session()->flash('success', trans('admin::app.response.delete-success', ['name' => 'Support Ticket']));
+        // return redirect()->route($this->_config['redirect']);
+    }
+
+    public function massDestroy()
+    {
+        $ids = explode(',', request()->input('indexes'));
+
+        if ($ids != null) 
+        {
+            $this->supportTicketRepository->massDataDelete($ids);
+            session()->flash('success', trans('zepo::app.support-ticket.mass-destroy-success'));
+        }
+        return redirect()->back();
     }
 }
