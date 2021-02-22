@@ -10,6 +10,8 @@
     $avgRatings = $reviewHelper->getAverageRating($product);
     $avgStarRating = round($avgRatings);
 
+    $galleryImages = $productImageHelper->getGalleryImages($product);
+
     $productImages = [];
     $images = $productImageHelper->getGalleryImages($product);
 
@@ -85,6 +87,8 @@
                         <div class="form-container">
                             @csrf()
 
+                            <?php //echo "<pre>"; print_r($product);exit(); ?>
+
                             <input type="hidden" name="product_id" value="{{ $product->product_id }}">
 
                             {{-- product-gallery --}}
@@ -123,13 +127,14 @@
                                     </div>
 
                                     <div class="product-actions">
-                                        @include ('shop::products.add-to-cart', [
+                                        @include ('shop::products.detail-add-to-cart', [
                                             'form' => false,
                                             'product' => $product,
                                             'showCartIcon' => false,
                                             'showCompare' => core()->getConfigData('general.content.shop.compare_option') == "1"
                                                              ? true : false,
                                         ])
+
                                     </div>
                                 </div>
 

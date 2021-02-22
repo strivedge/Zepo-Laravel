@@ -96,16 +96,12 @@ class RazorpayController extends Controller
                             'customer_id' => auth()->guard('customer')->user()->id,
                             'id'          => $order->id,
                         ]);
-
                         if (! $order) {
                             abort(404);
                         }
-
                         $pdf = PDF::loadView('shop::customers.account.orders.order_pdf', compact('order'))->setPaper('a4');
-
                         $isSave = $pdf->save(public_path().'/order/'.$filename);
                       }*/
-
                       //echo"<pre>"; print_r($order);;exit();
 
                     $tranData = array(
@@ -139,7 +135,6 @@ class RazorpayController extends Controller
 
                     //session()->flash('order', $order);
 
-
                     return response()->json([
                         'success'      => true,
                         'msg'      => 'Payment Done',
@@ -152,8 +147,6 @@ class RazorpayController extends Controller
                         'response' => $response,
                     ]);
                 }
-
-                
 
             } catch (\Exception $e) {
                 return  $e->getMessage();
@@ -176,7 +169,7 @@ class RazorpayController extends Controller
 
                     $this->razorpayRepository->create($tranData);
 
-                return response()->json([
+                    return response()->json([
                         'success'      => false,
                         'msg'      => $e->getMessage()
                     ]);
