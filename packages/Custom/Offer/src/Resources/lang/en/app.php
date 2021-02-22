@@ -12,6 +12,8 @@ return [
             'image' => 'Image',
             'upload-image' => 'Upload Image',
             'offer-status' => 'Status',
+            'active' => 'Active',
+            'inactive' => 'Inactive',
             'desc' => 'Description',
             'start-date' => 'Start Date',
             'end-date' => 'End Date',

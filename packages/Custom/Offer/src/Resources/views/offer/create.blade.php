@@ -50,8 +50,8 @@
                 <div class="control-group" :class="[errors.has('status') ? 'has-error' : '']">
                     <label for="status" class="required">{{ __('offer::app.offer.offer-status') }}</label>
                     <select name="status" class="control" v-validate="'required'">
-                        <option value="1">Active</option>
-                        <option value="0">Inactive</option>
+                        <option value="1">{{ __('offer::app.offer.active') }}</option>
+                        <option value="0">{{ __('offer::app.offer.inactive') }}</option>
                     </select>
                     <span class="control-error" v-if="errors.has('status')">@{{ errors.first('status') }}</span>
                 </div>

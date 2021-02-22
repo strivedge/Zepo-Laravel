@@ -21,4 +21,33 @@ class SupportTicketRepository
         $supportTicket = SupportTicket::create($data);
         return $supportTicket;
     }
+
+    // functions for admin side
+    public function findById($id)
+    {
+        return SupportTicket::where('id', $id)->firstOrFail();
+    }
+
+    public function update(array $data, $id)
+    {
+        $supportTicket = SupportTicket::find($id);
+        $supportTicket->update($data);
+        return $supportTicket;
+    }
+
+    public function deleteData($id)
+    {
+        $supportTicket = SupportTicket::find($id)->delete();
+        return $supportTicket;
+    }
+
+     public function massDataDelete($ids)
+    {
+        foreach($ids as $id)
+        {
+            $supportTicket = $this->findById($id);
+            $supportTicket->delete($supportTicket);
+        }
+        return $supportTicket;
+    }
 }

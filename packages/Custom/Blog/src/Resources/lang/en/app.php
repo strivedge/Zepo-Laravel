@@ -19,7 +19,7 @@ return [
             'blog-date' => 'Date',
             'blog-action' => 'Actions',
             'save-btn-title' => 'Save Blog',
-            'delete-help-title' => 'Delete Blog',
+            'delete-help-title' => 'Delete',
             'mass-destroy-success' => 'Blogs deleted successfully',
         ]
 ];
