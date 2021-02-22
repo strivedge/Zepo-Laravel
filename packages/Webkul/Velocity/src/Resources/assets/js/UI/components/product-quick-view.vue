@@ -1,5 +1,5 @@
 <template>
-    <div class="modal-parent scrollable">
+    <div class="modal-parent scrollable quick-view-model">
         <div class="cd-quick-view">
             <template v-if="showProductDetails || true">
                 <div class="col-lg-6 product-gallery">
@@ -22,8 +22,8 @@
                     </ul>
                 </div>
 
-                <div class="col-lg-6 fs16">
-                    <h2 class="fw6 quick-view-name">{{ product.name }}</h2>
+                <div class="col-lg-6">
+                    <h2 class="quick-view-name">{{ product.name }}</h2>
 
                     <div class="product-price" v-html="product.priceHTML"></div>
 
@@ -32,16 +32,16 @@
                         v-if="product.totalReviews && product.totalReviews > 0">
 
                         <star-ratings :ratings="product.avgRating"></star-ratings>
-                        <a class="pl10 unset active-hover" :href="`${$root.baseUrl}/reviews/${product.slug}`">
+                        <a class="pl10 unset active-hover product-review-link" :href="`${$root.baseUrl}/reviews/${product.slug}`">
                             {{ __('products.reviews-count', {'totalReviews': product.totalReviews}) }}
                         </a>
                     </div>
 
                     <div class="product-rating" v-else>
-                        <span class="fs14" v-text="product.firstReviewText"></span>
+                        <img :src="`${product.star_icon}`">
                     </div>
 
-                    <p class="pt14 fs14 description-text" v-html="product.shortDescription"> </p>
+                    <p class="pt14 description-text" v-html="product.shortDescription"> </p>
 
                     <div class="product-actions">
                         <vnode-injector :nodes="getDynamicHTML(product.addToCartHtml)"></vnode-injector>

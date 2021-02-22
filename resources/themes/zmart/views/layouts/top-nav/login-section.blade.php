@@ -9,9 +9,21 @@
 
 
                         @auth('customer')
-                        <div class="welcome-content login-content" @click="togglePopup">
+                        <span class="welcome-content support-ticket-link">
+                            <span class="modal-content">
+                                <a href="{{ route('user.support-ticket') }}" class="login">
+                                    <button
+                                                type="button"
+                                                class="">
+
+                                                {{ __('shop::app.header.support-ticket') }}
+                                    </button>
+                                </a>    
+                            </span>
+                        </span>
+                        <span class="welcome-content login-content" @click="togglePopup">
                             {{ __('velocity::app.header.welcome-message', ['customer_name' => auth()->guard('customer')->user()->first_name]) }}
-                        </div>
+                        </span>
                         @endauth 
                         @guest('customer')
                         <div class="welcome-content pull-right">
