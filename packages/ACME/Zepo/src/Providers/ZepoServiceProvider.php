@@ -31,6 +31,8 @@ class ZepoServiceProvider extends ServiceProvider
         Event::listen('bagisto.admin.layout.head', function($viewRenderEventManager) {
             $viewRenderEventManager->addTemplate('zepo::admin.layouts.style');
         });
+
+        $this->loadMigrationsFrom(__DIR__ .'/../Database/Migrations');
     }
 
     /**

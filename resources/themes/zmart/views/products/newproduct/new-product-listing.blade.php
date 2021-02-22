@@ -53,6 +53,12 @@
         <li class="col-12 lg-card-container list-card product-card row">
             <div class="content-wrap">
                 <div class="product-image">
+                    @if ($product->getTypeInstance()->haveSpecialPrice())
+                                    <?php //echo"Test<pre>";print_r($product->getTypeInstance()->getOfferPercentage());exit; ?>
+                                    <div class="sticker new">
+                                       <span class="save">SAVE</span><span class="percentage">{{$product->getTypeInstance()->getOfferPercentage()}}%</span>
+                                    </div>
+                                @endif
                     <a
                         title="{{ $product->name }}"
                         href="{{ route('shop.productOrCategory.index', $product->url_key) }}">
@@ -79,7 +85,7 @@
                     </div>
 
                     <div class="product-price">
-                        @include ('shop::products.price', ['product' => $product])
+                        @include ('shop::products.newproduct.price', ['product' => $product])
                     </div>
 
                     @if( $totalReviews )
