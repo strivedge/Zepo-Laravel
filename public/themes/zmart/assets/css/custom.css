@@ -51,14 +51,18 @@ a.theme-btn:hover { color: #274985;background: transparent!important; }
 #home-right-bar-container { padding-left: 0px;padding-right: 0; }
 
 .product-list.empty,
-.search-category.category-page-wrapper .search-container.category-container { text-align: center; padding: 50px 0px; color: #274985;display: inline-block;width: 100%; }
+.search-category.category-page-wrapper .search-container.category-container .error-message-search-no-results { text-align: center; padding: 50px 0px; color: #274985;display: inline-block;width: 100%; }
 .product-list.empty h2,
 .order-success-content h1,
-.search-category.category-page-wrapper .search-container.category-container h2 { text-align: center; color: #274985;font-weight: 500; }
+.search-category.category-page-wrapper .search-container.category-container .error-message-search-no-results h2 { text-align: center; color: #274985;font-weight: 500; }
 .product-list.empty p,
-.compare-products span,
+.compare-product span.error-message-compare-list,
 .order-success-content p,
-.search-category.category-page-wrapper .search-container.category-container span { color: #274985; }
+.search-category.category-page-wrapper .search-container.category-container .error-message-search-no-results p { color: #274985; }
+
+.search-category.category-page-wrapper .search-container.category-container .error-message-search-no-results { padding: 0; }
+
+.compare-product span.error-message-compare-list { font-size: 16px;font-weight: bold;text-align: center;padding: 0; }
 
 .cp-round:before { border: 6px solid #E1DFDF; }
 .cp-round:after { border-top: 6px solid #B1CC1E; }
@@ -305,8 +309,8 @@ a.theme-btn:hover { color: #274985;background: transparent!important; }
 .navbar-top .navbar-top-wrapper .navbar-right-wrapper .login-register { position: relative;/*padding: 0px 15px;*/ }
 .navbar-top .navbar-top-wrapper .navbar-right-wrapper .login-register .dropdown { padding-left: 0;border: 0; margin-right: 15px; padding-right: 0; }
 .navbar-top .navbar-top-wrapper .navbar-right-wrapper .login-register .dropdown #account .welcome-content { font-size: 14px; font-family: 'Be Vietnam', sans-serif; font-weight: 600; color: #fff;cursor: pointer; }
-.navbar-top .navbar-top-wrapper .navbar-right-wrapper .login-register .dropdown #account .welcome-content.login-content { padding-right: 15px; border-right: 1px solid; }
-#top #account+.account-modal { position: absolute;margin: 0px;width: 100%;right: 0;z-index: 100002; display: block;box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);background: #fff;top: 39px; }
+.navbar-top .navbar-top-wrapper .navbar-right-wrapper .login-register .dropdown #account .welcome-content.login-content { padding-right: 15px; border-right: 1px solid;padding: 0px 15px; }
+#top #account+.account-modal { position: absolute;margin: 0px;width: 100%;right: 0;z-index: 100002; display: block;box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);background: #fff;top: 39px;width: 125px; }
 #top #account+.account-modal .modal-content { width: 100% !important }
 .navbar-top .navbar-top-wrapper .navbar-right-wrapper .login-register .dropdown .account-modal .modal-content .customer-session { text-align: left;padding: 5px 10px 5px;display: flex;align-items: center; }
 .navbar-top .navbar-top-wrapper .navbar-right-wrapper .login-register .dropdown .account-modal .modal-content .customer-session .customer-name { font-size: 16px;height: 40px;width: 40px;font-family: 'Montserrat', sans-serif;margin-right: 5px; vertical-align: middle;padding: 11px;color: #ffffff;background: #B1CC1E; }
@@ -338,6 +342,10 @@ a.theme-btn:hover { color: #274985;background: transparent!important; }
 
 #top .navbar-top .navbar-top-wrapper .navbar-right-wrapper .locale-switcher { padding: 0px 26px 0px 0px;font-size: 14px;font-family: 'Be Vietnam', sans-serif;font-weight: 600;color: #fff; }
 #top .navbar-top .navbar-top-wrapper .navbar-right-wrapper .styled-select+.select-icon-container .select-icon { top: -17px; color: #fff; font-weight: bold; }
+
+.navbar-top .navbar-top-wrapper .navbar-right-wrapper .welcome-content.support-ticket-link .welcome-content,
+.navbar-top .navbar-top-wrapper .navbar-right-wrapper .welcome-content.support-ticket-link .modal-content { display: inline!important; }
+
 
 header.sticky-header { width: 100%; display: inline-block; padding: 20px 0px; }
 .navbar-middle { width: 100%; display:inline-block;padding: 20px 0px;border-bottom: 1px solid #E1DFDF; }
@@ -827,7 +835,7 @@ header.sticky-header.navbar-middle.header-shadow + .main-content-wrapper #head {
 .auth-content.login-rgister { background: #FAFCF3;padding: 50px 15px;margin-top: -6px; }
 .auth-content.login-rgister .login-register-content { box-shadow: 0 0 20px 0 rgba(140,137,137,0.50);margin: 0 auto; width: 65%;padding: 30px;background: #fff; }
 .auth-content.login-rgister .login-register-content .heading.section-title { display: flex;align-items: center;justify-content: space-between;margin-bottom: 35px;width: 100%; }
-.auth-content.login-rgister .login-register-content .heading.section-title h2 { font-size: 24px; }
+.auth-content.login-rgister .login-register-content .heading.section-title h2 { /*font-size: 24px;*/font-size: 30px; }
 .auth-content.login-rgister .login-register-content h3 { font-size: 20px;font-weight: 700; }
 .auth-content.login-rgister .login-register-content .heading.section-title a { font-family: 'Montserrat', sans-serif; font-size: 16px; color: #B1CC1E; text-decoration: underline; font-weight: bold; }
 .auth-content.login-rgister .login-register-content .heading.section-title a button { border: 0 !important; background: transparent !important; color: #B1CC1E;box-shadow: none;padding: 0;font-size: 16px;text-decoration: underline;outline: 0; }
@@ -845,11 +853,15 @@ header.sticky-header.navbar-middle.header-shadow + .main-content-wrapper #head {
 .auth-content.login-rgister .login-register-content div.body input.theme-btn:hover,
 .auth-content.login-rgister .login-register-content div.body .theme-btn:hover {  background-color: #B1CC1E !important; }
 .auth-content.login-rgister .login-register-content div.body .login-register-buttons { display: inline-block;width: 100%;margin: 1rem 0rem 0rem; }
+@media (max-width: 1199px) {
+	.auth-content.login-rgister .login-register-content { width: 70%; }
+}
 @media (max-width: 991px) {
 	.auth-content.login-rgister .login-register-content { width: 95%; }
 }
 @media (max-width: 767px) {
 	.auth-content.login-rgister .login-register-content { width: 100%; }
+	.auth-content.login-rgister .login-register-content .heading.section-title h2 { font-size: 24px; }
 }
 
 
@@ -858,7 +870,7 @@ header.sticky-header.navbar-middle.header-shadow + .main-content-wrapper #head {
 ------------------------------------------------------------------------------------------------------------------------*/
 .account-content { padding: 50px 0px 50px;height: 100%!important;position: relative;/*display: inline-block;*/ }
 .account-content .account-layout .account-heading { font-weight: bold; }
-.account-content .account-layout { padding: 15px 30px;width: calc(100% - 230px); padding-bottom: 0px; }
+.account-content .account-layout { /*padding: 15px 30px;*/padding: 15px 0px 15px 30px;width: calc(100% - 230px); padding-bottom: 0px; }
 .account-content .sidebar { height: 100%; position: sticky; top: 84px; }
 
 .account-content .account-layout .account-table-content.profile-page-content .table,
@@ -965,6 +977,11 @@ header.sticky-header.navbar-middle.header-shadow + .main-content-wrapper #head {
 .account-content .account-layout .sale-container .tabs-content .sale-section table.sale-summary td { font-weight: bold; }
 .account-content .account-layout .sale-container .tabs-content .sale-section table.sale-summary td:last-child { color: #001F37; }
 .account-content .account-layout .sale-container .order-box-container .box .box-title { border-bottom: 1px solid #B1CC1E; width: max-content; margin-bottom: 10px; }
+
+.account-layout .cart-details.compare-product { padding-left: 0;padding-right: 0; padding-top: 0; }
+.account-layout .cart-details.compare-product h1 { padding-left: 0; }
+.account-layout .cart-details.compare-product button.theme-btn { background-color: transparent!important; font-size: 16px; color: #B1CC1E; font-weight: bold;text-decoration: underline;padding: 0; }
+.account-layout .cart-details.compare-product button.theme-btn:hover { background-color: transparent!important; color: #274985; }
 @media (max-width: 992px) {
 	.account-content .account-layout { width: 100%; }
 	.account-content { padding-top: 0; }
@@ -1166,6 +1183,42 @@ header.sticky-header.navbar-middle.header-shadow + .main-content-wrapper #head {
 	.account-content.contact-us-content .contact-details { margin-bottom: 20px; }
 	.account-content.contact-us-content { padding-top: 50px; }
 }
+
+
+
+
+/* Support Ticket Page Changes
+------------------------------------------------------------------------------------------------------------------------*/
+.account-content.support-ticket-content { background: #FAFCF3; margin: 0 -15px !important; }
+.account-content.support-ticket-content .support-ticket-form { /*padding: 0;*/ box-shadow: 0 0 20px 0 rgb(140 137 137 / 50%); margin: 0 auto;width: 65%; padding: 30px; background: #fff; }
+.account-content.support-ticket-content .account-head h2.account-heading { font-weight: bold;padding: 0px 0 20px 0; }
+.account-content.support-ticket-content .support-ticket-form textarea { width: 100%; padding: 10px; font-family: 'Montserrat', sans-serif; font-size: 14px; border-radius: 2px; color: #413A3D !important; font-weight: 400; border: 1.5px solid #E1DFDF; }
+.account-content.support-ticket-content .support-ticket-form .body { padding: 35px 55px; border: 1px solid #E1DFDF; }
+.account-content.support-ticket-content .support-ticket-form .form-group { padding: 0;margin-bottom: 30px; }
+.account-content.support-ticket-content .support-ticket-form .preview { margin-top: 10px; }
+@media (max-width: 1199px) {
+	.account-content.support-ticket-content .support-ticket-form { width: 70%; }
+}
+@media (max-width: 991px) {
+	.account-content.support-ticket-content .support-ticket-form { width: 95%; }
+}
+@media (max-width: 767px) {
+	.account-content.support-ticket-content { padding-top: 50px; }
+}
+
+
+/* Quick View Model
+------------------------------------------------------------------------------------------------------------------------*/
+.quick-view-model h2 { font-size: 24px; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;cursor: pointer; }
+.quick-view-model h2:hover { color: #B1CC1E; }
+.quick-view-model .regular-price { font-family: 'Montserrat', sans-serif; font-size: 18px; color: #989898; font-weight: 400; margin-right: 10px; position: relative; }
+.quick-view-model .regular-price:after { content: ""; width: 100%; height: 1px; background: black; position: absolute; bottom: 8px; left: 0; }
+.quick-view-model .product-rating { display: block; }
+.quick-view-model .product-rating .stars { margin-right: 0; }    
+.quick-view-model .product-rating .stars i { color: #FFC107; font-size: 16px; }
+.product-review-link { font-weight: bold; color: #274985;text-decoration: underline;padding-left: 0!important; }
+.product-review-link:hover { color: #B1CC1E; }
+
 
 
 /* Wishlist Changes
