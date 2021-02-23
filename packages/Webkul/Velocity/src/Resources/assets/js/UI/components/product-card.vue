@@ -78,7 +78,7 @@
                         </a>
                     </div>
                     <div class="product-rating" v-else>
-                     <img src="http://localhost/htmldemo/public/themes/zmart/assets/images/star-gray.png">
+                     <img :src="`${product.star_icon}`">
                     </div>
                 </div>
                 <div class="title">

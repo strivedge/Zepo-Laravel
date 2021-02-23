@@ -348,7 +348,7 @@ class Helper extends Review
         'shortDescription' => $product->short_description,
         'star_icon' => asset('/themes/zmart/assets/images/star-gray.png'),
         'defaultAddToCart' => view('shop::products.add-buttons', ['product' => $product])->render(),
-        'addToCartHtml' => view('shop::products.quick-view-add-to-cart', [
+        'addToCartHtml' => view('shop::products.add-to-cart', [
         'product' => $product,
         'addWishlistClass' => ! (isset($list) && $list) ? '' : 'pl10',
 
@@ -401,10 +401,13 @@ class Helper extends Review
                     $productMetaDetails['addToCartHtml'] = $formattedProduct['addToCartHtml'];
                     $productMetaDetails['galleryImages'] = $formattedProduct['galleryImages'];
                     $productMetaDetails['defaultAddToCart'] = $formattedProduct['defaultAddToCart'];
+                    $productMetaDetails['star_icon'] = asset('/themes/zmart/assets/images/star-gray.png');
 
                     $product = array_merge($productFlat->toArray(), $productMetaDetails);
 
                     array_push($productCollection, $product);
+
+                    //echo"<pre";print_r($productCollection);exit();
                 }
             }
         }
