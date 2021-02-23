@@ -120,6 +120,7 @@
                                        <span class="save">SAVE</span><span class="percentage">{{$product->getTypeInstance()->getOfferPercentage()}}%</span>
                                     </div>
                                 @endif
+                                <?php //echo"<pre>";print_r($galleryImages);exit(); ?>
                                 @if(count($galleryImages) > 0)
                                 <div class="product-imgs">
                                    @foreach($galleryImages as $image)

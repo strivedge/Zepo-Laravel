@@ -115,6 +115,7 @@
         "Custom\\Blog\\": "packages/Custom/Blog/src",
         "Custom\\Testinominal\\": "packages/Custom/Testinominal/src",
         "Custom\\Offer\\": "packages/Custom/Offer/src",
+        "Custom\\Festival\\": "packages/Custom/Festival/src",
         "ACME\\FedEx\\": "packages/ACME/FedEx/src",
         "ACME\\RazorPay\\": "packages/ACME/RazorPay/src"
       }
