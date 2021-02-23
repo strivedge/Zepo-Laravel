@@ -22,8 +22,8 @@
 
 @push('scripts')
     <script type="text/x-template" id="compare-product-template">
-        <section class="cart-details row no-margin col-12">
-            <h1 class="fw6 col-6 account-heading">
+        <section class="cart-details row no-margin col-12 compare-product">
+            <h1 class="col-6 account-heading">
                 {{ __('velocity::app.customer.compare.compare_similar_items') }}
             </h1>
 
@@ -63,7 +63,7 @@
 
                         <tr>
                             <td>
-                                <span class="fs16">{{ isset($attribute['name']) ? $attribute['name'] : $attribute['admin_name'] }}</span>
+                                <span class="test">{{ isset($attribute['name']) ? $attribute['name'] : $attribute['admin_name'] }}</span>
                             </td>
 
                             <td :key="`title-${index}`" v-for="(product, index) in products">
@@ -90,7 +90,7 @@
 
                                     @case('addToCartHtml')
                                         <div class="action">
-                                            <vnode-injector :nodes="getDynamicHTML(product.addToCartHtml)"></vnode-injector>
+                                            <!-- <vnode-injector :nodes="getDynamicHTML(product.addToCartHtml)"></vnode-injector> -->
 
                                             <i
                                                 class="material-icons cross fs16"
@@ -102,11 +102,11 @@
                                         @break
 
                                     @case('color')
-                                        <span v-html="product.color_label" class="fs16"></span>
+                                        <span v-html="product.color_label" class=""></span>
                                         @break
 
                                     @case('size')
-                                        <span v-html="product.size_label" class="fs16"></span>
+                                        <span v-html="product.size_label" class=""></span>
                                         @break
 
                                     @case('description')
@@ -130,7 +130,7 @@
 
                                             @case('select')
                                                 <span v-if="product.product['{{ $attribute['code'] }}']" v-html="getAttributeOptions(product['{{ $attribute['code'] }}'] ? product : product.product['{{ $attribute['code'] }}'] ? product.product : null, '{{ $attribute['code'] }}', 'single')" class="fs16"></span>
-                                                <span v-else class="fs16">__</span>
+                                                <span v-else class="">__</span>
                                                 @break;
 
                                             @case ('file')
@@ -157,7 +157,7 @@
                     @endforeach
                 </template>
 
-                <span v-else-if="isProductListLoaded && products.length == 0" class="col-12">
+                <span v-else-if="isProductListLoaded && products.length == 0" class="col-12 error-message-compare-list">
                     @{{ __('customer.compare.empty-text') }}
                 </span>
             </table>

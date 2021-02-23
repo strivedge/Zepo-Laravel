@@ -105,8 +105,9 @@ return [
         'status' => 'Status',
         'attachment' => 'Attachment',
         'btn-send' => 'Send',
+        'subject' => 'Support Ticket Created',
         'response-message' => 'Your response recorded you ticket no #0',
-        'success-message' => 'Your message recorded successfully.'
+        'success-message' => "Your ticket created, We'll get in touch very soon."
     ],
 
     'customer' => [

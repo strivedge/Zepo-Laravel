@@ -84,11 +84,13 @@
             
 
             @if (! $results)
-                <h1 class="fw6 col-12">{{ __('shop::app.search.no-results') }}</h1>
+                <h1>{{ __('shop::app.search.no-results') }}</h1>
             @else
                 @if ($results->isEmpty())
-                    <h2 class="col-12">{{ __('shop::app.products.whoops') }}</h1>
-                    <span class="col-12">{{ __('shop::app.search.no-results') }}</span>
+                <div class="error-message-search-no-results">
+                    <h2>{{ __('shop::app.products.whoops') }}</h2>
+                    <p>{{ __('shop::app.search.no-results') }}</p>
+                </div>
                 @else
                     <div class="row filter-heading">
                         @if ($results->total() == 1)
