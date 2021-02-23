@@ -4,12 +4,21 @@ namespace ACME\Zepo\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Mail;
+// use Illuminate\Support\Facades\Validator;
+use ACME\Zepo\Mail\SupportTicketEmail;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 use ACME\Zepo\Repositories\SupportTicketRepository;
+// use Validator;
 use File;
 
 class SupportTicketController extends Controller
 {
+    use ValidatesRequests;
+    protected $_config;
     private $supportTicketRepository;
+    
     public function __construct(SupportTicketRepository $supportTicketRepository)
     {
         $this->_config = request('_config');
@@ -43,13 +52,14 @@ class SupportTicketController extends Controller
      */
     public function store(Request $request)
     {
-        // $this->validate(request(), [
-        //     'name'    => 'required',
-        //     'email'    => 'required|email',
-        //     'attachment'    => 'mimes:jpeg,jpg,png,gif|max:10000',
-        // ]);
-        
         $data = request()->all();
+
+        $this->validate(request(), [
+            'name'    => 'required',
+            'email'    => 'required',
+            'attachment'    => 'nullable|mimes:jpeg,jpg,bmp,png',
+        ]);
+        // echo "<pre>"; print_r($val); exit();
             
         $imageName = $request->attachment;
         if($imageName != null)
@@ -59,9 +69,27 @@ class SupportTicketController extends Controller
             $data['attachment'] = $imageName1;
         }
 
-        $this->supportTicketRepository->create($data);
+        // for getting all data
+        $check = $this->supportTicketRepository->create($data);
 
-        // $check = $this->supportTicketRepository->create($data);
+        // Send email to admin for support ticket
+        if($check->id != "")
+        {
+            $toAdmin = ['id' => $check->id,
+                        'name' => $check->name,
+                        'email' => $check->email,
+                        'message' => $check->message
+                    ];
+
+            try {
+                    Mail::queue(new SupportTicketEmail($toAdmin));
+
+                    session()->flash('success', trans('admin::app.response.email-success', ['name' => 'Support']));
+            } catch (\Exception $e) {
+                report($e);
+                session()->flash('error', trans('admin::app.response.email-error'));
+            }
+        }
 
         Session()->flash('success', trans('shop::app.support-ticket.success-message'));
 
@@ -100,13 +128,14 @@ class SupportTicketController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $this->validate(request(), [
-        //     'name'    => 'required',
-        //     'email'    => 'required|email',
-        //     'attachment'    => 'mimes:jpeg,jpg,png,gif|max:10000',
-        // ]);
-        
         $data = request()->all();
+
+        $this->validate(request(), [
+            'name'    => 'required',
+            'email'    => 'required',
+            'attachment'    => 'mimes:jpeg,jpg,bmp,png',
+        ]);
+        
         $old_data = $this->supportTicketRepository->findById($id);
 
         if (request()->hasFile('attachment'))
