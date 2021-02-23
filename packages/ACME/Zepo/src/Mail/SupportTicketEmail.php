@@ -34,8 +34,8 @@ class SupportTicketEmail extends Mailable
      */
     public function build()
     {
-       return $this->from(core()->getSenderEmailDetails()['email'], core()->getSenderEmailDetails()['name'])
-            ->to($this->data['email'])
+        return $this->from($this->data['email'], $this->data['name'])
+            ->to(core()->getAdminEmailDetails()['email'], core()->getAdminEmailDetails()['name'])
             ->subject(trans('shop::app.support-ticket.subject'))
             ->view('shop::emails.customer.support-ticket')->with('data', $this->data);
     }

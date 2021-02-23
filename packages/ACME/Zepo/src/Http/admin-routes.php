@@ -10,11 +10,11 @@ Route::group(['middleware' => ['web', 'admin']], function () {
         'view' => 'zepo::admin.support-ticket.index',
     ])->name('zepo.support-ticket.index');
 
-    Route::get('/admin/edit/{id}', 'ACME\Zepo\Http\Controllers\Admin\SupportTicketController@edit')->defaults('_config', [
+    Route::get('/admin/support-ticket/edit/{id}', 'ACME\Zepo\Http\Controllers\Admin\SupportTicketController@edit')->defaults('_config', [
     	'view' => 'zepo::admin.support-ticket.edit'
     ])->name('zepo.support-ticket.edit');
 
-    Route::post('/admin/update/{id}', 'ACME\Zepo\Http\Controllers\Admin\SupportTicketController@update')->defaults('_config', [
+    Route::post('/admin/support-ticket/update/{id}', 'ACME\Zepo\Http\Controllers\Admin\SupportTicketController@update')->defaults('_config', [
     	'redirect' => 'zepo.support-ticket.index'
     ])->name('zepo.support-ticket.update');
 

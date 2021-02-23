@@ -13,6 +13,6 @@ return [
         'name' => 'Support Ticket',
         'route' => 'zepo.support-ticket.index',
         'sort' => 10,
-        'icon-class' => 'temp-icon',
+        'icon-class' => 'temp-icon'
     ]
 ];
