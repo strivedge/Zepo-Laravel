@@ -401,10 +401,13 @@ class Helper extends Review
                     $productMetaDetails['addToCartHtml'] = $formattedProduct['addToCartHtml'];
                     $productMetaDetails['galleryImages'] = $formattedProduct['galleryImages'];
                     $productMetaDetails['defaultAddToCart'] = $formattedProduct['defaultAddToCart'];
+                    $productMetaDetails['star_icon'] = asset('/themes/zmart/assets/images/star-gray.png');
 
                     $product = array_merge($productFlat->toArray(), $productMetaDetails);
 
                     array_push($productCollection, $product);
+
+                    //echo"<pre";print_r($productCollection);exit();
                 }
             }
         }

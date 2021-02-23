@@ -34,7 +34,8 @@
     $product->__set('galleryImages', $galleryImages);
     $product->__set('shortDescription', $product->short_description);
     $product->__set('firstReviewText', trans('velocity::app.products.be-first-review'));
-    $product->__set('addToCartHtml', view('shop::products.add-to-cart', [
+    $product->__set('star_icon',asset('/themes/zmart/assets/images/star-gray.png'));
+    $product->__set('addToCartHtml', view('shop::products.quick-view-add-to-cart', [
         'product'           => $product,
         'addWishlistClass'  => ! (isset($list) && $list) ? '' : '',
 
@@ -120,6 +121,7 @@
                                        <span class="save">SAVE</span><span class="percentage">{{$product->getTypeInstance()->getOfferPercentage()}}%</span>
                                     </div>
                                 @endif
+                                <?php //echo"<pre>";print_r($galleryImages);exit(); ?>
                                 @if(count($galleryImages) > 0)
                                 <div class="product-imgs">
                                    @foreach($galleryImages as $image)

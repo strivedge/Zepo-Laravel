@@ -14,7 +14,7 @@ class OrderTransaction extends Migration
     public function up()
     {
         Schema::create('order_transaction', function (Blueprint $table) {
-            $table->id();
+           $table->increments('id');
             $table->integer('order_id')->nullable();
             $table->integer('card_id')->nullable();
             $table->integer('payment_id')->nullable();
@@ -24,7 +24,7 @@ class OrderTransaction extends Migration
             
             $table->string('customer_first_name')->nullable();
             $table->string('customer_last_name')->nullable();
-            $table->integer('customer_id', 200)->nullable();
+            $table->integer('customer_id')->nullable();
             $table->string('customer_email', 200)->nullable();
             $table->string('customer_contact', 200)->nullable();
 
