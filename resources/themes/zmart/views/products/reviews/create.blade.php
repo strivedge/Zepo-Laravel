@@ -8,7 +8,7 @@
 
 @section('content-wrapper')
 
-    <div class="container">
+    <!-- <div class="container"> -->
         <section class="row review-page-container">
             @include ('shop::products.view.small-view', ['product' => $product])
 
@@ -96,6 +96,6 @@
                 ])
             @endif
         </section>
-    </div>
+    <!-- </div> -->
 
 @endsection
