@@ -1,0 +1,1 @@
+{{__('offer::app.offer.name') }}

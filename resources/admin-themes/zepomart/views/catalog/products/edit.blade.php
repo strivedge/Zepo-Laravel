@@ -95,6 +95,8 @@
                 @endif
             @endif
 
+
+
                                 @foreach ($customAttributes as $attribute)
 
                                     @php
@@ -283,7 +285,6 @@
                   'bagisto.admin.catalog.product.edit_form_accordian.additional_views.before',
                    ['product' => $product])
                 !!}
-
                 @foreach ($product->getTypeInstance()->getAdditionalViews() as $view)
                     @include ($view)
                 @endforeach
