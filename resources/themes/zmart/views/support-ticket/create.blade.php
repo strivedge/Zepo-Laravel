@@ -17,7 +17,30 @@
             </div>
             <div class="body">
 				<form method="post" action="{{ route('support-ticket.send') }}" enctype="multipart/form-data" @submit.prevent="onSubmit">
-					@csrf()
+				@csrf()
+				@auth('customer')
+					@if(auth()->guard('customer')->user()->id)
+					<div class="control-group form-group" :class="[errors.has('name') ? 'has-error' : '']">
+				        <label for="name" class="required label-style">
+				            {{ __('shop::app.support-ticket.name') }}
+				        </label>
+				        <input type="text" class="form-style" name="name" v-validate="'required'" value="{{ auth()->guard('customer')->user()->first_name.' '. auth()->guard('customer')->user()->last_name }}" data-vv-as="&quot;{{ __('shop::app.support-ticket.name') }}&quot;"/>
+						<span class="control-error" v-if="errors.has('name')">
+							@{{ errors.first('name') }}
+						</span>
+					</div>
+				
+					<div class="control-group form-group" :class="[errors.has('email') ? 'has-error' : '']">
+						<label for="email" class="required label-style">
+							{{ __('shop::app.support-ticket.email') }}
+						</label>
+						<input type="email" class="form-style" name="email" v-validate="'required|email'" value="{{ auth()->guard('customer')->user()->email }}" data-vv-as="&quot;{{ __('shop::app.support-ticket.email') }}&quot;" />
+				        <span class="control-error" v-if="errors.has('email')">
+							@{{ errors.first('email') }}
+						</span>
+					</div>
+				@endauth
+					@else
 					<div class="control-group form-group" :class="[errors.has('name') ? 'has-error' : '']">
 				        <label for="name" class="required label-style">
 				            {{ __('shop::app.support-ticket.name') }}
@@ -36,13 +59,13 @@
 				        <span class="control-error" v-if="errors.has('email')">
 							@{{ errors.first('email') }}
 						</span>
-					</div>
-
+					</div>	
+					@endif
 					<div class="control-group form-group" :class="[errors.has('message') ? 'has-error' : '']">
 						<label for="message" class="required label-style">
 							{{ __('shop::app.support-ticket.message') }}
 						</label>
-						<textarea type="text" class="form-style" name="message" placeholder="Enter your message here..."cols="30" rows="5" v-validate="'required'" data-vv-as="&quot;{{ __('shop::app.support-ticket.message') }}&quot;"></textarea>
+						<textarea type="text" class="form-style" name="message" placeholder="Enter your message here..." cols="30" rows="5" v-validate="'required'" data-vv-as="&quot;{{ __('shop::app.support-ticket.message') }}&quot;"></textarea>
 						<span class="control-error" v-if="errors.has('message')">
 							@{{ errors.first('message') }}
 						</span>
@@ -52,7 +75,7 @@
 						<label for="file-ip-1">
 							{{ __('shop::app.support-ticket.attachment') }}
 						</label>
-						<input type="file" name="attachment" id="file-ip-1" accept="image/*" onchange="showPreview(event);" data-vv-as="&quot;{{ __('shop::app.support-ticket.attachment') }}&quot;" />
+						<input type="file" name="attachment" id="file-ip-1" accept="image/*" onchange="showPreview(event);" v-validate="''" data-vv-as="&quot;{{ __('shop::app.support-ticket.attachment') }}&quot;" />
 						<span class="control-error" v-if="errors.has('attachment')">
 							@{{ errors.first('attachment') }}
 						</span>

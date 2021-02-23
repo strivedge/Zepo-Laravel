@@ -16,7 +16,7 @@ class SupportTicketDataGrid extends DataGrid
     public function prepareQueryBuilder()
     {
         $queryBuilder = DB::table('support_tickets')
-        ->addSelect('id as ticket_id', 'name', 'email', 'message', 'attachment', 'status', 'created_at', 'updated_at')
+        ->addSelect('id as ticket_id', 'name', 'email', 'message', 'attachment', 'status', 'created_at', 'updated_at');
         $this->addFilter('ticket_id', 'id');
         $this->addFilter('name', 'name');
         $this->addFilter('email', 'email');
@@ -74,10 +74,10 @@ class SupportTicketDataGrid extends DataGrid
         $this->addColumn([
             'index'      => 'status',
             'label'      => trans('zepo::app.support-ticket.status'),
-            'type'       => 'string',
-            'searchable' => true,
+            'type'       => 'boolean',
+            'searchable' => false,
             'sortable'   => true,
-            'filterable' => false,
+            'filterable' => true,
             'closure'    => true,
             'wrapper'    => function ($row) {
                 if ($row->status == 1) {
