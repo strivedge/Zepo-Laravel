@@ -19,6 +19,7 @@ use Webkul\Attribute\Repositories\AttributeRepository;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Webkul\Sales\Repositories\OrderRepository;
 use Webkul\Sales\Repositories\OrderItemRepository;
+use Custom\Festival\Repositories\FestivalRepository;
 
 class ProductRepository extends Repository
 {
@@ -42,6 +43,10 @@ class ProductRepository extends Repository
      * @var \Webkul\Sales\Repositories\OrderItemRepository
      */
     protected $orderItemRepository;
+
+      protected $festivalRepository;
+
+   
 
      /**
      * string object
@@ -69,6 +74,7 @@ class ProductRepository extends Repository
         AttributeRepository $attributeRepository,
         OrderRepository $orderRepository,
         OrderItemRepository $orderItemRepository,
+        FestivalRepository $festivalRepository,
         App $app
     )
     {
@@ -77,6 +83,9 @@ class ProductRepository extends Repository
         $this->orderRepository = $orderRepository;
 
         $this->orderItemRepository = $orderItemRepository;
+
+        $this->festivalRepository = $festivalRepository;
+
 
         $this->setStartEndDate();
 
@@ -429,9 +438,6 @@ class ProductRepository extends Repository
 
             return $query->distinct()
                 ->Join('catalog_rule_product_prices', 'catalog_rule_product_prices.product_id', '=', 'product_flat.product_id')
-               //->select('product_flat.*','catalog_rule_product_prices.price as special_price')
-               // ->select('product_flat.id','product_flat.sku','product_flat.name','product_flat.description','product_flat.new','product_flat.featured','product_flat.status','product_flat.thumbnail','product_flat.price','product_flat.cost','product_flat.weight','product_flat.color','product_flat.color_label','product_flat.size','product_flat.size_label','product_flat.locale','product_flat.channel','product_flat.product_id','product_flat.parent_id','product_flat.visible_individually','product_flat.url_key','product_flat.min_price','product_flat.max_price','product_flat.short_description','product_flat.meta_title','product_flat.meta_keywords','product_flat.meta_description','product_flat.width','product_flat.height','product_flat.depth','catalog_rule_product_prices.price as special_price')
-                //->leftJoin('product_flat', 'catalog_rule_product_prices.product_id', '=', 'product_flat.product_id')
                 ->where('product_flat.status', 1)
                 ->where('product_flat.visible_individually', 1)
                 ->where('product_flat.channel', $channel)
@@ -915,6 +921,51 @@ class ProductRepository extends Repository
 
         return $sellers;
     }
+
+
+    public function getFesivalProducts($id)
+    {
+        $results = $this->model
+                    ->leftJoin('master_festival_products', 'products.id', 'master_festival_products.product_id')
+                  // ->leftJoin('products', 'products.id', 'master_festival_products.product_id')
+                   ->where('master_festival_products.parent_id', $id)
+                   //->groupBy('master_festival_products.product_id')
+                   ->get();
+
+        return $results;
+    }
+
+
+    public function getFestivalProducts()
+    {
+          $results = app(ProductFlatRepository::class)->scopeQuery(function ($query) {
+            $channel = request()->get('channel') ?: (core()->getCurrentChannelCode() ?: core()->getDefaultChannelCode());
+
+            $locale = request()->get('locale') ?: app()->getLocale();
+
+            return $query->distinct()
+                ->leftJoin('master_festival_products', 'product_flat.product_id', 'master_festival_products.product_id')
+                ->leftJoin('master_festival', 'product_flat.product_id', 'master_festival_products.product_id')
+                ->select('product_flat.*','master_festival.title','master_festival.short_desc','master_festival.long_desc','master_festival.start_date','master_festival.end_date','master_festival.image')
+                ->where('master_festival.status', 1)
+                ->where('product_flat.status', 1)
+                ->where('product_flat.visible_individually', 1)
+                ->where('product_flat.channel', $channel)
+                ->where('product_flat.locale', $locale)
+                //->where('master_festival.start_date', '>=', $this->startDate)
+                //->where('master_festival.end_date', '<=', $this->endDate)
+                //->where('master_festival.end_date', '>=', \DB::raw('NOW()'))
+                ->whereNotNull('product_flat.url_key')
+                ->groupBy('master_festival_products.product_id');
+               // ->inRandomOrder();
+                //->get();
+        })->paginate(12);
+
+        //echo"<pre>";print_r($results);exit();
+
+        return $results;
+    }
+
 
     
 }

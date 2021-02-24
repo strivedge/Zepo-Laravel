@@ -1,28 +1,30 @@
 @extends('admin::layouts.content')
 
 @section('page_title')
-{{__('offer::app.offer.title') }}
+{{__('festival::app.festival.title') }}
 @stop
 
 @section('content')
 
+<?php //echo "<pre>"; print_r($festival);exit(); ?>
+
     <div class="content">
         <div class="page-header">
             <div class="page-title">
-                <h1>{{__('offer::app.offer.title') }}</h1>
+                <h1>{{ __('festival::app.festival.title') }}</h1>
             </div>
             <div class="page-action">
 
-                <a href="{{ route('admin.offer.create') }}" class="btn btn-lg btn-primary">
-                    {{ __('offer::app.offer.add-title') }}
+                <a href="{{ route('admin.festival.create') }}" class="btn btn-lg btn-primary">
+                    {{ __('festival::app.festival.add-title') }}
                 </a>
             </div>
         </div>
 
         <div class="page-content">
-            @inject('offerGrid','Webkul\Admin\DataGrids\OfferDataGrid')
+            @inject('festivalGrid','Webkul\Admin\DataGrids\FestivalDataGrid')
 
-            {!! $offerGrid->render() !!}
+            {!! $festivalGrid->render() !!}
         </div>
     </div>
 @stop
