@@ -4,16 +4,11 @@ namespace Custom\Festival\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Festival extends Model
+class FestivalProduct extends Model
 {
     protected $fillable = [
-        'title',
-        'short_desc',
-        'long_desc',
-        'image',
-        'start_date',
-        'end_date',
-        'status',
+        'parent_id',
+        'product_id'
     ];
 
     protected $typeInstance;
@@ -22,10 +17,12 @@ class Festival extends Model
      *
      * @var string
      */
-    protected $table = 'master_festival';
+    protected $table = 'master_festival_products';
 
-	public function getAll()
+	public function getAll($id)
     {
+        $this->where(['parent_id' => $id]);
+
         return $this;
     }
 
