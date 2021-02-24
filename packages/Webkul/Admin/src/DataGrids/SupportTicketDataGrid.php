@@ -72,25 +72,6 @@ class SupportTicketDataGrid extends DataGrid
         // ]);
 
         $this->addColumn([
-            'index'      => 'status',
-            'label'      => trans('zepo::app.support-ticket.status'),
-            'type'       => 'boolean',
-            'searchable' => false,
-            'sortable'   => true,
-            'filterable' => true,
-            'closure'    => true,
-            'wrapper'    => function ($row) {
-                if ($row->status == 1) {
-                    return '<span class="badge badge-md badge-success">'. trans('zepo::app.support-ticket.process') .'</span>';
-                } else if ($row->status == 2) {
-                    return '<span class="badge badge-md badge-success">'. trans('zepo::app.support-ticket.completed') .'</span>';
-                } else {
-                    return '<span class="badge badge-md badge-danger">'. trans('zepo::app.support-ticket.pending') .'</span>';
-                }
-            },
-        ]);
-
-        $this->addColumn([
             'index'      => 'created_at',
             'label'      => trans('zepo::app.support-ticket.created-at'),
             'type'       => 'date',
@@ -108,6 +89,25 @@ class SupportTicketDataGrid extends DataGrid
             'sortable'   => true,
             'filterable' => false,
             'closure'    => true,
+        ]);
+
+        $this->addColumn([
+            'index'      => 'status',
+            'label'      => trans('zepo::app.support-ticket.status'),
+            'type'       => 'boolean',
+            'searchable' => false,
+            'sortable'   => true,
+            'filterable' => true,
+            'closure'    => true,
+            'wrapper'    => function ($row) {
+                if ($row->status == 1) {
+                    return '<span class="badge badge-md badge-warning">'. trans('zepo::app.support-ticket.process') .'</span>';
+                } else if ($row->status == 2) {
+                    return '<span class="badge badge-md badge-success">'. trans('zepo::app.support-ticket.completed') .'</span>';
+                } else {
+                    return '<span class="badge badge-md badge-danger">'. trans('zepo::app.support-ticket.pending') .'</span>';
+                }
+            },
         ]);
     }
 

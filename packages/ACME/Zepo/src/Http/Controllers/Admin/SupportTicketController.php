@@ -133,7 +133,7 @@ class SupportTicketController extends Controller
         $this->validate(request(), [
             'name'    => 'required',
             'email'    => 'required',
-            'attachment'    => 'mimes:jpeg,jpg,bmp,png',
+            'attachment'    => 'nullable|mimes:jpeg,jpg,bmp,png',
         ]);
         
         $old_data = $this->supportTicketRepository->findById($id);
