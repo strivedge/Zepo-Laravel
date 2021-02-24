@@ -117,12 +117,23 @@
                                        <span class="save">SAVE</span><span class="percentage">{{$product->getTypeInstance()->getOfferPercentage()}}%</span>
                                     </div>
                                 @endif
+                            @if(count($galleryImages) > 0)
+                                @foreach($galleryImages as $image)
+                                <img
+                                    loading="lazy"
+                                    class="card-img-top items"
+                                    alt="{{ $product->name }}"
+                                    src="{{ $image['large_image_url'] }}"
+                                    :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
+                                @endforeach
+                            @else
                                 <img
                                     loading="lazy"
                                     class="card-img-top"
                                     alt="{{ $product->name }}"
                                     src="{{ $productBaseImage['large_image_url'] }}"
                                     :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
+                                @endif
 
                             </a>
                         </div>    
