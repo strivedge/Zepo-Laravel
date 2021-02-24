@@ -4,18 +4,27 @@ namespace Custom\Festival\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Custom\Festival\Repositories\FestivalRepository;
+use Webkul\Product\Repositories\ProductRepository;
 use File;
 
 class FestivalController extends Controller
 {
     protected $_config;
-    private $feastivalRepository;
+    private $festivalRepository;
+     /**
+     * ProductRepository object
+     *
+     * @var \Webkul\Product\Repositories\ProductRepository
+     */
+    protected $productRepository;
 
-    public function __construct(FestivalRepository $feastivalRepository)
+    public function __construct(FestivalRepository $festivalRepository,
+        ProductRepository $productRepository)
     {
         $this->middleware('admin');
         $this->_config = request('_config');
-        $this->feastivalRepository = $feastivalRepository;
+        $this->festivalRepository = $festivalRepository;
+         $this->productRepository = $productRepository;
     }
 
     /**
@@ -25,10 +34,12 @@ class FestivalController extends Controller
      */
     public function index()
     {
-        $feastival = $this->feastivalRepository->getAll();
+        $festival = $this->festivalRepository->getAll();
 
-        //print_r($this->_config['view']);exit();
-        return view($this->_config['view'], compact('feastival'));
+        $festivalp = $this->productRepository->getFestivalProducts();
+
+        //print_r($festivalp);exit();
+        return view($this->_config['view'], compact('festival'));
     }
 
     /**
@@ -38,7 +49,8 @@ class FestivalController extends Controller
      */
     public function create()
     {
-        return view($this->_config['view']);
+        $product = $this->productRepository->with(['variants', 'variants.inventories'])->findOrFail(103);
+        return view($this->_config['view'], compact('product'));
     }
 
     /**
@@ -49,27 +61,58 @@ class FestivalController extends Controller
      */
     public function store(Request $request)
     {
-        $data = request()->all();
+
+        //echo "<pre>"; print_r(request()->all());exit();
+        $req = request()->all();
         $this->validate($request, [
             'title' => 'required',
-            'desc' => 'required',
+            'short_desc' => 'required',
+            'long_desc' => 'required',
             'image' => 'mimes:jpeg,jpg,png,gif|required|max:10000',
             'status' => 'required',
             'start_date' => 'required',
             'end_date' => 'required'
         ]);
 
-        $imageName = $request->image;
-        if($imageName != null)
+        $data = ['title' => $req['title'],
+                'short_desc' => $req['short_desc'],
+                'long_desc' => $req['long_desc'],
+                'start_date' => $req['start_date'],
+                'end_date' => $req['end_date'],
+                'status' => $req['status'],
+                ];
+
+        $data['up_sell'] = $req['up_sell'];
+
+        
+        if (request()->hasFile('image'))
         {
+            $imageName = $request->image;
             $imageName1 = time().'.'.$imageName->extension();  
-            $imageName->move(public_path('uploadImages/feastival'), $imageName1);
-            $data['image'] = $imageName1;
+            $imageName->move(public_path('uploadImages/festival'), $imageName1);
+            $data['image'] = 'uploadImages/festival/'.$imageName1;
         }
 
-        $this->feastivalRepository->create($data);
+        $storeData = $this->festivalRepository->create($data);
 
-        session()->flash('success', trans('admin::app.response.create-success', ['name' => 'Feastival']));
+
+        $storeData = $this->festivalRepository->updateStatus($storeData['id']);
+
+        //echo"<pre>";print_r($storeData['id']);exit();
+        /*if (!empty($storeData) && !empty($req['up_sell'])) {
+            foreach ($req['up_sell'] as $val) {
+
+                $productData = ['parent_id'=> $storeData['id'],
+                                'product_id' => $val
+                ];
+
+                $prodStoredata = $this->festivalRepository->createProduct($productData);
+              
+            }
+            
+        }*/
+
+        session()->flash('success', trans('admin::app.response.create-success', ['name' => 'Festival']));
 
         return redirect()->route($this->_config['redirect']);
     }
@@ -77,48 +120,68 @@ class FestivalController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Feastival  $feastival
+     * @param  \App\Festival  $festival
      * @return \Illuminate\Http\Response
      */
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Feastival  $feastival
+     * @param  \App\Festival  $festival
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $feastival = $this->feastivalRepository->findById($id);
-        return view($this->_config['view'], compact('feastival'));
+        $festival = $this->festivalRepository->findById($id);
+        
+        $product = $this->productRepository->getFesivalProducts($id);
+
+        //echo "<pre>"; print_r($product);exit();
+        return view($this->_config['view'], compact('festival','product'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\feastival  $feastival
+     * @param  \App\festival  $festival
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
+
         $this->validate($request, [
             'title' => 'required',
-            'desc' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            'short_desc' => 'required',
+            'long_desc' => 'required',
+            'image' => 'mimes:jpeg,jpg,png,gif',
             'status' => 'required',
             'start_date' => 'required',
-            'end_date' => 'required',
+            'end_date' => 'required'
         ]);
 
-        $data = request()->all();
-        $old_data = $this->feastivalRepository->findById($id);
+        $req = request()->all();
+
+        $data = ['title' => $req['title'],
+                'short_desc' => $req['short_desc'],
+                'long_desc' => $req['long_desc'],
+                'start_date' => $req['start_date'],
+                'end_date' => $req['end_date'],
+                'status' => $req['status'],
+                ];
+
+        $data['up_sell'] = $req['up_sell'];
+
+                //echo"<pre>"; print_r($data);exit();
+
+        $old_data = $this->festivalRepository->findById($id);
+
 
         if (request()->hasFile('image'))
         {
-            $imageName = $data['image'];
+            $imageName = $request->image;
             if (isset($old_data['image']) && !empty($old_data['image'])) {
-                $file_path = public_path('uploadImages/feastival').'/'.$old_data['image'];
+                $file_path = public_path('uploadImages/festival').'/'.$old_data['image'];
                 if(File::exists($file_path)) 
                 {
                     unlink($file_path);
@@ -126,13 +189,34 @@ class FestivalController extends Controller
             }
             
             $imageName1 = time().'.'.$imageName->extension();
-            $imageName->move(public_path('uploadImages/feastival'), $imageName1);
-            $data['image'] = $imageName1;
+            $imageName->move(public_path('uploadImages/festival'), $imageName1);
+            $data['image'] = 'uploadImages/festival/'.$imageName1;
         }
 
-        $this->feastivalRepository->update($data, $id);
+        $storeData = $this->festivalRepository->update($data, $id);
 
-        session()->flash('success', trans('admin::app.response.update-success', ['name' => 'feastival']));
+        $storeData = $this->festivalRepository->updateStatus($id);
+
+         //echo"<pre>";print_r($storeData['id']);exit();
+
+        //$this->festivalRepository->deleteFesivalProduct($id);
+       
+        /*if (!empty($storeData) && !empty($req['up_sell'])) {
+            foreach ($req['up_sell'] as $val) {
+
+                $productData = ['parent_id'=> $storeData['id'],
+                                'product_id' => $val
+                ];
+
+                $prodStoredata = $this->festivalRepository->createProduct($productData);
+
+                //echo "<pre>";print_r($prodStoredata);exit();
+              
+            }
+            
+        }*/
+
+        session()->flash('success', trans('admin::app.response.update-success', ['name' => 'festival']));
 
         return redirect()->route($this->_config['redirect']);
     }
@@ -140,13 +224,13 @@ class FestivalController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Feastival  $feastival
+     * @param  \App\Festival  $festival
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $this->feastivalRepository->deleteData($id);
-        session()->flash('success', trans('admin::app.response.delete-success', ['name' => 'feastival']));
+        $this->festivalRepository->deleteData($id);
+        session()->flash('success', trans('admin::app.response.delete-success', ['name' => 'festival']));
         // return redirect()->route($this->_config['redirect']);
     }
 
@@ -156,7 +240,7 @@ class FestivalController extends Controller
 
         if ($ids != null) 
         {
-            $this->feastivalRepository->massDataDelete($ids);
+            $this->festivalRepository->massDataDelete($ids);
             session()->flash('success', trans('offer::app.offer.mass-destroy-success'));
         }
         return redirect()->back();
@@ -169,7 +253,7 @@ class FestivalController extends Controller
 
         if ($ids != null && $updateOption != null) 
         {
-            $this->feastivalRepository->massDataUpdate($ids, $updateOption);
+            $this->festivalRepository->massDataUpdate($ids, $updateOption);
             session()->flash('success', trans('offer::app.offer.mass-update-success'));
         }
         return redirect()->back();
