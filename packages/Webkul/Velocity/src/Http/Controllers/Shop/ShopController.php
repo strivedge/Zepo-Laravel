@@ -28,7 +28,9 @@ class ShopController extends Controller
         if ($product) {
             $productReviewHelper = app('Webkul\Product\Helpers\Review');
 
-            $galleryImages = $this->productImageHelper->getProductBaseImage($product);
+            $image = $this->productImageHelper->getProductBaseImage($product);
+
+            $galleryImages = $this->productImageHelper->getGalleryImages($product);
 
             $response = [
                 'status'  => true,
@@ -42,7 +44,8 @@ class ShopController extends Controller
                     'priceHTML'    => $product->getTypeInstance()->getOfferPriceHtml(),
                     'totalReviews' => $productReviewHelper->getTotalReviews($product),
                     'rating'       => ceil($productReviewHelper->getAverageRating($product)),
-                    'image'        => $galleryImages['small_image_url'],
+                    'image'        => $image['small_image_url'],
+                    'galleryImages'=> $galleryImages,
                     'baseUrl'      => url('/'),
                     'csrf_token'   => csrf_token(),
                     'product'      => json_encode($product)
