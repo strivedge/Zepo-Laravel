@@ -80,6 +80,7 @@
 
 @section('full-content-wrapper')
     {!! view_render_event('bagisto.shop.products.view.before', ['product' => $product]) !!}
+    <div class="container">
         <div class="row no-margin">
             <section class="col-12 product-detail">
                 <div class="layouter">
@@ -92,15 +93,15 @@
                             <input type="hidden" name="product_id" value="{{ $product->product_id }}">
 
                             {{-- product-gallery --}}
-                            <div class="left col-lg-5">
+                            <div class="left col-md-7 col-xl-5"><!-- col-lg-5 -->
                                 @include ('shop::products.view.gallery')
                             </div>
 
                             {{-- right-section --}}
-                            <div class="right col-lg-7">
+                            <div class="right col-md-12 col-xl-7"><!--  col-lg-7 -->
                                 {{-- product-info-section --}}
-                                <div class="row info">
-                                    <h2 class="col-lg-12">{{ $product->name }}</h2>
+                                <div class="info"><!-- row  -->
+                                    <h2 class="col-lg-12 no-padding product-name">{{ $product->name }}</h2>
 
                                     @if ($total)
                                         <div class="reviews col-lg-12">
@@ -204,6 +205,7 @@
                 @endif
             </div>
         </div>
+    </div>
     {!! view_render_event('bagisto.shop.products.view.after', ['product' => $product]) !!}
 @endsection
 

@@ -7,7 +7,7 @@
         @endphp
 
         <a
-            class="unset wishlist-icon {{ $addWishlistClass ?? '' }} text-right"
+            class="unset wishlist-icon {{ $addWishlistClass ?? '' }}"
             @if(isset($route))
                 href="{{ $route }}"
             @elseif (! $isWished)
