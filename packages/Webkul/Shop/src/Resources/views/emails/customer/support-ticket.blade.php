@@ -1,4 +1,4 @@
-<!-- @component('shop::emails.layouts.master')
+@component('shop::emails.layouts.master')
 
     <div>
         <div style="text-align: center;">
@@ -12,26 +12,23 @@
         </div>
 
         <div>
-            <b>Requested by : </b>{{ $data['user_name'] }} ({{ $data['user_role'] }})
+            <b>Customer : </b>{{ $data['name'] }}
         </div>
 
         <div>
-            <b>Email : </b><a href="mailto:{{ $data['user_email'] }}">{{ $data['user_email'] }}</a>
+            <b>Customer Email : </b><a href="mailto:{{ $data['email'] }}">{{ $data['email'] }}</a>
         </div>
 
         <div>
-            <b>Product SKU : </b>{{ $data['sku'] }}
+            <b>Customer Message : </b>{{ $data['message'] }}
         </div>
 
         <div>
-            <b>Product Name : </b>{{ $data['pname'] }}
-        </div>
-        <div>
-            <a href="{{ route('admin.catalog.products.edit', [$data['id']]) }}">
-                Activate Product
+            <a href="{{ route('zepo.support-ticket.edit', [$data['id']]) }}">
+                go to Support Ticket Action
             </a>
         </div>
         
     </div>
 
-@endcomponent -->
+@endcomponent

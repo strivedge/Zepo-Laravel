@@ -143,7 +143,7 @@
                             <div class="col-lg-12 mt5">
                                 <span>{{ __('velocity::app.products.review-by') }} -</span>
 
-                                <span class="fs16 fw6">
+                                <span class="review-writer-name">
                                     {{ $review->name }},
                                 </span>
 

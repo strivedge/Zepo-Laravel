@@ -48,8 +48,9 @@
                 
                 <div class="control-group" :class="[errors.has('attachment') ? 'has-error' : '']">
                     <label for="file-ip-1" class="">{{ __('zepo::app.support-ticket.attachment') }}</label>
+                        <!-- <i><a href="{{ asset('uploadImages/supportTicket/'.$supportTicket->attachment) }}" target="_blank">open this</a></i> -->
                     <div class="preview">
-                        <img src="{{ asset('uploadImages/offer/'.$supportTicket->attachment) }}" id="file-ip-1-preview" alt="{{ __('zepo::app.support-ticket.attachment') }}" height="70" width="110">
+                        <img src="{{ asset('uploadImages/supportTicket/'.$supportTicket->attachment) }}" alt="{{ __('zepo::app.support-ticket.attachment') }}" :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" id="file-ip-1-preview">
                     </div>
                     <div>
                         <input type="file" name="attachment" id="file-ip-1" accept="image/*" onchange="showPreview(event);">

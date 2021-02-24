@@ -3784,7 +3784,7 @@ button[disabled] {
 }
 .product-detail .right .add-to-cart-btn button {
     text-transform: uppercase;
-    padding: 9px 15px!important;
+    /*padding: 9px 15px!important;*/
 }
 .product-detail .right .add-to-cart-btn button span {
     top: 0;
