@@ -75,13 +75,37 @@
                                         @break
 
                                     @case('product_image')
-                                        <a :href="`${$root.baseUrl}/${product.url_key}`" class="unset">
-                                            <img
-                                                class="image-wrapper"
-                                                :src="product['{{ $attribute['code'] }}']"
-                                                onload="window.updateHeight ? window.updateHeight() : ''"
-                                                :onerror="`this.src='${$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
-                                        </a>
+                                        <div class="img" v-if="product.galleryImages.length > 0">
+
+                                                <div class="product-imgs" v-for="img in product.galleryImages" :key="img">
+                                                    <a :href="`${baseUrl}/${product.slug}`" :title="product.name" class="product-image-container">
+
+                                                        <img
+                                                            loading="lazy"
+                                                            :alt="product.name"
+                                                            :src="img || product.product_image"
+                                                            :data-src="product.image || product.product_image"
+                                                            class="card-img-top lzy_img"
+                                                            :onerror="`this.src='${baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`"  />
+                                                        
+                                                    </a>
+                                                </div>
+                                                
+                                        </div>
+
+                                        <div class="img" v-else>
+                                            <div class="product-imgs" >
+                                                <a :href="`${$root.baseUrl}/${product.url_key}`" class="unset">
+                                                    <img
+                                                        class="image-wrapper"
+                                                        :src="product['{{ $attribute['code'] }}']"
+                                                        onload="window.updateHeight ? window.updateHeight() : ''"
+                                                        :onerror="`this.src='${$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        
                                         @break
 
                                     @case('price')
@@ -135,6 +159,8 @@
 
                                             @case ('file')
                                             @case ('image')
+
+
                                                 <a :href="`${$root.baseUrl}/${product.url_key}`" class="unset">
                                                     <img
                                                         class="image-wrapper"

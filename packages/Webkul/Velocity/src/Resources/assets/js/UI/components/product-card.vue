@@ -10,9 +10,30 @@
                         <span class="save">SAVE</span>
                         <span class="percentage">{{ product.percentage }}%</span>
                     </div>
-                    <img
-                        :src="product.image || product.product_image"
-                        :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
+                    <div v-if="product.galleryImages.length > 0">
+                        <div class="product-imgs" v-for="img in product.galleryImages" :key="img">
+                            <a :href="`${baseUrl}/${product.slug}`" :title="product.name" class="product-image-container">
+
+                                <img
+                                    loading="lazy"
+                                    :alt="product.name"
+                                    :src="img || product.product_image"
+                                    :data-src="product.image || product.product_image"
+                                    class="card-img-top lzy_img"
+                                    :onerror="`this.src='${baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`"  />
+                                
+                            </a>
+                        </div>
+                    </div>
+                    <div v-else>
+                    <div class="product-imgs">
+                            <a :href="`${baseUrl}/${product.slug}`" :title="product.name" class="product-image-container">
+                                <img
+                                :src="product.image || product.product_image"
+                                :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
+                            </a>
+                        </div>
+                    </div>
 
                     <div class="quick-view-in-list">
                         <product-quick-view-btn :quick-view-details="product" v-if="!isMobile()"></product-quick-view-btn>
@@ -51,19 +72,39 @@
                 <span class="save">SAVE</span>
                 <span class="percentage">{{ product.percentage }}%</span>
             </div>
-            <div class="img">
-                <a :href="`${baseUrl}/${product.slug}`" :title="product.name" class="product-image-container">
-                    <img
-                        loading="lazy"
-                        :alt="product.name"
-                        :src="product.image || product.product_image"
-                        :data-src="product.image || product.product_image"
-                        class="card-img-top lzy_img"
-                        :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
-                        <!-- :src="`${$root.baseUrl}/vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png`" /> -->
+            <div class="img" v-if="product.galleryImages.length > 0">
 
-                    
-                </a>
+                <div class="product-imgs" v-for="img in product.galleryImages" :key="img">
+                    <a :href="`${baseUrl}/${product.slug}`" :title="product.name" class="product-image-container">
+
+                        <img
+                            loading="lazy"
+                            :alt="product.name"
+                            :src="img || product.product_image"
+                            :data-src="product.image || product.product_image"
+                            class="card-img-top lzy_img"
+                            :onerror="`this.src='${baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`"  />
+                        
+                    </a>
+                </div>
+                
+            </div>
+            <div class="img" v-else>
+
+                <div class="product-imgs" >
+                    <a :href="`${baseUrl}/${product.slug}`" :title="product.name" class="product-image-container">
+                        <img
+                            loading="lazy"
+                            :alt="product.name"
+                            :src="product.image || product.product_image"
+                            :data-src="product.image || product.product_image"
+                            class="card-img-top lzy_img"
+                            :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`"  />
+                            <!-- :src="`${$root.baseUrl}/vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png`" /> -->
+
+                    </a>
+                </div>
+                
             </div>
 
             <div class="content">
