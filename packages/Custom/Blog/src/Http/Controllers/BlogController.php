@@ -44,22 +44,22 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate(request(), [
-            'title'    => 'required',
-            'image'    => 'mimes:jpeg,jpg,png,gif|required|max:10000',
-            'slug'     => 'required|unique:master_posts,slug',
-            'content'  => 'required',
-            'date'     => 'required',
-        ]);
-            
         $data = request()->all();
-        // echo "<pre>"; print_r($validator); exit();
+
+        // $this->validate(request(), [
+        //     'title'    => 'required',
+        //     'image'    => 'mimes:jpeg,jpg,png,gif|required|max:10000',
+        //     'slug'     => 'required|unique:master_posts,slug',
+        //     'content'  => 'required',
+        //     'date'     => 'required',
+        // ]);
+            
         $imageName = $request->image;
         if($imageName != null)
         {
             $imageName1 = time().'.'.$imageName->extension();
-            $imageName->move(public_path('uploadImages'), $imageName1);
-            $data['image'] = $imageName1;
+            $imageName->move(public_path('uploadImages/blogs'), $imageName1);
+            $data['image'] = 'uploadImages/blogs/'.$imageName1;
         }
         
         $this->blogRepository->create($data);
@@ -89,22 +89,23 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate(request(), [
-            'title' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
-            'slug' => 'nullable|slug|unique:master_posts',
-            'content' => 'required',
-            'date' => 'required',
-        ]);
-            
         $data = request()->all();
         $old_data = $this->blogRepository->findById($id);
+        
+        // $this->validate(request(), [
+        //     'title' => 'required',
+        //     'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+        //     'slug' => 'nullable|slug|unique:master_posts',
+        //     'content' => 'required',
+        //     'date' => 'required',
+        // ]);
+            
         
         if (request()->hasFile('image'))
         {
             $imageName = $data['image'];
             if (isset($old_data['image']) && !empty($old_data['image'])) {
-                $file_path = public_path('uploadImages').'/'.$old_data['image'];
+                $file_path = public_path().'/'.$old_data['image'];
                 if(File::exists($file_path)) 
                 {
                     unlink($file_path);
@@ -112,8 +113,8 @@ class BlogController extends Controller
             }
             
             $imageName1 = time().'.'.$imageName->extension();
-            $imageName->move(public_path('uploadImages'), $imageName1);
-            $data['image'] = $imageName1;
+            $imageName->move(public_path('uploadImages/blogs'), $imageName1);
+            $data['image'] = 'uploadImages/blogs/'.$imageName1;
         }
 
         $this->blogRepository->update($data, $id);

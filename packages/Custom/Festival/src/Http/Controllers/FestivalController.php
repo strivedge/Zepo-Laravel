@@ -181,7 +181,7 @@ class FestivalController extends Controller
         {
             $imageName = $request->image;
             if (isset($old_data['image']) && !empty($old_data['image'])) {
-                $file_path = public_path('uploadImages/festival').'/'.$old_data['image'];
+                $file_path = public_path().'/'.$old_data['image'];
                 if(File::exists($file_path)) 
                 {
                     unlink($file_path);

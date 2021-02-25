@@ -223,6 +223,39 @@ class ProductController extends Controller
     public function update(ProductForm $request, $id)
     {
         $data = request()->all();
+        $old_data = $this->productRepository->with(['variants', 'variants.inventories'])->findOrFail($id);
+
+        if (request()->hasFile('catalog'))
+        {
+            $docName = $data['catalog'];
+            if (isset($old_data['catalog']) && !empty($old_data['catalog'])) {
+               $file_path = public_path().'/'.$old_data['catalog'];
+                if(File::exists($file_path)) 
+                {
+                    unlink($file_path);
+                }
+            }
+            
+            $docName1 = time().'.'.$docName->extension();
+            $docName->move(public_path('uploadImages/products/catalog'), $docName1);
+            $data['catalog'] = 'uploadImages/products/catalog/'.$docName1;
+        }
+
+        if (request()->hasFile('datasheet'))
+        {
+            $docName = $data['datasheet'];
+            if (isset($old_data['datasheet']) && !empty($old_data['datasheet'])) {
+               $file_path = public_path().'/'.$old_data['datasheet'];
+                if(File::exists($file_path)) 
+                {
+                    unlink($file_path);
+                }
+            }
+            
+            $docName1 = time().'.'.$docName->extension();
+            $docName->move(public_path('uploadImages/products/datasheet'), $docName1);
+            $data['datasheet'] = 'uploadImages/products/datasheet/'.$docName1;
+        }
 
         $multiselectAttributeCodes = array();
 

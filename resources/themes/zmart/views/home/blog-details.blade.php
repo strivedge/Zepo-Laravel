@@ -13,7 +13,7 @@
             <div class="post-thumbnail-wrap">
             
                     <div class="post-thumbnail">
-                        <img src="{{ asset('uploadImages/'.$posts->image) }}" alt="{{ __('shop::app.home.blog-details') }}" onerror="this.src='{{ asset('vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png') }}'" >  
+                        <img src="{{ asset('/').$posts->image }}" alt="{{ __('shop::app.home.blog-details') }}" onerror="this.src='{{ asset('vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png') }}'" >  
                     </div><!-- .post-thumbnail -->
 
                     <div class="entry-meta">
