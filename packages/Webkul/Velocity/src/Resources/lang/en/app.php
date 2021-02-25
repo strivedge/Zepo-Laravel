@@ -239,6 +239,12 @@ return [
     'products'      => [
         'text'              => 'Products',
         'details'           => 'Details',
+        'catalog'           => 'Catalog',
+        'catalog-view'      => 'View',
+        'catalog-download'  => 'Download',
+        'datasheet-download'  => 'Download',
+        'datasheet'         => 'Datasheet',
+        'datasheet-view'         => 'View',
         'reviews-title'     => 'Reviews',
         'reviewed'          => 'Reviewed',
         'review-by'         => 'Review by',

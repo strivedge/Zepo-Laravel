@@ -11,11 +11,11 @@
         @foreach($offers as $offer)
                 
                         <li class="col-lg-4 col-xl-3 img">
-                            <img src="{{ asset('uploadImages/offer/'.$offer->image) }}" alt="{{ __('shop::app.home.active-offers') }}" height="100" width="100" onerror="this.src='{{ asset('vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png') }}'">
+                            <img src="{{ asset('/').$offer->image }}" alt="{{ __('shop::app.home.active-offers') }}" height="100" width="100" onerror="this.src='{{ asset('vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png') }}'">
                         </li>
                         <li class="col-lg-8 col-xl-9 content-offers">
                             <div class="content col-lg-12 col-xl-9">
-                                {{ $offer->desc }}
+                                {{ $offer->title }}
                                 <!-- for date formatting -->
                                 @php 
                                     $start_date = new DateTime($offer->start_date);

@@ -23,8 +23,8 @@ class TestinominalController extends Controller
      */
     public function index()
     {
-        $posts = $this->testinominalRepository->getAll();
-        return view($this->_config['view'], compact('posts'));
+        $testinominal = $this->testinominalRepository->getAll();
+        return view($this->_config['view'], compact('testinominal'));
     }
 
     /**
@@ -45,18 +45,19 @@ class TestinominalController extends Controller
     public function store(Request $request)
     {
         $data = request()->all();
-        $this->validate($request, [
-            'title' => 'required',
-            'image' => 'mimes:jpeg,jpg,png,gif|required|max:10000',
-            'date' => 'required',
-        ]);
+
+        // $this->validate($request, [
+        //     'title' => 'required',
+        //     'image' => 'mimes:jpeg,jpg,png,gif|required|max:10000',
+        //     'date' => 'required',
+        // ]);
 
         $imageName = $request->image;
         if($imageName != null)
         {
             $imageName1 = time().'.'.$imageName->extension();  
-            $imageName->move(public_path('uploadImages'), $imageName1);
-            $data['image'] = $imageName1;
+            $imageName->move(public_path('uploadImages/testinominal'), $imageName1);
+            $data['image'] = 'uploadImages/testinominal/'.$imageName1;
         }
         $this->testinominalRepository->create($data);
 
@@ -73,8 +74,8 @@ class TestinominalController extends Controller
      */
     public function edit($id)
     {
-        $posts = $this->testinominalRepository->findById($id);
-        return view($this->_config['view'], compact('posts'));
+        $testinominal = $this->testinominalRepository->findById($id);
+        return view($this->_config['view'], compact('testinominal'));
     }
 
     /**
@@ -85,20 +86,20 @@ class TestinominalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'title' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
-            'date' => 'required',
-        ]);
-
         $data = request()->all();
         $old_data = $this->testinominalRepository->findById($id);
         
+        // $this->validate($request, [
+        //     'title' => 'required',
+        //     'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+        //     'date' => 'required',
+        // ]);
+
         if (request()->hasFile('image'))
         {
             $imageName = $data['image'];
             if (isset($old_data['image']) && !empty($old_data['image'])) {
-                $file_path = public_path('uploadImages').'/'.$old_data['image'];
+                $file_path = public_path().'/'.$old_data['image'];
                 if(File::exists($file_path)) 
                 {
                     unlink($file_path);
@@ -106,8 +107,8 @@ class TestinominalController extends Controller
             }
             
             $imageName1 = time().'.'.$imageName->extension();
-            $imageName->move(public_path('uploadImages'), $imageName1);
-            $data['image'] = $imageName1;
+            $imageName->move(public_path('uploadImages/testinominal'), $imageName1);
+            $data['image'] = 'uploadImages/testinominal/'.$imageName1;
         }
 
         $this->testinominalRepository->update($data, $id);

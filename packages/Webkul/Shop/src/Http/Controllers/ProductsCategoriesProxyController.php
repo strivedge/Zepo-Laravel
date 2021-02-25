@@ -60,7 +60,7 @@ class ProductsCategoriesProxyController extends Controller
                 return view($this->_config['category_view'], compact('category'));
             }
 
-            if ($product = $this->productRepository->findBySlug($slugOrPath)) {
+            if ($product = $this->productRepository->findbySlugCustom($slugOrPath)) {
 
                 $customer = auth()->guard('customer')->user();
 

@@ -1,3 +1,4 @@
+<?php //echo "<pre>"; print_r($product); exit(); ?>
 @extends('shop::layouts.master')
 
 @inject ('reviewHelper', 'Webkul\Product\Helpers\Review')

@@ -133,6 +133,7 @@ class ProductRepository extends Repository
 
         $product = $this->find($id);
 
+
         $product = $product->getTypeInstance()->update($data, $id, $attribute);
 
         if (isset($data['channels'])) {
@@ -351,12 +352,32 @@ class ProductRepository extends Repository
      */
     public function findBySlug($slug)
     {
-        //print_r($slug);exit()
+        // print_r($slug);exit();
         return app(ProductFlatRepository::class)->findOneWhere([
             'url_key' => $slug,
             'locale'  => app()->getLocale(),
             'channel' => core()->getCurrentChannelCode(),
         ]);
+    }
+
+    // function for catalog and datasheet for product details
+    public function findbySlugCustom($slug)
+    {
+        $results = app(ProductFlatRepository::class)->scopeQuery(function ($query) use ($slug) {
+            $channel = request()->get('channel') ?: (core()->getCurrentChannelCode() ?: core()->getDefaultChannelCode());
+
+            $locale = request()->get('locale') ?: app()->getLocale();
+
+            return $query->distinct()
+                ->addSelect('product_flat.*')
+                ->addSelect('products.catalog', 'products.datasheet')
+                ->leftJoin('products', 'product_flat.product_id', '=', 'products.id')
+                ->where('url_key', $slug)
+                ->where('product_flat.channel', $channel)
+                ->where('product_flat.locale', $locale);
+        })->first();
+
+        return $results;
     }
 
     /**
