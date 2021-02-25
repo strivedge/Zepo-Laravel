@@ -48,21 +48,22 @@ class OfferController extends Controller
     public function store(Request $request)
     {
         $data = request()->all();
-        $this->validate($request, [
-            'title' => 'required',
-            'desc' => 'required',
-            'image' => 'mimes:jpeg,jpg,png,gif|required|max:10000',
-            'status' => 'required',
-            'start_date' => 'required',
-            'end_date' => 'required'
-        ]);
+
+        // $this->validate($request, [
+        //     'title' => 'required',
+        //     'desc' => 'required',
+        //     'image' => 'mimes:jpeg,jpg,png,gif|required|max:10000',
+        //     'status' => 'required',
+        //     'start_date' => 'required',
+        //     'end_date' => 'required'
+        // ]);
 
         $imageName = $request->image;
         if($imageName != null)
         {
             $imageName1 = time().'.'.$imageName->extension();  
             $imageName->move(public_path('uploadImages/offer'), $imageName1);
-            $data['image'] = $imageName1;
+            $data['image'] = 'uploadImages/offer/'.$imageName1;
         }
 
         $this->offerRepository->create($data);
@@ -100,23 +101,23 @@ class OfferController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'title' => 'required',
-            'desc' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
-            'status' => 'required',
-            'start_date' => 'required',
-            'end_date' => 'required',
-        ]);
-
         $data = request()->all();
         $old_data = $this->offerRepository->findById($id);
+
+        // $this->validate($request, [
+        //     'title' => 'required',
+        //     'desc' => 'required',
+        //     'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+        //     'status' => 'required',
+        //     'start_date' => 'required',
+        //     'end_date' => 'required',
+        // ]);
 
         if (request()->hasFile('image'))
         {
             $imageName = $data['image'];
             if (isset($old_data['image']) && !empty($old_data['image'])) {
-                $file_path = public_path('uploadImages/offer').'/'.$old_data['image'];
+                $file_path = public_path().'/'.$old_data['image'];
                 if(File::exists($file_path)) 
                 {
                     unlink($file_path);
@@ -125,7 +126,7 @@ class OfferController extends Controller
             
             $imageName1 = time().'.'.$imageName->extension();
             $imageName->move(public_path('uploadImages/offer'), $imageName1);
-            $data['image'] = $imageName1;
+            $data['image'] = 'uploadImages/offer/'.$imageName1;
         }
 
         $this->offerRepository->update($data, $id);

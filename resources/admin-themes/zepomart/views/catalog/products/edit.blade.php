@@ -174,7 +174,7 @@
                                             </span>
                                         </div>
                                     @endif
-                                    
+
                                     @if(auth()->guard('admin')->user()->role->id != 1)
                                         @if($attribute->code == "status")
                                         <div class="control-group {{ $attribute->type }}"
@@ -260,6 +260,26 @@
                                         </div>
                                         @endif
                                     @endif
+
+                                    @if($attribute->code == "brand") 
+                                    <div class="control-group" :class="[errors.has('catalog') ? 'has-error' : '']">
+                                        <label for="catalog" class="">{{ __('admin::app.catalog.products.catalog') }}
+                                        @if($product->catalog != "")
+                                            <i><a href="{{ asset('/').$product->catalog }}" target="_blank">{{ __('admin::app.catalog.products.click-here') }}</a></i> 
+                                        @endif</label>
+                                        <input type="file" class="control" name="catalog" v-validate="''">
+                                        <span class="control-error" v-if="errors.has('catalog')">@{{ errors.first('catalog') }}</span>
+                                    </div>
+
+                                    <div class="control-group" :class="[errors.has('datasheet') ? 'has-error' : '']">
+                                        <label for="datasheet" class="">{{ __('admin::app.catalog.products.datasheet') }}
+                                        @if($product->datasheet != "")
+                                            <i><a href="{{ asset('/').$product->datasheet }}" target="_blank">{{ __('admin::app.catalog.products.click-here') }}</a></i> 
+                                        @endif</label>
+                                        <input type="file" class="control" name="datasheet" v-validate="''">
+                                        <span class="control-error" v-if="errors.has('datasheet')">@{{ errors.first('datasheet') }}</span>
+                                    </div>
+                                @endif
 
                                 @endif
 

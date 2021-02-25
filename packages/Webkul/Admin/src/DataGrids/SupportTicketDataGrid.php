@@ -53,14 +53,14 @@ class SupportTicketDataGrid extends DataGrid
             'filterable' => true,
         ]);
 
-        // $this->addColumn([
-        //     'index'      => 'message',
-        //     'label'      => trans('zepo::app.support-ticket.message'),
-        //     'type'       => 'string',
-        //     'searchable' => true,
-        //     'sortable'   => true,
-        //     'filterable' => false,
-        // ]);
+        $this->addColumn([
+            'index'      => 'message',
+            'label'      => trans('zepo::app.support-ticket.message'),
+            'type'       => 'string',
+            'searchable' => true,
+            'sortable'   => true,
+            'filterable' => false,
+        ]);
 
         // $this->addColumn([
         //     'index'      => 'attachment',

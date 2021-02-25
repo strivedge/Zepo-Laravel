@@ -21,6 +21,9 @@ class CreateProductsTable extends Migration
             $table->integer('parent_id')->unsigned()->nullable();
             $table->integer('attribute_family_id')->unsigned()->nullable();
             $table->foreign('attribute_family_id')->references('id')->on('attribute_families')->onDelete('restrict');
+            
+            $table->string('catalog')->nullable()->default('NULL');
+            $table->string('datasheet')->nullable()->default('NULL');
             $table->integer('seller_id')->nullable();
         });
 

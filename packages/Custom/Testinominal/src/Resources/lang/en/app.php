@@ -10,7 +10,7 @@ return [
             'testi-title' => 'Title',
             'image' => 'Image',
             'upload-image' => 'Upload Image',
-            'desc' => 'Dscription',
+            'desc' => 'Description',
             'date' => 'Date',
             'action' => 'Actions',
             'save-btn-title' => 'Save Testinominal',

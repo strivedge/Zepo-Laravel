@@ -43,7 +43,7 @@
                 <div class="control-group" :class="[errors.has('image') ? 'has-error' : '']">
                     <label for="file-ip-1" class="required">{{ __('offer::app.offer.upload-image') }}</label>
                     <div class="preview">
-                        <img src="{{ asset('uploadImages/offer/'.$offers->image) }}" id="file-ip-1-preview" alt="{{ __('offer::app.offer.image') }}" height="70" width="110">
+                        <img src="{{ asset('/').$offers->image }}" id="file-ip-1-preview" alt="{{ __('offer::app.offer.image') }}" height="70" width="110">
                     </div>
                     <div>
                         <input type="file" name="image" id="file-ip-1" accept="image/*" onchange="showPreview(event);">
