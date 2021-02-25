@@ -19,10 +19,14 @@
                 event.preventDefault();
                 event.stopPropagation();
 
+                //console.log('quickViewDetails:',this.quickViewDetails)
+
                 this.$root.quickView = true;
                 this.$root.productDetails = this.quickViewDetails;
 
                 $('body').toggleClass('overflow-hidden');
+
+                console.log('test')
             },
         }
     }

@@ -57,6 +57,8 @@
                             <product-card :product="product"></product-card>
                         </slide>
                     </carousel-component>
+
+                
                 </template>
 
                 <span v-else-if="isProductListLoaded">{{ __('customer::app.wishlist.empty') }}</span>
@@ -101,7 +103,7 @@
                             this.isProductListLoaded = true;
                             this.products = response.data.products;
 
-                            console.log("products",this.products)
+                            //console.log("wish list products",this.products)
                         })
                         .catch(error => {
                             this.isProductListLoaded = true;
