@@ -64,9 +64,29 @@
                         title="{{ $product->name }}"
                         href="{{ route('shop.productOrCategory.index', $product->url_key) }}">
 
-                        <img
-                            src="{{ $productBaseImage['medium_image_url'] }}"
-                            :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
+                            @if(count($galleryImages) > 0)
+                                <div class="product-imgs">
+                                   @foreach($galleryImages as $image)
+
+                                    <a
+                                        href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
+                                        title="{{ $product->name }}"
+                                        class="product-image-container">
+                                        <img
+                                            loading="lazy"
+                                            class="card-img-top items"
+                                            alt="{{ $product->name }}"
+                                            src="{{ $image['medium_image_url'] }}"
+                                            :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
+                                        
+                                    </a>
+                                   @endforeach
+                                </div>
+                                @else
+                                     <img src="{{ $productBaseImage['medium_image_url'] }}" :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
+                                @endif
+
+                       
                         <div class="quick-view-in-list">
                             <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn>
                         </div>
@@ -134,7 +154,7 @@
                                             loading="lazy"
                                             class="card-img-top items"
                                             alt="{{ $product->name }}"
-                                            src="{{ $image['large_image_url'] }}"
+                                            src="{{ $image['medium_image_url'] }}"
                                             :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
                                         
                                     </a>

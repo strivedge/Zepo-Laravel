@@ -168,6 +168,8 @@
                         this.isLoading = false;
                         this.products = response.data.products.data;
                         this.paginationHTML = response.data.paginationHTML;
+
+                        console.log('products',this.products)
                     })
                     .catch(error => {
                         this.isLoading = false;

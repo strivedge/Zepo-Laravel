@@ -21,7 +21,23 @@
                             <li class="" :key="Math.random()"  v-for="(product, index) in recentlyViewed">
                                 <div class="content-wrap">
                                     <div class="product-code">@{{ product.sku }}</div>
-                                    <div class="img">
+
+                                        <div class="img" v-if="product.galleryImages.length > 0">
+                                            <div class="product-imgs" v-for="img in product.galleryImages" :key="img">
+                                                <a :href="`${baseUrl}/${product.slug}`" :title="product.name" class="product-image-container">
+                                                    <div class="discount badge badge-secondary"  v-if="product.special_price"><span class="save">SAVE</span><span class="percentage">@{{ product.percentage }}%</span></div>
+                                                    <img
+                                                        loading="lazy"
+                                                        :alt="product.name"
+                                                        :src="img || product.product_image"
+                                                        :data-src="product.image || product.product_image"
+                                                        class="card-img-top lzy_img"
+                                                        :onerror="`this.src='${baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`"  />
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    <div class="img" v-else>
                                         <a :href="`${baseUrl}/${product.urlKey}`" class="unset">
                                             
                                                 <div class="discount badge badge-secondary"  v-if="product.special_price"><span class="save">SAVE</span><span class="percentage">@{{ product.percentage }}%</span></div>
@@ -143,7 +159,10 @@
                             this.$http(`${this.baseUrl}/product-details/${slug}`)
                             .then(response => {
                                 if (response.data.status) {
+                                    console.log("product")
+                                    console.log(response.data)
                                     this.$set(this.recentlyViewed, response.data.details.urlKey, response.data.details);
+
                                 } else {
                                     delete this.recentlyViewed[response.data.slug];
                                     this.$set(this, 'recentlyViewed', this.recentlyViewed);

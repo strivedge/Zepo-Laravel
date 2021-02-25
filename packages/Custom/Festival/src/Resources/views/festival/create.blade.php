@@ -113,7 +113,7 @@
 
         <div class="control-group" v-for='(key) in linkedProducts'>
             <label for="up-selling" v-if="(key == 'up_sells')">
-                {{ __('admin::app.catalog.products.up-selling') }}
+                {{ __('festival::app.festival.festival_product') }}
             </label>
            
             <input type="text" class="control" autocomplete="off" v-model="search_term[key]" placeholder="{{ __('admin::app.catalog.products.product-search-hint') }}" v-on:keyup="search(key)">

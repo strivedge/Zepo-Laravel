@@ -28,7 +28,8 @@ return [
             'inactive' => 'Inactive',
             'edit-help-title' => 'Edit',
             'delete-help-title' => 'Delete',
-            'help-title' => 'Create'
+            'help-title' => 'Create',
+            'festival_product' => 'Products'
         ]
 
        
