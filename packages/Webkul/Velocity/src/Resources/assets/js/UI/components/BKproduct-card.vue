@@ -84,8 +84,6 @@
                             :data-src="product.image || product.product_image"
                             class="card-img-top lzy_img"
                             :onerror="`this.src='${baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`"  />
-
-
                         
                     </a>
                 </div>
@@ -103,8 +101,6 @@
                             class="card-img-top lzy_img"
                             :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`"  />
                             <!-- :src="`${$root.baseUrl}/vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png`" /> -->
-
-                             <product-quick-view-btn :quick-view-details="product"></product-quick-view-btn>
 
                     </a>
                 </div>
@@ -139,7 +135,6 @@
                 <div class="price" v-html="product.priceHTML"></div>
                 
                 <div class="cart-wish-wrap">
-                <product-quick-view-btn :quick-view-details="product"></product-quick-view-btn>
                     <vnode-injector :nodes="getDynamicHTML(product.addToCartHtml)"></vnode-injector>
                 </div>
             </div>

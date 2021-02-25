@@ -15,7 +15,7 @@
                                     v-for="(image, index) in product.galleryImages">
 
                                     <li class="selected" @click="showProductDetails = false">
-                                        <img :src="image.medium_image_url" :alt="product.name" />
+                                        <img :src="image.medium_image_url" :alt="product.name" :onerror="`this.src='${product.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`"/>
                                     </li>
                                 </slide>
                         </carousel-component>
@@ -41,7 +41,8 @@
                         <img :src="`${product.star_icon}`">
                     </div>
 
-                    <p class="pt14 description-text" v-html="product.shortDescription"> </p>
+                    <p class="pt14 description-text" v-if="product.shortDescription" v-html="product.shortDescription"> </p>
+                    <p class="pt14 description-text" v-else v-html="product.short_description"> </p>
 
                     <div class="product-actions">
                         <vnode-injector :nodes="getDynamicHTML(product.addToCartHtml)"></vnode-injector>
@@ -68,7 +69,7 @@
                                     v-for="(image, index) in product.galleryImages">
 
                                     <li class="selected">
-                                        <img :src="image.medium_image_url" :alt="product.name" />
+                                        <img :src="image.medium_image_url" :alt="product.name" :onerror="`this.src='${product.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`"/>
                                     </li>
                                 </slide>
                         </carousel-component>
@@ -88,6 +89,7 @@
 console.log("Product quick view")
     export default {
         data: function () {
+        console.log('productDetails:',this.$root.productDetails)
             return {
                 currentlyActiveImage: 0,
                 showProductDetails: true,

@@ -1,4 +1,4 @@
-<?php //print_r($product);exit; ?>
+<?php //echo "<pre>";print_r($product);exit; ?>
 {!! view_render_event('bagisto.shop.products.add_to_cart.before', ['product' => $product]) !!}
 
 
@@ -25,9 +25,9 @@
             ])
         @endif
         <div class="buttons">
-            <div class="quick-view-in-list quick-view btn btn-primary">
+            <!-- <div class="quick-view-in-list quick-view btn btn-primary">
                     <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn>
-            </div>
+            </div> -->
             <div class="add-to-cart-btn  add-to-cart btn btn-primary">
                 @if (isset($form) && !$form)
                     <button
