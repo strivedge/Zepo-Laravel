@@ -20,7 +20,6 @@
                         <ul class="row">
                             <li class="" :key="Math.random()"  v-for="(product, index) in recentlyViewed">
                                 <div class="content-wrap">
-                                    <div class="product-code">@{{ product.galleryImages.length }}</div>
                                     <div class="product-code">@{{ product.sku }}</div>
 
                                         <div class="img" v-if="product.galleryImages.length > 0">
