@@ -8,11 +8,11 @@
             <div class="account-head">
         
                 <h2 class="account-heading">
-                    Contact us
+                    {{ __('shop::app.contact-us.title') }}
                 </h2>
             </div>
             <ul>
-                <li class="email"><span class="material-icons"> email </span><a href="mailto:support@zepomart.com">support@zepomart.com</a></li> <li class="phone"><span class="material-icons"> phone </span><a href="tel:021 269 962">021 269 962 </a></li><li class="addresses"><span class="material-icons"> location_on </span>B-905, Test City Center, Near test Tower, Testlite, Ahmedabad -380111, Gujarat, India</li>
+                <li class="email"><span class="material-icons"> {{ __('shop::app.contact-us.email') }} </span><a href="mailto:{{ __('shop::app.contact-us.email-addr') }}">{{ __('shop::app.contact-us.email-addr') }}</a></li> <li class="phone"><span class="material-icons"> {{ __('shop::app.contact-us.phone') }} </span><a href="tel:{{ __('shop::app.contact-us.phone-num') }}">{{ __('shop::app.contact-us.phone-num') }} </a></li><li class="addresses"><span class="material-icons"> {{ __('shop::app.contact-us.location-on') }} </span>{{ __('shop::app.contact-us.address') }}</li>
             </ul>
         </div>
 
@@ -20,7 +20,7 @@
             <div class="account-head">
         
                 <h2 class="account-heading">
-                    Contact us
+                    {{ __('shop::app.contact-us.title') }}
                 </h2>
             </div>
 

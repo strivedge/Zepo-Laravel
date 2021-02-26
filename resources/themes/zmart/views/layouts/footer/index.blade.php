@@ -22,7 +22,7 @@
     </div>
     <div class="footer-bottom">
         <div class="container">
-            <p class="copyrights">Copyright © 2021 Zepomart. All Rights Reserved.</p>
+            <p class="copyrights">{{ __('shop::app.footer.copyrights') }}</p>
         </div>
     </div>
 </div>

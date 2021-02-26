@@ -22,5 +22,10 @@ return [
             'delete-help-title' => 'Delete',
             'mass-destroy-success' => 'Offers deleted successfully',
             'mass-update-success' => 'Offers updated successfully',
+            'from' => 'From',
+            'to' => 'to',
+            'view-all-offers' => 'View all Offers',
+            'active-offers' => 'Active Offers',
+            'no-offers' => 'No Offers...!',
         ]
 ];

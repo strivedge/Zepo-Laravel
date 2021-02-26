@@ -27,15 +27,36 @@ return [
         'verify-email' => 'Verify your email account',
         'resend-verify-email' => 'Resend Verification Email',
         'offer-products' => 'Offer Products',
-        'active-offers' => 'Active Offers',
-        'testi-title' => 'What Our Customers are Saying',
-        'blog-title' => 'Blogs',
-        'blog-detail' => 'Blog Detail',
+        'brand-no-products' => 'No products available',
+
+        'slider' => [
+            'shop-now' => 'Shop Now',
+            'previous' => 'Previous',
+            'next' => 'Next',
+        ],
+
+        'nav-tabs' => [
+            'covid19-products' => 'COVID19 PRODUCTS',
+            'most-popular' => 'MOST POPULAR',
+            'new-releases' => 'NEW RELEASES',
+            'bestsellers-accessories' => 'BESTSELLERS ACCESSORIES',
+        ],
+
+        'shipping-payment' => [
+            'free-shipping' => 'Free Shipping',
+            'best-price-guarantee' => 'Best Price Guarantee',
+            'easy-return' => 'Easy Return',
+            '100%-payment-secure' => '100% Payment Secure',
+        ]
     ],
 
     'header' => [
         'title' => 'Account',
         'dropdown-text' => 'Manage Cart, Orders & Wishlist',
+        'email' => 'email',
+        'email-address' => 'support@zepomart.com',
+        'phone' => 'phone',
+        'phone-num' => '021 269 962',
         'support-ticket' => 'Support Ticket',
         'sign-in' => 'Sign In',
         'sign-up' => 'Sign Up',
@@ -55,11 +76,67 @@ return [
         'zero' => '0'
     ],
 
+    'about-us' => [
+        'page-content' => 'About us page content',
+    ],
+
+    'brand' => [
+        'page-content' => 'Brand page content',
+    ],
+
+    'store-directory' => [
+        'page-content' => 'Store Directory page content',
+    ],
+
+    'contact-us' => [
+        'title' => 'Contact us',
+        'email' => 'email',
+        'email-addr' => 'support@zepomart.com',
+        'phone' => 'phone',
+        'phone-num' => '021 269 962',
+        'location-on' => 'location_on',
+        'address' => 'B-905, Test City Center, Near test Tower, Testlite, Ahmedabad -380111, Gujarat, India',
+    ],
+
+    'razorpay' => [
+        'success' => 'Success!',
+        'error' => 'Error!',
+        'pay-with-razorpay' => 'Pay With Razorpay',
+    ],
+
     'footer' => [
         'subscribe-newsletter' => 'Subscribe Newsletter',
         'subscribe' => 'Subscribe',
         'locale' => 'Locale',
         'currency' => 'Currency',
+        'copyrights' => 'Copyright © 2021 Zepomart. All Rights Reserved.',
+    ],
+
+    'footer-links' => [
+        'quick-links' => 'Quick Links',
+        'home' => 'Home',
+        'self-definition' => 'Self Definition',
+        'procedure' => 'Procedure',
+        'offline-stores' => 'Offline Stores',
+        'our-valued-customer' => 'Our Valued Customer',
+        'help' => 'Help',
+        'payments' => 'Payments',
+        'shipping' => 'Shipping',
+        'cancellation-returns' => 'Cancellation & Returns',
+        'faq' => 'FAQ',
+        'measurement-process' => 'Measurement Process',
+        'contact-us' => 'Contact Us',
+        'about-us' => 'About Us',
+        'contact' => 'Contact',
+        'work-with-us' => 'Work with Us',
+        'privacy-policy' => 'Privacy Policy',
+        'terms-conditions' => 'Terms & Conditions',
+    ],
+
+    'newsletter' => [
+        'newsletter' => 'Newsletter',
+        'content' => 'We love to craft softwares and solve the real world problems with the binaries. We are highly committed to our goals. We invest our resources to create world class easy to use softwares and applications for the enterprise business with the top notch, on the edge technology expertise.',
+        'near-me' => 'near_me',
     ],
 
     'subscription' => [
@@ -100,8 +177,10 @@ return [
     'support-ticket' => [
         'create' => 'Create Support Ticket',
         'name' => 'Name',
+        'full-name' => 'Full Name',
         'email' => 'Email',
         'message' => 'Message',
+        'message-placeholder' => 'Enter your message here...',
         'status' => 'Status',
         'attachment' => 'Attachment',
         'btn-send' => 'Send',
@@ -219,6 +298,7 @@ return [
                 'male' => 'Male',
                 'female' => 'Female',
                 'dob' => 'Date Of Birth',
+                'profile-photo' => 'Profile Photo',
                 'phone' => 'Phone',
                 'email' => 'Email',
                 'opassword' => 'Old Password',
@@ -459,6 +539,8 @@ return [
         'available-for-order' => 'Available for Order',
         'settings' => 'Settings',
         'compare_options' => 'Compare Options',
+        'including-tax' => 'Including tax',
+        'ratings' => 'Ratings',
     ],
 
     // 'reviews' => [

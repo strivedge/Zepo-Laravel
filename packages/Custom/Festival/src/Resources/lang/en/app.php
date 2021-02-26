@@ -29,7 +29,8 @@ return [
             'edit-help-title' => 'Edit',
             'delete-help-title' => 'Delete',
             'help-title' => 'Create',
-            'festival_product' => 'Products'
+            'festival_product' => 'Products',
+            'more-about-promotion' => 'More about promotion',
         ]
 
        

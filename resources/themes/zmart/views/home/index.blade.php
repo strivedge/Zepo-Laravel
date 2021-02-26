@@ -92,7 +92,7 @@
                   <p>{{ $textContent }}</p>
                   <div class="buttons">
                     <a @if($slider['slider_path']) href="{{ $slider['slider_path'] }}" @endif>
-                      <button type="button" class="btn btn-primary">Shop Now</button>
+                      <button type="button" class="btn btn-primary">{{ __('shop::app.home.slider.shop-now') }}</button>
                     </a>
                   </div>
                 </div>
@@ -109,11 +109,11 @@
         <!-- Left and right controls -->
         <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
           <span class="arrows"><img src="{{ asset('/themes/zmart/assets/images/bx-bx-right-arrow-alt.png') }}"></span>
-          <span class="sr-only">Previous</span>
+          <span class="sr-only">{{ __('shop::app.home.slider.previous') }}</span>
         </a>
         <a class="carousel-control-next" href="#myCarousel" data-slide="next">
           <span class="arrows"><img src="{{ asset('/themes/zmart/assets/images/bx-bx-left-arrow-alt.png') }}"></span>
-          <span class="sr-only">Next</span>
+          <span class="sr-only">{{ __('shop::app.home.slider.next') }}</span>
         </a>
       </div>
         <!-- @include('shop::home.slider') -->
@@ -128,10 +128,10 @@
         <div class="new-product">
           <div class="container">
             <ul class="nav nav-tabs">
-              <li class="active"><a data-toggle="tab" href="#covid">COVID19 PRODUCTS</a></li>
-              <li><a data-toggle="tab" href="#popular">MOST POPULAR</a></li>
-              <li><a data-toggle="tab" href="#new-releases">NEW RELEASES</a></li>
-              <li><a data-toggle="tab" href="#bestseller">BESTSELLERS ACCESSORIES</a></li>
+              <li class="active"><a data-toggle="tab" href="#covid">{{ __('shop::app.home.nav-tabs.covid19-products') }}</a></li>
+              <li><a data-toggle="tab" href="#popular">{{ __('shop::app.home.nav-tabs.most-popular') }}</a></li>
+              <li><a data-toggle="tab" href="#new-releases">{{ __('shop::app.home.nav-tabs.new-releases') }}</a></li>
+              <li><a data-toggle="tab" href="#bestseller">{{ __('shop::app.home.nav-tabs.bestsellers-accessories') }}</a></li>
             </ul>
                         
             <div class="tab-content">

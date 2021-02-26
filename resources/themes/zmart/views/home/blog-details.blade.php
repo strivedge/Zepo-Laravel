@@ -1,7 +1,7 @@
 @extends('shop::layouts.master')
 
 @section('page_title')
-    {{ __('shop::app.home.blog-detail') }}
+    {{ __('blog::app.blogs.blog-detail') }}
 @endsection
 
 @section('content-wrapper')
@@ -17,8 +17,8 @@
                     </div><!-- .post-thumbnail -->
 
                     <div class="entry-meta">
-                        <span class="posted-on">Posted on <time class="updated">{{ $posts->updated_at }}</time></span>
-                        <span class="byline"> by <span class="author vcard"><a class="url fn n" href="#">admin</a></span></span>
+                        <span class="posted-on">{{ __('blog::app.blogs.posted-on') }} <time class="updated">{{ $posts->updated_at }}</time></span>
+                        <span class="byline"> {{ __('blog::app.blogs.by') }} <span class="author vcard"><a class="url fn n" href="#">{{ __('blog::app.blogs.admin') }}</a></span></span>
                     </div>
                     <!-- .entry-meta -->
             </div>  

@@ -27,7 +27,7 @@
             <h2>{{ __('shop::app.products.whoops') }}</h2>
 
             <p>
-                No products available
+                {{ __('shop::app.home.brand-no-products') }}
             </p>
         </div>
     @endif
