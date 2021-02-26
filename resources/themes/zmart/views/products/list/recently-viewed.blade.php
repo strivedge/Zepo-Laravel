@@ -29,7 +29,7 @@
                                                     <img
                                                         loading="lazy"
                                                         :alt="product.name"
-                                                        :src="img || product.product_image"
+                                                        :src="img.medium_image_url || product.product_image"
                                                         :data-src="product.image || product.product_image"
                                                         class="card-img-top lzy_img"
                                                         :onerror="`this.src='${baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`"  />
@@ -159,7 +159,7 @@
                             this.$http(`${this.baseUrl}/product-details/${slug}`)
                             .then(response => {
                                 if (response.data.status) {
-                                    console.log("product")
+                                    console.log("Recently product")
                                     console.log(response.data)
                                     this.$set(this.recentlyViewed, response.data.details.urlKey, response.data.details);
 
