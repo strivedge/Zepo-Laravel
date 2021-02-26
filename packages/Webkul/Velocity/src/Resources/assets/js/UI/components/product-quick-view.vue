@@ -86,10 +86,10 @@
 </template>
 
 <script type="text/javascript">
-console.log("Product quick view")
+//console.log("Product quick view")
     export default {
         data: function () {
-        console.log('productDetails:',this.$root.productDetails)
+        //console.log('productDetails:',this.$root.productDetails)
             return {
                 currentlyActiveImage: 0,
                 showProductDetails: true,

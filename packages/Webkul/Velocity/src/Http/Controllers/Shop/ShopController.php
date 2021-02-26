@@ -32,7 +32,7 @@ class ShopController extends Controller
 
             $galleryImages = $this->productImageHelper->getGalleryImages($product);
 
-            /*$response = [
+            $response = [
                 'status'  => true,
                 'details' => [
                     'product_id'   => $product->product_id,
@@ -48,26 +48,7 @@ class ShopController extends Controller
                     'galleryImages'=> $galleryImages,
                     'baseUrl'      => url('/'),
                     'csrf_token'   => csrf_token(),
-                    'product'      => json_encode($product)
-                ]
-            ];*/
-            $response = [
-                'status'  => true,
-                'details' => [
-                    'product_id'   => $product->product_id,
-                    'name'         => $product->name,
-                    'sku'          => $product->sku,
-                    'urlKey'       => $product->url_key,
-                    'special_price'=> $product->getTypeInstance()->haveSpecialPrice(),
-                    'percentage'   => $product->getTypeInstance()->getOfferPercentage(),
-                    'priceHTML'    => $product->getTypeInstance()->getOfferPriceHtml(),
-                    'totalReviews' => $productReviewHelper->getTotalReviews($product),
-                    'rating'       => ceil($productReviewHelper->getAverageRating($product)),
-                    'image'        => $galleryImages['small_image_url'],
-                    'galleryImages'=> $galleryImages,
-                    'baseUrl'      => url('/'),
-                    'csrf_token'   => csrf_token(),
-                    //'product'      => json_encode($product),
+                    'product'      => json_encode($product),
                     'defaultAddToCart'  => view('shop::products.add-buttons', ['product' => $product])->render(),
                     'addToCartHtml'     => view('shop::products.newproduct.new-product-add-to-cart', [
                         'product'           => $product,
@@ -86,6 +67,41 @@ class ShopController extends Controller
                     ])->render()
                 ]
             ];
+            /*$response = [
+                'status'  => true,
+                'details' => [
+                    'product_id'   => $product->product_id,
+                    'name'         => $product->name,
+                    'sku'          => $product->sku,
+                    'urlKey'       => $product->url_key,
+                    'special_price'=> $product->getTypeInstance()->haveSpecialPrice(),
+                    'percentage'   => $product->getTypeInstance()->getOfferPercentage(),
+                    'priceHTML'    => $product->getTypeInstance()->getOfferPriceHtml(),
+                    'totalReviews' => $productReviewHelper->getTotalReviews($product),
+                    'rating'       => ceil($productReviewHelper->getAverageRating($product)),
+                    'image'        => $galleryImages['small_image_url'],
+                    'galleryImages'=> $galleryImages,
+                    'baseUrl'      => url('/'),
+                    'csrf_token'   => csrf_token(),
+                    'product'      => json_encode($product),
+                    'defaultAddToCart'  => view('shop::products.add-buttons', ['product' => $product])->render(),
+                    'addToCartHtml'     => view('shop::products.newproduct.new-product-add-to-cart', [
+                        'product'           => $product,
+                        'addWishlistClass'  => ! (isset($list) && $list) ? '' : 'pl10',
+
+                        'showCompare'       => core()->getConfigData('general.content.shop.compare_option') == "1"
+                                               ? true : false,
+
+                        'btnText'           => (isset($metaInformation['btnText']) && $metaInformation['btnText'])
+                                               ? $metaInformation['btnText'] : 'Quick view',
+
+                        'moveToCart'        => (isset($metaInformation['moveToCart']) && $metaInformation['moveToCart'])
+                                               ? $metaInformation['moveToCart'] : 'Add to card',
+
+                        'addToCartBtnClass' => ! (isset($list) && $list) ? 'small-padding' : '',
+                    ])->render()
+                ]
+            ];*/
         } else {
             $response = [
                 'status' => false,

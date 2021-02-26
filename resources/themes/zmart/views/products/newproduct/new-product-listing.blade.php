@@ -35,6 +35,7 @@
     $product->__set('shortDescription', $product->short_description);
     $product->__set('firstReviewText', trans('velocity::app.products.be-first-review'));
     $product->__set('star_icon',asset('/themes/zmart/assets/images/star-gray.png'));
+    $product->__set('baseUrl',url('/'));
     $product->__set('addToCartHtml', view('shop::products.quick-view-add-to-cart', [
         'product'           => $product,
         'addWishlistClass'  => ! (isset($list) && $list) ? '' : '',
