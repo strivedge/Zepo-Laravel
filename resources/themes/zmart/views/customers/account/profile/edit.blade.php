@@ -131,7 +131,7 @@
 
                 <div class="row">
                     <label class="col-12 mandatory">
-                        Profile Photo
+                        {{ __('shop::app.customer.account.profile.profile-photo') }}
                     </label>
 
                     <div class="col-md-6">

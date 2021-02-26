@@ -5,7 +5,7 @@
 @endphp
 
     <div class="container">
-        <div class="section-title"><h2>{{ __('shop::app.home.testi-title') }}</h2></div>
+        <div class="section-title"><h2>{{__('testinominal::app.testinominal.home-title') }}</h2></div>
         <div class="our-customer-content">
             @if(isset($testinominals) && count($testinominals) > 0)
                 @foreach($testinominals as $testinominal)
@@ -26,7 +26,7 @@
                 @else
                 <div class="items">
                     <div class="container">
-                        <p>No Testinominals...!</p>
+                        <p>{{__('testinominal::app.testinominal.no-testinominals') }}</p>
                     </div>
                 </div>
             @endif

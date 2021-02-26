@@ -16,5 +16,7 @@ return [
             'save-btn-title' => 'Save Testinominal',
             'delete-help-title' => 'Delete',
             'mass-destroy-success' => 'Testinominals deleted successfully',
+            'home-title' => 'What Our Customers are Saying',
+            'no-testinominals' => 'No Testinominals...!',
         ]
 ];

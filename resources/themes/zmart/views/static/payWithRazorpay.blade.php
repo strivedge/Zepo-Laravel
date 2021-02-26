@@ -9,7 +9,7 @@
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
-                    <strong>Error!</strong> {{ $message }}
+                    <strong>{{ __('shop::app.razorpay.error') }}</strong> {{ $message }}
                 </div>
             @endif
             {!! Session::forget('error') !!}
@@ -18,12 +18,12 @@
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
-                    <strong>Success!</strong> {{ $message }}
+                    <strong>{{ __('shop::app.razorpay.success') }}</strong> {{ $message }}
                 </div>
             @endif
             {!! Session::forget('success') !!}
             <div class="panel panel-default">
-                <div class="panel-heading">Pay With Razorpay</div>
+                <div class="panel-heading">{{ __('shop::app.razorpay.pay-with-razorpay') }}</div>
 
                 <div class="panel-body text-center">
                    

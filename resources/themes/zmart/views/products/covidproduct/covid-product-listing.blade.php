@@ -85,7 +85,7 @@
                     @if( $totalReviews )
                         <div class="product-rating">
                             <star-ratings ratings="{{ $avgRatings }}"></star-ratings>
-                            <span>{{ $totalReviews }} Ratings</span>
+                            <span>{{ $totalReviews }} {{ __('shop::app.products.ratings') }}</span>
                         </div>
                     @endif
 
@@ -155,7 +155,7 @@
 
                     <div class="price">
                         @include ('shop::products.newproduct.price', ['product' => $product])
-                        <span class="including-tax">(Including tax)</span>
+                        <span class="including-tax">({{ __('shop::app.products.including-tax') }})</span>
                     </div>
                 </div>
                    

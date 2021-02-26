@@ -2,7 +2,7 @@
 
 @section('content-wrapper')
     <div class="account-content row no-margin velocity-divide-page">
-        Brand page content
+        {{ __('shop::app.brand.page-content') }}
         
     </div>
 @endsection
