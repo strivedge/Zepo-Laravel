@@ -20,6 +20,7 @@
                         <ul class="row">
                             <li class="" :key="Math.random()"  v-for="(product, index) in recentlyViewed">
                                 <div class="content-wrap">
+                                    <div class="product-code">@{{ product.galleryImages.length }}</div>
                                     <div class="product-code">@{{ product.sku }}</div>
 
                                         <div class="img" v-if="product.galleryImages.length > 0">
@@ -159,7 +160,7 @@
                             this.$http(`${this.baseUrl}/product-details/${slug}`)
                             .then(response => {
                                 if (response.data.status) {
-                                    console.log("product")
+                                    console.log("Recently product")
                                     console.log(response.data)
                                     this.$set(this.recentlyViewed, response.data.details.urlKey, response.data.details);
 

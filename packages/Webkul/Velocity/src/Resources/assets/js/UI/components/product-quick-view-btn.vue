@@ -26,7 +26,6 @@
 
                 $('body').toggleClass('overflow-hidden');
 
-                console.log('test')
             },
         }
     }
