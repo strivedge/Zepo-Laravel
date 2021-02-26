@@ -29,7 +29,7 @@
                                                     <img
                                                         loading="lazy"
                                                         :alt="product.name"
-                                                        :src="img || product.product_image"
+                                                        :src="img.medium_image_url || product.product_image"
                                                         :data-src="product.image || product.product_image"
                                                         class="card-img-top lzy_img"
                                                         :onerror="`this.src='${baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`"  />
