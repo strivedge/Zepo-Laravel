@@ -16,7 +16,7 @@ class OrderTransaction extends Migration
         Schema::create('order_transaction', function (Blueprint $table) {
            $table->increments('id');
             $table->integer('order_id')->nullable();
-            $table->integer('card_id')->nullable();
+            $table->integer('cart_id')->nullable();
             $table->integer('payment_id')->nullable();
             $table->integer('transaction_payment_id')->nullable();
 
