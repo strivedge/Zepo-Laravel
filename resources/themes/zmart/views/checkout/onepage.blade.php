@@ -152,7 +152,7 @@
     
 
     $( document ).ready(function() {
-        
+
         $(document).on("click", "#checkout-place-order-button" , function() {
             console.log("on click event")
             placeOrder();
@@ -623,7 +623,6 @@
                        }, 
                        success: function (res) {
                         console.log(res)
-                        this.$root.hideLoader();
                             if (res.success) {
                                 console.log("SITEURL:"+SITEURL)
                                 window.location.href = SITEURL + '/checkout/success';
