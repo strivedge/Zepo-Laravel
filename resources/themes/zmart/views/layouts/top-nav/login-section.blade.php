@@ -16,7 +16,7 @@
                                                 type="button"
                                                 class="">
 
-                                                {{ __('shop::app.header.support-ticket') }}
+                                                {{__('zepo::app.support-ticket.title') }}
                                     </button>
                                 </a>    
                             </span>
@@ -34,7 +34,7 @@
                                                 type="button"
                                                 class="">
 
-                                                {{ __('shop::app.header.support-ticket') }}
+                                                {{__('zepo::app.support-ticket.title') }}
                                             </button>
                                         </a>
                                 

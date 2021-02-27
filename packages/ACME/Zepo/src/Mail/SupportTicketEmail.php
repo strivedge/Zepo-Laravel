@@ -36,7 +36,7 @@ class SupportTicketEmail extends Mailable
     {
         return $this->from($this->data['email'], $this->data['name'])
             ->to(core()->getAdminEmailDetails()['email'], core()->getAdminEmailDetails()['name'])
-            ->subject(trans('shop::app.support-ticket.subject'))
+            ->subject(trans('zepo::app.support-ticket.subject'))
             ->view('shop::emails.customer.support-ticket')->with('data', $this->data);
     }
 }

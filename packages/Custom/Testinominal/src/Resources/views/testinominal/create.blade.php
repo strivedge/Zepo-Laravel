@@ -28,7 +28,7 @@
                 @csrf()
                 <div class="control-group" :class="[errors.has('title') ? 'has-error' : '']">
                     <label for="title" class="required">{{ __('testinominal::app.testinominal.testi-title') }}</label>
-                    <input type="text" class="control" name="title" placeholder="Enter Testinominal title here" v-validate="'required'">
+                    <input type="text" class="control" name="title" placeholder="{{ __('testinominal::app.testinominal.title-placeholder') }}" v-validate="'required'">
                     <span class="control-error" v-if="errors.has('title')">@{{ errors.first('title') }}</span>
                 </div>
                 
@@ -43,7 +43,7 @@
 
                 <div class="control-group" :class="[errors.has('desc') ? 'has-error' : '']">
                     <label for="desc" class="required">{{ __('testinominal::app.testinominal.desc') }}</label>
-                    <textarea type="text" class="control" name="desc" placeholder="Enter desc here" v-validate="'required'"></textarea>
+                    <textarea type="text" class="control" name="desc" placeholder="{{ __('testinominal::app.testinominal.desc-placeholder') }}" v-validate="'required'"></textarea>
                     <span class="control-error" v-if="errors.has('desc')">@{{ errors.first('desc') }}</span>
                 </div>
 

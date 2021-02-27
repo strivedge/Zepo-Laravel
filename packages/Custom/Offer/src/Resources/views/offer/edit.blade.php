@@ -30,7 +30,7 @@
                 @csrf()
                 <div class="control-group" :class="[errors.has('title') ? 'has-error' : '']">
                     <label for="title" class="required">{{ __('offer::app.offer.offer-title') }}</label>
-                    <input type="text" class="control" name="title" value="{{$offers->title}}" v-validate="'required'">
+                    <input type="text" class="control" name="title" value="{{$offers->title}}" v-validate="'required'" data-vv-as="&quot;{{__('offer::app.offer.offer-status') }}&quot;">
                     <span class="control-error" v-if="errors.has('title')">@{{ errors.first('title') }}</span>
                 </div>
 

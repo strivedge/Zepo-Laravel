@@ -60,8 +60,8 @@
                 <div class="control-group" :class="[errors.has('status') ? 'has-error' : '']">
                     <label for="status" class="required">{{ __('festival::app.festival.status') }}</label>
                     <select name="status" class="control" v-validate="'required'">
-                        <option value="1" {{$festival['status'] == '1' ? 'selected' : ''}}>Active</option>
-                        <option value="0" {{$festival['status'] == '0' ? 'selected' : ''}}>Inactive</option>
+                        <option value="1" {{$festival['status'] == '1' ? 'selected' : ''}}>{{ __('festival::app.festival.active') }}</option>
+                        <option value="0" {{$festival['status'] == '0' ? 'selected' : ''}}>{{ __('festival::app.festival.inactive') }}</option>
                     </select>
                     <span class="control-error" v-if="errors.has('status')">@{{ errors.first('status') }}</span>
                 </div>
