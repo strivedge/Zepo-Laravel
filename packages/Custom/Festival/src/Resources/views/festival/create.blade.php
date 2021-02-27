@@ -28,19 +28,19 @@
                 @csrf()
                 <div class="control-group" :class="[errors.has('title') ? 'has-error' : '']">
                     <label for="title" class="required">{{ __('festival::app.festival.festival-title') }}</label>
-                    <input type="text" class="control" name="title" placeholder="Enter festival title here" v-validate="'required'">
+                    <input type="text" class="control" name="title" placeholder="{{ __('festival::app.festival.title-placeholder') }}" v-validate="'required'">
                     <span class="control-error" v-if="errors.has('title')">@{{ errors.first('title') }}</span>
                 </div>
                 
                 <div class="control-group" :class="[errors.has('short_desc') ? 'has-error' : '']">
                     <label for="short_desc" class="required">{{ __('festival::app.festival.short_desc') }}</label>
-                    <textarea type="text" class="control" name="short_desc" placeholder="Enter short description here" v-validate="'required'"></textarea>
+                    <textarea type="text" class="control" name="short_desc" placeholder="{{ __('festival::app.festival.sort-d-placeholder') }}" v-validate="'required'"></textarea>
                     <span class="control-error" v-if="errors.has('short_desc')">@{{ errors.first('short_desc') }}</span>
                 </div>
 
                 <div class="control-group" :class="[errors.has('long_desc') ? 'has-error' : '']">
                     <label for="long_desc" class="required">{{ __('festival::app.festival.long_desc') }}</label>
-                    <textarea type="text" class="control" name="long_desc" placeholder="Enter long description here" v-validate="'required'"></textarea>
+                    <textarea type="text" class="control" name="long_desc" placeholder="{{ __('festival::app.festival.long-d-placeholder') }}" v-validate="'required'"></textarea>
                     <span class="control-error" v-if="errors.has('long_desc')">@{{ errors.first('long_desc') }}</span>
                 </div>
 
@@ -54,10 +54,10 @@
                 </div>
 
                 <div class="control-group" :class="[errors.has('status') ? 'has-error' : '']">
-                    <label for="status" class="required">{{ __('festival::app.festival.festival-status') }}</label>
+                    <label for="status" class="required">{{ __('festival::app.festival.status') }}</label>
                     <select name="status" class="control" v-validate="'required'">
-                        <option value="1">Active</option>
-                        <option value="0">Inactive</option>
+                        <option value="1">{{ __('festival::app.festival.active') }}</option>
+                        <option value="0">{{ __('festival::app.festival.inactive') }}</option>
                     </select>
                     <span class="control-error" v-if="errors.has('status')">@{{ errors.first('status') }}</span>
                 </div>

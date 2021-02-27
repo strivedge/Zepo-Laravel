@@ -5,12 +5,10 @@ namespace ACME\Zepo\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Mail;
-// use Illuminate\Support\Facades\Validator;
 use ACME\Zepo\Mail\SupportTicketEmail;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use ACME\Zepo\Repositories\SupportTicketRepository;
-// use Validator;
 use File;
 
 class SupportTicketController extends Controller
@@ -59,7 +57,6 @@ class SupportTicketController extends Controller
             'email'    => 'required',
             'attachment'    => 'nullable|mimes:jpeg,jpg,bmp,png',
         ]);
-        // echo "<pre>"; print_r($val); exit();
             
         $imageName = $request->attachment;
         if($imageName != null)
@@ -91,7 +88,7 @@ class SupportTicketController extends Controller
             }
         }
 
-        Session()->flash('success', trans('shop::app.support-ticket.success-message'));
+        Session()->flash('success', trans('zepo::app.support-ticket.success-message'));
 
         return redirect()->route($this->_config['redirect']);
     }

@@ -3,11 +3,15 @@
 namespace Custom\Offer\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Custom\Offer\Models\Offer;
 use Custom\Offer\Repositories\OfferRepository;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 use File;
 
 class OfferController extends Controller
 {
+    use ValidatesRequests;
     protected $_config;
     private $offerRepository;
 
@@ -49,14 +53,16 @@ class OfferController extends Controller
     {
         $data = request()->all();
 
-        // $this->validate($request, [
-        //     'title' => 'required',
-        //     'desc' => 'required',
-        //     'image' => 'mimes:jpeg,jpg,png,gif|required|max:10000',
-        //     'status' => 'required',
-        //     'start_date' => 'required',
-        //     'end_date' => 'required'
-        // ]);
+        $this->validate(request(), [
+            'title' => 'required',
+            'desc' => 'required',
+            'image' => 'required|mimes:jpeg,jpg,bmp,png,svg',
+            'status' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+        ]);
+
+        // echo "<pre>"; print_r($val); exit();
 
         $imageName = $request->image;
         if($imageName != null)
@@ -107,7 +113,7 @@ class OfferController extends Controller
         // $this->validate($request, [
         //     'title' => 'required',
         //     'desc' => 'required',
-        //     'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+        //     'image' => 'nullable|mimes:jpeg,png,jpg,gif,svg',
         //     'status' => 'required',
         //     'start_date' => 'required',
         //     'end_date' => 'required',

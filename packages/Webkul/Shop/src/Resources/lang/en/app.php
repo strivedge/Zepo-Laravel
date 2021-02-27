@@ -57,7 +57,6 @@ return [
         'email-address' => 'support@zepomart.com',
         'phone' => 'phone',
         'phone-num' => '021 269 962',
-        'support-ticket' => 'Support Ticket',
         'sign-in' => 'Sign In',
         'sign-up' => 'Sign Up',
         'account' => 'Account',
@@ -172,21 +171,6 @@ return [
         'percentage' => ':percentage %',
         'id-star' => 'star',
         'name' => 'Name',
-    ],
-
-    'support-ticket' => [
-        'create' => 'Create Support Ticket',
-        'name' => 'Name',
-        'full-name' => 'Full Name',
-        'email' => 'Email',
-        'message' => 'Message',
-        'message-placeholder' => 'Enter your message here...',
-        'status' => 'Status',
-        'attachment' => 'Attachment',
-        'btn-send' => 'Send',
-        'subject' => 'Support Ticket Created',
-        'response-message' => 'Your response recorded you ticket no #0',
-        'success-message' => "Your ticket created, We'll get in touch very soon."
     ],
 
     'customer' => [

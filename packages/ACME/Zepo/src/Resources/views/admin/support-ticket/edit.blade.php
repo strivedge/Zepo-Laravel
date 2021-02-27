@@ -30,19 +30,19 @@
                 @csrf()
                 <div class="control-group" :class="[errors.has('name') ? 'has-error' : '']">
                     <label for="name" class="required">{{ __('zepo::app.support-ticket.name') }}</label>
-                    <input type="text" class="control" name="name" value="{{ $supportTicket->name }}" v-validate="'required'">
+                    <input type="text" class="control" name="name" value="{{ $supportTicket->name }}" v-validate="'required'" data-vv-as="&quot;{{__('zepo::app.support-ticket.name') }}&quot;">
                     <span class="control-error" v-if="errors.has('name')">@{{ errors.first('name') }}</span>
                 </div>
 
                 <div class="control-group" :class="[errors.has('email') ? 'has-error' : '']">
                     <label for="email" class="required">{{ __('zepo::app.support-ticket.email') }}</label>
-                    <input type="email" class="control" name="email" value="{{ $supportTicket->email }}" v-validate="'required'">
+                    <input type="email" class="control" name="email" value="{{ $supportTicket->email }}" v-validate="'required'" data-vv-as="&quot;{{__('zepo::app.support-ticket.email') }}&quot;">
                     <span class="control-error" v-if="errors.has('email')">@{{ errors.first('email') }}</span>
                 </div>
 
                 <div class="control-group" :class="[errors.has('message') ? 'has-error' : '']">
                     <label for="message" class="required">{{ __('zepo::app.support-ticket.message') }}</label>
-                    <textarea type="text" class="control" name="message" v-validate="'required'">{{ $supportTicket->message }}</textarea>
+                    <textarea type="text" class="control" name="message" v-validate="'required'" data-vv-as="&quot;{{__('zepo::app.support-ticket.message') }}&quot;">{{ $supportTicket->message }}</textarea>
                     <span class="control-error" v-if="errors.has('message')">@{{ errors.first('message') }}</span>
                 </div>
                 
@@ -61,7 +61,7 @@
 
                 <div class="control-group" :class="[errors.has('status') ? 'has-error' : '']">
                     <label for="status" class="required">{{ __('zepo::app.support-ticket.status') }}</label>
-                    <select name="status" class="control" v-validate="'required'">
+                    <select name="status" class="control" v-validate="'required'" data-vv-as="&quot;{{__('zepo::app.support-ticket.status') }}&quot;">
                         <option value="0" {{$supportTicket->status == '0' ? 'selected' : ''}}>{{ __('zepo::app.support-ticket.pending') }}</option>
                         <option value="1" {{$supportTicket->status == '1' ? 'selected' : ''}}>{{ __('zepo::app.support-ticket.process') }}</option>
                         <option value="2" {{$supportTicket->status == '2' ? 'selected' : ''}}>{{ __('zepo::app.support-ticket.completed') }}</option>

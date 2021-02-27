@@ -2,7 +2,7 @@
 
 return [
         'support-ticket' => [
-            'title' => 'Support Tickets',
+            'title' => 'Support Ticket',
             'edit-title' => 'Edit Support Ticket',
             'name' => 'Name',
             'email' => 'Email',
@@ -18,5 +18,12 @@ return [
             'edit-help-title' => 'Edit',
             'delete-help-title' => 'Delete',
             'mass-destroy-success' => 'Support Tickets deleted successfully',
+            'create' => 'Create Support Ticket',
+            'full-name' => 'Full Name',
+            'message-placeholder' => 'Enter your message here...',
+            'btn-send' => 'Send',
+            'subject' => 'Support Ticket Created',
+            'response-message' => 'Your response recorded you ticket no #0',
+            'success-message' => "Your ticket created, We'll get in touch very soon."
         ],
 ];
