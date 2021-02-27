@@ -261,11 +261,42 @@
                                         @endif
                                     @endif
 
-                                    @if($attribute->code == "brand") 
+                                    @if($attribute->code == "brand")
+                                @if($product->catalog != "")
+                                    @if($product->datasheet != "")
+                                        @php
+                                            $file1 = $product->catalog;
+                                            $file2 = $product->datasheet;
+                                            $ext1 = pathinfo($file1);
+                                            $ext2 = pathinfo($file2);
+                                            $icons1 = $ext1['extension'];
+                                            $icons2 = $ext2['extension'];
+
+                                            if($icons1 == 'doc' || $icons1 == 'docx'){
+                                                $icons1 = 'word-icon.png';
+                                            }
+                                            if($icons2 == 'doc' || $icons2 == 'docx'){
+                                                $icons2 = 'word-icon.png';
+                                            }
+                                            if($icons1 == 'pdf'){
+                                                $icons1 = 'pdf-icon.png';
+                                            }
+                                            if($icons2 == 'pdf'){
+                                                $icons2 = 'pdf-icon.png';
+                                            }
+                                            if($icons1 == 'xls' || $icons1 == 'xlsx'){
+                                                $icons1 = 'excel-icon.png';
+                                            }
+                                            if($icons2 == 'xls' || $icons2 == 'xlsx'){
+                                                $icons2 = 'excel-icon.png';
+                                            }
+                                        @endphp
+                                    @endif
+                                @endif
                                     <div class="control-group" :class="[errors.has('catalog') ? 'has-error' : '']">
                                         <label for="catalog" class="">{{ __('admin::app.catalog.products.catalog') }}
                                         @if($product->catalog != "")
-                                            <i><a href="{{ asset('/').$product->catalog }}" target="_blank">{{ __('admin::app.catalog.products.click-here') }}</a></i> 
+                                            <a href="{{ asset('/').$product->catalog }}" download="{{ __('velocity::app.products.catalog').'_'.$product->url_key }}"><img src="{{ asset('themes/default/assets/images/product/icons/'.$icons1) }}" alt="{{ __('velocity::app.products.catalog-download') }}"></a> 
                                         @endif</label>
                                         <input type="file" class="control" name="catalog" v-validate="''">
                                         <span class="control-error" v-if="errors.has('catalog')">@{{ errors.first('catalog') }}</span>
@@ -274,7 +305,7 @@
                                     <div class="control-group" :class="[errors.has('datasheet') ? 'has-error' : '']">
                                         <label for="datasheet" class="">{{ __('admin::app.catalog.products.datasheet') }}
                                         @if($product->datasheet != "")
-                                            <i><a href="{{ asset('/').$product->datasheet }}" target="_blank">{{ __('admin::app.catalog.products.click-here') }}</a></i> 
+                                            <a href="{{ asset('/').$product->datasheet }}" download="{{ __('velocity::app.products.datasheet').'_'.$product->url_key }}"><img src="{{ asset('themes/default/assets/images/product/icons/'.$icons2) }}" alt="{{ __('velocity::app.products.datasheet-download') }}"></a> 
                                         @endif</label>
                                         <input type="file" class="control" name="datasheet" v-validate="''">
                                         <span class="control-error" v-if="errors.has('datasheet')">@{{ errors.first('datasheet') }}</span>

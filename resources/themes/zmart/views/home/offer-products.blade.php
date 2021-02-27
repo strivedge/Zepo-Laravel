@@ -10,7 +10,7 @@
                                     <p>{{ $festival[0]->title }}<br/>
                                        {{ $festival[0]->short_desc }}<br/>
                                        {{ $festival[0]->long_desc }}<br/>
-                                       <a href="#" class="promotion btn btn-primary">More about promotion</a></p>
+                                       <a href="#" class="promotion btn btn-primary">{{ __('festival::app.festival.more-about-promotion') }}</a></p>
                                     <div class="imgs"><img src="{{ asset('themes/zmart/assets/images/sales-timing.png') }}"></div>
                                     <a href="#" class="active-promotion btn btn-primary">
                                         Active promotions<span><i class="bx bx-right-arrow-alt"></i></span>

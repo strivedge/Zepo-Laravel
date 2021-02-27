@@ -1,37 +1,37 @@
 
         <div class="col-12 col-md-6 col-lg-4 col-xl-3 footer-block">
-            <h3 class="footer-block-title">Quick Links</h3>
+            <h3 class="footer-block-title">{{ __('shop::app.footer-links.quick-links') }}</h3>
             <div class="footer-block-content">
                 <ul type="none">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="{!! url('page/self-definition') !!}">Self Definition </a></li>
-                    <li><a href="{!! url('page/procedure') !!}"> Procedure </a></li>
-                    <li><a href="{!! url('page/offline-stores') !!}">Offline Stores </a></li>
-                    <li><a href="{!! url('page/our-valued-customer') !!}">Our Valued Customer </a></li>
+                    <li><a href="/">{{ __('shop::app.footer-links.home') }}</a></li>
+                    <li><a href="{!! url('page/self-definition') !!}">{{ __('shop::app.footer-links.home') }} </a></li>
+                    <li><a href="{!! url('page/procedure') !!}"> {{ __('shop::app.footer-links.home') }} </a></li>
+                    <li><a href="{!! url('page/offline-stores') !!}">{{ __('shop::app.footer-links.home') }} </a></li>
+                    <li><a href="{!! url('page/our-valued-customer') !!}">{{ __('shop::app.footer-links.our-valued-customer') }} </a></li>
                 </ul>
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4 col-xl-3 footer-block">
-            <h3 class="footer-block-title">Help</h3>
+            <h3 class="footer-block-title">{{ __('shop::app.footer-links.help') }}</h3>
             <div class="footer-block-content">
                 <ul type="none">
-                    <li><a href="{!! url('page/payment-policy') !!}"> Payments </a></li>
-                    <li><a href="{!! url('page/shipping-policy') !!}"> Shipping </a></li>
-                    <li><a href="{!! url('page/return-policy') !!}"> Cancellation & Returns</a></li>
-                    <li><a href="{!! url('page/faq') !!}"> FAQ </a></li>
-                     <li><a href="{!! url('page/measurement-process') !!}"> Measurement Process </a></li>
+                    <li><a href="{!! url('page/payment-policy') !!}"> {{ __('shop::app.footer-links.payments') }} </a></li>
+                    <li><a href="{!! url('page/shipping-policy') !!}"> {{ __('shop::app.footer-links.shipping') }} </a></li>
+                    <li><a href="{!! url('page/return-policy') !!}"> {{ __('shop::app.footer-links.cancellation-returns') }}</a></li>
+                    <li><a href="{!! url('page/faq') !!}"> {{ __('shop::app.footer-links.faq') }} </a></li>
+                     <li><a href="{!! url('page/measurement-process') !!}"> {{ __('shop::app.footer-links.measurement-process') }} </a></li>
                 </ul>
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer-block">
-            <h3 class="footer-block-title">Contact Us</h3>
+            <h3 class="footer-block-title">{{ __('shop::app.footer-links.contact-us') }}</h3>
             <div class="footer-block-content">
                 <ul type="none">
-                    <li><a href="{!! url('page/about-us') !!}">About Us</a></li>
-                    <li><a href="{!! url('page/contact-us') !!}">Contact</a></li>
-                    <li><a href="{!! url('page/work-with-us') !!}">Work with Us</a></li>
-                    <li><a href="{!! url('page/privacy-policy') !!}">Privacy Policy </a></li>
-                    <li><a href="{!! url('page/terms-conditions') !!}">Terms & Conditions  </a></li>
+                    <li><a href="{!! url('page/about-us') !!}">{{ __('shop::app.footer-links.about-us') }}</a></li>
+                    <li><a href="{!! url('page/contact-us') !!}">{{ __('shop::app.footer-links.contact') }}</a></li>
+                    <li><a href="{!! url('page/work-with-us') !!}">{{ __('shop::app.footer-links.work-with-us') }}</a></li>
+                    <li><a href="{!! url('page/privacy-policy') !!}">{{ __('shop::app.footer-links.privacy-policy') }} </a></li>
+                    <li><a href="{!! url('page/terms-conditions') !!}">{{ __('shop::app.footer-links.terms-conditions') }}  </a></li>
                 </ul>
             </div>
         </div>

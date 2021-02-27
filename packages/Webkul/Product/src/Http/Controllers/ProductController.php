@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Webkul\Product\Mail\AdminProductEmail;
+use File;
 
 class ProductController extends Controller
 {
@@ -223,6 +224,7 @@ class ProductController extends Controller
     public function update(ProductForm $request, $id)
     {
         $data = request()->all();
+
         $old_data = $this->productRepository->with(['variants', 'variants.inventories'])->findOrFail($id);
 
         if (request()->hasFile('catalog'))

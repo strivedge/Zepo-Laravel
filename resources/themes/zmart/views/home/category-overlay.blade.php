@@ -11,7 +11,7 @@
                 <div class="content-wrap">
                     <div class="image-wrap">
                         <a href="{{ route('blog-detail', [$post->slug]) }}">
-                            <img src="{{ asset('/').$post->image }}" alt="{{ __('shop::app.home.blog-title') }}" onerror="this.src='{{ asset('vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png') }}'">
+                            <img src="{{ asset('/').$post->image }}" alt="{{ __('blog::app.blogs.title') }}" onerror="this.src='{{ asset('vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png') }}'">
                             <div class="overlay"><span>{{ $post->title }}</span></div>
                         </a>
                     </div>
@@ -20,7 +20,7 @@
             @endforeach
         @else
         <li class="imgs col-12 errors">
-            No Posts...!
+            {{ __('blog::app.blogs.no-posts') }}
         </li>
         @endif
             

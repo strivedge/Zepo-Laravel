@@ -21,5 +21,10 @@ return [
             'save-btn-title' => 'Save Blog',
             'delete-help-title' => 'Delete',
             'mass-destroy-success' => 'Blogs deleted successfully',
+            'blog-detail' => 'Blog Detail',
+            'posted-on' => 'Posted On',
+            'by' => 'By',
+            'admin' => 'Administrator',
+            'no-posts' => 'No Posts...!',
         ]
 ];

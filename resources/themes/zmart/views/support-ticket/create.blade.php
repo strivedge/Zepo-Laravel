@@ -45,7 +45,7 @@
 				        <label for="name" class="required label-style">
 				            {{ __('shop::app.support-ticket.name') }}
 				        </label>
-				        <input type="text" class="form-style" name="name" v-validate="'required'" placeholder="Full Name" data-vv-as="&quot;{{ __('shop::app.support-ticket.name') }}&quot;"/>
+				        <input type="text" class="form-style" name="name" v-validate="'required'" placeholder="{{ __('shop::app.support-ticket.full-name') }}" data-vv-as="&quot;{{ __('shop::app.support-ticket.name') }}&quot;"/>
 						<span class="control-error" v-if="errors.has('name')">
 							@{{ errors.first('name') }}
 						</span>
@@ -55,7 +55,7 @@
 						<label for="email" class="required label-style">
 							{{ __('shop::app.support-ticket.email') }}
 						</label>
-						<input type="email" class="form-style" name="email" v-validate="'required|email'" placeholder="Email" data-vv-as="&quot;{{ __('shop::app.support-ticket.email') }}&quot;" />
+						<input type="email" class="form-style" name="email" v-validate="'required|email'" placeholder="{{ __('shop::app.support-ticket.email') }}" data-vv-as="&quot;{{ __('shop::app.support-ticket.email') }}&quot;" />
 				        <span class="control-error" v-if="errors.has('email')">
 							@{{ errors.first('email') }}
 						</span>
@@ -65,7 +65,7 @@
 						<label for="message" class="required label-style">
 							{{ __('shop::app.support-ticket.message') }}
 						</label>
-						<textarea type="text" class="form-style" name="message" placeholder="Enter your message here..." cols="30" rows="5" v-validate="'required'" data-vv-as="&quot;{{ __('shop::app.support-ticket.message') }}&quot;"></textarea>
+						<textarea type="text" class="form-style" name="message" placeholder="{{ __('shop::app.support-ticket.message-placeholder') }}" cols="30" rows="5" v-validate="'required'" data-vv-as="&quot;{{ __('shop::app.support-ticket.message') }}&quot;"></textarea>
 						<span class="control-error" v-if="errors.has('message')">
 							@{{ errors.first('message') }}
 						</span>

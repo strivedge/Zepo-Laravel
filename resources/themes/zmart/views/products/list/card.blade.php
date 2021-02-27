@@ -85,7 +85,7 @@
                     @if( $totalReviews )
                         <div class="product-rating">
                             <star-ratings ratings="{{ $avgRatings }}"></star-ratings>
-                            <span>{{ $totalReviews }} Ratings</span>
+                            <span>{{ $totalReviews }} {{ __('shop::app.products.ratings') }}</span>
                         </div>
                     @endif
 
