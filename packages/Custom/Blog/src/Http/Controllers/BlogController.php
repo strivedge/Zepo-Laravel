@@ -3,11 +3,16 @@
 namespace Custom\Blog\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Custom\Blog\Models\Blog;
+// use Illuminate\Support\Facades\Validator;
 use Custom\Blog\Repositories\BlogRepository;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 use File;
+use Validator;
 
 class BlogController extends Controller
 {
+    use ValidatesRequests;
     private $blogRepository;
     public function __construct(BlogRepository $blogRepository)
     {
@@ -46,13 +51,24 @@ class BlogController extends Controller
     {
         $data = request()->all();
 
-        // $this->validate(request(), [
-        //     'title'    => 'required',
-        //     'image'    => 'mimes:jpeg,jpg,png,gif|required|max:10000',
-        //     'slug'     => 'required|unique:master_posts,slug',
-        //     'content'  => 'required',
-        //     'date'     => 'required',
-        // ]);
+        $validator = Validator::make($request->all(), [
+            'title'    => 'required|max:3',
+            'image'    => 'required|mimes:jpeg,jpg,png,bmp,png,gif',
+            'slug'     => 'required|unique:master_posts,slug',
+            'content'  => 'required',
+            'date'     => 'required',
+        ]);
+
+        if ($validator->fails()) 
+        { 
+            // return $validator->errors();
+            // Session()->flash('error', "Fail");
+            // return redirect()->back()->withErrors($validator);
+            $errors = $validator->errors();
+            // echo "<pre>"; print_r($errors); exit();
+            return back()->withErrors($errors);
+        }
+
             
         $imageName = $request->image;
         if($imageName != null)

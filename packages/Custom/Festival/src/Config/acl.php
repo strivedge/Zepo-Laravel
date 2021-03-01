@@ -3,7 +3,7 @@
 return [
     [
         'key' => 'festival',
-        'name' => 'Festival',
+        'name' => 'Festival Product',
         'route' => 'festival.index',
         'sort' => 8
     ]
