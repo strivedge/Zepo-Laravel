@@ -70,10 +70,10 @@
 					</div>
 
 					<div class="control-group form-group" :class="[errors.has('attachment') ? 'has-error' : '']">
-						<label for="file-ip-1">
+						<label for="attachment">
 							{{__('zepo::app.support-ticket.attachment') }}
 						</label>
-						<input type="file" name="attachment" id="file-ip-1" accept="image/*" onchange="showPreview(event);" v-validate="''" data-vv-as="&quot;{{__('zepo::app.support-ticket.attachment') }}&quot;" />
+						<input type="file" name="attachment" v-validate="''" data-vv-as="&quot;{{__('zepo::app.support-ticket.attachment') }}&quot;" />
 						<span class="control-error" v-if="errors.has('attachment')">
 							@{{ errors.first('attachment') }}
 						</span>
@@ -98,17 +98,3 @@
 		</div>
 	</div>
 @stop
-@push('scripts')
-<script>
-    function showPreview(event)
-    {
-        if(event.target.files.length > 0)
-        {
-            var src = URL.createObjectURL(event.target.files[0]);
-            var preview = document.getElementById("file-ip-1-preview");
-            preview.src = src;
-            preview.style.display = "block";
-        }
-    }
-</script>
-@endpush

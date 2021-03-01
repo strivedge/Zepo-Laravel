@@ -28,34 +28,34 @@
                 @csrf()
                 <div class="control-group" :class="[errors.has('title') ? 'has-error' : '']">
                     <label for="title" class="required">{{ __('blog::app.blogs.blog-title') }}</label>
-                    <input type="text" class="control" name="title" placeholder="{{ __('blog::app.blogs.title-placeholder') }}" v-validate="'required'">
+                    <input type="text" class="control" name="title" v-validate="'required'" placeholder="{{ __('blog::app.blogs.title-placeholder') }}" data-vv-as="&quot;{{ __('blog::app.blogs.blog-title') }}&quot;" />
                     <span class="control-error" v-if="errors.has('title')">@{{ errors.first('title') }}</span>
                 </div>
                 
                 <div class="control-group" :class="[errors.has('image') ? 'has-error' : '']">
-                    <label for="file-ip-1" class="required">{{ __('blog::app.blogs.blog-image') }}</label>
+                    <label for="image" class="required">{{ __('blog::app.blogs.blog-image') }}</label>
                     <div class="preview">
                         <img id="file-ip-1-preview">
                     </div>
-                    <input type="file" name="image" id="file-ip-1" accept="image/*" onchange="showPreview(event);" v-validate="'required'">
+                    <input type="file" name="image" v-validate="'required'" id="file-ip-1" accept="image/*" onchange="showPreview(event);" data-vv-as="&quot;{{ __('blog::app.blogs.image') }}&quot;" />
                     <span class="control-error" v-if="errors.has('image')">@{{ errors.first('image') }}</span>
                 </div>
 
                 <div class="control-group" :class="[errors.has('slug') ? 'has-error' : '']">
                     <label for="slug" class="required">{{ __('blog::app.blogs.blog-slug') }}</label>
-                    <input type="text" class="control" name="slug" placeholder="{{ __('blog::app.blogs.slug-placeholder') }}" v-validate="'required'" data-vv-as="&quot;{{ __('blog::app.blogs.blog-slug') }}&quot;" v-slugify>
+                    <input type="text" class="control" name="slug" v-validate="'required'" placeholder="{{ __('blog::app.blogs.slug-placeholder') }}" data-vv-as="&quot;{{ __('blog::app.blogs.blog-slug') }}&quot;" v-slugify>
                     <span class="control-error" v-if="errors.has('slug')">@{{ errors.first('slug') }}</span>
                 </div>
 
                 <div class="control-group" :class="[errors.has('content') ? 'has-error' : '']">
                     <label for="content" class="required">{{ __('blog::app.blogs.blog-content') }}</label>
-                    <textarea type="text" class="control" name="content" placeholder="{{ __('blog::app.blogs.content-placeholder') }}" v-validate="'required'"></textarea>
+                    <textarea type="text" class="control" name="content" v-validate="'required'" placeholder="{{ __('blog::app.blogs.content-placeholder') }}" data-vv-as="&quot;{{ __('blog::app.blogs.blog-content') }}&quot;" ></textarea>
                     <span class="control-error" v-if="errors.has('content')">@{{ errors.first('content') }}</span>
                 </div>
 
                 <div class="control-group" :class="[errors.has('date') ? 'has-error' : '']">
                     <label for="date" class="required">{{ __('blog::app.blogs.blog-date') }}</label>
-                    <input type="date" class="control" name="date" value='<?php echo date("Y-m-d"); ?>'  v-validate="'required'">
+                    <input type="date" class="control" name="date" v-validate="'required'" value='<?php echo date("Y-m-d"); ?>' data-vv-as="&quot;{{ __('blog::app.blogs.blog-date') }}&quot;" >
                     <span class="control-error" v-if="errors.has('date')">@{{ errors.first('date') }}</span>
                 </div>
                 

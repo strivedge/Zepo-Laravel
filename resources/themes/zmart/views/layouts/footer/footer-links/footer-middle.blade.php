@@ -4,9 +4,9 @@
             <div class="footer-block-content">
                 <ul type="none">
                     <li><a href="/">{{ __('shop::app.footer-links.home') }}</a></li>
-                    <li><a href="{!! url('page/self-definition') !!}">{{ __('shop::app.footer-links.home') }} </a></li>
-                    <li><a href="{!! url('page/procedure') !!}"> {{ __('shop::app.footer-links.home') }} </a></li>
-                    <li><a href="{!! url('page/offline-stores') !!}">{{ __('shop::app.footer-links.home') }} </a></li>
+                    <li><a href="{!! url('page/self-definition') !!}">{{ __('shop::app.footer-links.self-definition') }} </a></li>
+                    <li><a href="{!! url('page/procedure') !!}"> {{ __('shop::app.footer-links.procedure') }} </a></li>
+                    <li><a href="{!! url('page/offline-stores') !!}">{{ __('shop::app.footer-links.offline-stores') }} </a></li>
                     <li><a href="{!! url('page/our-valued-customer') !!}">{{ __('shop::app.footer-links.our-valued-customer') }} </a></li>
                 </ul>
             </div>
