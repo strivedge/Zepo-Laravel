@@ -12,23 +12,23 @@
         </div>
 
         <div>
-            <b>Requested by : </b>{{ $data['user_name'] }} ({{ $data['user_role'] }})
+            <b>{{ __('admin::app.catalog.products.requested-by') }} : </b>{{ $data['user_name'] }} ({{ $data['user_role'] }})
         </div>
 
         <div>
-            <b>Email : </b><a href="mailto:{{ $data['user_email'] }}">{{ $data['user_email'] }}</a>
+            <b>{{ __('admin::app.catalog.products.email') }} : </b><a href="mailto:{{ $data['user_email'] }}">{{ $data['user_email'] }}</a>
         </div>
 
         <div>
-            <b>Product SKU : </b>{{ $data['sku'] }}
+            <b>{{ __('admin::app.catalog.products.product-sku') }} : </b>{{ $data['sku'] }}
         </div>
 
         <div>
-            <b>Product Name : </b>{{ $data['pname'] }}
+            <b>{{ __('admin::app.catalog.products.product-name') }} : </b>{{ $data['pname'] }}
         </div>
         <div>
             <a href="{{ route('admin.catalog.products.edit', [$data['id']]) }}">
-                Activate Product
+                {{ __('admin::app.catalog.products.activate-product') }}
             </a>
         </div>
         

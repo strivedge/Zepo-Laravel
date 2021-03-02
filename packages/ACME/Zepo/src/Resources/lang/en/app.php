@@ -4,6 +4,10 @@ return [
         'support-ticket' => [
             'title' => 'Support Ticket',
             'edit-title' => 'Edit Support Ticket',
+            'customer' => 'Customer',
+            'customer-email' => 'Customer Email',
+            'customer-message' => 'Customer Message',
+            'go-action' => 'go to Support Ticket Action',
             'name' => 'Name',
             'email' => 'Email',
             'message' => 'Message',

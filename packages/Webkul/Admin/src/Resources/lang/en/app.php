@@ -538,6 +538,11 @@ return [
             'all-group' => 'All Groups',
             'fixed' => 'Fixed',
             'discount' => 'Discount',
+            'requested-by' => 'Requested by',
+            'email' => 'Email',
+            'product-sku' => 'Product SKU',
+            'product-name' => 'Product Name',
+            'activate-product' => 'Activate Product',
         ],
 
         'attributes' => [
