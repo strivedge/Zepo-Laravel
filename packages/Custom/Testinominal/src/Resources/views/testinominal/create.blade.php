@@ -4,6 +4,11 @@
 {{__('testinominal::app.testinominal.add-title') }}
 @stop
 @section('content')
+@if(session()->get('errors'))
+    @php
+        $errors = session()->get('errors');
+    @endphp
+@endif
 <div class="content">
     <form method="POST" action="{{ route('admin.testinominal.save') }}" enctype="multipart/form-data" @submit.prevent="onSubmit">
 
@@ -28,7 +33,7 @@
                 @csrf()
                 <div class="control-group" :class="[errors.has('title') ? 'has-error' : '']">
                     <label for="title" class="required">{{ __('testinominal::app.testinominal.testi-title') }}</label>
-                    <input type="text" class="control" name="title" placeholder="{{ __('testinominal::app.testinominal.title-placeholder') }}" v-validate="'required'">
+                    <input type="text" class="control" name="title" placeholder="{{ __('testinominal::app.testinominal.title-placeholder') }}" v-validate="'required'" data-vv-as="&quot;{{ __('testinominal::app.testinominal.testi-title') }}&quot;">
                     <span class="control-error" v-if="errors.has('title')">@{{ errors.first('title') }}</span>
                 </div>
                 
@@ -37,19 +42,19 @@
                     <div class="preview">
                         <img id="file-ip-1-preview">
                     </div>
-                    <input type="file" name="image" id="file-ip-1" accept="image/*" onchange="showPreview(event);" v-validate="'required'">
+                    <input type="file" name="image" id="file-ip-1" accept="image/*" onchange="showPreview(event);" v-validate="'required'"  data-vv-as="&quot;{{ __('testinominal::app.testinominal.image') }}&quot;">
                     <span class="control-error" v-if="errors.has('image')">@{{ errors.first('image') }}</span>
                 </div>
 
                 <div class="control-group" :class="[errors.has('desc') ? 'has-error' : '']">
                     <label for="desc" class="required">{{ __('testinominal::app.testinominal.desc') }}</label>
-                    <textarea type="text" class="control" name="desc" placeholder="{{ __('testinominal::app.testinominal.desc-placeholder') }}" v-validate="'required'"></textarea>
+                    <textarea type="text" class="control" name="desc" placeholder="{{ __('testinominal::app.testinominal.desc-placeholder') }}" v-validate="'required'" data-vv-as="&quot;{{ __('testinominal::app.testinominal.desc') }}&quot;"></textarea>
                     <span class="control-error" v-if="errors.has('desc')">@{{ errors.first('desc') }}</span>
                 </div>
 
                 <div class="control-group" :class="[errors.has('date') ? 'has-error' : '']">
                     <label for="date" class="required">{{ __('testinominal::app.testinominal.date') }}</label>
-                    <input type="date" class="control" name="date" value='<?php echo date("Y-m-d"); ?>'  v-validate="'required'">
+                    <input type="date" class="control" name="date" value='<?php echo date("Y-m-d"); ?>'  v-validate="'required'" data-vv-as="&quot;{{ __('testinominal::app.testinominal.date') }}&quot;">
                     <span class="control-error" v-if="errors.has('date')">@{{ errors.first('date') }}</span>
                 </div>
                 

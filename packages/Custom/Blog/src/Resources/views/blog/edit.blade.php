@@ -5,6 +5,11 @@
 @stop
 
 @section('content')
+@if(session()->get('errors'))
+    @php
+        $errors = session()->get('errors');
+    @endphp
+@endif
 <div class="content">
     <form method="POST" action="{{route('admin.blog.update', [$posts->id])}}" enctype="multipart/form-data" @submit.prevent="onSubmit">
 
@@ -29,36 +34,34 @@
                 @csrf()
                 <div class="control-group" :class="[errors.has('title') ? 'has-error' : '']">
                     <label for="title" class="required">{{ __('blog::app.blogs.blog-title') }}</label>
-                    <input type="text" class="control" name="title" value="{{$posts->title}}" v-validate="'required'">
+                    <input type="text" class="control" name="title" value="{{$posts->title}}" v-validate="'required'" data-vv-as="&quot;{{ __('blog::app.blogs.blog-title') }}&quot;" />
                     <span class="control-error" v-if="errors.has('title')">@{{ errors.first('title') }}</span>
                 </div>
-                
+
                 <div class="control-group" :class="[errors.has('image') ? 'has-error' : '']">
-                    <label for="file-ip-1" class="required">{{ __('blog::app.blogs.blog-image') }}</label>
+                    <label for="image" class="required">{{ __('blog::app.blogs.blog-image') }}</label>
                     <div class="preview">
-                        <img src="{{ asset('/').$posts->image }}" id="file-ip-1-preview" alt="{{ __('blog::app.blogs.image') }}" height="70" width="110">
+                        <img src="{{ asset('/').$posts->image }}" id="file-ip-1-preview" alt="{{ __('blog::app.blogs.image') }}">
                     </div>
-                    <div>
-                        <input type="file" name="image" id="file-ip-1" accept="image/*" onchange="showPreview(event);">
-                    </div>
+                    <input type="file" name="image" v-validate="''" id="file-ip-1" accept="image/*" onchange="showPreview(event);" data-vv-as="&quot;{{ __('blog::app.blogs.image') }}&quot;" />
                     <span class="control-error" v-if="errors.has('image')">@{{ errors.first('image') }}</span>
                 </div>
 
                 <div class="control-group" :class="[errors.has('slug') ? 'has-error' : '']">
                     <label for="slug" class="required">{{ __('blog::app.blogs.blog-slug') }}</label>
-                    <input type="text" class="control" name="slug" id="slug" value="{{$posts->slug}}" v-validate="'required'" data-vv-as="&quot;{{ __('blog::app.blogs.blog-slug') }}&quot;" v-slugify>
+                    <input type="text" class="control" name="slug" id="slug" value="{{$posts->slug}}" v-validate="''" data-vv-as="&quot;{{ __('blog::app.blogs.blog-slug') }}&quot;" v-slugify>
                     <span class="control-error" v-if="errors.has('slug')">@{{ errors.first('slug') }}</span>
                 </div>
 
                 <div class="control-group" :class="[errors.has('content') ? 'has-error' : '']">
                     <label for="content" class="required">{{ __('blog::app.blogs.blog-content') }}</label>
-                    <textarea type="text" class="control" name="content" v-validate="'required'">{{$posts->content}}</textarea>
+                    <textarea type="text" class="control" name="content" v-validate="'required'" data-vv-as="&quot;{{ __('blog::app.blogs.blog-content') }}&quot;" >{{$posts->content}}</textarea>
                     <span class="control-error" v-if="errors.has('content')">@{{ errors.first('content') }}</span>
                 </div>
 
                 <div class="control-group" :class="[errors.has('date') ? 'has-error' : '']">
                     <label for="date" class="required">{{ __('blog::app.blogs.blog-date') }}</label>
-                    <input type="date" class="control" name="date" value="{{$posts->date}}"  v-validate="'required'">
+                    <input type="date" class="control" name="date" value="{{$posts->date}}"  v-validate="'required'" data-vv-as="&quot;{{ __('blog::app.blogs.blog-date') }}&quot;">
                     <span class="control-error" v-if="errors.has('date')">@{{ errors.first('date') }}</span>
                 </div>
             </div>
