@@ -9,7 +9,7 @@
 @section('content-wrapper')
 
     <!-- <div class="container"> -->
-        <section class="row review-page-container">
+        <section class="row review-page-container review-page review-page-details review-page-create">
             @include ('shop::products.view.small-view', ['product' => $product])
 
             <div class="col-lg-6 col-md-12">
@@ -26,7 +26,7 @@
 
                         @csrf
 
-                        <div :class="`${errors.has('rating') ? 'has-error' : ''}`">
+                        <div :class="`${errors.has('rating') ? 'has-error' : ''}`" class="form-group">
                             <label for="title" class="required">
                                 {{ __('admin::app.customers.reviews.rating') }}
                             </label>
@@ -36,7 +36,7 @@
                             </span>
                         </div>
 
-                        <div :class="`${errors.has('title') ? 'has-error' : ''}`">
+                        <div :class="`${errors.has('title') ? 'has-error' : ''}`" class="form-group">
                             <label for="title" class="required">
                                 {{ __('shop::app.reviews.title') }}
                             </label>
@@ -53,7 +53,7 @@
                         </div>
 
                         @if (core()->getConfigData('catalog.products.review.guest_review') && ! auth()->guard('customer')->user())
-                            <div :class="`${errors.has('name') ? 'has-error' : ''}`">
+                            <div :class="`${errors.has('name') ? 'has-error' : ''}`" class="form-group">
                                 <label for="title" class="required">
                                     {{ __('shop::app.reviews.name') }}
                                 </label>
@@ -64,7 +64,7 @@
                             </div>
                         @endif
 
-                        <div :class="`${errors.has('comment') ? 'has-error' : ''}`">
+                        <div :class="`${errors.has('comment') ? 'has-error' : ''}`" class="form-group">
                             <label for="comment" class="required">
                                 {{ __('admin::app.customers.reviews.comment') }}
                             </label>
@@ -90,12 +90,13 @@
                     </form>
                 </div>
             </div>
-            @if ($showRecentlyViewed)
+
+        </section>
+                    @if ($showRecentlyViewed)
                 @include ('shop::products.list.recently-viewed', [
                     'addClass' => 'col-lg-3 col-md-12'
                 ])
             @endif
-        </section>
     <!-- </div> -->
 
 @endsection

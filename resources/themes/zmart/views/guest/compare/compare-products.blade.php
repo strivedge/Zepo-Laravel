@@ -63,7 +63,7 @@
 
                         <tr>
                             <td>
-                                <span class="test">{{ isset($attribute['name']) ? $attribute['name'] : $attribute['admin_name'] }}</span>
+                                <span class="th">{{ isset($attribute['name']) ? $attribute['name'] : $attribute['admin_name'] }}</span>
                             </td>
 
                             <td :key="`title-${index}`" v-for="(product, index) in products">
@@ -109,7 +109,7 @@
                                         @break
 
                                     @case('price')
-                                        <span v-html="product['priceHTML']"></span>
+                                        <span v-html="product['priceHTML']" class="product-price"></span>
                                         @break
 
                                     @case('addToCartHtml')

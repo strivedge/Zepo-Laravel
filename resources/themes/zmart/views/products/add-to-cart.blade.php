@@ -28,7 +28,7 @@
             <!-- <div class="quick-view-in-list quick-view btn btn-primary">
                     <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn>
             </div> -->
-            <div class="add-to-cart-btn  add-to-cart btn btn-primary">
+            <div class="add-to-cart-btn add-to-cart btn btn-primary">
                 @if (isset($form) && !$form)
                     <button
                         type="submit"
