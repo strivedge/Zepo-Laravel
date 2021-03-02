@@ -64,8 +64,6 @@
 
             <div class="account-modal sensitive-modal hide mt5">
                 <!--Content-->
-                    
-
                     @auth('customer')
                         <div class="modal-content customer-options">
                             <div class="customer-session">
@@ -141,7 +139,6 @@
                 }
             }
         })
-
     </script>
 @endpush
 

@@ -16,7 +16,6 @@
 
             <div slot="body">
                 <table class="full-specifications">
-
                     @foreach ($customAttributeValues as $attribute)
                         <tr>
                             @if ($attribute['label'])

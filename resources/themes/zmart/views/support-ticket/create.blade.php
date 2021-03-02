@@ -87,7 +87,7 @@
 						<input type="hidden" class="form-style" name="status" value="0" data-vv-as="&quot;{{__('zepo::app.support-ticket.status') }}&quot;" />
 					</div>
 
-					<div class="login-register-buttons"><!-- form-group  -->
+					<div class="login-register-buttons">
 						<button class="theme-btn" type="submit">
 							{{__('zepo::app.support-ticket.btn-send') }}
 						</button>

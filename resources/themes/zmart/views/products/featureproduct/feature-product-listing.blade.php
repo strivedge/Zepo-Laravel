@@ -1,7 +1,7 @@
 @inject ('reviewHelper', 'Webkul\Product\Helpers\Review')
 @inject ('toolbarHelper', 'Webkul\Product\Helpers\Toolbar')
 @inject ('productImageHelper', 'Webkul\Product\Helpers\ProductImage')
-<?php //echo "payal<pre>"; print_r($product);exit(); ?>
+
 @push('css')
     <style type="text/css">
         .list-card .wishlist-icon i {
@@ -15,8 +15,7 @@
     </style>
 @endpush
 
-@php
- //echo"<pre>";print_r($toolbarHelper->getCurrentMode());exit(); 
+@php 
     if (isset($checkmode) && $checkmode && $toolbarHelper->getCurrentMode() == "list") {
         $list = true;
     }
@@ -47,6 +46,7 @@
     ])->render());
 
 @endphp
+
 {!! view_render_event('bagisto.shop.products.list.card.before', ['product' => $product]) !!}
     @if (isset($list) && $list)
         <div class="col-12 lg-card-container list-card product-card row">
@@ -99,7 +99,6 @@
             </div>
         </div>
     @else
-   
         <li class="">
             <div class="content-wrap">
                 <div class="product-code">{{$product->sku}}</div>
@@ -154,7 +153,6 @@
                         <span class="including-tax">({{ __('shop::app.products.including-tax') }})</span>
                     </div>
                 </div>
-                
             </div>
         </li>
     @endif

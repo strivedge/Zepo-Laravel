@@ -232,7 +232,7 @@
 
                                     @endforeach
                                 </div>
-                                <div class="col-md-12 coupon-buttons"><!-- row  -->
+                                <div class="col-md-12 coupon-buttons">
                                     <div class="col-md-8">
                                         <coupon-component></coupon-component>
                                     </div>

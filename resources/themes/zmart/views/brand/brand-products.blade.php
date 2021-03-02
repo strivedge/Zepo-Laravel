@@ -2,9 +2,7 @@
 
 @inject ('productImageHelper', 'Webkul\Product\Helpers\ProductImage')
 @inject ('productRatingHelper', 'Webkul\Product\Helpers\Review')
-<?php 
 
- //echo "<pre>";print_r($product->count());exit; ?>
  @section('full-content-wrapper')
    @if ($product->count() > 0)
         <div class="container">

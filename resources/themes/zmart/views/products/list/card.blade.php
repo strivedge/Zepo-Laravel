@@ -1,7 +1,7 @@
 @inject ('reviewHelper', 'Webkul\Product\Helpers\Review')
 @inject ('toolbarHelper', 'Webkul\Product\Helpers\Toolbar')
 @inject ('productImageHelper', 'Webkul\Product\Helpers\ProductImage')
-<?php //echo "payal<pre>"; print_r($product);exit(); ?>
+
 @push('css')
     <style type="text/css">
         .list-card .wishlist-icon i {
@@ -16,7 +16,6 @@
 @endpush
 
 @php
-
     if (isset($checkmode) && $checkmode && $toolbarHelper->getCurrentMode() == "list") {
         $list = true;
     }
@@ -49,7 +48,7 @@
     ])->render());
 
 @endphp
-<?php //echo"<pre>";print_r($product);exit(); ?>
+
 {!! view_render_event('bagisto.shop.products.list.card.before', ['product' => $product]) !!}
     @if (isset($list) && $list)
         <div class="col-12 lg-card-container list-card product-card row">

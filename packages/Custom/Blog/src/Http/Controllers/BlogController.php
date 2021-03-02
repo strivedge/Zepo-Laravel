@@ -66,6 +66,7 @@ class BlogController extends Controller
             // return redirect()->back()->withErrors($validator);
             $errors = $validator->errors();
             // echo "<pre>"; print_r($errors); exit();
+            // return back()->withErrors($errors)->withInput();
             return back()->withErrors($errors);
         }
 
