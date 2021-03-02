@@ -30,7 +30,6 @@
     <div class="reviews-container">
         @if (! $reviews->isEmpty())
             @foreach ($reviews as $review)
-                <!-- <div class="row col-12 no-padding no-margin fs16"> -->
                 <div class="col-12 no-padding no-margin fs16">
                     <div class="col-12 row">
                         @php
@@ -56,7 +55,7 @@
 
                             <star-ratings ratings="{{ $review->rating }}"></star-ratings>
 
-                            <!-- <h2 class="fw6"> --><h4 class="fw6">{{ $review->title }}<!-- </h2> --></h4>
+                            <h4 class="fw6">{{ $review->title }}</h4>
 
                             <p>{{ $review->comment }}</p>
                         </div>

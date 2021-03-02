@@ -10,8 +10,6 @@
 
             {!! view_render_event('bagisto.shop.customers.login.before') !!}
 
-               <!--  <div class="container"> -->
-                    <!-- <div class="col-lg-10 col-md-12 offset-lg-1"> -->
                     <div class="login-register-content">
                         <div class="heading section-title">
                             <h2>
@@ -25,7 +23,6 @@
                             </a>
                         </div>
 
-                        <!-- <div class="body col-12"> -->
                         <div class="body">
                             <div class="form-header section-title">
                                 <h3>
@@ -102,7 +99,6 @@
                             </form>
                         </div>
                     </div>
-                <!-- </div> -->
 
             {!! view_render_event('bagisto.shop.customers.login.after') !!}
         </div>

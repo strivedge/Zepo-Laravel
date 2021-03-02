@@ -81,7 +81,7 @@
                     {!! view_render_event('bagisto.shop.customers.account.address.create_form_controls.country-state.after') !!}
                     
 
-                    <div class="col-md-12 col-lg-6 control-group" :class="[errors.has('city') ? 'has-error' : '']"><!-- control-group  -->
+                    <div class="col-md-12 col-lg-6 control-group" :class="[errors.has('city') ? 'has-error' : '']">
                         <label for="city" class="mandatory">{{ __('shop::app.customer.account.address.create.city') }}</label>
                         <input type="text" class="control" name="city" value="{{ old('city') }}" v-validate="'required'" data-vv-as="&quot;{{ __('shop::app.customer.account.address.create.city') }}&quot;">
                         <span class="control-error" v-if="errors.has('city')">@{{ errors.first('city') }}</span>

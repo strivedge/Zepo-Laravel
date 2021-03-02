@@ -1,7 +1,7 @@
 @inject ('reviewHelper', 'Webkul\Product\Helpers\Review')
 @inject ('toolbarHelper', 'Webkul\Product\Helpers\Toolbar')
 @inject ('productImageHelper', 'Webkul\Product\Helpers\ProductImage')
-<?php //echo "payal<pre>"; print_r($image_total);exit(); ?>
+
 @push('css')
     <style type="text/css">
         .list-card .wishlist-icon i {
@@ -16,7 +16,6 @@
 @endpush
 
 @php
- //echo"<pre>";print_r($toolbarHelper->getCurrentMode());exit(); 
     if (isset($checkmode) && $checkmode && $toolbarHelper->getCurrentMode() == "list") {
         $list = true;
     }
@@ -47,7 +46,7 @@
     ])->render());
 
 @endphp
-<?php //echo"<pre>";print_r($product);exit(); ?>
+
 {!! view_render_event('bagisto.shop.products.list.card.before', ['product' => $product]) !!}
     @if (isset($list) && $list)
         <div class="col-12 lg-card-container list-card product-card row">
@@ -92,81 +91,55 @@
                             'addWishlistClass'  => 'pl10',
                             'product'           => $product,
                             'addToCartBtnClass' => 'medium-padding',
-                            'showCompare'       => core()->getConfigData('general.content.shop.compare_option') == "1"
-                                                   ? true : false,
+                            'showCompare'       => core()->getConfigData('general.content.shop.compare_option') == "1" ? true : false,
                         ])
                     </div>
                 </div>
             </div>
         </div>
     @else
-    <?php //echo "<pre>";print_r($product->sku);exit(); ?>
     <!-- offer add to cart -->
-        <!-- <div class="card grid-card product-card-new"> -->
         <li class="">
             <div class="content-wrap">
                 <div class="product-code">{{$product->sku}}</div>
-                <div class="img">
-                    <!-- <div class=""> -->
-                        
-                            
-                                @if ($product->getTypeInstance()->haveSpecialPrice())
-                                    <?php //echo"Test<pre>";print_r($product->getTypeInstance()->getOfferPercentage());exit; ?>
-                                    <div class="sticker new">
-                                      <!-- <span class="new"> {{ __('shop::app.products.new') }}</span> -->
-                                       <span class="save">SAVE</span><span class="percentage">{{$product->getTypeInstance()->getOfferPercentage()}}%</span>
-                                    </div>
-                                @endif
-                                 <?php //echo "<pre>ttt"; print_r($galleryImages);exit(); ?>
-                                @if(count($galleryImages) > 0)
-                                <div class="product-imgs">
-                                   @foreach($galleryImages as $image)
+                <div class="img">        
+                    @if ($product->getTypeInstance()->haveSpecialPrice())
+                        <div class="sticker new">
+                            <span class="save">SAVE</span><span class="percentage">{{$product->getTypeInstance()->getOfferPercentage()}}%</span>
+                        </div>
+                    @endif
 
-                                   <?php //echo "<pre>ttt"; print_r($image['path']);
-                                   //echo "<pre>"; print_r($productBaseImage['large_image_url']);exit(); ?>
-                                    <a
-                                        href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
-                                        title="{{ $product->name }}"
-                                        class="product-image-container">
-                                        <img
-                                            loading="lazy"
-                                            class="card-img-top items"
-                                            alt="{{ $product->name }}"
-                                            src="{{ $image['large_image_url'] }}"
-                                            :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
-                                        
-                                    </a>
-                                   @endforeach
-                                </div>
-                                @else
+                    @if(count($galleryImages) > 0)
+                        <div class="product-imgs">
+                            @foreach($galleryImages as $image)
+                                <a
+                                    href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
+                                    title="{{ $product->name }}"
+                                    class="product-image-container">
                                     <img
-                                    loading="lazy"
-                                    class="card-img-top"
-                                    alt="{{ $product->name }}"
-                                    src="{{ $productBaseImage['large_image_url'] }}"
-                                    :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
-                                @endif
+                                        loading="lazy"
+                                        class="card-img-top items"
+                                        alt="{{ $product->name }}"
+                                        src="{{ $image['large_image_url'] }}"
+                                        :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
+                                    
+                                </a>
+                            @endforeach
+                        </div>
+                    @else
+                        <img
+                        loading="lazy"
+                        class="card-img-top"
+                        alt="{{ $product->name }}"
+                        src="{{ $productBaseImage['large_image_url'] }}"
+                        :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
+                    @endif
 
-                               <!--  <img
-                                    loading="lazy"
-                                    class="card-img-top"
-                                    alt="{{ $product->name }}"
-                                    src="{{ $productBaseImage['large_image_url'] }}"
-                                    :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" /> -->
-
-                                    <!-- {{-- <product-quick-view-btn :quick-view-details="product"></product-quick-view-btn> --}}
-                                    <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn> -->
-                            
-                        
-                    <!-- </div> -->
                 </div>
-                
-                
 
-                <!-- <div class="card-body"> -->
                 <div class="content">
                     <div class="star">
-                         @if ($totalReviews)
+                        @if ($totalReviews)
                             <div class="product-rating">
                                 <star-ratings ratings="{{ $avgRatings }}"></star-ratings>
                                 <span class="align-top">
@@ -176,27 +149,25 @@
                         @else
                             <div class="product-rating">
                                 <img src="{{ asset('themes/zmart/assets/images/star-gray.png') }}">
-                                <!-- {{ __('velocity::app.products.be-first-review') }} -->
                             </div>
                         @endif
                     </div>
-                    <!-- <div class="product-name"> -->
+
                     <div class="title">
                         <a
                             href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
                             title="{{ $product->name }}"
                             class="unset">
-
                             {{ $product->name }}
                         </a>
                     </div>
 
-                    <!-- <div class="product-price"> -->
                     <div class="price">
                         @include ('shop::products.newproduct.price', ['product' => $product])
                         <span class="including-tax">({{ __('shop::app.products.including-tax') }})</span>
                     </div>
                 </div>
+
                 <div class="cart-wish-wrap">
                     @include ('shop::products.newproduct.new-product-add-to-cart', [
                         'product'           => $product,
@@ -205,14 +176,9 @@
                         'reloadPage'        => $reloadPage ?? null,
                         'addToCartForm'     => $addToCartForm ?? false,
                         'addToCartBtnClass' => $addToCartBtnClass ?? '',
-                        'showCompare'       => core()->getConfigData('general.content.shop.compare_option') == "1"
-                                                ? true : false,
+                        'showCompare'       => core()->getConfigData('general.content.shop.compare_option') == "1" ? true : false,
                     ])
-                </div>  
-                   
-                    
-                <!-- </div> -->
-        <!-- </div> -->
+                </div>
             </div>
         </li>
     @endif

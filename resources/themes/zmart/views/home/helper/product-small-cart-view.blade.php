@@ -1,4 +1,3 @@
-
 @foreach ($products as $product)
     <div class="small-card-container">
 

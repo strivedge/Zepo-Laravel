@@ -1,7 +1,6 @@
 @extends('shop::layouts.master')
 
 @section('content-wrapper')
-    
 
     <div class="account-content row no-margin velocity-divide-page contact-us-content">
         <div class="contact-details col-md-5">
@@ -55,8 +54,6 @@
                     </div>
                 </div>
 
-               
-
                 <div class="form-group col-md-12">
                     <label class="col-12 no-padding">
                         {{ __('shop::app.contact.phone') }}
@@ -76,8 +73,6 @@
                          <textarea name="message" id="message" cols="30" rows="5" placeholder="{{__('shop::app.contact.message')}}"></textarea>
                     </div>
                 </div>
-
-
 
                 <button
                     type="submit"

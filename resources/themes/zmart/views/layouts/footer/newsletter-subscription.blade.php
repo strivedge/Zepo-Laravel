@@ -5,8 +5,7 @@
     || core()->getConfigData('customer.settings.newsletter.subscription')
 )
     <div class="newsletter-subscription footer-middle-content">
-            <div class="newsletter-wrapper">
-           
+        <div class="newsletter-wrapper">
             <div class="partner-logo col-md-12 col-lg-6">
                 <ul>
                     <li><img src="{{ asset('/themes/zmart/assets/images/pay.png') }}"></li>
@@ -51,10 +50,6 @@
                         </a>
                     </li>
             </div>
-            
-
         </div>
-
     </div>
- 
 @endif
