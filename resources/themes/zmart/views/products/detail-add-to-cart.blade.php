@@ -1,6 +1,4 @@
-<?php //print_r($product);exit; ?>
 {!! view_render_event('bagisto.shop.products.add_to_cart.before', ['product' => $product]) !!}
-
 
     <div class="mx-0 no-padding">
         @if (isset($showCompare) && $showCompare)

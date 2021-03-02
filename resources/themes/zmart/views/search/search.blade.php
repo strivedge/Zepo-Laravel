@@ -47,9 +47,7 @@
 @endpush
 
 @section('content-wrapper')
-    <div
-        class="search-category category-page-wrapper"
-    ><!--  style="padding-left: 50px !important;" -->
+    <div class="search-category category-page-wrapper">
         <search-component></search-component>
     </div>
 @endsection
@@ -80,8 +78,6 @@
             @if (request('image-search'))
                 <image-search-result-component></image-search-result-component>
             @endif
-
-            
 
             @if (! $results)
                 <h1>{{ __('shop::app.search.no-results') }}</h1>

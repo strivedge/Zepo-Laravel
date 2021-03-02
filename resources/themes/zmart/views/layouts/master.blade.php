@@ -110,7 +110,6 @@
                         ></content-header>
 
                         <div class="">
-                            <!-- <div class="row col-12 remove-padding-margin"> -->
                             <div class="container">
                                 <sidebar-component
                                     main-sidebar=true
@@ -142,16 +141,12 @@
 
                     {!! view_render_event('bagisto.shop.layout.full-content.after') !!}
 
-
-                <!-- <div class="container"> -->
-
                     {!! view_render_event('bagisto.shop.layout.full-content.before') !!}
 
                         @yield('home-full-content-wrapper')
 
                     {!! view_render_event('bagisto.shop.layout.full-content.after') !!}
 
-                <!-- </div> -->
             </div>
 
             <div class="modal-parent" id="loader" style="top: 0" v-show="showPageLoader">
@@ -228,23 +223,18 @@
             type="text/javascript"
             src="{{ asset('vendor/webkul/ui/assets/js/ui.js') }}">
         </script>
-        
-       <!--  <script
-            type="text/javascript"
-            src="{{ asset('themes/zmart/assets/js/slick.js') }}">
-        </script> -->
+
          <script
             type="text/javascript"
             baseUrl="{{ url()->to('/') }}"
             src="{{ asset('themes/zmart/assets/js/slick.min.js') }}">
         </script>
+
          <script
             type="text/javascript"
             baseUrl="{{ url()->to('/') }}"
             src="{{ asset('themes/zmart/assets/js/custom.js') }}">
         </script>
-
-       
 
         @stack('scripts')
 

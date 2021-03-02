@@ -18,7 +18,6 @@
 
 @section('page-detail-wrapper')
     <div class="account-content">
-        <!-- <div class="account-layout"> -->
             <div class="account-head">
                 <span class="back-icon"><a href="{{ route('customer.account.index') }}"><i class="icon icon-menu-back"></i></a></span>
                 <span class="account-heading">
@@ -572,6 +571,5 @@
             </div>
 
             {!! view_render_event('bagisto.shop.customers.account.orders.view.after', ['order' => $order]) !!}
-        <!-- </div> -->
     </div>
 @endsection

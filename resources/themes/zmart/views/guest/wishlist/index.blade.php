@@ -102,8 +102,6 @@
                         .then(response => {
                             this.isProductListLoaded = true;
                             this.products = response.data.products;
-
-                            //console.log("wish list products",this.products)
                         })
                         .catch(error => {
                             this.isProductListLoaded = true;

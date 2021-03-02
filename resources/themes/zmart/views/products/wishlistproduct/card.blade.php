@@ -1,7 +1,7 @@
 @inject ('reviewHelper', 'Webkul\Product\Helpers\Review')
 @inject ('toolbarHelper', 'Webkul\Product\Helpers\Toolbar')
 @inject ('productImageHelper', 'Webkul\Product\Helpers\ProductImage')
-<?php //echo "payal<pre>"; print_r($toolbarHelper->getCurrentMode());exit(); ?>
+
 @push('css')
     <style type="text/css">
         .list-card .wishlist-icon i {
@@ -16,7 +16,6 @@
 @endpush
 
 @php
-
     if (isset($checkmode) && $checkmode && $toolbarHelper->getCurrentMode() == "list") {
         $list = true;
     }
@@ -49,7 +48,7 @@
     ])->render());
     
 @endphp
-<?php //echo"<pre>";print_r($product);exit(); ?>
+
 {!! view_render_event('bagisto.shop.products.list.card.before', ['product' => $product]) !!}
     @if (isset($list) && $list)
         <div class="col-12 lg-card-container no-padding list-card product-card row">
@@ -70,37 +69,34 @@
             </div>
 
             <div class="product-information">
-                <!-- <div> -->
-                    <div class="product-name">
-                        <a
-                            href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
-                            title="{{ $product->name }}" class="unset">
+                <div class="product-name">
+                    <a
+                        href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
+                        title="{{ $product->name }}" class="unset">
 
-                            <span>{{ $product->name }}</span><!--  class="fs16" -->
-                        </a>
+                        <span>{{ $product->name }}</span><!--  class="fs16" -->
+                    </a>
+                </div>
+
+                <div class="product-price">
+                    @include ('shop::products.price', ['product' => $product])
+                </div>
+
+                @if( $totalReviews )
+                    <div class="product-rating">
+                        <star-ratings ratings="{{ $avgRatings }}"></star-ratings>
+                        <span>{{ $totalReviews }} {{ __('shop::app.products.ratings') }}</span>
                     </div>
+                @endif
 
-                    <div class="product-price">
-                        @include ('shop::products.price', ['product' => $product])
-                    </div>
-
-                    @if( $totalReviews )
-                        <div class="product-rating">
-                            <star-ratings ratings="{{ $avgRatings }}"></star-ratings>
-                            <span>{{ $totalReviews }} {{ __('shop::app.products.ratings') }}</span>
-                        </div>
-                    @endif
-
-                    <div class="cart-wish-wrap mt5">
-                        @include ('shop::products.wishlistproduct.add-to-cart', [
-                            'addWishlistClass'  => 'pl10',
-                            'product'           => $product,
-                            'addToCartBtnClass' => 'medium-padding',
-                            'showCompare'       => core()->getConfigData('general.content.shop.compare_option') == "1"
-                                                   ? true : false,
-                        ])
-                    </div>
-                <!-- </div> -->
+                <div class="cart-wish-wrap mt5">
+                    @include ('shop::products.wishlistproduct.add-to-cart', [
+                        'addWishlistClass'  => 'pl10',
+                        'product'           => $product,
+                        'addToCartBtnClass' => 'medium-padding',
+                        'showCompare'       => core()->getConfigData('general.content.shop.compare_option') == "1" ? true : false,
+                    ])
+                </div>
             </div>
         </div>
     @else
@@ -163,8 +159,7 @@
                         'reloadPage'        => $reloadPage ?? null,
                         'addToCartForm'     => $addToCartForm ?? false,
                         'addToCartBtnClass' => $addToCartBtnClass ?? '',
-                        'showCompare'       => core()->getConfigData('general.content.shop.compare_option') == "1"
-                                                ? true : false,
+                        'showCompare'       => core()->getConfigData('general.content.shop.compare_option') == "1" ? true : false,
                     ])
                 </div>
             </div>

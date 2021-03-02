@@ -1,4 +1,3 @@
-<?php //echo "<pre>"; print_r($product); exit(); ?>
 @extends('shop::layouts.master')
 
 @inject ('reviewHelper', 'Webkul\Product\Helpers\Review')
@@ -88,20 +87,17 @@
                     <product-view>
                         <div class="form-container">
                             @csrf()
-
-                            <?php //echo "<pre>"; print_r($product);exit(); ?>
-
                             <input type="hidden" name="product_id" value="{{ $product->product_id }}">
 
                             {{-- product-gallery --}}
-                            <div class="left col-md-7 col-xl-5"><!-- col-lg-5 -->
+                            <div class="left col-md-7 col-xl-5">
                                 @include ('shop::products.view.gallery')
                             </div>
 
                             {{-- right-section --}}
-                            <div class="right col-md-12 col-xl-7"><!--  col-lg-7 -->
+                            <div class="right col-md-12 col-xl-7">
                                 {{-- product-info-section --}}
-                                <div class="info"><!-- row  -->
+                                <div class="info">
                                     <h2 class="col-lg-12 no-padding product-name">{{ $product->name }}</h2>
 
                                     @if ($total)
@@ -133,8 +129,7 @@
                                             'form' => false,
                                             'product' => $product,
                                             'showCartIcon' => false,
-                                            'showCompare' => core()->getConfigData('general.content.shop.compare_option') == "1"
-                                                             ? true : false,
+                                            'showCompare' => core()->getConfigData('general.content.shop.compare_option') == "1" ? true : false,
                                         ])
 
                                     </div>

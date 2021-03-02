@@ -1,7 +1,7 @@
 @inject ('reviewHelper', 'Webkul\Product\Helpers\Review')
 @inject ('toolbarHelper', 'Webkul\Product\Helpers\Toolbar')
 @inject ('productImageHelper', 'Webkul\Product\Helpers\ProductImage')
-<?php //echo "payal<pre>"; print_r($product);exit(); ?>
+
 @push('css')
     <style type="text/css">
         .list-card .wishlist-icon i {
@@ -47,7 +47,7 @@
     ])->render());
 
 @endphp
-<?php //echo"<pre>";print_r($product);exit(); ?>
+
 {!! view_render_event('bagisto.shop.products.list.card.before', ['product' => $product]) !!}
     @if (isset($list) && $list)
         <div class="col-12 lg-card-container list-card product-card row">
@@ -93,8 +93,7 @@
                             'addWishlistClass'  => 'pl10',
                             'product'           => $product,
                             'addToCartBtnClass' => 'medium-padding',
-                            'showCompare'       => core()->getConfigData('general.content.shop.compare_option') == "1"
-                                                   ? true : false,
+                            'showCompare'       => core()->getConfigData('general.content.shop.compare_option') == "1" ? true : false,
                         ])
                     </div>
                 </div>
@@ -161,8 +160,7 @@
                         'reloadPage'        => $reloadPage ?? null,
                         'addToCartForm'     => $addToCartForm ?? false,
                         'addToCartBtnClass' => $addToCartBtnClass ?? '',
-                        'showCompare'       => core()->getConfigData('general.content.shop.compare_option') == "1"
-                                                ? true : false,
+                        'showCompare'       => core()->getConfigData('general.content.shop.compare_option') == "1" ? true : false,
                     ])
                 </div>
             </div>

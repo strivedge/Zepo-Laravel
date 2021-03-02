@@ -3,7 +3,9 @@
 @section('page_title')
 {{__('blog::app.blogs.add-title') }}
 @stop
-
+<?php
+    //echo print_r($errors,true);
+?>
 @section('content')
 <div class="content">
     <form method="POST" action="{{ route('admin.blog.save') }}" enctype="multipart/form-data" @submit.prevent="onSubmit">

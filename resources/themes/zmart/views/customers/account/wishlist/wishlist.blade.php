@@ -23,10 +23,8 @@
 
     {!! view_render_event('bagisto.shop.customers.account.wishlist.list.before', ['wishlist' => $items]) !!}
 
-    <!-- <div class="account-items-list row wishlist-container"> -->
     <div class="account-items-list wishlist-container">
         @if ($items->count())
-        <?php //echo"<pre>"; print_r($items);exit; ?>
             @foreach ($items as $item)
                 @php
                     $currentMode = $toolbarHelper->getCurrentMode();

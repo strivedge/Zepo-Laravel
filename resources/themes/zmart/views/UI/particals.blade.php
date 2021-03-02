@@ -63,9 +63,7 @@
 </script>
 
 <script type="text/x-template" id="searchbar-template">
-     <!-- <div class="row no-margin right searchbar"> -->
     <div class="col-md-10 right searchbar">
-         <!--  <div class="col-lg-5 col-md-10 no-padding input-group"> -->
         <div class="navbar--search col-md-9 no-padding input-group">
             <form
                 method="GET"
@@ -127,19 +125,12 @@
         </div>
 
         <div class="navbar--addcart--wishlist col-md-3">
-            <!-- <a href="#" class="search-btn">
-                <span class="search-bar">
-                    <i class="fs16 fw6 rango-search"></i>
-                </span>
-            </a> -->
             {!! view_render_event('bagisto.shop.layout.header.cart-item.before') !!}
                 @include('shop::checkout.cart.mini-cart')
             {!! view_render_event('bagisto.shop.layout.header.cart-item.after') !!}
 
             @php
                 $showCompare = core()->getConfigData('general.content.shop.compare_option') == "1" ? true : false;
-
-                
             @endphp
 
             {!! view_render_event('bagisto.shop.layout.header.compare.before') !!}
