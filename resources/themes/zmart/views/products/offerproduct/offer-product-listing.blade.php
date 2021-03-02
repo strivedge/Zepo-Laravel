@@ -49,7 +49,7 @@
     ])->render());
 
 @endphp
-<?php //echo"<pre>";print_r($product);exit(); ?>
+
 {!! view_render_event('bagisto.shop.products.list.card.before', ['product' => $product]) !!}
     
     @if (isset($list) && $list)
@@ -108,26 +108,30 @@
                 <div class="content-wrap">
                     <div class="product-code">{{$product->sku}}</div>
                         <div class="img">
-                            <a
-                                href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
-                                title="{{ $product->name }}"
-                                class="product-image-container">
+                            
                                  @if ($product->getTypeInstance()->haveSpecialPrice())
-                                 <?php //echo"Test<pre>";print_r($product->getTypeInstance()->getOfferPercentage());exit; ?>
+                                 
                                     <div class="sticker new">
                                       
                                        <span class="save">SAVE</span><span class="percentage">{{$product->getTypeInstance()->getOfferPercentage()}}%</span>
                                     </div>
                                 @endif
                             @if(count($galleryImages) > 0)
-                                @foreach($galleryImages as $image)
-                                <img
-                                    loading="lazy"
-                                    class="card-img-top items"
-                                    alt="{{ $product->name }}"
-                                    src="{{ $image['large_image_url'] }}"
-                                    :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
-                                @endforeach
+                                <div class="product-imgs">
+                                    @foreach($galleryImages as $image)
+                                    <a
+                                        href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
+                                        title="{{ $product->name }}"
+                                        class="product-image-container">
+                                            <img
+                                                loading="lazy"
+                                                class="card-img-top items"
+                                                alt="{{ $product->name }}"
+                                                src="{{ $image['large_image_url'] }}"
+                                                :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
+                                    </a>
+                                    @endforeach
+                                </div>
                             @else
                                 <img
                                     loading="lazy"
@@ -137,7 +141,7 @@
                                     :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
                                 @endif
 
-                            </a>
+                            
                         </div>    
                            
                             <div class="content">
