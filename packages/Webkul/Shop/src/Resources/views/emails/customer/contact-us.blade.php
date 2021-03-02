@@ -12,13 +12,13 @@
         </div>
 
         <div>
-            <b>Name: </b>{{ $data['name'] }}
+            <b>{{ __('shop::app.contact-us.name') }}: </b>{{ $data['name'] }}
         </div>
         <div>
-            <b>Phone Number: </b>{{$data['phone']}}
+            <b>{{ __('shop::app.contact-us.phone-number') }}: </b>{{$data['phone']}}
         </div>
         <div>
-            <b>Message: </b>{{$data['message'] }}
+            <b>{{ __('shop::app.contact-us.message') }}: </b>{{$data['message'] }}
         </div>
 
         

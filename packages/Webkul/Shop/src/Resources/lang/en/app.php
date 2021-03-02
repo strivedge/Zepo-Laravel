@@ -89,9 +89,12 @@ return [
 
     'contact-us' => [
         'title' => 'Contact us',
+        'name' => 'Name',
         'email' => 'email',
         'email-addr' => 'support@zepomart.com',
+        'message' => 'Message',
         'phone' => 'phone',
+        'phone-number' => 'Phone Number',
         'phone-num' => '021 269 962',
         'location-on' => 'location_on',
         'address' => 'B-905, Test City Center, Near test Tower, Testlite, Ahmedabad -380111, Gujarat, India',

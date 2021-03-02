@@ -3,8 +3,6 @@
     $direction = core()->getCurrentLocale()->direction == 'rtl' ? 'rtl' : 'ltr';
 @endphp
 
- <?php //echo"payal<pre>"; print_r($count);exit(); ?>
-
 <featured-products></featured-products>
 
 @push('scripts')

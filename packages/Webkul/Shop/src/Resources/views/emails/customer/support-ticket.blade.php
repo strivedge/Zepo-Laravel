@@ -12,20 +12,20 @@
         </div>
 
         <div>
-            <b>Customer : </b>{{ $data['name'] }}
+            <b>{{__('zepo::app.support-ticket.customer') }} : </b>{{ $data['name'] }}
         </div>
 
         <div>
-            <b>Customer Email : </b><a href="mailto:{{ $data['email'] }}">{{ $data['email'] }}</a>
+            <b>{{__('zepo::app.support-ticket.customer-email') }} : </b><a href="mailto:{{ $data['email'] }}">{{ $data['email'] }}</a>
         </div>
 
         <div>
-            <b>Customer Message : </b>{{ $data['message'] }}
+            <b>{{__('zepo::app.support-ticket.customer-message') }} : </b>{{ $data['message'] }}
         </div>
 
         <div>
             <a href="{{ route('zepo.support-ticket.edit', [$data['id']]) }}">
-                go to Support Ticket Action
+                {{__('zepo::app.support-ticket.go-action') }}
             </a>
         </div>
         
