@@ -86,12 +86,11 @@
                                     </compare-component> -->
 
 
-                                    <!-- <div class="quick-view-in-list">
+                                     <div class="quick-view-in-list">
                                         <product-quick-view-btn :quick-view-details="`${product}`"></product-quick-view-btn>
-                                    </div> -->
-                                     
+                                    </div>                                      
 
-                                   <!-- <div class="cart-wish-wrap no-padding ml0">
+                                   <div class="cart-wish-wrap no-padding ml0">
                                         <div class="mx-0 no-padding">
                                             <div class="add-to-cart-btn pl0">
                                                 <form
@@ -112,7 +111,7 @@
                                                 </form>
                                             </div>
                                         </div>
-                                    </div> -->
+                                    </div> 
                                 </div>
                             </li>
                         </ul>

@@ -178,7 +178,7 @@
                             <span>{{ $review->comment }}</span>
                         </div>
 
-                        <div class="col-lg-12 mt5">
+                        <div class="reviews-by col-lg-12 mt5">
                             @if ("{{ $review->name }}")
                                 <span>{{ __('velocity::app.products.review-by') }} -</span>
 

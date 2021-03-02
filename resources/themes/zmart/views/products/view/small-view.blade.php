@@ -4,8 +4,8 @@
     $productBaseImage = $productImageHelper->getProductBaseImage($product);
 @endphp
 
-<div class="col-lg-3 col-md-12">
-    <a class="row" href="{{ route('shop.productOrCategory.index', $product->url_key) }}">
+<div class="col-lg-3 col-md-12 review-page-img">
+    <a class="row img" href="{{ route('shop.productOrCategory.index', $product->url_key) }}">
         <img src="{{ $productBaseImage['medium_image_url'] }}" class="col-12" />
     </a>
 
