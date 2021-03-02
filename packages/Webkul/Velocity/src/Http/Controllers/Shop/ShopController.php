@@ -32,6 +32,8 @@ class ShopController extends Controller
 
             $galleryImages = $this->productImageHelper->getGalleryImages($product);
 
+            $formattedProducts = $this->velocityHelper->formatProduct($product);
+
             $response = [
                 'status'  => true,
                 'details' => [
@@ -39,16 +41,19 @@ class ShopController extends Controller
                     'name'         => $product->name,
                     'sku'          => $product->sku,
                     'urlKey'       => $product->url_key,
+                    'slug'       => $product->url_key,
                     'special_price'=> $product->getTypeInstance()->haveSpecialPrice(),
                     'percentage'   => $product->getTypeInstance()->getOfferPercentage(),
                     'priceHTML'    => $product->getTypeInstance()->getOfferPriceHtml(),
                     'totalReviews' => $productReviewHelper->getTotalReviews($product),
                     'rating'       => ceil($productReviewHelper->getAverageRating($product)),
+                    'avgRating'    => ceil($productReviewHelper->getAverageRating($product)),
                     'image'        => $image['small_image_url'],
                     'galleryImages'=> $galleryImages,
                     'baseUrl'      => url('/'),
                     'csrf_token'   => csrf_token(),
                     'product'      => json_encode($product),
+                    'formattedProducts' => $formattedProducts, 
                     'defaultAddToCart'  => view('shop::products.add-buttons', ['product' => $product])->render(),
                     'addToCartHtml'     => view('shop::products.newproduct.new-product-add-to-cart', [
                         'product'           => $product,
