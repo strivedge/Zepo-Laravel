@@ -1,12 +1,15 @@
 @extends('admin::layouts.content')
 
 @section('page_title')
-{{__('blog::app.blogs.add-title') }}
+    {{__('blog::app.blogs.add-title') }}
 @stop
-<?php
-    //echo print_r($errors,true);
-?>
+
 @section('content')
+@if(session()->get('errors'))
+    @php
+        $errors = session()->get('errors');
+    @endphp
+@endif
 <div class="content">
     <form method="POST" action="{{ route('admin.blog.save') }}" enctype="multipart/form-data" @submit.prevent="onSubmit">
 

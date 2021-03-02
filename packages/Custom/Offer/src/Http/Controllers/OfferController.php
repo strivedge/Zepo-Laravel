@@ -8,6 +8,7 @@ use Custom\Offer\Models\Offer;
 use Custom\Offer\Repositories\OfferRepository;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use File;
+use Validator;
 
 class OfferController extends Controller
 {
@@ -53,16 +54,20 @@ class OfferController extends Controller
     {
         $data = request()->all();
 
-        $this->validate(request(), [
+        $validator = Validator::make($request->all(), [
             'title' => 'required',
             'desc' => 'required',
-            'image' => 'required|mimes:jpeg,jpg,bmp,png,svg',
+            'image' => 'required|mimes:jpeg,jpg,png,bmp,png,gif',
             'status' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
         ]);
 
-        // echo "<pre>"; print_r($val); exit();
+        if ($validator->fails()) 
+        {
+            $errors = $validator->errors();
+            return redirect()->back()->withErrors($errors);
+        }
 
         $imageName = $request->image;
         if($imageName != null)
@@ -108,16 +113,23 @@ class OfferController extends Controller
     public function update(Request $request, $id)
     {
         $data = request()->all();
-        $old_data = $this->offerRepository->findById($id);
 
-        // $this->validate($request, [
-        //     'title' => 'required',
-        //     'desc' => 'required',
-        //     'image' => 'nullable|mimes:jpeg,png,jpg,gif,svg',
-        //     'status' => 'required',
-        //     'start_date' => 'required',
-        //     'end_date' => 'required',
-        // ]);
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'desc' => 'required',
+            'image' => 'nullable|mimes:jpeg,jpg,png,bmp,png,gif',
+            'status' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+        ]);
+            
+        if ($validator->fails()) 
+        {
+            $errors = $validator->errors();
+            return redirect()->back()->withErrors($errors);
+        }
+            
+        $old_data = $this->offerRepository->findById($id);
 
         if (request()->hasFile('image'))
         {

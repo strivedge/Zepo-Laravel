@@ -3,8 +3,8 @@
 namespace Custom\Blog\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Custom\Blog\Models\Blog;
-// use Illuminate\Support\Facades\Validator;
 use Custom\Blog\Repositories\BlogRepository;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use File;
@@ -52,7 +52,7 @@ class BlogController extends Controller
         $data = request()->all();
 
         $validator = Validator::make($request->all(), [
-            'title'    => 'required|max:3',
+            'title'    => 'required',
             'image'    => 'required|mimes:jpeg,jpg,png,bmp,png,gif',
             'slug'     => 'required|unique:master_posts,slug',
             'content'  => 'required',
@@ -60,14 +60,9 @@ class BlogController extends Controller
         ]);
 
         if ($validator->fails()) 
-        { 
-            // return $validator->errors();
-            // Session()->flash('error', "Fail");
-            // return redirect()->back()->withErrors($validator);
+        {
             $errors = $validator->errors();
-            // echo "<pre>"; print_r($errors); exit();
-            // return back()->withErrors($errors)->withInput();
-            return back()->withErrors($errors);
+            return redirect()->back()->withErrors($errors);
         }
 
             
@@ -107,16 +102,22 @@ class BlogController extends Controller
     public function update(Request $request, $id)
     {
         $data = request()->all();
-        $old_data = $this->blogRepository->findById($id);
         
-        // $this->validate(request(), [
-        //     'title' => 'required',
-        //     'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
-        //     'slug' => 'nullable|slug|unique:master_posts',
-        //     'content' => 'required',
-        //     'date' => 'required',
-        // ]);
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'image' => 'nullable|mimes:jpeg,jpg,png,bmp,png,gif',
+            'slug' => 'unique:master_posts,slug,'.$id,
+            'content' => 'required',
+            'date' => 'required',
+        ]);
             
+        if ($validator->fails()) 
+        {
+            $errors = $validator->errors();
+            return redirect()->back()->withErrors($errors);
+        }
+            
+        $old_data = $this->blogRepository->findById($id);
         
         if (request()->hasFile('image'))
         {

@@ -3,11 +3,16 @@
 namespace Custom\Testinominal\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Custom\Testinominal\Models\Testinominal;
 use Custom\Testinominal\Repositories\TestinominalRepository;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 use File;
+use Validator;
 
 class TestinominalController extends Controller
 {
+    use ValidatesRequests;
     private $testinominalRepository;
     public function __construct(TestinominalRepository $testinominalRepository)
     {
@@ -46,11 +51,18 @@ class TestinominalController extends Controller
     {
         $data = request()->all();
 
-        // $this->validate($request, [
-        //     'title' => 'required',
-        //     'image' => 'mimes:jpeg,jpg,png,gif|required|max:10000',
-        //     'date' => 'required',
-        // ]);
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'image' => 'required|mimes:jpeg,jpg,png,bmp,png,gif',
+            'desc'  => 'required',
+            'date' => 'required',
+        ]);
+
+        if ($validator->fails()) 
+        {
+            $errors = $validator->errors();
+            return redirect()->back()->withErrors($errors);
+        }
 
         $imageName = $request->image;
         if($imageName != null)

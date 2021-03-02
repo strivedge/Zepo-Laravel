@@ -4,6 +4,11 @@
 {{__('offer::app.offer.add-title') }}
 @stop
 @section('content')
+@if(session()->get('errors'))
+    @php
+        $errors = session()->get('errors');
+    @endphp
+@endif
 <div class="content">
     <form method="POST" action="{{ route('admin.offer.save') }}" enctype="multipart/form-data" @submit.prevent="onSubmit">
 
