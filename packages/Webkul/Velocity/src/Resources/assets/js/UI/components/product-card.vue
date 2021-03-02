@@ -68,26 +68,28 @@
     <div class="list-li" v-else>
         <div class="content-wrap">
             <div class="product-code">{{ product.sku}}</div>
-            <div class="sticker new"  v-if="product.special_price">
+            
+            <div class="img" v-if="product.galleryImages.length > 0">
+               <div class="sticker new"  v-if="product.special_price">
                 <span class="save">SAVE</span>
                 <span class="percentage">{{ product.percentage }}%</span>
-            </div>
-            <div class="img" v-if="product.galleryImages.length > 0">
+                </div>
+                <div class="product-imgs">
+                    <div class="" v-for="img in product.galleryImages" :key="img">
+                        <a :href="`${baseUrl}/${product.slug}`" :title="product.name" class="product-image-container">
 
-                <div class="product-imgs" v-for="img in product.galleryImages" :key="img">
-                    <a :href="`${baseUrl}/${product.slug}`" :title="product.name" class="product-image-container">
-
-                        <img
-                            loading="lazy"
-                            :alt="product.name"
-                            :src="img.medium_image_url || product.product_image"
-                            :data-src="product.image || product.product_image"
-                            class="card-img-top lzy_img"
-                            :onerror="`this.src='${baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`"  />
+                            <img
+                                loading="lazy"
+                                :alt="product.name"
+                                :src="img.medium_image_url || product.product_image"
+                                :data-src="product.image || product.product_image"
+                                class="card-img-top lzy_img"
+                                :onerror="`this.src='${baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`"  />
 
 
-                        
-                    </a>
+                            
+                        </a>
+                    </div>
                 </div>
                 
             </div>
@@ -100,7 +102,7 @@
                             :alt="product.name"
                             :src="product.image || product.product_image"
                             :data-src="product.image || product.product_image"
-                            class="card-img-top lzy_img"
+                            class="card-img-top lzy_img items"
                             :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`"  />
                             <!-- :src="`${$root.baseUrl}/vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png`" /> -->
 
