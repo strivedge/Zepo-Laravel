@@ -93,7 +93,7 @@
 
         </section>
                     @if ($showRecentlyViewed)
-                @include ('shop::products.list.recently-viewed', [
+                @include ('shop::products.list.product-recently-viewed', [
                     'addClass' => 'col-lg-3 col-md-12'
                 ])
             @endif

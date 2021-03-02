@@ -15,7 +15,7 @@
 @push('scripts')
     <script type="text/x-template" id="recently-viewed-template">
         <section class="recently-viewed product-box">
-                    <div class="container">
+                    
                         <div class="section-title"><h2>{{ __('velocity::app.products.recently-viewed') }}</h2></div>
                         <ul class="row">
                             <li class="" :key="Math.random()"  v-for="(product, index) in recentlyViewed">
@@ -120,7 +120,7 @@
                             v-if="!recentlyViewed ||(recentlyViewed && Object.keys(recentlyViewed).length == 0)"
                             v-text="'{{ __('velocity::app.products.not-available') }}'">
                         </span>
-                    </div>
+                    test1
                 </section>
     </script>
 
