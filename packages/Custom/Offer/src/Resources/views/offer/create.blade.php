@@ -28,7 +28,6 @@
         </div>
 
         <div class="page-content">
-
             <div class="form-container">
                 @csrf()
                 <div class="control-group" :class="[errors.has('title') ? 'has-error' : '']">
@@ -51,12 +50,10 @@
                 <div class="control-group" :class="[errors.has('image') ? 'has-error' : '']">
                     <label for="image" class="required">{{ __('offer::app.offer.upload-image') }}</label>
                     <div class="preview">
-                        <img id="file-ip-1-preview">
+                        <img id="file-ip-1-preview" style="display: none;" height="30%" width="35%">
                     </div>
                     <input type="file" name="image" id="file-ip-1" accept="image/*" onchange="showPreview(event);" v-validate="'required'" data-vv-as="&quot;{{__('offer::app.offer.image') }}&quot;"/>
-                    <span class="control-error" v-if="errors.has('image')">
-                        @{{ errors.first('image') }}
-                    </span>
+                    <span class="control-error" v-if="errors.has('image')">@{{ errors.first('image') }}</span>
                 </div>
 
                 <div class="control-group" :class="[errors.has('status') ? 'has-error' : '']">

@@ -6,7 +6,6 @@
 
 @section('content')
 <div class="content">
-
     <form method="POST" action="{{ route('zepo.support-ticket.update', [$supportTicket->id]) }}" enctype="multipart/form-data" @submit.prevent="onSubmit">
 
         <div class="page-header">
@@ -25,7 +24,6 @@
         </div>
 
         <div class="page-content">
-
             <div class="form-container">
                 @csrf()
                 <div class="control-group" :class="[errors.has('name') ? 'has-error' : '']">
@@ -52,7 +50,7 @@
                         <img src="{{ asset('uploadImages/supportTicket/'.$supportTicket->attachment) }}" alt="{{ __('zepo::app.support-ticket.attachment') }}" :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" id="file-ip-1-preview">
                     </div>
                     <div>
-                        <input type="file" name="attachment" id="file-ip-1" accept="image/*" onchange="showPreview(event);" v-validate="''" data-vv-as="&quot;{{ __('shop::app.support-ticket.attachment') }}&quot;" />
+                        <input type="file" name="attachment" id="file-ip-1" accept="image/*" onchange="showPreview(event);" v-validate="''" data-vv-as="&quot;{{ __('zepo::app.support-ticket.attachment') }}&quot;" />
                     </div>
                     <span class="control-error" v-if="errors.has('attachment')">
                         @{{ errors.first('attachment') }}

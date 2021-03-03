@@ -40,9 +40,9 @@
                 <div class="control-group" :class="[errors.has('image') ? 'has-error' : '']">
                     <label for="image" class="required">{{ __('blog::app.blogs.blog-image') }}</label>
                     <div class="preview">
-                        <img id="file-ip-1-preview">
+                        <img id="file-ip-1-preview" style="display: none;" height="30%" width="35%">
                     </div>
-                    <input type="file" name="image" v-validate="'required'" id="file-ip-1" accept="image/*" onchange="showPreview(event);" data-vv-as="&quot;{{ __('blog::app.blogs.image') }}&quot;" />
+                    <input type="file" name="image" id="file-ip-1" accept="image/*" onchange="showPreview(event);" v-validate="'required'" data-vv-as="&quot;{{ __('blog::app.blogs.image') }}&quot;"/>
                     <span class="control-error" v-if="errors.has('image')">@{{ errors.first('image') }}</span>
                 </div>
 

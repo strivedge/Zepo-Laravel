@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Custom\Festival\Repositories\FestivalRepository;
 use Webkul\Product\Repositories\ProductRepository;
 use File;
+use Validator;
 
 class FestivalController extends Controller
 {
@@ -61,18 +62,24 @@ class FestivalController extends Controller
      */
     public function store(Request $request)
     {
-
         //echo "<pre>"; print_r(request()->all());exit();
         $req = request()->all();
-        $this->validate($request, [
+
+        $validator = Validator::make($request->all(), [
             'title' => 'required',
             'short_desc' => 'required',
             'long_desc' => 'required',
-            'image' => 'mimes:jpeg,jpg,png,gif|required|max:10000',
+            'image' => 'required|mimes:jpeg,jpg,png,bmp,svg',
             'status' => 'required',
             'start_date' => 'required',
             'end_date' => 'required'
         ]);
+
+        if ($validator->fails()) 
+        {
+            $errors = $validator->errors();
+            return redirect()->back()->withErrors($errors);
+        }
 
         $data = ['title' => $req['title'],
                 'short_desc' => $req['short_desc'],
@@ -82,8 +89,12 @@ class FestivalController extends Controller
                 'status' => $req['status'],
                 ];
 
-        $data['up_sell'] = $req['up_sell'];
-
+        if(!empty($req['up_sell'])) {
+            $data['up_sell'] = $req['up_sell'];
+        }
+        else {
+            $data['up_sell'] = [];
+        }
         
         if (request()->hasFile('image'))
         {
@@ -94,7 +105,6 @@ class FestivalController extends Controller
         }
 
         $storeData = $this->festivalRepository->create($data);
-
 
         $storeData = $this->festivalRepository->updateStatus($storeData['id']);
 
@@ -149,18 +159,23 @@ class FestivalController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        $this->validate($request, [
+        $req = request()->all();
+        
+        $validator = Validator::make($request->all(), [
             'title' => 'required',
             'short_desc' => 'required',
             'long_desc' => 'required',
-            'image' => 'mimes:jpeg,jpg,png,gif',
+            'image' => 'nullable|mimes:jpeg,jpg,png,bmp',
             'status' => 'required',
             'start_date' => 'required',
             'end_date' => 'required'
         ]);
-
-        $req = request()->all();
+            
+        if ($validator->fails()) 
+        {
+            $errors = $validator->errors();
+            return redirect()->back()->withErrors($errors);
+        }
 
         $data = ['title' => $req['title'],
                 'short_desc' => $req['short_desc'],
@@ -170,12 +185,16 @@ class FestivalController extends Controller
                 'status' => $req['status'],
                 ];
 
-        $data['up_sell'] = $req['up_sell'];
+        if(!empty($req['up_sell'])) {
+            $data['up_sell'] = $req['up_sell'];
+        }
+        else {
+            $data['up_sell'] = [];
+        }
 
-                //echo"<pre>"; print_r($data);exit();
+        //echo"<pre>"; print_r($data);exit();
 
         $old_data = $this->festivalRepository->findById($id);
-
 
         if (request()->hasFile('image'))
         {
@@ -241,7 +260,7 @@ class FestivalController extends Controller
         if ($ids != null) 
         {
             $this->festivalRepository->massDataDelete($ids);
-            session()->flash('success', trans('offer::app.offer.mass-destroy-success'));
+            session()->flash('success', trans('festival::app.festival.mass-destroy-success'));
         }
         return redirect()->back();
     }
@@ -254,7 +273,7 @@ class FestivalController extends Controller
         if ($ids != null && $updateOption != null) 
         {
             $this->festivalRepository->massDataUpdate($ids, $updateOption);
-            session()->flash('success', trans('offer::app.offer.mass-update-success'));
+            session()->flash('success', trans('festival::app.festival.mass-update-success'));
         }
         return redirect()->back();
     }

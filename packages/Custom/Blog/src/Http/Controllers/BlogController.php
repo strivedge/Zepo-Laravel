@@ -53,7 +53,7 @@ class BlogController extends Controller
 
         $validator = Validator::make($request->all(), [
             'title'    => 'required',
-            'image'    => 'required|mimes:jpeg,jpg,png,bmp,png,gif',
+            'image'    => 'required|mimes:jpeg,jpg,png,bmp,svg',
             'slug'     => 'required|unique:master_posts,slug',
             'content'  => 'required',
             'date'     => 'required',
@@ -105,7 +105,7 @@ class BlogController extends Controller
         
         $validator = Validator::make($request->all(), [
             'title' => 'required',
-            'image' => 'nullable|mimes:jpeg,jpg,png,bmp,png,gif',
+            'image' => 'nullable|mimes:jpeg,jpg,png,bmp',
             'slug' => 'unique:master_posts,slug,'.$id,
             'content' => 'required',
             'date' => 'required',

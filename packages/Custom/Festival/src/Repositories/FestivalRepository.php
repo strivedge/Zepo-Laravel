@@ -46,8 +46,6 @@ class FestivalRepository
     public function createProduct(array $data)
     {
         $FestivalProduct = FestivalProduct::create($data);
-
-
         return $FestivalProduct;
     }
 

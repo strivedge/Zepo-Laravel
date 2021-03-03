@@ -4,6 +4,11 @@
 {{__('festival::app.festival.add-title') }}
 @stop
 @section('content')
+@if(session()->get('errors'))
+    @php
+        $errors = session()->get('errors');
+    @endphp
+@endif
 <div class="content">
     <form method="POST" action="{{ route('admin.festival.save') }}" enctype="multipart/form-data" @submit.prevent="onSubmit">
 
@@ -23,69 +28,60 @@
         </div>
 
         <div class="page-content">
-
             <div class="form-container">
                 @csrf()
                 <div class="control-group" :class="[errors.has('title') ? 'has-error' : '']">
                     <label for="title" class="required">{{ __('festival::app.festival.festival-title') }}</label>
-                    <input type="text" class="control" name="title" placeholder="{{ __('festival::app.festival.title-placeholder') }}" v-validate="'required'">
+                    <input type="text" class="control" name="title" placeholder="{{ __('festival::app.festival.title-placeholder') }}" v-validate="'required'" data-vv-as="&quot;{{ __('festival::app.festival.festival-title') }}&quot;">
                     <span class="control-error" v-if="errors.has('title')">@{{ errors.first('title') }}</span>
                 </div>
                 
                 <div class="control-group" :class="[errors.has('short_desc') ? 'has-error' : '']">
                     <label for="short_desc" class="required">{{ __('festival::app.festival.short_desc') }}</label>
-                    <textarea type="text" class="control" name="short_desc" placeholder="{{ __('festival::app.festival.sort-d-placeholder') }}" v-validate="'required'"></textarea>
+                    <textarea type="text" class="control" name="short_desc" placeholder="{{ __('festival::app.festival.sort-d-placeholder') }}" v-validate="'required'" data-vv-as="&quot;{{ __('festival::app.festival.short_desc') }}&quot;"></textarea>
                     <span class="control-error" v-if="errors.has('short_desc')">@{{ errors.first('short_desc') }}</span>
                 </div>
 
                 <div class="control-group" :class="[errors.has('long_desc') ? 'has-error' : '']">
                     <label for="long_desc" class="required">{{ __('festival::app.festival.long_desc') }}</label>
-                    <textarea type="text" class="control" name="long_desc" placeholder="{{ __('festival::app.festival.long-d-placeholder') }}" v-validate="'required'"></textarea>
+                    <textarea type="text" class="control" name="long_desc" placeholder="{{ __('festival::app.festival.long-d-placeholder') }}" v-validate="'required'" data-vv-as="&quot;{{ __('festival::app.festival.long_desc') }}&quot;"></textarea>
                     <span class="control-error" v-if="errors.has('long_desc')">@{{ errors.first('long_desc') }}</span>
                 </div>
 
                 <div class="control-group" :class="[errors.has('image') ? 'has-error' : '']">
-                    <label for="file-ip-1" class="required">{{ __('festival::app.festival.upload-image') }}</label>
+                    <label for="image" class="required">{{ __('festival::app.festival.upload-image') }}</label>
                     <div class="preview">
-                        <img id="file-ip-1-preview">
+                        <img id="file-ip-1-preview" style="display: none;" height="30%" width="35%">
                     </div>
-                    <input type="file" name="image" id="file-ip-1" accept="image/*" onchange="showPreview(event);" v-validate="'required'">
+                    <input type="file" name="image" id="file-ip-1" accept="image/*" onchange="showPreview(event);" v-validate="'required'" data-vv-as="&quot;{{ __('festival::app.festival.image') }}&quot;">
                     <span class="control-error" v-if="errors.has('image')">@{{ errors.first('image') }}</span>
                 </div>
 
                 <div class="control-group" :class="[errors.has('status') ? 'has-error' : '']">
                     <label for="status" class="required">{{ __('festival::app.festival.status') }}</label>
-                    <select name="status" class="control" v-validate="'required'">
+                    <select name="status" class="control" v-validate="'required'" data-vv-as="&quot;{{ __('festival::app.festival.status') }}&quot;">
                         <option value="1">{{ __('festival::app.festival.active') }}</option>
                         <option value="0">{{ __('festival::app.festival.inactive') }}</option>
                     </select>
                     <span class="control-error" v-if="errors.has('status')">@{{ errors.first('status') }}</span>
                 </div>
 
-                <div class="control-group" :class="[errors.has('date') ? 'has-error' : '']">
-                    <label for="date" class="required">{{ __('festival::app.festival.start-date') }}</label>
-                    <input type="date" class="control" name="start_date" value='<?php echo date("Y-m-d"); ?>'  v-validate="'required'">
-                    <span class="control-error" v-if="errors.has('date')">@{{ errors.first('date') }}</span>
+                <div class="control-group" :class="[errors.has('start_date') ? 'has-error' : '']">
+                    <label for="start_date" class="required">{{ __('festival::app.festival.start-date') }}</label>
+                    <input type="date" class="control" name="start_date" value='<?php echo date("Y-m-d"); ?>'  v-validate="'required'" data-vv-as="&quot;{{ __('festival::app.festival.start-date') }}&quot;">
+                    <span class="control-error" v-if="errors.has('start_date')">@{{ errors.first('start_date') }}</span>
                 </div>
 
-                <div class="control-group" :class="[errors.has('date') ? 'has-error' : '']">
-                    <label for="date" class="required">{{ __('festival::app.festival.end-date') }}</label>
-                    <input type="date" class="control" name="end_date" value='<?php echo date("Y-m-d", strtotime("+ 1 day")); ?>'  v-validate="'required'">
-                    <span class="control-error" v-if="errors.has('date')">@{{ errors.first('date') }}</span>
+                <div class="control-group" :class="[errors.has('end_date') ? 'has-error' : '']">
+                    <label for="end_date" class="required">{{ __('festival::app.festival.end-date') }}</label>
+                    <input type="date" class="control" name="end_date" value='<?php echo date("Y-m-d", strtotime("+ 1 day")); ?>'  v-validate="'required'" data-vv-as="&quot;{{ __('festival::app.festival.end-date') }}&quot;">
+                    <span class="control-error" v-if="errors.has('end_date')">@{{ errors.first('end_date') }}</span>
                 </div>
 
-
-
-                
-               
                 <div slot="body">
-
                     <linked-products></linked-products>
-
                 </div>
 
-                
-                
             </div>
         </div>
     </form>
