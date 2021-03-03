@@ -77,7 +77,25 @@
       $('.navbar--search').slideDown("fast");
     }
   });*/
-   $('.product-imgs').slick({
+  
+ });
+
+
+
+$(document).ready(function () {
+
+    console.log("Test ready")
+    //productImageSlider();
+  $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+
+   $('.product-imgs').slick('refresh');
+    
+
+  });
+});
+
+function productImageSlider() {
+     $('.product-imgs').slick({
     infinite: false,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -103,17 +121,9 @@
             }
         ]
     });
- });
+}
 
-
-
-$(document).ready(function () {
-  $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-
-   $('.product-imgs').slick('refresh');
-    
-
-  });
+$( window ).on("load", function() {
+        console.log("Test payal");
+        productImageSlider();
 });
-
-
