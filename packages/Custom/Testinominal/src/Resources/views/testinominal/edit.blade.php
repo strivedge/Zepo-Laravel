@@ -41,7 +41,7 @@
                 <div class="control-group" :class="[errors.has('image') ? 'has-error' : '']">
                     <label for="file-ip-1" class="required">{{ __('testinominal::app.testinominal.upload-image') }}</label>
                     <div class="preview">
-                        <img src="{{ asset('/').$testinominal->image }}" id="file-ip-1-preview" alt="{{ __('testinominal::app.testinominal.image') }}" height="70" width="110">
+                        <img src="{{ asset('/').$testinominal->image }}" id="file-ip-1-preview" alt="{{ __('testinominal::app.testinominal.image') }}" height="30%" width="35%">
                     </div>
                     <div>
                         <input type="file" name="image" id="file-ip-1" accept="image/*" onchange="showPreview(event);" v-validate="''" data-vv-as="&quot;{{ __('testinominal::app.testinominal.image') }}&quot;">

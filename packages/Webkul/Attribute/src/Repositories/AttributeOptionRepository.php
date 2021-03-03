@@ -3,6 +3,7 @@
 namespace Webkul\Attribute\Repositories;
 
 use Webkul\Core\Eloquent\Repository;
+use DB;
 
 class AttributeOptionRepository extends Repository
 {
@@ -28,6 +29,16 @@ class AttributeOptionRepository extends Repository
         $this->uploadSwatchImage($data, $option->id);
 
         return $option;
+    }
+
+    public function findbySlug($optionId, $option_slug)
+    {
+        $slug = DB::table('attribute_options')
+        ->where('id','!=', $optionId)
+        ->where('option_slug', $option_slug)->get();
+        // $slug = $this->where('option_slug', 'johnson-&-johnson');
+        // echo "<pre>"; print_r($slug); exit();
+        return $slug;
     }
 
     /**

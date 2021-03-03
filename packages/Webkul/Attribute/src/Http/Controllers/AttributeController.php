@@ -74,6 +74,7 @@ class AttributeController extends Controller
         if (isset($data['options'])) {
             foreach ($data['options'] as $optionId => $optionInputs) {
                 $admin_name = str_replace(' ', '-', $optionInputs['admin_name']);
+                $find = $this->attributeRepository->findbySlug($admin_name);
                 $option_slug = strtolower($admin_name);
                 $data['options'][$optionId]['option_slug'] = $option_slug;
             }
@@ -118,19 +119,42 @@ class AttributeController extends Controller
         $data = request()->all();
 
         if (isset($data['options'])) {
-                foreach ($data['options'] as $optionId => $optionInputs) {
-                    $admin_name = str_replace(' ', '-', $optionInputs['admin_name']);
-                    $option_slug = strtolower($admin_name);
-                    $data['options'][$optionId]['option_slug'] = $option_slug;
+            foreach ($data['options'] as $optionId => $optionInputs) {
+                $admin_name = str_replace(' ', '-', $optionInputs['admin_name']);
+                $option_slug = strtolower($admin_name);
+                $slug =  $this->attributeRepository->findbySlug($optionId, $option_slug);
+                // echo "<pre>"; print_r($slug); exit();
+                if(count($slug) > 0)
+                {
+                    // echo "IF";
+                    $option_slug = $this->incrementSlug($option_slug, count($slug));
+                    // echo "<pre>"; print_r($slug); exit();
                 }
+                $data['options'][$optionId]['option_slug'] = $option_slug;
             }
-        //echo "<pre>";print_r($data);exit();
+        }
+        // echo "<pre>";print_r($data);exit();
 
         $attribute = $this->attributeRepository->update($data, $id);
 
         session()->flash('success', trans('admin::app.response.update-success', ['name' => 'Attribute']));
 
         return redirect()->route($this->_config['redirect']);
+    }
+
+    public function incrementSlug($slug, $total) 
+    {
+        $original = $slug;
+        // echo "<pre>original"; print_r($slug); exit();
+
+        $count = 1;
+        $slug = "{$original}-" . $total;
+
+        // while ($this->attributeRepository->findbySlug($slug)->exists()) {
+        //     $slug = "{$original}-" . $count++;
+        //     // echo "<pre>"; print_r($slug); exit();
+        // }
+        return $slug;
     }
 
     /**

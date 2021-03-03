@@ -53,7 +53,7 @@ class TestinominalController extends Controller
 
         $validator = Validator::make($request->all(), [
             'title' => 'required',
-            'image' => 'required|mimes:jpeg,jpg,png,bmp,png,gif',
+            'image' => 'required|mimes:jpeg,jpg,png,bmp,svg',
             'desc'  => 'required',
             'date' => 'required',
         ]);
@@ -99,13 +99,21 @@ class TestinominalController extends Controller
     public function update(Request $request, $id)
     {
         $data = request()->all();
+
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'image' => 'required|mimes:jpeg,jpg,png,bmp,svg',
+            'desc'  => 'required',
+            'date' => 'required',
+        ]);
+
+        if ($validator->fails()) 
+        {
+            $errors = $validator->errors();
+            return redirect()->back()->withErrors($errors);
+        }
+
         $old_data = $this->testinominalRepository->findById($id);
-        
-        // $this->validate($request, [
-        //     'title' => 'required',
-        //     'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
-        //     'date' => 'required',
-        // ]);
 
         if (request()->hasFile('image'))
         {
