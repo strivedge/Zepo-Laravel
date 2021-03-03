@@ -44,21 +44,27 @@
                 @endphp
             @endif
         @endif
+        <div class="file-uploaded row"> 
             @if($product->catalog != "")
-            <div>{{ __('velocity::app.products.catalog') }}</div>
-            <div>
-                <a href="{{ asset('/').$product->catalog }}" download="{{ __('velocity::app.products.catalog').'_'.$product->url_key }}">
-                <img src="{{ asset('themes/default/assets/images/product/icons/'.$icons1) }}" alt="{{ __('velocity::app.products.catalog-download') }}"></a>
+            <div class="catalog-datatsheet">
+                <div class="section-title"><h3>{{ __('velocity::app.products.catalog') }}</h3></div>
+                <div class="content">
+                    <a href="{{ asset('/').$product->catalog }}" download="{{ __('velocity::app.products.catalog').'_'.$product->url_key }}">
+                    <img src="{{ asset('themes/default/assets/images/product/icons/'.$icons1) }}" alt="{{ __('velocity::app.products.catalog-download') }}"></a>
+                </div>
             </div>
             @endif
             @if($product->datasheet != "")
-            <div>{{ __('velocity::app.products.datasheet') }}</div>
-            <div>
-                <a href="{{ asset('/').$product->datasheet }}" download="{{ __('velocity::app.products.datasheet').'_'.$product->url_key }}">
-                <img src="{{ asset('themes/default/assets/images/product/icons/'.$icons2) }}" alt="{{ __('velocity::app.products.datasheet-download') }}">
-                </a>
+            <div class="catalog-datatsheet">
+                <div class="section-title"><h3>{{ __('velocity::app.products.datasheet') }}</h3></div>
+                <div class="content">
+                    <a href="{{ asset('/').$product->datasheet }}" download="{{ __('velocity::app.products.datasheet').'_'.$product->url_key }}">
+                    <img src="{{ asset('themes/default/assets/images/product/icons/'.$icons2) }}" alt="{{ __('velocity::app.products.datasheet-download') }}">
+                    </a>
+                </div>
             </div>
             @endif
+        </div>
             
         </div>
     </accordian>
