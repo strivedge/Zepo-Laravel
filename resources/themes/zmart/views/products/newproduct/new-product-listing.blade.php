@@ -122,7 +122,7 @@
                 </div>
             </div>
         </li>
-    @else
+    @<?php else: ?>
         <li class="">
             <div class="content-wrap">
                 <div class="product-code">{{$product->sku}}</div>

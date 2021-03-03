@@ -773,6 +773,7 @@ header.sticky-header.navbar-middle.header-shadow + .main-content-wrapper #head {
 .recently-viewed.product-box ul li .list-li { height:100%;border: 1px solid #E7E7E7;border-radius: 2px;position: relative; }
 .recently-viewed.product-box ul li .list-li:hover { box-shadow: 0 0 20px 0 rgb(140 137 137 / 50%); }
 .recently-viewed.product-box ul li .list-li .content-wrap { height: 100%;border: 0;border-radius: 0;position: unset; }
+.recently-viewed.product-box ul li .list-li .content-wrap .img img { padding: 0px 10px; }
 .recently-viewed.product-box .list-li .content-wrap .content .product-rating a { color: #000000; font-weight: bold; text-decoration: underline; }
 .recently-viewed.product-box .list-li .content-wrap .content .product-rating a:hover { color: #B1CC1E; }
 .recently-viewed.product-box ul li .content-wrap .buttons { position: absolute; bottom: 10px;left: auto; right: 0; text-align: center; padding: 0 10px 0px 0px; width: 47%; }
