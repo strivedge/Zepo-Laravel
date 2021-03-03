@@ -85,5 +85,7 @@
                 },
             })
         })()
+
+        productImageSlider();
     </script>
 @endpush
