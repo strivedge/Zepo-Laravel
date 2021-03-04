@@ -161,6 +161,10 @@
                 this.getCategoryProducts();
             },
 
+            updated () {
+                   productImageSlider();
+            },
+
             methods: {
                 'getCategoryProducts': function () {
                     this.$http.get(`${this.$root.baseUrl}/category-products/{{ $category->id }}${window.location.search}`)

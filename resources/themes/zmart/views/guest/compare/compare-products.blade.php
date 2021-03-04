@@ -207,6 +207,10 @@
                 this.getComparedProducts();
             },
 
+            updated () {
+                    productImageSlider();
+            },
+
             methods: {
                 'getComparedProducts': function () {
                     let items = '';
