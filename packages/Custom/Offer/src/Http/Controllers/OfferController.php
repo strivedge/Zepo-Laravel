@@ -57,7 +57,7 @@ class OfferController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'required',
             'desc' => 'required',
-            'image' => 'required|mimes:jpeg,jpg,png,bmp,png,gif',
+            'image' => 'required|mimes:jpeg,jpg,png,bmp,svg',
             'status' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
@@ -117,7 +117,7 @@ class OfferController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'required',
             'desc' => 'required',
-            'image' => 'nullable|mimes:jpeg,jpg,png,bmp,png,gif',
+            'image' => 'nullable|mimes:jpeg,jpg,png,bmp,svg',
             'status' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',

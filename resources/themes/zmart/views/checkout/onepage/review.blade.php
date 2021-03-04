@@ -12,7 +12,7 @@
         <div slot="body">
             <div class="address-summary row">
                 @if ($billingAddress = $cart->billing_address)
-                    <div class="billing-address col-lg-6 col-md-12">
+                    <div class="billing-address col-md-12 col-lg-6">
                         <div class="card-title mb-20">
                             <b>{{ __('shop::app.checkout.onepage.billing-address') }}</b>
                         </div>
@@ -41,7 +41,7 @@
                 @endif
 
                 @if ($cart->haveStockableItems() && $shippingAddress = $cart->shipping_address)
-                    <div class="shipping-address col-6">
+                    <div class="shipping-address col-md-12 col-lg-6">
                         <div class="card-title mb-20">
                             <b>{{ __('shop::app.checkout.onepage.shipping-address') }}</b>
                         </div>
@@ -80,11 +80,11 @@
                     @endphp
 
                     <div class="row col-12 no-padding">
-                        <div class="col-2 max-sm-img-dimention">
+                        <div class="col-sm-3 col-md-2 col-lg-4 max-sm-img-dimention product-item-img">
                             <img src="{{ $productBaseImage['medium_image_url'] }}" />
                         </div>
 
-                        <div class="col-10 no-padding fs16">
+                        <div class="col-sm-9 col-md-10 col-lg-8 no-padding fs16 product-item-details">
 
                             {!! view_render_event('bagisto.shop.checkout.name.before', ['item' => $item]) !!}
 
