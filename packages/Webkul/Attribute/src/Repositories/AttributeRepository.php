@@ -79,6 +79,12 @@ class AttributeRepository extends Repository
         return $slug;
     }
 
+    public function findbySlugMultiVal($option_slug)
+    {
+        $slug = $this->attributeOptionRepository->findbySlugMultiVal($option_slug);
+        return $slug;
+    }
+
     /**
      * @param  array  $data
      * @param  int $id

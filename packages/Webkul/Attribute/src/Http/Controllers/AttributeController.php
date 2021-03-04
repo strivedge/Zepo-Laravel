@@ -74,7 +74,6 @@ class AttributeController extends Controller
         if (isset($data['options'])) {
             foreach ($data['options'] as $optionId => $optionInputs) {
                 $admin_name = str_replace(' ', '-', $optionInputs['admin_name']);
-                $find = $this->attributeRepository->findbySlug($admin_name);
                 $option_slug = strtolower($admin_name);
                 $data['options'][$optionId]['option_slug'] = $option_slug;
             }
@@ -122,8 +121,8 @@ class AttributeController extends Controller
             foreach ($data['options'] as $optionId => $optionInputs) {
                 $admin_name = str_replace(' ', '-', $optionInputs['admin_name']);
                 $option_slug = strtolower($admin_name);
-                $slug =  $this->attributeRepository->findbySlug($optionId, $option_slug);
-                // echo "<pre>"; print_r($slug); exit();
+                $slug = $this->attributeRepository->findbySlug($optionId, $option_slug);
+                // echo "<pre>"; print_r($slug);
                 if(count($slug) > 0)
                 {
                     // echo "IF";
@@ -132,6 +131,7 @@ class AttributeController extends Controller
                 }
                 $data['options'][$optionId]['option_slug'] = $option_slug;
             }
+            // exit();
         }
         // echo "<pre>";print_r($data);exit();
 
@@ -148,12 +148,13 @@ class AttributeController extends Controller
         // echo "<pre>original"; print_r($slug); exit();
 
         $count = 1;
-        $slug = "{$original}-" . $total;
-
-        // while ($this->attributeRepository->findbySlug($slug)->exists()) {
-        //     $slug = "{$original}-" . $count++;
-        //     // echo "<pre>"; print_r($slug); exit();
-        // }
+        // $slug = "{$original}-" . $count;
+        // $find = $this->attributeRepository->findbySlugMultiVal($slug);
+        // echo "<pre>"; print_r($find); exit();
+        while (count($this->attributeRepository->findbySlugMultiVal($slug)) > 0) {
+            $slug = "{$original}-" . $count++;
+            // echo "<pre>"; print_r($slug); exit();
+        }
         return $slug;
     }
 

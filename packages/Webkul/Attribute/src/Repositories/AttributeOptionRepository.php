@@ -33,11 +33,23 @@ class AttributeOptionRepository extends Repository
 
     public function findbySlug($optionId, $option_slug)
     {
+        // echo "<pre>"; print_r($option_slug); exit();
         $slug = DB::table('attribute_options')
         ->where('id','!=', $optionId)
-        ->where('option_slug', $option_slug)->get();
+        // ->where('option_slug', 'like', $option_slug .'%')
+        ->where('option_slug', $option_slug)
+        // ->where('id', '<>', $optionId)
+        ->get();
         // $slug = $this->where('option_slug', 'johnson-&-johnson');
         // echo "<pre>"; print_r($slug); exit();
+        return $slug;
+    }
+
+    public function findbySlugMultiVal($option_slug)
+    {
+       $slug = DB::table('attribute_options')
+        ->where('option_slug', $option_slug)
+        ->get();
         return $slug;
     }
 
