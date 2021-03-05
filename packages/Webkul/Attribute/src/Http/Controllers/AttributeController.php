@@ -121,41 +121,33 @@ class AttributeController extends Controller
             foreach ($data['options'] as $optionId => $optionInputs) {
                 $admin_name = str_replace(' ', '-', $optionInputs['admin_name']);
                 $option_slug = strtolower($admin_name);
-                $slug = $this->attributeRepository->findbySlug($optionId, $option_slug);
-                // echo "<pre>"; print_r($slug);
-                if(count($slug) > 0)
-                {
-                    // echo "IF";
-                    $option_slug = $this->incrementSlug($option_slug, count($slug));
-                    // echo "<pre>"; print_r($slug); exit();
+                $data['options'][$optionId]['option_slug'] = $option_slug;
+                foreach ($data['options'] as $opt_Id => $opt_Input) {
+                    if(isset($option_slug) && isset($data['options'][$opt_Id]['option_slug']))
+                    {
+                        if($data['options'][$opt_Id]['option_slug'] == $option_slug && $opt_Id != $optionId) {
+                            $original = $option_slug;
+                            $split = explode('-', $original); // Split String
+                            $lastIndex = count($split) - 1; // Find lastIndex of array
+                            if(is_numeric($split[$lastIndex])) {
+                                $count = $split[$lastIndex] + 1; // incrementing last number of array
+                                $split[$lastIndex] = $count;
+                                $option_slug = implode('-', $split);
+                            } else {
+                                $option_slug = "{$original}-" . 1;
+                            }
+                        }
+                    }
                 }
                 $data['options'][$optionId]['option_slug'] = $option_slug;
             }
-            // exit();
         }
-        // echo "<pre>";print_r($data);exit();
 
         $attribute = $this->attributeRepository->update($data, $id);
 
         session()->flash('success', trans('admin::app.response.update-success', ['name' => 'Attribute']));
 
         return redirect()->route($this->_config['redirect']);
-    }
-
-    public function incrementSlug($slug, $total) 
-    {
-        $original = $slug;
-        // echo "<pre>original"; print_r($slug); exit();
-
-        $count = 1;
-        // $slug = "{$original}-" . $count;
-        // $find = $this->attributeRepository->findbySlugMultiVal($slug);
-        // echo "<pre>"; print_r($find); exit();
-        while (count($this->attributeRepository->findbySlugMultiVal($slug)) > 0) {
-            $slug = "{$original}-" . $count++;
-            // echo "<pre>"; print_r($slug); exit();
-        }
-        return $slug;
     }
 
     /**

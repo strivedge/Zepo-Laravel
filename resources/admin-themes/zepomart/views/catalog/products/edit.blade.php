@@ -283,19 +283,20 @@
                                         $icons1 = '';
                                     @endphp
                                 @endif
+
                                 @if($product->datasheet != "")
                                     @php
                                         $file2 = $product->datasheet;
                                         $ext2 = pathinfo($file2);
                                         $icons2 = $ext2['extension'];
 
-                                        if($icons2 == 'doc' || $icons2 == 'docx'){
+                                        if($icons2 == 'doc' || $icons2 == 'docx') {
                                             $icons2 = 'word-icon.png';
                                         }
-                                        if($icons2 == 'pdf'){
+                                        if($icons2 == 'pdf') {
                                             $icons2 = 'pdf-icon.png';
                                         }
-                                        if($icons2 == 'xls' || $icons2 == 'xlsx'){
+                                        if($icons2 == 'xls' || $icons2 == 'xlsx') {
                                             $icons2 = 'excel-icon.png';
                                         }
                                     @endphp
@@ -322,7 +323,6 @@
                                         <span class="control-error" v-if="errors.has('datasheet')">@{{ errors.first('datasheet') }}</span>
                                     </div>
                             @endif
-
                                 @endif
 
                                 @endforeach
