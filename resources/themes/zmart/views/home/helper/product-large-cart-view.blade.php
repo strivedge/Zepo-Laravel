@@ -48,14 +48,14 @@
                     </div>
                 @else
                     <div class="mt10">
-                        <span class="fs14">Be the first to write a review</span>
+                        <span class="fs14">{{ __('shop::app.home.reviews.be-write-review') }}</span>
                     </div>
                 @endif
 
                 <div class="button-row mt10 card-bottom-container">
                     <button class="btn btn-add-to-cart">
                         <span class="rango-cart-1 fs20"></span>
-                        <span class="fs14 align-vertical-top fw6">ADD TO CART</span>
+                        <span class="fs14 align-vertical-top fw6">{{ __('shop::app.home.reviews.add-to-cart') }}</span>
                     </button>
                     {{-- <span class="rango-exchange fs24"></span> --}}
                     <span class="rango-heart"></span>

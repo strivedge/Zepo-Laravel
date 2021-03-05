@@ -9,8 +9,6 @@
             <section class="featured-products product-box">
 
                 <ul class="row">
-                    <?php //echo"<pre>"; print_r(app('Webkul\Product\Repositories\ProductRepository')->getNewProducts());exit(); ?>
-
                     @foreach ($product as $productFlat)
 
                         @include ('shop::products.newproduct.new-product-listing', ['product' => $productFlat])

@@ -4,7 +4,7 @@
 
     <script type="text/x-template" id="country-state-template">
          <div class="col-md-12 col-lg-6 no-padding ">
-            <div class="col-md-12 col-lg-6 control-group" :class="[errors.has('country') ? 'has-error' : '']"><!-- control-group  -->
+            <div class="col-md-12 col-lg-6 control-group" :class="[errors.has('country') ? 'has-error' : '']">
                 <label for="country" class="mandatory">
                     {{ __('shop::app.customer.account.address.create.country') }}
                 </label>
@@ -25,7 +25,7 @@
                 </span>
             </div>
 
-            <div class="col-md-12 col-lg-6 control-group" :class="[errors.has('state') ? 'has-error' : '']"><!-- control-group  -->
+            <div class="col-md-12 col-lg-6 control-group" :class="[errors.has('state') ? 'has-error' : '']">
                 <label for="state" class="mandatory">
                     {{ __('shop::app.customer.account.address.create.state') }}
                 </label>

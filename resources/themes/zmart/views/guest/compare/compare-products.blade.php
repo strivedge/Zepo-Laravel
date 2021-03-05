@@ -55,8 +55,6 @@
                         ]]);
                     @endphp
 
-                    <?php //echo "string<pre>";print_r($comparableAttributes);exit(); ?>
-
                     @foreach ($comparableAttributes as $attribute)
 
                         <tr>
