@@ -179,6 +179,8 @@ return [
         'percentage' => ':percentage %',
         'id-star' => 'star',
         'name' => 'Name',
+        'be-write-review' => 'Be the first to write a review',
+        'add-to-cart' => 'ADD TO CART',
     ],
 
     'customer' => [
