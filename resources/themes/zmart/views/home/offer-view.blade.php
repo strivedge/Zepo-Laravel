@@ -2,12 +2,13 @@
 @php
     $offers = $offerRepository->all();
 @endphp
+
+@if(isset($offers) && count($offers) > 0)
 <section class="offers featured-products">
 
     <div class="container">
     <div class="section-title"><h2>{{__('offer::app.offer.active-offers') }}</h2></div>
         <ul>
-    @if(isset($offers) && count($offers) > 0)
         @foreach($offers as $offer)
                 
                         <li class="col-lg-4 col-xl-3 img">
@@ -29,14 +30,8 @@
                         </li>
 
         @endforeach
-        @else
-        <li class="column content-offers col-12 errors">
-            <div class="content col-12 text-center">
-                {{__('offer::app.offer.no-offers') }}
-            </div>
-        </li>
-        @endif
         </ul>
     </div>
 
 </section>
+@endif

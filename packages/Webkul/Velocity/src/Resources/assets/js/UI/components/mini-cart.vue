@@ -25,7 +25,9 @@
                     </div>
                     <div class="col-9 no-padding card-body align-vertical-top">
                         <div class="no-padding">
-                            <div class="text-nowrap productname" v-html="item.name"></div>
+                            <a class="unset" :href="`${baseUrl}/${item.url_key}`" :title="item.name">
+                                <div class="text-nowrap productname" v-html="item.name"></div>
+                            </a>
 
                             <div class="card-current-price">
                                 <div class="display-inbl">

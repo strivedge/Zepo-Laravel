@@ -119,10 +119,23 @@
                                     @endif
 
                                     @include ('shop::products.view.stock', ['product' => $product])
+                                    <div class="product-code"><label>Sku:&nbsp;</label>{{$product->sku}}</div>
 
                                     <div class="col-12 price">
                                         @include ('shop::products.price', ['product' => $product])
                                     </div>
+                                    
+                                    {!! view_render_event('bagisto.shop.products.view.quantity.before', ['product' => $product]) !!}
+
+                                    @if ($product->getTypeInstance()->showQuantityBox())
+                                        <div>
+                                            <quantity-changer></quantity-changer>
+                                        </div>
+                                    @else
+                                        <input type="hidden" name="quantity" value="1">
+                                    @endif
+
+                                    {!! view_render_event('bagisto.shop.products.view.quantity.after', ['product' => $product]) !!}
 
                                     <div class="product-actions">
                                         @include ('shop::products.detail-add-to-cart', [
@@ -148,17 +161,7 @@
                                 {!! view_render_event('bagisto.shop.products.view.short_description.after', ['product' => $product]) !!}
 
 
-                                {!! view_render_event('bagisto.shop.products.view.quantity.before', ['product' => $product]) !!}
-
-                                @if ($product->getTypeInstance()->showQuantityBox())
-                                    <div>
-                                        <quantity-changer></quantity-changer>
-                                    </div>
-                                @else
-                                    <input type="hidden" name="quantity" value="1">
-                                @endif
-
-                                {!! view_render_event('bagisto.shop.products.view.quantity.after', ['product' => $product]) !!}
+                                
 
                                 @include ('shop::products.view.configurable-options')
 

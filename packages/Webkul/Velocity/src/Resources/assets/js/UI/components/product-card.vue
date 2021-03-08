@@ -4,7 +4,7 @@
 
             <div class="product-image">
                 
-                <a :title="product.name" :href="`${baseUrl}/${product.slug}`">
+                
                     <div class="product-code">{{ product.sku}}</div>
                     <div class="sticker new"  v-if="product.special_price">
                         <span class="save">SAVE</span>
@@ -39,7 +39,7 @@
                     <div class="quick-view-in-list">
                         <product-quick-view-btn :quick-view-details="product" v-if="!isMobile()"></product-quick-view-btn>
                     </div>
-                </a>
+                
             </div>
         </div>
         <div class="product-information">
