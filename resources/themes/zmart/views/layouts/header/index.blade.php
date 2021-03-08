@@ -1,4 +1,4 @@
-<header class="sticky-header navbar-middle" v-if="!isMobile()">
+<header class="sticky-header navbar-middle">
     <div class="container">
         <div class="navbar-middle-wrapper remove-padding-margin velocity-divide-page">
             <logo-component></logo-component>

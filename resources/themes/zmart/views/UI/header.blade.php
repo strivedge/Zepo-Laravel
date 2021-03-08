@@ -1,8 +1,8 @@
 <?php $AttributeValues = app('Webkul\Attribute\Repositories\AttributeRepository')->getAttributeOptionByCode('brand'); ?>
 
 <script type="text/x-template" id="content-header-template">
-    <header class="navbar-bottom  velocity-divide-page vc-header header-shadow active">
-        <div class="vc-small-screen " v-if="isMobile()">
+    <header class="navbar-bottom sticky-header velocity-divide-page vc-header header-shadow active">
+        <div class="vc-small-screen ">
             <div class="navbar-row">
                 <div class="col-4 mobile-logo">
                     
@@ -372,7 +372,7 @@
         </div>
 
         <div
-            v-else
+            
             @mouseout="toggleSidebar('0', $event, 'mouseout')"
             @mouseover="toggleSidebar('0', $event, 'mouseover')"
             :class="`main-category fs16 unselectable fw6 ${($root.sharedRootCategories.length > 0) ? 'cursor-pointer' : 'cursor-not-allowed'} left`">
