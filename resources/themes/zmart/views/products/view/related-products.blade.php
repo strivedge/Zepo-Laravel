@@ -9,7 +9,7 @@
         row-class="pt20"
     ></card-list-header>
 
-    <div class="carousel-products vc-full-screen">
+    <div class="carousel-products vc-full-screen product-box">
         <carousel-component
             slides-per-page="6"
             navigation-enabled="hide"
@@ -19,16 +19,18 @@
 
             @foreach ($relatedProducts as $index => $relatedProduct)
                 <slide slot="slide-{{ $index }}">
-                    @include ('shop::products.list.card', [
-                        'product' => $relatedProduct,
-                        'addToCartBtnClass' => 'small-padding',
-                    ])
+                    <ul class="row">
+                        @include ('shop::products.newproduct.new-product-listing', [
+                            'product' => $relatedProduct
+                        ])
+                    </ul>
                 </slide>
             @endforeach
         </carousel-component>
     </div>
 
-    <div class="carousel-products vc-small-screen">
+    <div class="carousel-products vc-small-screen product-box">
+
         <carousel-component
             :slides-count="{{ sizeof($relatedProducts) }}"
             slides-per-page="2"
@@ -38,10 +40,11 @@
 
             @foreach ($relatedProducts as $index => $relatedProduct)
                 <slide slot="slide-{{ $index }}">
-                    @include ('shop::products.list.card', [
-                        'product' => $relatedProduct,
-                        'addToCartBtnClass' => 'small-padding',
-                    ])
+                    <ul class="row">
+                        @include ('shop::products.newproduct.new-product-listing', [
+                            'product' => $relatedProduct
+                        ])
+                    </ul>
                 </slide>
             @endforeach
         </carousel-component>

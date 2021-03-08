@@ -14,24 +14,24 @@
 
 @push('scripts')
     <script type="text/x-template" id="recently-viewed-template">
-        <section class="recently-viewed product-box">
-                        <div class="section-title"><h2>{{ __('velocity::app.products.recently-viewed') }}</h2></div>
-                         
+        <section class="recently-viewed product-box" v-if="recentlyViewed ||(recentlyViewed && Object.keys(recentlyViewed).length != 0)">
+            <div class="section-title"><h2>{{ __('velocity::app.products.recently-viewed') }}</h2></div>
+             
 
-                        <ul class="row">
-                            <li class="" :key="Math.random()"  v-for="(product, index) in recentlyViewed">
+            <ul class="row">
+                <li class="" :key="Math.random()"  v-for="(product, index) in recentlyViewed">
 
-                                <product-card
-                                            :product="product.formattedProducts">
-                                </product-card>
-                            </li>
-                        </ul>
-                        <span
-                            class="fs16"
-                            v-if="!recentlyViewed ||(recentlyViewed && Object.keys(recentlyViewed).length == 0)"
-                            v-text="'{{ __('velocity::app.products.not-available') }}'">
-                        </span>
-                </section>
+                    <product-card
+                                :product="product.formattedProducts">
+                    </product-card>
+                </li>
+            </ul>
+            <span
+                class="fs16"
+                v-if="!recentlyViewed ||(recentlyViewed && Object.keys(recentlyViewed).length == 0)"
+                v-text="'{{ __('velocity::app.products.not-available') }}'">
+            </span>
+        </section>
     </script>
 
     <script type="text/javascript">
