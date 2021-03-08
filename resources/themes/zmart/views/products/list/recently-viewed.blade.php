@@ -14,7 +14,7 @@
 
 @push('scripts')
     <script type="text/x-template" id="recently-viewed-template">
-        <section class="recently-viewed product-box">
+        <section class="recently-viewed product-box"  v-if="recentlyViewed ||(recentlyViewed && Object.keys(recentlyViewed).length != 0)">
                     <div class="container">
                         <div class="section-title"><h2>{{ __('velocity::app.products.recently-viewed') }}</h2></div>
                          

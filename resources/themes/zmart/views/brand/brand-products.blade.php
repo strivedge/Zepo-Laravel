@@ -1,13 +1,12 @@
- @extends('shop::layouts.master')
+@extends('shop::layouts.master')
 
 @inject ('productImageHelper', 'Webkul\Product\Helpers\ProductImage')
 @inject ('productRatingHelper', 'Webkul\Product\Helpers\Review')
 
- @section('full-content-wrapper')
+@section('full-content-wrapper')
    @if ($product->count() > 0)
         <div class="container">
             <section class="featured-products product-box">
-
                 <ul class="row">
                     @foreach ($product as $productFlat)
 
@@ -15,7 +14,6 @@
 
                     @endforeach
                 </ul>
-
             </section>
         </div>
     @else

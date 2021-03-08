@@ -17,7 +17,7 @@
         row-class="pt20"
     ></card-list-header>
 
-    <div class="carousel-products vc-full-screen">
+    <div class="carousel-products vc-full-screen product-box">
         <carousel-component
             slides-per-page="6"
             navigation-enabled="hide"
@@ -28,17 +28,18 @@
             @foreach($products as $product)
                 @foreach ($product->cross_sells()->paginate(2) as $index => $crossSellProduct)
                     <slide slot="slide-{{ $index }}">
-                        @include ('shop::products.list.card', [
-                            'product' => $crossSellProduct,
-                            'addToCartBtnClass' => 'small-padding',
-                        ])
+                        <ul class="row">
+                            @include ('shop::products.newproduct.new-product-listing', [
+                                'product' => $crossSellProduct
+                            ])
+                        </ul>
                     </slide>
                 @endforeach
             @endforeach
         </carousel-component>
     </div>
 
-    <div class="carousel-products vc-small-screen">
+    <div class="carousel-products vc-small-screen product-box">
         <carousel-component
             :slides-count="{{ $product->cross_sells()->count() }}"
             slides-per-page="2"
@@ -49,10 +50,11 @@
             @foreach($products as $product)
                 @foreach ($product->cross_sells()->paginate(2) as $index => $crossSellProduct)
                     <slide slot="slide-{{ $index }}">
-                        @include ('shop::products.list.card', [
-                            'product' => $crossSellProduct,
-                            'addToCartBtnClass' => 'small-padding',
-                        ])
+                        <ul class="row">
+                            @include ('shop::products.newproduct.new-product-listing', [
+                                'product' => $crossSellProduct
+                            ])
+                        </ul>
                     </slide>
                 @endforeach
             @endforeach
