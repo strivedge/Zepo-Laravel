@@ -302,7 +302,9 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
     //customer routes end here
     Route::get('page/{slug}', 'Webkul\CMS\Http\Controllers\Shop\PagePresenterController@presenter')->name('shop.cms.page');
 
-    // Blog Details on front end homepage
+    // Blog Listing & Blog Details on front end homepage
+    Route::get('blog', 'Custom\Blog\Http\Controllers\BlogDetailController@index')->defaults('_config', ['view' => 'shop::home.blog'])->name('blog');
+
     Route::get('blog-detail/{slug}', 'Custom\Blog\Http\Controllers\BlogDetailController@slug')->defaults('_config', ['view' => 'shop::home.blog-details'])->name('blog-detail');
 
     Route::fallback(\Webkul\Shop\Http\Controllers\ProductsCategoriesProxyController::class . '@index')

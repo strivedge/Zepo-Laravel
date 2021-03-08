@@ -1,7 +1,7 @@
 @extends('shop::layouts.master')
 
 @section('page_title')
-    {{ __('blog::app.blogs.blog-detail') }}
+    {{ $posts->title }}
 @endsection
 
 @section('content-wrapper')
