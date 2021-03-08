@@ -57,7 +57,7 @@
                     <div class="product-code">{{$product->sku}}</div>
                     @if ($product->getTypeInstance()->haveSpecialPrice())
                     <div class="sticker new">
-                        <span class="save">SAVE</span><span class="percentage">{{$product->getTypeInstance()->getOfferPercentage()}}%</span>
+                        <span class="save">{{ __('shop::app.products.save') }}</span><span class="percentage">{{$product->getTypeInstance()->getOfferPercentage()}}%</span>
                     </div>
                     @endif
                     @if(count($galleryImages) > 0)

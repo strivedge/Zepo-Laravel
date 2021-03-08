@@ -540,6 +540,8 @@ return [
         'compare_options' => 'Compare Options',
         'including-tax' => 'Inclusief belasting',
         'ratings' => 'Waarderingen',
+        'save' => 'OPSLAAN',
+        'no-products-available' => 'Geen producten beschikbaar',
     ],
 
     // 'reviews' => [

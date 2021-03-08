@@ -535,6 +535,8 @@ return [
         'compare_options' => 'Compare Options',
         'including-tax' => 'Including tax',
         'ratings' => 'Ratings',
+        'save' => 'SAVE',
+        'no-products-available' => 'No products available',
     ],
 
     // 'reviews' => [
