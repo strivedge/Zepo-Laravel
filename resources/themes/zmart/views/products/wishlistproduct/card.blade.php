@@ -54,17 +54,34 @@
         <div class="col-12 lg-card-container no-padding list-card product-card row">
             <div class="content-wrap">
                 <div class="product-image">
-                    <a
-                        title="{{ $product->name }}"
-                        href="{{ route('shop.productOrCategory.index', $product->url_key) }}">
-
-                        <img
-                            src="{{ $productBaseImage['medium_image_url'] }}"
-                            :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
-                        <div class="quick-view-in-list">
-                            <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn>
-                        </div>
-                    </a>
+                    <div class="product-code">{{$product->sku}}</div>
+                    @if ($product->getTypeInstance()->haveSpecialPrice())
+                    <div class="sticker new">
+                        <span class="save">SAVE</span><span class="percentage">{{$product->getTypeInstance()->getOfferPercentage()}}%</span>
+                    </div>
+                    @endif
+                    @if(count($galleryImages) > 0)
+                    <div class="product-imgs">
+                        @foreach($galleryImages as $image)
+                        <a
+                            href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
+                            title="{{ $product->name }}"
+                            class="product-image-container">
+                            <img
+                                loading="lazy"
+                                class="card-img-top items"
+                                alt="{{ $product->name }}"
+                                src="{{ $image['medium_image_url'] }}"
+                                :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />     
+                        </a>
+                        @endforeach
+                    </div>
+                    @else
+                         <img src="{{ $productBaseImage['medium_image_url'] }}" :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
+                    @endif
+                    <div class="quick-view-in-list">
+                        <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn>
+                    </div>
                 </div>
             </div>
 
@@ -79,7 +96,7 @@
                 </div>
 
                 <div class="product-price">
-                    @include ('shop::products.price', ['product' => $product])
+                    @include ('shop::products.newproduct.price', ['product' => $product])
                 </div>
 
                 @if( $totalReviews )

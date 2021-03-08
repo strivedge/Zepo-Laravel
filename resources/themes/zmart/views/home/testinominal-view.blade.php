@@ -1,4 +1,6 @@
 @inject ('testinominalRepository', 'Custom\Testinominal\Repositories\TestinominalRepository')
+
+@if(isset($testinominals) && count($testinominals) > 0)
 <section id="our-customer" class="featured-products slider-img our-customer" style="background-image: url('{{ asset('/themes/zmart/assets/images/testimonial-bg.png') }}');">
 @php
     $testinominals = $testinominalRepository->all();
@@ -7,7 +9,6 @@
     <div class="container">
         <div class="section-title"><h2>{{__('testinominal::app.testinominal.home-title') }}</h2></div>
         <div class="our-customer-content">
-            @if(isset($testinominals) && count($testinominals) > 0)
                 @foreach($testinominals as $testinominal)
                     <div class="items">
                         <div class="item-inner-wrapper">
@@ -23,15 +24,9 @@
                         </div>
                     </div>
                 @endforeach
-                @else
-                <div class="items">
-                    <div class="container">
-                        <p>{{__('testinominal::app.testinominal.no-testinominals') }}</p>
-                    </div>
-                </div>
-            @endif
         </div>
     </div>
 
 </section>
+@endif
 
