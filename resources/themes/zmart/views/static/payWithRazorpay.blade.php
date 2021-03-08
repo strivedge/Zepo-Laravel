@@ -1,5 +1,9 @@
 @extends('shop::layouts.master')
 
+@section('page_title')
+    {{ __('shop::app.razorpay.title') }}
+@stop
+
 @section('content-wrapper')
     <div class="container">
     <div class="row">

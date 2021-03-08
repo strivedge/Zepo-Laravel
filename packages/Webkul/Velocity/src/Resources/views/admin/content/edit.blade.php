@@ -1,7 +1,7 @@
 @extends('admin::layouts.content')
 
 @section('page_title')
-    {{ __('velocity::app.admin.contents.add-title') }}
+    {{ __('velocity::app.admin.contents.edit-title') }}
 @stop
 
 @section('content')
@@ -21,7 +21,7 @@
                     <h1>
                         <i class="icon angle-left-icon back-link" onclick="history.length > 1 ? history.go(-1) : window.location = '{{ route('admin.dashboard.index') }}';"></i>
 
-                        {{ __('velocity::app.admin.contents.add-title') }}
+                        {{ __('velocity::app.admin.contents.edit-title') }}
                     </h1>
 
                     <div class="control-group">

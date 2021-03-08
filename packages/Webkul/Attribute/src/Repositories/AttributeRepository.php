@@ -72,13 +72,6 @@ class AttributeRepository extends Repository
         return $attribute;
     }
 
-    public function findbySlug($optionId, $option_slug)
-    {
-        $slug = $this->attributeOptionRepository->findbySlug($optionId, $option_slug);
-        // echo "<pre>"; print_r($slug); exit();
-        return $slug;
-    }
-
     /**
      * @param  array  $data
      * @param  int $id

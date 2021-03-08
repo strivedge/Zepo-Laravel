@@ -65,7 +65,8 @@ return [
         'wishlist' => 'Wishlist',
         'cart' => 'Cart',
         'logout' => 'Logout',
-        'search-text' => 'Search products here'
+        'search-text' => 'Search products here',
+        'covid19-products' => 'Covid19 Products'
     ],
 
     'minicart' => [
@@ -76,14 +77,17 @@ return [
     ],
 
     'about-us' => [
+        'title' => 'About Us',
         'page-content' => 'About us page content',
     ],
 
     'brand' => [
+        'title' => 'Brand',
         'page-content' => 'Brand page content',
     ],
 
     'store-directory' => [
+        'title' => 'Store Directory',
         'page-content' => 'Store Directory page content',
     ],
 
@@ -101,6 +105,7 @@ return [
     ],
 
     'razorpay' => [
+        'title' => 'Razor Pay',
         'success' => 'Success!',
         'error' => 'Error!',
         'pay-with-razorpay' => 'Pay With Razorpay',
@@ -174,6 +179,8 @@ return [
         'percentage' => ':percentage %',
         'id-star' => 'star',
         'name' => 'Name',
+        'be-write-review' => 'Be the first to write a review',
+        'add-to-cart' => 'ADD TO CART',
     ],
 
     'customer' => [

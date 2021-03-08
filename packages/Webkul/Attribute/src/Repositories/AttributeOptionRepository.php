@@ -31,16 +31,6 @@ class AttributeOptionRepository extends Repository
         return $option;
     }
 
-    public function findbySlug($optionId, $option_slug)
-    {
-        $slug = DB::table('attribute_options')
-        ->where('id','!=', $optionId)
-        ->where('option_slug', $option_slug)->get();
-        // $slug = $this->where('option_slug', 'johnson-&-johnson');
-        // echo "<pre>"; print_r($slug); exit();
-        return $slug;
-    }
-
     /**
      * @param  array   $data
      * @param  int     $id

@@ -14,35 +14,47 @@
                 {!! $product->description !!}
             </div>
         @if($product->catalog != "")
-            @if($product->datasheet != "")
-                @php
-                    $file1 = $product->catalog;
-                    $file2 = $product->datasheet;
-                    $ext1 = pathinfo($file1);
-                    $ext2 = pathinfo($file2);
-                    $icons1 = $ext1['extension'];
-                    $icons2 = $ext2['extension'];
+            @php
+                $file1 = $product->catalog;
+                $ext1 = pathinfo($file1);
+                $icons1 = $ext1['extension'];
 
-                    if($icons1 == 'doc' || $icons1 == 'docx'){
-                        $icons1 = 'word-icon.png';
-                    }
-                    if($icons2 == 'doc' || $icons2 == 'docx'){
-                        $icons2 = 'word-icon.png';
-                    }
-                    if($icons1 == 'pdf'){
-                        $icons1 = 'pdf-icon.png';
-                    }
-                    if($icons2 == 'pdf'){
-                        $icons2 = 'pdf-icon.png';
-                    }
-                    if($icons1 == 'xls' || $icons1 == 'xlsx'){
-                        $icons1 = 'excel-icon.png';
-                    }
-                    if($icons2 == 'xls' || $icons2 == 'xlsx'){
-                        $icons2 = 'excel-icon.png';
-                    }
-                @endphp
-            @endif
+                if($icons1 == 'doc' || $icons1 == 'docx') {
+                    $icons1 = 'word-icon.png';
+                }
+                if($icons1 == 'pdf') {
+                    $icons1 = 'pdf-icon.png';
+                }
+                if($icons1 == 'xls' || $icons1 == 'xlsx') {
+                    $icons1 = 'excel-icon.png';
+                }
+            @endphp
+        @else
+            @php
+                $icons1 = '';
+            @endphp
+        @endif
+                                
+        @if($product->datasheet != "")
+            @php
+                $file2 = $product->datasheet;
+                $ext2 = pathinfo($file2);
+                $icons2 = $ext2['extension'];
+
+                if($icons2 == 'doc' || $icons2 == 'docx') {
+                    $icons2 = 'word-icon.png';
+                }
+                if($icons2 == 'pdf') {
+                    $icons2 = 'pdf-icon.png';
+                }
+                if($icons2 == 'xls' || $icons2 == 'xlsx') {
+                    $icons2 = 'excel-icon.png';
+                }
+            @endphp
+        @else
+            @php
+                $icons2 = '';
+            @endphp
         @endif
         <div class="file-uploaded row"> 
             @if($product->catalog != "")
