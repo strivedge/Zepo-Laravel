@@ -470,7 +470,8 @@ header.sticky-header.navbar-middle.header-shadow + .main-content-wrapper #head {
 	/*header .navbar--search { display:none; top: 120px; width: 100vw; position: absolute; left: 0px; right: 0px; margin-left: -50vw; margin-right: -50vw; }*/
 	/*header .navbar--addcart--wishlist a.search-btn { display: block;float: right; }*/
 	/*.main-container-wrapper .navbar-bottom.header-shadow { top: 0px; }*/
-	.main-container-wrapper .navbar-bottom { top: 59px;height: 80px;/*top: 94px;*/ }
+	.main-container-wrapper .navbar-bottom { /*top: 59px;*/height: 80px;top: 94px; }
+	header.sticky-header.navbar-middle.header-shadow + .main-content-wrapper .navbar-bottom { top: 0px; }
 	.navbar-bottom .vc-small-screen { width: 100%; }
 	.navbar-top .navbar-top-wrapper .navbar-left-wrapper { text-align: center; padding: 0px 0px 10px; }
 	.navbar-top .navbar-top-wrapper .navbar-right-wrapper { text-align: left; display:flex; align-items: center;justify-content: center; }

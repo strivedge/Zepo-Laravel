@@ -1,7 +1,7 @@
 <?php $AttributeValues = app('Webkul\Attribute\Repositories\AttributeRepository')->getAttributeOptionByCode('brand'); ?>
 
 <script type="text/x-template" id="content-header-template">
-    <header class="navbar-bottom sticky-header velocity-divide-page vc-header header-shadow active">
+    <header class="navbar-bottom velocity-divide-page vc-header header-shadow active">
         <div class="vc-small-screen ">
             <div class="navbar-row">
                 <div class="col-4 mobile-logo">
