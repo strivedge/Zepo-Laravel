@@ -1,10 +1,5 @@
 <?php
-
-Route::view('/blogs', 'blog::blog.blog');
-// Route::get('admin/blogTest', 'Custom\Blog\Http\Controllers\BlogController@index')->defaults('_config', ['view' => 'blog::blog.blog'])->name('blog.blog');
-
-// Admin Side
-// Admin Routes
+// Admin Side Routes
 Route::group(['middleware' => ['admin']], function () {
 	Route::prefix('admin')->group(function () {
 		Route::prefix('blog')->group(function () {
