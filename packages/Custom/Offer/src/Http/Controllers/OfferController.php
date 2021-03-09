@@ -3,19 +3,14 @@
 namespace Custom\Offer\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 use Custom\Offer\Models\Offer;
 use Custom\Offer\Repositories\OfferRepository;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use File;
 use Validator;
 
 class OfferController extends Controller
 {
-    use ValidatesRequests;
-    protected $_config;
     private $offerRepository;
-
     public function __construct(OfferRepository $offerRepository)
     {
         $this->middleware('admin');

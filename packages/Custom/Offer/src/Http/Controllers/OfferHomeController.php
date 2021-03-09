@@ -3,7 +3,6 @@
 namespace Custom\Offer\Http\Controllers;;
 
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 use Custom\Offer\Models\Offer;
 use Custom\Offer\Repositories\OfferRepository;
 

@@ -53,6 +53,7 @@ return [
         'shipments' => 'Shipments',
         'invoices' => 'Invoices',
         'refunds' => 'Refunds',
+        'cart-products' => 'Cart Products',
         'catalog' => 'Catalog',
         'products' => 'Products',
         'categories' => 'Categories',
@@ -455,6 +456,10 @@ return [
             'view-title' => 'Refund #:refund_id',
             'invalid-refund-amount-error' => 'Refund amount should be non zero.'
 
+        ],
+
+        'cart-products' => [
+            'title' => 'Cart Products',
         ]
     ],
 
