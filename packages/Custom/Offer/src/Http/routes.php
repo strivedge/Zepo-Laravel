@@ -1,7 +1,5 @@
 <?php
-
-Route::view('/offer', 'offer::offer.test');
-
+// Admin Side Routes
 Route::group(['middleware' => ['admin']], function () {
 	Route::prefix('admin')->group(function () {
 		Route::prefix('offer')->group(function () {

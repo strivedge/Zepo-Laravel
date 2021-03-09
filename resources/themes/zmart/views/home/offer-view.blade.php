@@ -25,7 +25,7 @@
                                 <span>{{__('offer::app.offer.from') }} {{ $start_date->format('d/m/Y') }} {{__('offer::app.offer.to') }} {{ $end_date->format('d/m/Y') }}</span>
                             </div>
                             <div class="col-lg-12 col-xl-3 buttons">
-                                <a href="#">{{__('offer::app.offer.view-all-offers') }}</a>
+                                <a href="{{ route('shop.home.offer') }}">{{__('offer::app.offer.view-all-offers') }}</a>
                             </div>
                         </li>
 
