@@ -17,6 +17,7 @@ class SupportTicketDataGrid extends DataGrid
     {
         $queryBuilder = DB::table('support_tickets')
         ->addSelect('id as ticket_id', 'name', 'email', 'message', 'attachment', 'status', 'created_at', 'updated_at');
+        
         $this->addFilter('ticket_id', 'id');
         $this->addFilter('name', 'name');
         $this->addFilter('email', 'email');

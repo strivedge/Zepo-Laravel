@@ -3,16 +3,13 @@
 namespace Custom\Blog\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 use Custom\Blog\Models\Blog;
 use Custom\Blog\Repositories\BlogRepository;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use File;
 use Validator;
 
 class BlogController extends Controller
 {
-    use ValidatesRequests;
     private $blogRepository;
     public function __construct(BlogRepository $blogRepository)
     {

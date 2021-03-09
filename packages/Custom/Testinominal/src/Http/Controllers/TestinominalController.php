@@ -3,16 +3,13 @@
 namespace Custom\Testinominal\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 use Custom\Testinominal\Models\Testinominal;
 use Custom\Testinominal\Repositories\TestinominalRepository;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use File;
 use Validator;
 
 class TestinominalController extends Controller
 {
-    use ValidatesRequests;
     private $testinominalRepository;
     public function __construct(TestinominalRepository $testinominalRepository)
     {

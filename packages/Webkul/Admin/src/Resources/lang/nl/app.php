@@ -52,6 +52,7 @@ return [
         'shipments' => 'Verzendingen',
         'invoices' => 'Facturen',
         'refunds' => 'Terugbetalingen',
+        'cart-products' => 'Winkelwagen Producten',
         'catalog' => 'Catalogus',
         'products' => 'Producten',
         'categories' => 'Categorieën',
@@ -453,6 +454,10 @@ return [
             'view-title' => 'Terugbetaling #:refund_id',
             'invalid-refund-amount-error' => 'Het restitutiebedrag mag niet nul zijn.'
 
+        ],
+
+        'cart-products' => [
+            'title' => 'Winkelwagen Producten',
         ]
     ],
 
