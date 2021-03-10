@@ -255,6 +255,8 @@ Route::group(['middleware' => ['web']], function () {
                 Route::get('/cart-products', 'Webkul\Admin\Http\Controllers\Sales\CartProductController@index')->defaults('_config', [
                     'view' => 'admin::sales.cart-products.index',
                 ])->name('admin.sales.cart-products.index');
+
+                Route::post('/massupdate', 'Webkul\Admin\Http\Controllers\Sales\CartProductController@massUpdate')->name('admin.catalog.cart-products.massupdate');
             });
 
             // Catalog Routes

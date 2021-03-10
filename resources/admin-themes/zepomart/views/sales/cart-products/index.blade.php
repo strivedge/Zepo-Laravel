@@ -13,8 +13,8 @@
         </div>
 
         <div class="page-content">
-        	<!-- @inject('cartProductGrid', 'Webkul\Admin\DataGrids\CartProductDataGrid')
-            {!! $cartProductGrid->render() !!} -->
+        	@inject('cartProductGrid', 'Webkul\Admin\DataGrids\CartProductDataGrid')
+            {!! $cartProductGrid->render() !!}
         </div>
     </div>
 @stop

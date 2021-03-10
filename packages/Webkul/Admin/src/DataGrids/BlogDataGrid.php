@@ -74,11 +74,10 @@ class BlogDataGrid extends DataGrid
         $this->addColumn([
             'index'      => 'date',
             'label'      => trans('admin::app.customers.blogs.blog-date'),
-            'type'       => 'date',
-            'searchable' => true,
+            'type'       => 'datetime',
+            'searchable' => false,
             'sortable'   => true,
-            'filterable' => false,
-            'closure'    => true,
+            'filterable' => true,
         ]);
     }
 

@@ -49,6 +49,7 @@ class CreateCartTable extends Migration
             $table->boolean('is_active')->nullable()->default(1);
             $table->dateTime('conversion_time')->nullable();
 
+            $table->boolean('status')->default(0);
             $table->integer('customer_id')->unsigned()->nullable();
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
             $table->integer('channel_id')->unsigned();
