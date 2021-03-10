@@ -67,21 +67,19 @@ class OfferDataGrid extends DataGrid
         $this->addColumn([
             'index'      => 'start_date',
             'label'      => trans('admin::app.customers.offers.start-date'),
-            'type'       => 'date',
-            'searchable' => true,
+            'type'       => 'datetime',
+            'searchable' => false,
             'sortable'   => true,
-            'filterable' => false,
-            'closure'    => true,
+            'filterable' => true,
         ]);
 
         $this->addColumn([
             'index'      => 'end_date',
             'label'      => trans('admin::app.customers.offers.end-date'),
-            'type'       => 'date',
-            'searchable' => true,
+            'type'       => 'datetime',
+            'searchable' => false,
             'sortable'   => true,
-            'filterable' => false,
-            'closure'    => true,
+            'filterable' => true,
         ]);
 
         $this->addColumn([

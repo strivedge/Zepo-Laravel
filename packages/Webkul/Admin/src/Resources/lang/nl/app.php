@@ -458,6 +458,24 @@ return [
 
         'cart-products' => [
             'title' => 'Winkelwagen Producten',
+            'full-name' => 'Vooren achternaam',
+            'email' => 'Email',
+            'product-name' => 'productnaam',
+            'items-qty' => 'Items Quantity',
+            'items-count' => 'Items Count',
+            'quantity' => 'Hoeveelheid',
+            'price' => 'Prijs',
+            'base-price' => 'Basisprijs',
+            'total' => 'Totaal',
+            'grand-total' => 'Eindtotaal',
+            'status' => 'Toestand',
+            'pending' => 'In afwachting',
+            'call' => 'Bel',
+            'done' => 'Gedaan',
+            'completed' => 'Voltooid',
+            'update-status' => 'Status bijwerken',
+            'updated-at' => 'Bijgewerkt op',
+            'mass-update-success' => 'Winkelwagen Producten zijn bijgewerkt',
         ]
     ],
 

@@ -460,6 +460,24 @@ return [
 
         'cart-products' => [
             'title' => 'Cart Products',
+            'full-name' => 'Full Name',
+            'email' => 'Email',
+            'product-name' => 'Product Name',
+            'items-qty' => 'Items Quantity',
+            'items-count' => 'Items Count',
+            'quantity' => 'Quantity',
+            'price' => 'Price',
+            'base-price' => 'Base Price',
+            'total' => 'Total',
+            'grand-total' => 'Grand Total',
+            'status' => 'Status',
+            'pending' => 'Pending',
+            'call' => 'Call',
+            'done' => 'Done',
+            'completed' => 'Completed',
+            'update-status' => 'Update Status',
+            'updated-at' => 'Updated at',
+            'mass-update-success' => 'Cart Products updated successfully',
         ]
     ],
 
