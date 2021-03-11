@@ -48,18 +48,12 @@ class TestinominalController extends Controller
     {
         $data = request()->all();
 
-        $validator = Validator::make($request->all(), [
+        $this->validate(request(), [
             'title' => 'required',
             'image' => 'required|mimes:jpeg,jpg,png,bmp,svg',
             'desc'  => 'required',
             'date' => 'required',
         ]);
-
-        if ($validator->fails()) 
-        {
-            $errors = $validator->errors();
-            return redirect()->back()->withErrors($errors);
-        }
 
         $imageName = $request->image;
         if($imageName != null)
@@ -97,18 +91,12 @@ class TestinominalController extends Controller
     {
         $data = request()->all();
 
-        $validator = Validator::make($request->all(), [
+        $this->validate(request(), [
             'title' => 'required',
             'image' => 'required|mimes:jpeg,jpg,png,bmp,svg',
             'desc'  => 'required',
             'date' => 'required',
         ]);
-
-        if ($validator->fails()) 
-        {
-            $errors = $validator->errors();
-            return redirect()->back()->withErrors($errors);
-        }
 
         $old_data = $this->testinominalRepository->findById($id);
 

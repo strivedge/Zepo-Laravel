@@ -16,6 +16,8 @@ class CartProductDataGrid extends DataGrid
         $queryBuilder = DB::table('cart')
             ->leftJoin('cart_items', 
                 'cart_items.cart_id', '=', 'cart.id')
+            ->leftJoin('customers', 
+                'customers.id', '=', 'cart.customer_id')
             ->addSelect(
                 'cart.id as id', 
                 'cart.customer_email as customer_email', 
@@ -36,6 +38,8 @@ class CartProductDataGrid extends DataGrid
                 'cart_items.total as total', 
                 'cart_items.base_total as base_total', 
                 'cart_items.updated_at as updated_at')
+            ->addSelect(
+                'customers.phone as phone')
             ->where('cart.customer_email', '!=', null);
 
         $this->addFilter('id', 'id');
@@ -89,12 +93,30 @@ class CartProductDataGrid extends DataGrid
         ]);
 
         $this->addColumn([
+            'index'      => 'phone',
+            'label'      => trans('admin::app.sales.cart-products.phone'),
+            'type'       => 'string',
+            'searchable' => false,
+            'sortable'   => false,
+            'filterable' => false,
+            'closure'    => true,
+            'wrapper'    => function ($row) {
+                if ($row->phone == '') {
+                    return '<center>-</center>';
+                }
+                else {
+                    return $row->phone;
+                }
+            },
+        ]);
+
+        $this->addColumn([
             'index'      => 'product_name',
             'label'      => trans('admin::app.sales.cart-products.product-name'),
             'type'       => 'string',
             'searchable' => true,
             'sortable'   => true,
-            'filterable' => true,
+            'filterable' => false,
         ]);
 
         // $this->addColumn([

@@ -80,6 +80,26 @@
 
                         {!! view_render_event('bagisto.shop.customers.signup_form_controls.lastname.after') !!}
 
+                        <div class="control-group form-group" :class="[errors.has('phone') ? 'has-error' : '']">
+                            <label for="phone" class="required label-style">
+                                {{ __('shop::app.customer.signup-form.phone') }}
+                            </label>
+
+                            <input
+                                type="phone"
+                                class="form-style"
+                                name="phone"
+                                v-validate="'required'"
+                                value="{{ old('phone') }}"
+                                data-vv-as="&quot;{{ __('shop::app.customer.signup-form.phone') }}&quot;" />
+
+                            <span class="control-error" v-if="errors.has('phone')">
+                                @{{ errors.first('phone') }}
+                            </span>
+                        </div>
+
+                        {!! view_render_event('bagisto.shop.customers.signup_form_controls.lastname.after') !!}
+
                         <div class="control-group form-group" :class="[errors.has('email') ? 'has-error' : '']">
                             <label for="email" class="required label-style">
                                 {{ __('shop::app.customer.signup-form.email') }}

@@ -1,7 +1,4 @@
 <?php
-
-Route::view('/festival', 'festival::festival.test');
-
 Route::group(['middleware' => ['admin']], function () {
 	Route::prefix('admin')->group(function () {
 		Route::prefix('festival')->group(function () {

@@ -25,7 +25,7 @@ class FestivalController extends Controller
         $this->middleware('admin');
         $this->_config = request('_config');
         $this->festivalRepository = $festivalRepository;
-         $this->productRepository = $productRepository;
+        $this->productRepository = $productRepository;
     }
 
     /**
@@ -65,9 +65,9 @@ class FestivalController extends Controller
         //echo "<pre>"; print_r(request()->all());exit();
         $req = request()->all();
 
-        $validator = Validator::make($request->all(), [
+        $this->validate(request(), [
             'title' => 'required',
-            'short_desc' => 'required',
+            'short_desc' => 'required|max:3',
             'long_desc' => 'required',
             'image' => 'required|mimes:jpeg,jpg,png,bmp,svg',
             'status' => 'required',
@@ -161,7 +161,7 @@ class FestivalController extends Controller
     {
         $req = request()->all();
         
-        $validator = Validator::make($request->all(), [
+        $this->validate(request(), [
             'title' => 'required',
             'short_desc' => 'required',
             'long_desc' => 'required',

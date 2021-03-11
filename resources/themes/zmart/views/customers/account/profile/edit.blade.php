@@ -151,9 +151,21 @@
                 <div class="row">
                     <div class="form-group col-md-12 no-padding">
                         <label class="col-12 mandatory">
-                            {{ __('shop::app.customer.account.profile.email') }}
+                            {{ __('shop::app.customer.account.profile.phone') }}
                         </label>
 
+                        <div class="col-12">
+                            <input value="{{ $customer->phone }}" name="phone" type="phone" v-validate="'required'" />
+                            <span class="control-error" v-if="errors.has('phone')">@{{ errors.first('phone') }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-12 no-padding">
+                        <label class="col-12 mandatory">
+                            {{ __('shop::app.customer.account.profile.email') }}
+                        </label>
 
                         <div class="col-12">
                             <input value="{{ $customer->email }}" name="email" type="text" v-validate="'required'" />
