@@ -49,7 +49,7 @@ class OfferController extends Controller
     {
         $data = request()->all();
 
-        $validator = Validator::make($request->all(), [
+        $this->validate(request(), [
             'title' => 'required',
             'desc' => 'required',
             'image' => 'required|mimes:jpeg,jpg,png,bmp,svg',
@@ -57,12 +57,6 @@ class OfferController extends Controller
             'start_date' => 'required',
             'end_date' => 'required',
         ]);
-
-        if ($validator->fails()) 
-        {
-            $errors = $validator->errors();
-            return redirect()->back()->withErrors($errors);
-        }
 
         $imageName = $request->image;
         if($imageName != null)
@@ -109,7 +103,7 @@ class OfferController extends Controller
     {
         $data = request()->all();
 
-        $validator = Validator::make($request->all(), [
+        $this->validate(request(), [
             'title' => 'required',
             'desc' => 'required',
             'image' => 'nullable|mimes:jpeg,jpg,png,bmp,svg',
@@ -117,12 +111,6 @@ class OfferController extends Controller
             'start_date' => 'required',
             'end_date' => 'required',
         ]);
-            
-        if ($validator->fails()) 
-        {
-            $errors = $validator->errors();
-            return redirect()->back()->withErrors($errors);
-        }
             
         $old_data = $this->offerRepository->findById($id);
 

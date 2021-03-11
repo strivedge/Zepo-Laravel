@@ -207,6 +207,7 @@ return [
             'title' => 'Sign Up',
             'firstname' => 'First Name',
             'lastname' => 'Last Name',
+            'phone' => 'Phone',
             'email' => 'Email',
             'password' => 'Password',
             'confirm_pass' => 'Confirm Password',

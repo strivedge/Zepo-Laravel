@@ -32,19 +32,19 @@
                 @csrf()
                 <div class="control-group" :class="[errors.has('title') ? 'has-error' : '']">
                     <label for="title" class="required">{{ __('festival::app.festival.festival-title') }}</label>
-                    <input type="text" class="control" name="title" placeholder="{{ __('festival::app.festival.title-placeholder') }}" v-validate="'required'" data-vv-as="&quot;{{ __('festival::app.festival.festival-title') }}&quot;">
+                    <input type="text" class="control" name="title" v-validate="'required'" value="{{ old('title') }}" placeholder="{{ __('festival::app.festival.title-placeholder') }}" data-vv-as="&quot;{{ __('festival::app.festival.festival-title') }}&quot;">
                     <span class="control-error" v-if="errors.has('title')">@{{ errors.first('title') }}</span>
                 </div>
                 
                 <div class="control-group" :class="[errors.has('short_desc') ? 'has-error' : '']">
                     <label for="short_desc" class="required">{{ __('festival::app.festival.short_desc') }}</label>
-                    <textarea type="text" class="control" name="short_desc" placeholder="{{ __('festival::app.festival.sort-d-placeholder') }}" v-validate="'required'" data-vv-as="&quot;{{ __('festival::app.festival.short_desc') }}&quot;"></textarea>
+                    <textarea type="text" class="control" name="short_desc" v-validate="'required'" value="{{ old('short_desc') }}" placeholder="{{ __('festival::app.festival.sort-d-placeholder') }}" data-vv-as="&quot;{{ __('festival::app.festival.short_desc') }}&quot;"></textarea>
                     <span class="control-error" v-if="errors.has('short_desc')">@{{ errors.first('short_desc') }}</span>
                 </div>
 
                 <div class="control-group" :class="[errors.has('long_desc') ? 'has-error' : '']">
                     <label for="long_desc" class="required">{{ __('festival::app.festival.long_desc') }}</label>
-                    <textarea type="text" class="control" name="long_desc" placeholder="{{ __('festival::app.festival.long-d-placeholder') }}" v-validate="'required'" data-vv-as="&quot;{{ __('festival::app.festival.long_desc') }}&quot;"></textarea>
+                    <textarea type="text" class="control" name="long_desc" v-validate="'required'" value="{{ old('long_desc') }}" placeholder="{{ __('festival::app.festival.long-d-placeholder') }}" data-vv-as="&quot;{{ __('festival::app.festival.long_desc') }}&quot;"></textarea>
                     <span class="control-error" v-if="errors.has('long_desc')">@{{ errors.first('long_desc') }}</span>
                 </div>
 
