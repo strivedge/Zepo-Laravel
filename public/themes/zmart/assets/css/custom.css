@@ -310,7 +310,7 @@ a.theme-btn:hover { color: #274985;background: transparent!important; }
 .navbar-top .navbar-top-wrapper .navbar-right-wrapper .login-register .dropdown { padding-left: 0;border: 0; margin-right: 15px; padding-right: 0; }
 .navbar-top .navbar-top-wrapper .navbar-right-wrapper .login-register .dropdown #account .welcome-content { font-size: 14px; font-family: 'Be Vietnam', sans-serif; font-weight: 600; color: #fff;cursor: pointer; }
 .navbar-top .navbar-top-wrapper .navbar-right-wrapper .login-register .dropdown #account .welcome-content.login-content { padding-right: 15px; border-right: 1px solid;padding: 0px 15px; }
-.navbar-top .navbar-top-wrapper .navbar-right-wrapper .login-register .dropdown .welcome-content.support-ticket-link .modal-content { vertical-align: middle; }
+.navbar-top .navbar-top-wrapper .navbar-right-wrapper .login-register .dropdown .welcome-content.support-ticket-link .modal-content { vertical-align: top!important; }
 #top #account+.account-modal { position: absolute;margin: 0px;width: 100%;right: 0;z-index: 100002; display: block;box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);background: #fff;top: 39px;width: 125px; }
 #top #account+.account-modal .modal-content { width: 100% !important }
 .navbar-top .navbar-top-wrapper .navbar-right-wrapper .login-register .dropdown .account-modal .modal-content .customer-session { text-align: left;padding: 5px 10px 5px;display: flex;align-items: center; }
@@ -1302,7 +1302,7 @@ header.sticky-header.navbar-middle.header-shadow + .main-content-wrapper #head {
 .offer .post-wrapper ul li .content-wrap .post-title { padding: 12px 0px; /* padding: 15px 0px 20px; */ line-height: 1; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;font-family: 'Montserrat', sans-serif; font-size: 18px; color: #2A2A2A; font-weight: 400; margin: 0; cursor: pointer; line-height: 1.3; }
 .offer .post-wrapper ul li .content-wrap:hover .post-title { text-decoration: none; color: #B1CC1E; }
 .offer .post-wrapper ul li .content-wrap .content {padding: 0px 10px 10px; /*transition: all .3s linear 0s;*/}
-.offer .post-wrapper ul li .content-wrap .content .post-content { position: relative;padding: 0px 0px 20px; }
+.offer .post-wrapper ul li .content-wrap .content .post-content { position: relative;/*padding: 0px 0px 20px;*/padding: 0px 0px 30px; }
 .offer .post-wrapper ul li .content-wrap .content .dates { display: flex;align-items: center;justify-content: center;position: absolute;left: 0;right: 0;bottom: 10px; }
 .offer .post-wrapper ul li .content-wrap .content .dates label { margin: 0; }
 .offer .post-wrapper ul li .content-wrap a.btn { display: inline-block; font-size: 15px;text-align: center;font-weight: 700;font-size: 15px;color: #274985;text-decoration: underline;position: absolute;right: 0;top: 26px; padding:  0px; }
