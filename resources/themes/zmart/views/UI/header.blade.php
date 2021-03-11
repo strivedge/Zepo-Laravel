@@ -186,6 +186,13 @@
                                         </a>
                                     @endguest
                                 </li>
+
+                                <li>
+                                    <a href="{{ route('user.support-ticket') }}" class="unset">
+                                        <span>            {{__('zepo::app.support-ticket.title') }}
+                                        </span>
+                                    </a>  
+                                </li>
                                 
                                 <li>
                                     @guest('customer')

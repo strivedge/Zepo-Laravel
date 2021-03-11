@@ -14,7 +14,7 @@
     <script type="text/x-template" id="checkout-template">
         
             <div id="checkout" class="checkout-process  col-lg-12 col-md-12">
-                <h1 class="col-12">{{ __('velocity::app.checkout.checkout') }}</h1>
+                <h2 class="col-12">{{ __('velocity::app.checkout.checkout') }}</h2>
                 
                 <div class="col-lg-8 col-md-12">
                     <div class="step-content information" id="address-section">
