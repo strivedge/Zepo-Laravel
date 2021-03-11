@@ -48,20 +48,14 @@ class BlogController extends Controller
     {
         $data = request()->all();
 
-        $validator = Validator::make($request->all(), [
+        // $validator = Validator::make($request->all(), [
+        $this->validate(request(), [
             'title'    => 'required',
             'image'    => 'required|mimes:jpeg,jpg,png,bmp,svg',
             'slug'     => 'required|unique:master_posts,slug',
             'content'  => 'required',
             'date'     => 'required',
         ]);
-
-        if ($validator->fails()) 
-        {
-            $errors = $validator->errors();
-            return redirect()->back()->withErrors($errors);
-        }
-
             
         $imageName = $request->image;
         if($imageName != null)
@@ -100,19 +94,13 @@ class BlogController extends Controller
     {
         $data = request()->all();
         
-        $validator = Validator::make($request->all(), [
-            'title' => 'required',
+        $this->validate(request(), [
+            'title' => 'required|max:3',
             'image' => 'nullable|mimes:jpeg,jpg,png,bmp',
             'slug' => 'unique:master_posts,slug,'.$id,
             'content' => 'required',
             'date' => 'required',
         ]);
-            
-        if ($validator->fails()) 
-        {
-            $errors = $validator->errors();
-            return redirect()->back()->withErrors($errors);
-        }
             
         $old_data = $this->blogRepository->findById($id);
         

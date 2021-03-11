@@ -32,7 +32,7 @@
                 @csrf()
                 <div class="control-group" :class="[errors.has('title') ? 'has-error' : '']">
                     <label for="title" class="required">{{ __('offer::app.offer.offer-title') }}</label>
-                    <input type="text" class="control" name="title" v-validate="'required'" placeholder="{{ __('offer::app.offer.title-placeholder') }}" data-vv-as="&quot;{{__('offer::app.offer.offer-title') }}&quot;"/>
+                    <input type="text" class="control" name="title" v-validate="'required'" value="{{ old('title') }}" placeholder="{{ __('offer::app.offer.title-placeholder') }}" data-vv-as="&quot;{{__('offer::app.offer.offer-title') }}&quot;"/>
                     <span class="control-error" v-if="errors.has('title')">
                         @{{ errors.first('title') }}
                     </span>
@@ -40,7 +40,7 @@
                 
                 <div class="control-group" :class="[errors.has('desc') ? 'has-error' : '']">
                     <label for="desc" class="required">{{ __('offer::app.offer.desc') }}</label>
-                    <textarea type="text" class="control" name="desc" v-validate="'required'" placeholder="{{ __('offer::app.offer.desc-placeholder') }}" data-vv-as="&quot;{{__('offer::app.offer.desc') }}&quot;">
+                    <textarea type="text" class="control" name="desc" v-validate="'required'" value="{{ old('desc') }}" placeholder="{{ __('offer::app.offer.desc-placeholder') }}" data-vv-as="&quot;{{__('offer::app.offer.desc') }}&quot;">
                     </textarea>
                     <span class="control-error" v-if="errors.has('desc')">
                         @{{ errors.first('desc') }}

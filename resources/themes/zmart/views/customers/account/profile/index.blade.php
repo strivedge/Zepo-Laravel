@@ -74,6 +74,13 @@
                         <td><b>:</b>&nbsp; {{ $customer->email }}</td>
                     </tr>
 
+                    {!! view_render_event('bagisto.shop.customers.account.profile.view.table.email.after', ['customer' => $customer]) !!}
+
+                    <tr>
+                        <td>{{ __('shop::app.customer.account.profile.phone') }}</td>
+                        <td><b>:</b>&nbsp; {{ $customer->phone }}</td>
+                    </tr>
+
                     {!! view_render_event(
                     'bagisto.shop.customers.account.profile.view.table.after', ['customer' => $customer])
                     !!}

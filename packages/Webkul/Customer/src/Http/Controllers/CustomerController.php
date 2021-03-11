@@ -92,6 +92,7 @@ class CustomerController extends Controller
             'last_name'             => 'string',
             'gender'                => 'required',
             'date_of_birth'         => 'date|before:today',
+            'phone'                 => 'required|Numeric|digits_between:10,12',
             'email'                 => 'email|unique:customers,email,' . $id,
             'image.*'               => 'mimes:jpeg,jpg,bmp,png',
             'password'              => 'confirmed|min:6|required_with:oldpassword',
