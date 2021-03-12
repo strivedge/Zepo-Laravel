@@ -66,8 +66,10 @@ class CartController extends Controller
      */
     public function add($id)
     {
+        $data = request()->all();
+        $data['status'] = 0;
         try {
-            $result = Cart::addProduct($id, request()->all());
+            $result = Cart::addProduct($id, $data);
 
             if ($this->onFailureAddingToCart($result)) {
                 return redirect()->back();

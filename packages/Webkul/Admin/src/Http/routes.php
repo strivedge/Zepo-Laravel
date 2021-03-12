@@ -230,7 +230,7 @@ Route::group(['middleware' => ['web']], function () {
                 ])->name('admin.sales.shipments.view');
 
 
-                // Sales Redunds Routes
+                // Sales Refunds Routes
                 Route::get('/refunds', 'Webkul\Admin\Http\Controllers\Sales\RefundController@index')->defaults('_config', [
                     'view' => 'admin::sales.refunds.index',
                 ])->name('admin.sales.refunds.index');
@@ -250,6 +250,13 @@ Route::group(['middleware' => ['web']], function () {
                 Route::get('/refunds/view/{id}', 'Webkul\Admin\Http\Controllers\Sales\RefundController@view')->defaults('_config', [
                     'view' => 'admin::sales.refunds.view',
                 ])->name('admin.sales.refunds.view');
+
+                // Cart Products Routes
+                Route::get('/cart-products', 'Webkul\Admin\Http\Controllers\Sales\CartProductController@index')->defaults('_config', [
+                    'view' => 'admin::sales.cart-products.index',
+                ])->name('admin.sales.cart-products.index');
+
+                Route::post('/massupdate', 'Webkul\Admin\Http\Controllers\Sales\CartProductController@massUpdate')->name('admin.catalog.cart-products.massupdate');
             });
 
             // Catalog Routes

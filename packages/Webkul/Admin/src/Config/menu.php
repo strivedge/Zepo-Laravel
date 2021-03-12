@@ -38,6 +38,12 @@ return [
         'sort'       => 4,
         'icon-class' => '',
     ], [
+        'key'        => 'sales.cart-products',
+        'name'       => 'admin::app.layouts.cart-products',
+        'route'      => 'admin.sales.cart-products.index',
+        'sort'       => 5,
+        'icon-class' => '',
+    ], [
         'key'        => 'catalog',
         'name'       => 'admin::app.layouts.catalog',
         'route'      => 'admin.catalog.products.index',
@@ -50,22 +56,28 @@ return [
         'sort'       => 1,
         'icon-class' => '',
     ], [
+        'key'        => 'catalog.add-new-product',
+        'name'       => 'admin::app.layouts.add-new-product',
+        'route'      => 'admin.catalog.products.create',
+        'sort'       => 2,
+        'icon-class' => '',
+    ], [
         'key'        => 'catalog.categories',
         'name'       => 'admin::app.layouts.categories',
         'route'      => 'admin.catalog.categories.index',
-        'sort'       => 2,
+        'sort'       => 3,
         'icon-class' => '',
     ], [
         'key'        => 'catalog.attributes',
         'name'       => 'admin::app.layouts.attributes',
         'route'      => 'admin.catalog.attributes.index',
-        'sort'       => 3,
+        'sort'       => 4,
         'icon-class' => '',
     ], [
         'key'        => 'catalog.families',
         'name'       => 'admin::app.layouts.attribute-families',
         'route'      => 'admin.catalog.families.index',
-        'sort'       => 4,
+        'sort'       => 5,
         'icon-class' => '',
     ], [
         'key'        => 'customers',

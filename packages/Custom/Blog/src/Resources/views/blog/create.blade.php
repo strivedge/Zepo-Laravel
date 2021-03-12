@@ -33,7 +33,7 @@
                 @csrf()
                 <div class="control-group" :class="[errors.has('title') ? 'has-error' : '']">
                     <label for="title" class="required">{{ __('blog::app.blogs.blog-title') }}</label>
-                    <input type="text" class="control" name="title" v-validate="'required'" placeholder="{{ __('blog::app.blogs.title-placeholder') }}" data-vv-as="&quot;{{ __('blog::app.blogs.blog-title') }}&quot;" />
+                    <input type="text" class="control" name="title" v-validate="'required'" value="{{ old('title') }}" placeholder="{{ __('blog::app.blogs.title-placeholder') }}" data-vv-as="&quot;{{ __('blog::app.blogs.blog-title') }}&quot;" />
                     <span class="control-error" v-if="errors.has('title')">@{{ errors.first('title') }}</span>
                 </div>
                 
@@ -48,13 +48,13 @@
 
                 <div class="control-group" :class="[errors.has('slug') ? 'has-error' : '']">
                     <label for="slug" class="required">{{ __('blog::app.blogs.blog-slug') }}</label>
-                    <input type="text" class="control" name="slug" v-validate="'required'" placeholder="{{ __('blog::app.blogs.slug-placeholder') }}" data-vv-as="&quot;{{ __('blog::app.blogs.blog-slug') }}&quot;" v-slugify>
+                    <input type="text" class="control" name="slug" v-validate="'required'" value="{{ old('slug') }}" placeholder="{{ __('blog::app.blogs.slug-placeholder') }}" data-vv-as="&quot;{{ __('blog::app.blogs.blog-slug') }}&quot;" v-slugify>
                     <span class="control-error" v-if="errors.has('slug')">@{{ errors.first('slug') }}</span>
                 </div>
 
                 <div class="control-group" :class="[errors.has('content') ? 'has-error' : '']">
                     <label for="content" class="required">{{ __('blog::app.blogs.blog-content') }}</label>
-                    <textarea type="text" class="control" name="content" v-validate="'required'" placeholder="{{ __('blog::app.blogs.content-placeholder') }}" data-vv-as="&quot;{{ __('blog::app.blogs.blog-content') }}&quot;" ></textarea>
+                    <textarea type="text" class="control" name="content" v-validate="'required'" value="{{ old('content') }}" placeholder="{{ __('blog::app.blogs.content-placeholder') }}" data-vv-as="&quot;{{ __('blog::app.blogs.blog-content') }}&quot;" ></textarea>
                     <span class="control-error" v-if="errors.has('content')">@{{ errors.first('content') }}</span>
                 </div>
 

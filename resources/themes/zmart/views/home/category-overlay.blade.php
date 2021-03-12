@@ -2,10 +2,11 @@
 @php
     $posts = $blogRepository->all();
 @endphp
+
+@if(isset($posts) && count($posts) > 0)
 <section class="category-overlay">
     <div class="container">
         <ul class="row">
-    @if(isset($posts) && count($posts) > 0)
         @foreach($posts as $post)
             <li class="col-md-6 col-lg-4 col-xl-3 imgs">
                 <div class="content-wrap">
@@ -18,12 +19,7 @@
                 </div>
             </li>
             @endforeach
-        @else
-        <li class="imgs col-12 errors">
-            {{ __('blog::app.blogs.no-posts') }}
-        </li>
-        @endif
-            
         </ul>
     </div>
 </section>
+@endif

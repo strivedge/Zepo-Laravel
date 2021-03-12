@@ -17,9 +17,12 @@ class SupportTicketDataGrid extends DataGrid
     {
         $queryBuilder = DB::table('support_tickets')
         ->addSelect('id as ticket_id', 'name', 'email', 'message', 'attachment', 'status', 'created_at', 'updated_at');
+        
         $this->addFilter('ticket_id', 'id');
         $this->addFilter('name', 'name');
         $this->addFilter('email', 'email');
+        $this->addFilter('created_at', 'created_at');
+        $this->addFilter('updated_at', 'updated_at');
 
         $this->setQueryBuilder($queryBuilder);
     }
@@ -74,21 +77,19 @@ class SupportTicketDataGrid extends DataGrid
         $this->addColumn([
             'index'      => 'created_at',
             'label'      => trans('zepo::app.support-ticket.created-at'),
-            'type'       => 'date',
-            'searchable' => true,
+            'type'       => 'datetime',
+            'searchable' => false,
             'sortable'   => true,
-            'filterable' => false,
-            'closure'    => true,
+            'filterable' => true,
         ]);
 
         $this->addColumn([
             'index'      => 'updated_at',
             'label'      => trans('zepo::app.support-ticket.updated-at'),
-            'type'       => 'date',
-            'searchable' => true,
+            'type'       => 'datetime',
+            'searchable' => false,
             'sortable'   => true,
-            'filterable' => false,
-            'closure'    => true,
+            'filterable' => true,
         ]);
 
         $this->addColumn([

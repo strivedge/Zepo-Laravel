@@ -31,15 +31,15 @@
                 @if ($cart)
                     <div class="cart-details-header col-md-12">
                         <div class="row cart-header col-12 no-padding">
-                            <span class="col-9 fw6 fs16 pr0">
+                            <span class="col-md-8 col-xl-9 fw6 fs16 pr0">
                                 {{ __('velocity::app.checkout.items') }}
                             </span>
 
-                            <span class="col-1 fw6 fs16 no-padding">
+                            <span class="col-md-2 col-xl-1 fw6 fs16 no-padding">
                                 {{ __('velocity::app.checkout.qty') }}
                             </span>
 
-                            <span class="col-2 fw6 fs16 pr0">
+                            <span class="col-md-2 fw6 fs16 pr0">
                                 {{ __('velocity::app.checkout.subtotal') }}
                             </span>
                         </div>
@@ -86,7 +86,7 @@
                                                 </a>
                                             </div>
 
-                                            <div class="product-details-content col-7">
+                                            <div class="product-details-content col-md-6 col-xl-7">
                                                 <div class="item-title no-margin">
                                                     <a
                                                         href="{{ route('shop.productOrCategory.index', $url_key) }}"
@@ -155,7 +155,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="product-quantity col-1 no-padding">
+                                            <div class="product-quantity col-md-2 col-xl-1 no-padding">
                                                 <quantity-changer
                                                     :control-name="'qty[{{$item->id}}]'"
                                                     quantity="{{ $item->quantity }}">
@@ -176,7 +176,7 @@
                                         </div>
 
                                         <div class="col-12 cart-product-details" v-else>
-                                            <div class="col-2 no-padding product-image">
+                                            <div class="col-sm-4 no-padding product-image">
                                                 <a
                                                     title="{{ $product->name }}"
                                                     class="product-image-container"
@@ -189,7 +189,7 @@
                                                 </a>
                                             </div>
 
-                                            <div class="col-10 item-title">
+                                            <div class="col-sm-8 item-title">
                                                 <a
                                                     href="{{ route('shop.productOrCategory.index', $url_key) }}"
                                                     title="{{ $product->name }}"
@@ -213,14 +213,14 @@
                                                 </div>
 
                                                 <div class="col-12 remove-padding-margin actions">
-                                                    <div class="product-quantity col-lg-4 col-6 no-padding">
+                                                    <div class="product-quantity  col-12 col-lg-4 no-padding">
                                                         <quantity-changer
                                                             :control-name="'qty[{{$item->id}}]'"
                                                             quantity="{{ $item->quantity }}">
                                                         </quantity-changer>
                                                     </div>
 
-                                                    <div class="col-4 cursor-pointer text-down-4">
+                                                    <div class="col-4 cursor-pointer text-down-4 wishlist-icon">
                                                         <a href="{{ route('shop.checkout.cart.remove', ['id' => $item->id]) }}" class="unset">
                                                             <i class="material-icons fs24">delete</i>
                                                         </a>
@@ -233,10 +233,10 @@
                                     @endforeach
                                 </div>
                                 <div class="col-md-12 coupon-buttons">
-                                    <div class="col-md-8">
+                                    <div class="col-lg-7 col-xl-8 coupon-section">
                                         <coupon-component></coupon-component>
                                     </div>
-                                    <div class="col-md-4 continue-update-buttons">
+                                    <div class="col-lg-5 col-xl-4 continue-update-buttons">
                                         {!! view_render_event('bagisto.shop.checkout.cart.controls.after', ['cart' => $cart]) !!}
                                             <a
                                                 class="link-color remove-decoration fs16 no-padding theme-btn"

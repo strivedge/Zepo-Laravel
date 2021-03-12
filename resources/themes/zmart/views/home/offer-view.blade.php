@@ -2,12 +2,13 @@
 @php
     $offers = $offerRepository->all();
 @endphp
+
+@if(isset($offers) && count($offers) > 0)
 <section class="offers featured-products">
 
     <div class="container">
     <div class="section-title"><h2>{{__('offer::app.offer.active-offers') }}</h2></div>
         <ul>
-    @if(isset($offers) && count($offers) > 0)
         @foreach($offers as $offer)
                 
                         <li class="col-lg-4 col-xl-3 img">
@@ -24,19 +25,13 @@
                                 <span>{{__('offer::app.offer.from') }} {{ $start_date->format('d/m/Y') }} {{__('offer::app.offer.to') }} {{ $end_date->format('d/m/Y') }}</span>
                             </div>
                             <div class="col-lg-12 col-xl-3 buttons">
-                                <a href="#">{{__('offer::app.offer.view-all-offers') }}</a>
+                                <a href="{{ route('shop.home.offer') }}">{{__('offer::app.offer.view-all-offers') }}</a>
                             </div>
                         </li>
 
         @endforeach
-        @else
-        <li class="column content-offers col-12 errors">
-            <div class="content col-12 text-center">
-                {{__('offer::app.offer.no-offers') }}
-            </div>
-        </li>
-        @endif
         </ul>
     </div>
 
 </section>
+@endif

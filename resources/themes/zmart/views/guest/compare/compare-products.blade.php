@@ -55,8 +55,6 @@
                         ]]);
                     @endphp
 
-                    <?php //echo "string<pre>";print_r($comparableAttributes);exit(); ?>
-
                     @foreach ($comparableAttributes as $attribute)
 
                         <tr>
@@ -75,18 +73,20 @@
                                     @case('product_image')
                                         <div class="img" v-if="product.galleryImages.length > 0">
 
-                                                <div class="product-imgs" v-for="img in product.galleryImages" :key="img">
-                                                    <a :href="`${baseUrl}/${product.slug}`" :title="product.name" class="product-image-container">
+                                                <div class="product-imgs">
+                                                        <div v-for="img in product.galleryImages" :key="img">
+                                                            <a :href="`${baseUrl}/${product.slug}`" :title="product.name" class="product-image-container">
 
-                                                        <img
-                                                            loading="lazy"
-                                                            :alt="product.name"
-                                                            :src="img || product.product_image"
-                                                            :data-src="product.image || product.product_image"
-                                                            class="card-img-top lzy_img"
-                                                            :onerror="`this.src='${baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`"  />
-                                                        
-                                                    </a>
+                                                                <img
+                                                                    loading="lazy"
+                                                                    :alt="product.name"
+                                                                    :src="img || product.product_image"
+                                                                    :data-src="product.image || product.product_image"
+                                                                    class="card-img-top lzy_img"
+                                                                    :onerror="`this.src='${baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`"  />
+                                                                
+                                                            </a>
+                                                        </div>
                                                 </div>
                                                 
                                         </div>

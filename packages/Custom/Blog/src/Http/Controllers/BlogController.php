@@ -3,16 +3,13 @@
 namespace Custom\Blog\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 use Custom\Blog\Models\Blog;
 use Custom\Blog\Repositories\BlogRepository;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use File;
 use Validator;
 
 class BlogController extends Controller
 {
-    use ValidatesRequests;
     private $blogRepository;
     public function __construct(BlogRepository $blogRepository)
     {
@@ -51,20 +48,14 @@ class BlogController extends Controller
     {
         $data = request()->all();
 
-        $validator = Validator::make($request->all(), [
+        // $validator = Validator::make($request->all(), [
+        $this->validate(request(), [
             'title'    => 'required',
             'image'    => 'required|mimes:jpeg,jpg,png,bmp,svg',
             'slug'     => 'required|unique:master_posts,slug',
             'content'  => 'required',
             'date'     => 'required',
         ]);
-
-        if ($validator->fails()) 
-        {
-            $errors = $validator->errors();
-            return redirect()->back()->withErrors($errors);
-        }
-
             
         $imageName = $request->image;
         if($imageName != null)
@@ -103,19 +94,13 @@ class BlogController extends Controller
     {
         $data = request()->all();
         
-        $validator = Validator::make($request->all(), [
-            'title' => 'required',
+        $this->validate(request(), [
+            'title' => 'required|max:3',
             'image' => 'nullable|mimes:jpeg,jpg,png,bmp',
             'slug' => 'unique:master_posts,slug,'.$id,
             'content' => 'required',
             'date' => 'required',
         ]);
-            
-        if ($validator->fails()) 
-        {
-            $errors = $validator->errors();
-            return redirect()->back()->withErrors($errors);
-        }
             
         $old_data = $this->blogRepository->findById($id);
         

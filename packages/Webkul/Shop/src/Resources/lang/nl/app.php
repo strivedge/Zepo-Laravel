@@ -25,12 +25,38 @@ return [
         'featured-products' => 'Aanbevolen producten',
         'new-products' => 'Nieuwe producten',
         'verify-email' => 'Verifieer uw e-mailaccount',
-        'resend-verify-email' => 'Verificatie-e-mail opnieuw verzenden'
+        'resend-verify-email' => 'Verificatie-e-mail opnieuw verzenden',
+        'offer-products' => 'Producten aanbieden',
+        'brand-no-products' => 'Geen producten beschikbaar',
+
+        'slider' => [
+            'shop-now' => 'Winkel nu',
+            'previous' => 'Vorige',
+            'next' => 'De volgende',
+        ],
+
+        'nav-tabs' => [
+            'covid19-products' => 'COVID19 PRODUCTEN',
+            'most-popular' => 'MEEST POPULAIR',
+            'new-releases' => 'NIEUWE UITGAVEN',
+            'bestsellers-accessories' => 'ACCESSOIRES VAN BESTSELLERS',
+        ],
+
+        'shipping-payment' => [
+            'free-shipping' => 'Geen verzendkosten',
+            'best-price-guarantee' => 'Beste prijsgarantie',
+            'easy-return' => 'Gemakkelijke terugkeer',
+            '100%-payment-secure' => '100% veilige betaling',
+        ]
     ],
 
     'header' => [
         'title' => 'Account',
         'dropdown-text' => 'Manage Cart, Orders & Wishlist',
+        'email' => 'email',
+        'email-address' => 'support@zepomart.com',
+        'phone' => 'phone',
+        'phone-num' => '021 269 962',
         'sign-in' => 'Aanmelden',
         'sign-up' => 'Registreren',
         'account' => 'Account',
@@ -38,7 +64,8 @@ return [
         'profile' => 'Profiel',
         'wishlist' => 'Verlanglijst',
         'logout' => 'Afmelden',
-        'search-text' => 'Zoek producten hier'
+        'search-text' => 'Zoek producten hier',
+        'covid19-products' => 'Covid19-producten'
     ],
 
     'minicart' => [
@@ -48,11 +75,74 @@ return [
         'zero' => '0'
     ],
 
+    'about-us' => [
+        'title' => 'Over ons',
+        'page-content' => 'Over ons pagina-inhoud',
+    ],
+
+    'brand' => [
+        'title' => 'Merk',
+        'page-content' => 'Merkpagina-inhoud',
+    ],
+
+    'store-directory' => [
+        'title' => 'Directory opslaan',
+        'page-content' => 'Bewaar de inhoud van de directory-pagina',
+    ],
+
+    'contact-us' => [
+        'title' => 'Neem contact op',
+        'name' => 'Name',
+        'email' => 'email',
+        'email-addr' => 'support@zepomart.com',
+        'message' => 'Bericht',
+        'phone' => 'phone',
+        'phone-number' => 'Telefoon Nummer',
+        'phone-num' => '021 269 962',
+        'location-on' => 'location_on',
+        'address' => 'B-905, Test City Center, Near test Tower, Testlite, Ahmedabad -380111, Gujarat, India',
+    ],
+
+    'razorpay' => [
+        'title' => 'Scheermesje betalen',
+        'success' => 'Succes!',
+        'error' => 'Fout!',
+        'pay-with-razorpay' => 'Betaal met Razorpay',
+    ],
+
     'footer' => [
         'subscribe-newsletter' => 'Inschrijven nieuwsbrief',
         'subscribe' => 'Inschrijven',
         'locale' => 'Taal',
         'currency' => 'Valuta',
+        'copyrights' => 'Auteursrecht © 2021 Zepomart. Alle rechten voorbehouden.',
+    ],
+
+    'footer-links' => [
+        'quick-links' => 'Snelle links',
+        'home' => 'Huis',
+        'self-definition' => 'Zelfdefinitie',
+        'procedure' => 'Procedure',
+        'offline-stores' => 'Offline winkels',
+        'our-valued-customer' => 'Onze gewaardeerde klant',
+        'help' => 'Helpen',
+        'payments' => 'Betalingen',
+        'shipping' => 'Verzenden',
+        'cancellation-returns' => 'Annulering en retouren',
+        'faq' => 'FAQ',
+        'measurement-process' => 'Meetproces',
+        'contact-us' => 'Neem contact op',
+        'about-us' => 'Over ons',
+        'contact' => 'Contact',
+        'work-with-us' => 'Werk met ons',
+        'privacy-policy' => 'Privacybeleid',
+        'terms-conditions' => 'algemene voorwaarden',
+    ],
+
+    'newsletter' => [
+        'newsletter' => 'Nieuwsbrief',
+        'content' => 'We houden ervan om software te maken en de echte wereldproblemen op te lossen met de binaries. We zijn zeer toegewijd aan onze doelen. We investeren onze middelen om gebruiksvriendelijke software en applicaties van wereldklasse te creëren voor het bedrijfsleven met de beste technologische expertise.',
+        'near-me' => 'near_me',
     ],
 
     'subscription' => [
@@ -88,6 +178,8 @@ return [
         'percentage' => ':percentage %',
         'id-star' => 'star',
         'name' => 'Name',
+        'be-write-review' => 'Wees de eerste die een recensie schrijft',
+        'add-to-cart' => 'VOEG TOE AAN WINKELKAR',
     ],
 
     'customer' => [
@@ -205,6 +297,7 @@ return [
                 'male' => 'Man',
                 'female' => 'Vrouw',
                 'dob' => 'Geboortedatum',
+                'profile-photo' => 'Profielfoto',
                 'phone' => 'Telefoonnummer',
                 'email' => 'Email',
                 'opassword' => 'Huidig wachtwoord',
@@ -337,6 +430,7 @@ return [
                     'individual-refund' => 'Terugbetaling #:refund_id',
                     'adjustment-refund' => 'Aanpassing restitutie',
                     'adjustment-fee' => 'Aanpassingskosten',
+                    'cancel-btn-title' => 'annuleren',
                     'tracking-number' => 'Volg nummer',
                     'cancel-confirm-msg' => 'Weet u zeker dat u deze bestelling wilt annuleren ?'
                 ]
@@ -444,6 +538,10 @@ return [
         'available-for-order' => 'Beschikbaar voor bestelling',
         'settings' => 'Settings',
         'compare_options' => 'Compare Options',
+        'including-tax' => 'Inclusief belasting',
+        'ratings' => 'Waarderingen',
+        'save' => 'OPSLAAN',
+        'no-products-available' => 'Geen producten beschikbaar',
     ],
 
     // 'reviews' => [
@@ -723,5 +821,17 @@ return [
         'update-success' => ':name succesvol geupdatet.',
         'delete-success' => ':name met succes verwijderd.',
         'submit-success' => ':name succesvol ingediend.'
+    ],
+
+    'contact' => [
+        'name' => 'Name',
+        'email' => 'Email',
+        'phone' => 'Telefoon Nummer',
+        'message' => 'Bericht',
+        'success' => "We nemen binnenkort contact met u op",
+        'error' => "Er is iets fout gegaan",
+        'submit' => 'Verzenden',
+        'subject' => 'Conatct Email',
+        'greeting' => ' Welkom bij ' . config('app.name'),
     ],
 ];

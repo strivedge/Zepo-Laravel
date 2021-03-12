@@ -18,7 +18,13 @@ class OfferRepository
     public function all()
     {
         $currentDate = date("Y-m-d");
-        return Offer::where('start_date', '<=', $currentDate)->where('end_date', '>', $currentDate)->where('status', '1')->orderby('id', 'desc')->take(1)->get();;
+        return Offer::where('start_date', '<=', $currentDate)->where('end_date', '>', $currentDate)->where('status', '1')->orderby('id', 'desc')->take(1)->get();
+    }
+
+    public function getAllHome()
+    {
+        $currentDate = date("Y-m-d");
+        return Offer::where('start_date', '<=', $currentDate)->where('end_date', '>', $currentDate)->where('status', '1')->orderby('id', 'desc')->get();
     }
 
     // function for Admin side

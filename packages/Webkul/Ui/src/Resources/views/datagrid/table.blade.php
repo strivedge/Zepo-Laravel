@@ -73,7 +73,7 @@
                 </div>
 
                 <div class="datagrid-filters" id="datagrid-filters">
-                    <div class="filter-left col-md-3">
+                    <div class="filter-left col-md-12 col-lg-3">
                         <div class="search-filter">
                             <label>
                                  Search
@@ -89,8 +89,8 @@
                         </div>
                     </div>
 
-                    <div class="filter-right col-md-9">
-                        <div class="dropdown-filters per-page col-md-4">
+                    <div class="filter-right col-md-12 col-lg-9">
+                        <div class="dropdown-filters per-page col-md-12 col-lg-4">
                             <div class="control-group">
                                 <label class="per-page-label" for="perPage">
                                     {{ __('ui::app.datagrid.items-per-page') }}
@@ -107,7 +107,7 @@
                             </div>
                         </div>
 
-                        <div class="dropdown-filters col-md-8 filters">
+                        <div class="dropdown-filters col-md-12 col-lg-8 filters">
                             <div class="dropdown-toggle">
                                 <div class="grid-dropdown-header">
                                     <label class="name">{{ __('ui::app.datagrid.filter') }}</label>

@@ -12,7 +12,7 @@
                         <a href="#" class="promotion btn btn-primary">{{ __('festival::app.festival.more-about-promotion') }}</a></p>
                     <div class="imgs"><img src="{{ asset('themes/zmart/assets/images/sales-timing.png') }}"></div>
                     <a href="#" class="active-promotion btn btn-primary">
-                        Active promotions<span><i class="bx bx-right-arrow-alt"></i></span>
+                        {{ __('festival::app.festival.active-promotions') }}<span><i class="bx bx-right-arrow-alt"></i></span>
                     </a>
                     </div>
                 </div>
@@ -27,13 +27,4 @@
             </div>
         </div>
     </section>
-   
-@else
-    <!-- <div class="product-list empty">
-        <h2>{{ __('shop::app.products.whoops') }}</h2>
-
-        <p>
-            No products available
-        </p>
-    </div> -->
 @endif

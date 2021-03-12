@@ -1,6 +1,5 @@
 {!! view_render_event('bagisto.shop.products.add_to_cart.before', ['product' => $product]) !!}
 
-<?php //print_r($addToCartForm);exit; ?>
 @if (isset($showCompare) && $showCompare)
     <compare-component
         @auth('customer')

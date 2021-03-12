@@ -34,7 +34,6 @@ return [
             'help-title' => 'Create',
             'festival_product' => 'Products',
             'more-about-promotion' => 'More about promotion',
-        ]
-
-       
+            'active-promotions' => 'Active promotions',
+      ]
 ];

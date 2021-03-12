@@ -3,19 +3,14 @@
 namespace Custom\Offer\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 use Custom\Offer\Models\Offer;
 use Custom\Offer\Repositories\OfferRepository;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use File;
 use Validator;
 
 class OfferController extends Controller
 {
-    use ValidatesRequests;
-    protected $_config;
     private $offerRepository;
-
     public function __construct(OfferRepository $offerRepository)
     {
         $this->middleware('admin');
@@ -54,7 +49,7 @@ class OfferController extends Controller
     {
         $data = request()->all();
 
-        $validator = Validator::make($request->all(), [
+        $this->validate(request(), [
             'title' => 'required',
             'desc' => 'required',
             'image' => 'required|mimes:jpeg,jpg,png,bmp,svg',
@@ -62,12 +57,6 @@ class OfferController extends Controller
             'start_date' => 'required',
             'end_date' => 'required',
         ]);
-
-        if ($validator->fails()) 
-        {
-            $errors = $validator->errors();
-            return redirect()->back()->withErrors($errors);
-        }
 
         $imageName = $request->image;
         if($imageName != null)
@@ -114,7 +103,7 @@ class OfferController extends Controller
     {
         $data = request()->all();
 
-        $validator = Validator::make($request->all(), [
+        $this->validate(request(), [
             'title' => 'required',
             'desc' => 'required',
             'image' => 'nullable|mimes:jpeg,jpg,png,bmp,svg',
@@ -122,12 +111,6 @@ class OfferController extends Controller
             'start_date' => 'required',
             'end_date' => 'required',
         ]);
-            
-        if ($validator->fails()) 
-        {
-            $errors = $validator->errors();
-            return redirect()->back()->withErrors($errors);
-        }
             
         $old_data = $this->offerRepository->findById($id);
 
