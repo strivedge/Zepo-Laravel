@@ -24,6 +24,7 @@
     }
 @endphp
 
+
 {!! view_render_event('bagisto.shop.layout.header.locale.before') !!}
     <div class="pull-right languages">
         <div class="dropdown">
