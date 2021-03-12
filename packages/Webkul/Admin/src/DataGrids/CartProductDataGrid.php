@@ -40,7 +40,8 @@ class CartProductDataGrid extends DataGrid
                 'cart_items.updated_at as updated_at')
             ->addSelect(
                 'customers.phone as phone')
-            ->where('cart.customer_email', '!=', null);
+            ->where('cart.customer_id', '!=', null)
+            ->where('cart.is_active', 1);
 
         $this->addFilter('id', 'id');
         $this->addFilter('sku', 'sku');
@@ -212,19 +213,6 @@ class CartProductDataGrid extends DataGrid
             'filterable' => true,
         ]);
     }
-
-    // public function prepareActions()
-    // {
-    //     $this->addAction([
-    //         'title'     => trans('admin::app.datagrid.edit'),
-    //         'method'    => 'GET',
-    //         'route'     => 'admin.catalog.products.edit',
-    //         'icon'      => 'icon pencil-lg-icon',
-    //         'condition' => function () {
-    //             return true;
-    //         },
-    //     ]);
-    // }
 
     public function prepareMassActions()
     {
