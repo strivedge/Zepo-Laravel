@@ -32,20 +32,20 @@ class AttributeGroupTableSeeder extends Seeder
                 'attribute_family_id' => '1',
             ], [
                 'id'                  => '3', 
-                'name'                => 'Meta Description',
-                'position'            => '3',
+                'name'                => 'SEO Meta Description',
+                'position'            => '5',
                 'is_user_defined'     => '0',
                 'attribute_family_id' => '1',
             ], [
                 'id'                  => '4', 
                 'name'                => 'Price', 
-                'position'            => '4',
+                'position'            => '3',
                 'is_user_defined'     => '0',
                 'attribute_family_id' => '1',
             ], [
                 'id'                  => '5', 
                 'name'                => 'Shipping', 
-                'position'            => '5',
+                'position'            => '4',
                 'is_user_defined'     => '0',
                 'attribute_family_id' => '1'
             ],
