@@ -2,9 +2,12 @@
     <div class="form-container">
         <accordian :title="'{{ __('shop::app.checkout.onepage.shipping-method') }}'" :active="true">
             <div class="form-header" slot="header">
-                <h3 class="fw6 display-inbl">
+                <h4 class="fw6 display-inbl">
+                    <span class="material-icons">
+                        local_shipping
+                    </span>
                  {{ __('shop::app.checkout.onepage.shipping-method') }}
-                </h3>
+                </h4>
                 <i class="rango-arrow"></i>
             </div>
 

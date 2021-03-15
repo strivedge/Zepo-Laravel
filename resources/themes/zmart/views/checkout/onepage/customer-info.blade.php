@@ -5,9 +5,10 @@
             :title="'{{ __('shop::app.checkout.onepage.billing-address') }}'">
 
             <div class="form-header mb-30" slot="header">
-                <h3 class="fw6 display-inbl">
+                <span class="material-icons"> location_on </span>
+                <h4 class="fw6 display-inbl">
                     {{ __('shop::app.checkout.onepage.billing-address') }}
-                </h3>
+                </h4>
                 <i class="rango-arrow"></i>
             </div>
 
@@ -101,9 +102,10 @@
     <div class="form-container" v-else>
         <accordian :title="'{{ __('shop::app.checkout.onepage.billing-address') }}'" :active="true">
             <div class="form-header" slot="header">
-                <h3 class="fw6 display-inbl">
+                <span class="material-icons"> location_on </span>
+                <h4 class="fw6 display-inbl">
                    {{ __('shop::app.checkout.onepage.billing-address') }}
-                </h3>
+                </h4>
 
                 <i class="rango-arrow"></i>
             </div>
@@ -138,9 +140,10 @@
                 :title="'{{ __('shop::app.checkout.onepage.shipping-address') }}'">
 
                 <div class="form-header mb-30" slot="header">
-                    <h3 class="fw6 display-inbl">
+                    <span class="material-icons"> location_on </span>
+                    <h4 class="fw6 display-inbl">
                         {{ __('shop::app.checkout.onepage.shipping-address') }}
-                    </h3>
+                    </h4>
                     <i class="rango-arrow"></i>
                 </div>
 
@@ -216,9 +219,10 @@
                 :title="'{{ __('shop::app.checkout.onepage.shipping-address') }}'">
 
                 <div class="form-header" slot="header">
-                    <h3 class="fw6 display-inbl">
+                    <span class="material-icons"> location_on </span>
+                    <h4 class="fw6 display-inbl">
                         {{ __('shop::app.checkout.onepage.shipping-address') }}
-                    </h3>
+                    </h4>
                     <i class="rango-arrow"></i>
                 </div>
 
