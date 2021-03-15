@@ -3,9 +3,10 @@
 <div class="form-container review-checkout-conainer">
     <accordian :title="'{{ __('shop::app.checkout.onepage.summary') }}'" :active="true">
         <div class="form-header mb-30" slot="header">
-            <h3 class="fw6 display-inbl">
+            <h4 class="fw6 display-inbl">
+                <i class="material-icons-outlined text-down-3">shopping_cart</i>
                 {{ __('shop::app.checkout.onepage.summary') }}
-            </h3>
+            </h4>
             <i class="rango-arrow"></i>
         </div>
 

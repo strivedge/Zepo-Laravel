@@ -3,9 +3,12 @@
         <accordian :title="'{{ __('shop::app.checkout.payment-methods') }}'" :active="true">
             <div class="form-header mb-30" slot="header">
                 
-                <h3 class="fw6 display-inbl">
+                <h4 class="fw6 display-inbl">
+                    <span class="material-icons">
+                        payment
+                    </span>
                    {{ __('shop::app.checkout.onepage.payment-methods') }}
-                </h3>
+                </h4>
 
                 <i class="rango-arrow"></i>
             </div>
