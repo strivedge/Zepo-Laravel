@@ -181,6 +181,7 @@ Route::group(['middleware' => ['web']], function () {
 
                 Route::get('/orders/view/{id}', 'Webkul\Admin\Http\Controllers\Sales\OrderController@view')->defaults('_config', [
                     'view' => 'admin::sales.orders.view',
+                    'seller_view' => 'admin::sales.orders.seller-view',
                 ])->name('admin.sales.orders.view');
 
                 Route::get('/orders/cancel/{id}', 'Webkul\Admin\Http\Controllers\Sales\OrderController@cancel')->defaults('_config', [

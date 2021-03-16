@@ -5,6 +5,7 @@ namespace Webkul\Sales\Models;
 use Webkul\Checkout\Models\CartProxy;
 use Illuminate\Database\Eloquent\Model;
 use Webkul\Sales\Contracts\Order as OrderContract;
+// use Webkul\Product\Models\ProductProxy;
 
 class Order extends Model implements OrderContract
 {
@@ -141,6 +142,16 @@ class Order extends Model implements OrderContract
     {
         return $this->hasMany(OrderAddressProxy::modelClass());
     }
+
+    // public function product()
+    // {
+    //     return $this->hasMany(ProductProxy::modelClass());
+    // }
+
+    // public function getSeller()
+    // {
+    //     return $this->product()->where('seller_id', auth()->guard('admin')->id());
+    // }
 
     /**
      * Get the payment for the order.
