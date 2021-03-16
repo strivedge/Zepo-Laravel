@@ -71,6 +71,14 @@ class OrderController extends Controller
     {
         $order = $this->orderRepository->findOrFail($id);
 
+        if(auth()->guard('admin')->user()->role->id != 1)
+        {
+            $order = $this->orderRepository->viewOrder($id);
+            return view($this->_config['seller_view'], compact('order'));
+        }
+
+        echo "<pre>"; print_r($order); exit();
+
         return view($this->_config['view'], compact('order'));
     }
 
