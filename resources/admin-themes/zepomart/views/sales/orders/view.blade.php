@@ -297,6 +297,8 @@
 
                                         <tbody>
 
+                                            
+
                                             @foreach ($order->items as $item)
 
                                                 <tr>

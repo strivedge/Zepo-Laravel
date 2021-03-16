@@ -70,14 +70,15 @@ class OrderController extends Controller
     public function view($id)
     {
         $order = $this->orderRepository->findOrFail($id);
+        $seller_id=0;
 
         if(auth()->guard('admin')->user()->role->id != 1)
         {
-            $order = $this->orderRepository->viewOrder($id);
+            $seller_id=auth()->guard('admin')->id();
             return view($this->_config['seller_view'], compact('order'));
         }
-
-        echo "<pre>"; print_r($order); exit();
+         
+        // echo "ss<pre>"; print_r($order->items); exit();
 
         return view($this->_config['view'], compact('order'));
     }

@@ -104,4 +104,6 @@ class ProductFlatRepository extends Repository
             })->update(['product_flat.'.$attribute->code => \DB::raw($listener->attributeTypeFields[$attribute->type] .'_value')]);
     }
 
+    
+
 }
