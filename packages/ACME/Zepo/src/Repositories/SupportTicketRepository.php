@@ -50,4 +50,14 @@ class SupportTicketRepository
         }
         return $supportTicket;
     }
+
+    public function massDataUpdate($ids, $updateOption)
+    {
+        foreach($ids as $id)
+        {
+            $supportTicket = $this->findById($id);
+            $supportTicket->update(['status' => $updateOption]);
+        }
+        return $supportTicket;
+    }
 }

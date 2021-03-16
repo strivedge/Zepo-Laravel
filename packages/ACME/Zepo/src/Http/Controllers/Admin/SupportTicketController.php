@@ -63,7 +63,7 @@ class SupportTicketController extends Controller
         {
             $imageName1 = time().'.'.$imageName->extension();
             $imageName->move(public_path('uploadImages/supportTicket'), $imageName1);
-            $data['attachment'] = $imageName1;
+            $data['attachment'] = 'uploadImages/supportTicket/'.$imageName1;
         }
 
         // for getting all data
@@ -99,9 +99,10 @@ class SupportTicketController extends Controller
      * @param  \App\SupportTicket  $supportTicket
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-        //
+        $supportTicket = $this->supportTicketRepository->findById($id);
+        return view($this->_config['view'], compact('supportTicket'));
     }
 
     /**
@@ -123,6 +124,16 @@ class SupportTicketController extends Controller
      * @param  \App\SupportTicket  $supportTicket
      * @return \Illuminate\Http\Response
      */
+    
+    public function updateStatus(Request $request, $id)
+    {
+        $data = request()->all();
+
+        $this->supportTicketRepository->update($data, $id);
+
+        return redirect()->route($this->_config['redirect']);
+    }
+
     public function update(Request $request, $id)
     {
         $data = request()->all();
@@ -139,7 +150,7 @@ class SupportTicketController extends Controller
         {
             $imageName = $data['attachment'];
             if (isset($old_data['attachment']) && !empty($old_data['attachment'])) {
-                $file_path = public_path('uploadImages/supportTicket').'/'.$old_data['attachment'];
+                $file_path = public_path().'/'.$old_data['attachment'];
                 if(File::exists($file_path)) 
                 {
                     unlink($file_path);
@@ -148,7 +159,7 @@ class SupportTicketController extends Controller
             
             $imageName1 = time().'.'.$imageName->extension();
             $imageName->move(public_path('uploadImages/supportTicket'), $imageName1);
-            $data['attachment'] = $imageName1;
+            $data['attachment'] = 'uploadImages/supportTicket/'.$imageName1;
         }
 
         $this->supportTicketRepository->update($data, $id);
@@ -179,6 +190,19 @@ class SupportTicketController extends Controller
         {
             $this->supportTicketRepository->massDataDelete($ids);
             session()->flash('success', trans('zepo::app.support-ticket.mass-destroy-success'));
+        }
+        return redirect()->back();
+    }
+
+    public function massUpdate()
+    {
+        $ids = explode(',', request()->input('indexes'));
+        $updateOption = request()->input('update-options');
+
+        if ($ids != null && $updateOption != null) 
+        {
+            $this->supportTicketRepository->massDataUpdate($ids, $updateOption);
+            session()->flash('success', trans('zepo::app.support-ticket.mass-update-success'));
         }
         return redirect()->back();
     }

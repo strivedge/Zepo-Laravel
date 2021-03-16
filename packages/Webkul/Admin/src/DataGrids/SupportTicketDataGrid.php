@@ -115,19 +115,25 @@ class SupportTicketDataGrid extends DataGrid
     public function prepareActions()
     {
         $this->addAction([
+            'title'  => trans('admin::app.datagrid.view'),
             'method' => 'GET',
-            'route'  => 'zepo.support-ticket.edit',
-            'icon'   => 'icon pencil-lg-icon',
-            'title'  => trans('zepo::app.support-ticket.edit-help-title'),
+            'route'  => 'zepo.support-ticket.view',
+            'icon'   => 'icon eye-icon',
         ]);
 
+        // $this->addAction([
+        //     'method' => 'GET',
+        //     'route'  => 'zepo.support-ticket.edit',
+        //     'icon'   => 'icon pencil-lg-icon',
+        //     'title'  => trans('zepo::app.support-ticket.edit-help-title'),
+        // ]);
 
-        $this->addAction([
-            'method' => 'POST',
-            'route'  => 'zepo.support-ticket.delete',
-            'icon'   => 'icon trash-icon',
-            'title'  => trans('zepo::app.support-ticket.delete-help-title'),
-        ]);
+        // $this->addAction([
+        //     'method' => 'POST',
+        //     'route'  => 'zepo.support-ticket.delete',
+        //     'icon'   => 'icon trash-icon',
+        //     'title'  => trans('zepo::app.support-ticket.delete-help-title'),
+        // ]);
     }
 
     /**
@@ -140,6 +146,18 @@ class SupportTicketDataGrid extends DataGrid
             'label'  => trans('admin::app.datagrid.delete'),
             'action' => route('zepo.support-ticket.massdelete'),
             'method' => 'PUT',
+        ]);
+
+        $this->addMassAction([
+            'type'    => 'update',
+            'label'   => trans('admin::app.datagrid.update-status'),
+            'action'  => route('zepo.support-ticket.massupdate'),
+            'method'  => 'PUT',
+            'options' => [
+                'Pending'   => 0,
+                'Process' => 1,
+                'Completed' => 2,
+            ],
         ]);
     }
 }
