@@ -23,7 +23,9 @@
                 </div>
 
                 <div class="col-lg-6">
-                    <h2 class="quick-view-name">{{ product.name }}</h2>
+                    <a :href="`${baseUrl}/${product.slug}`" :title="product.name" class="unset">
+                        <h2 class="quick-view-name">{{ product.name }}</h2>
+                    </a>
 
                     <div class="product-price" v-html="product.priceHTML"></div>
 
