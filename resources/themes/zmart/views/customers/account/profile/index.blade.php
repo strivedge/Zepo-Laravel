@@ -14,6 +14,7 @@
 
 
 @section('page-detail-wrapper')
+<div class="account-details">
     <div class="account-head mb-0">
         <span class="back-icon">
             <a href="{{ route('customer.account.index') }}">
@@ -21,12 +22,16 @@
             </a>
         </span>
         <span class="account-heading">
+            <span class="user-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABCklEQVRIS72U4RFBMRCEv1cBHaADJdCBDtCBVlRACTqgBCXQARUwaxKTyctLLpkhf3PZvdvdXMePT/djfHIEC+AATCubuAFb4KJ3OQIVTirBfbnezkoErwHwJ3BydytgNFD3aT43QYpA4JLu6kDnTooUSRPBHthFHR+BdWKK/xN4SbxsKYkewDKS6AyMLRNYCIQjktDkFPjX39BkK4E1uT0PLAQyWaaGKZLpJpNzBHE84ylSca2aQF9fnefOxq0WX1NFYF2KYfKqCKzGhnVFAsVxaM+UCO9+C+diqp0j3Ws3qsDlR29dxykqdWm6z01gAigVhQStmmcTFl62am4mKE3bdG/9QE3gevQGa6U7GUKNWbsAAAAASUVORK5CYII="/></span>
             {{ __('shop::app.customer.account.profile.index.title') }}
         </span>
 
         <span class="account-action">
             <a href="{{ route('customer.profile.edit') }}" class="theme-btn light unset pull-right">
-                {{ __('shop::app.customer.account.profile.index.edit') }}
+             <!-- <span class="material-icons">
+                edit
+             </span>  --> 
+             <span class="edit-action">{{ __('shop::app.customer.account.profile.index.edit') }}</span>
             </a>
         </span>
     </div>
@@ -34,65 +39,62 @@
     {!! view_render_event('bagisto.shop.customers.account.profile.view.before', ['customer' => $customer]) !!}
 
     <div class="account-table-content profile-page-content">
-        <div class="table">
-            <table>
-                <tbody>
+        
+           
                     {!! view_render_event(
                     'bagisto.shop.customers.account.profile.view.table.before', ['customer' => $customer])
                     !!}
 
-                    <tr>
-                        <td>{{ __('shop::app.customer.account.profile.fname') }}</td>
-                        <td><b>:</b>&nbsp; {{ $customer->first_name }}</td>
-                    </tr>
+                    <div class="form-group">
+                   <label>{{ __('shop::app.customer.account.profile.fname') }}  <b>:</b></label>
+                    <span>{{ $customer->first_name }}</span></div>
+                    
 
                     {!! view_render_event('bagisto.shop.customers.account.profile.view.table.first_name.after', ['customer' => $customer]) !!}
 
-                    <tr>
-                        <td>{{ __('shop::app.customer.account.profile.lname') }}</td>
-                        <td><b>:</b>&nbsp; {{ $customer->last_name }}</td>
-                    </tr>
+                    <div class="form-group">
+                    <label>{{ __('shop::app.customer.account.profile.lname') }}  <b>:</b></label>
+                      <span>{{ $customer->last_name }}</span></div>
+                    
 
                     {!! view_render_event('bagisto.shop.customers.account.profile.view.table.last_name.after', ['customer' => $customer]) !!}
 
-                    <tr>
-                        <td>{{ __('shop::app.customer.account.profile.gender') }}</td>
-                        <td><b>:</b>&nbsp; {{ $customer->gender ?? '-' }}</td>
-                    </tr>
+                     <div class="form-group">
+                    <label>{{ __('shop::app.customer.account.profile.gender') }}  <b>:</b></label>
+                      <span>{{ $customer->gender ?? '-' }}</span></div>
 
                     {!! view_render_event('bagisto.shop.customers.account.profile.view.table.gender.after', ['customer' => $customer]) !!}
 
-                    <tr>
-                        <td>{{ __('shop::app.customer.account.profile.dob') }}</td>
-                        <td><b>:</b>&nbsp; {{ $customer->date_of_birth ?? '-' }}</td>
-                    </tr>
+                     <div class="form-group">
+                    <label>{{ __('shop::app.customer.account.profile.dob') }}  <b>:</b></label>
+                      <span>{{ $customer->date_of_birth ?? '-' }}</span></div>
+                    
 
                     {!! view_render_event('bagisto.shop.customers.account.profile.view.table.date_of_birth.after', ['customer' => $customer]) !!}
 
-                    <tr>
-                        <td>{{ __('shop::app.customer.account.profile.email') }}</td>
-                        <td><b>:</b>&nbsp; {{ $customer->email }}</td>
-                    </tr>
+                     <div class="form-group">
+                    <label>{{ __('shop::app.customer.account.profile.email') }}  <b>:</b></label>
+                      <span>{{ $customer->email }}</span></div>
+                    
 
                     {!! view_render_event('bagisto.shop.customers.account.profile.view.table.email.after', ['customer' => $customer]) !!}
 
-                    <tr>
-                        <td>{{ __('shop::app.customer.account.profile.phone') }}</td>
-                        <td><b>:</b>&nbsp; {{ $customer->phone }}</td>
-                    </tr>
+                     <div class="form-group">
+                    <label>{{ __('shop::app.customer.account.profile.phone') }} <b>:</b></label>
+                       <span>{{ $customer->phone }}</span></div>
 
                     {!! view_render_event(
                     'bagisto.shop.customers.account.profile.view.table.after', ['customer' => $customer])
                     !!}
-                </tbody>
-            </table>
+                
+        
+        <div class="buttons">
+            <button
+                type="submit"
+                class="theme-btn" @click="showModal('deleteProfile')" >
+                {{ __('shop::app.customer.account.address.index.delete') }}
+            </button>
         </div>
-
-        <button
-            type="submit"
-            class="theme-btn mb20" @click="showModal('deleteProfile')" >
-            {{ __('shop::app.customer.account.address.index.delete') }}
-        </button>
 
         <form method="POST" action="{{ route('customer.profile.destroy') }}" @submit.prevent="onSubmit">
             @csrf
@@ -118,6 +120,6 @@
             </modal>
         </form>
     </div>
-
+</div>
     {!! view_render_event('bagisto.shop.customers.account.profile.view.after', ['customer' => $customer]) !!}
 @endsection
