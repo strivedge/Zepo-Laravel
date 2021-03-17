@@ -44,7 +44,7 @@
             </div>
 
             <!--Footer-->
-            <div class="modal-footer">
+            <div class="modal-footer mini-cart-total">
                 <h2 class="col-6 text-left no-padding">
                     {{ subtotalText }}
                 </h2>
@@ -52,7 +52,7 @@
                 <h2 class="col-6 text-right no-padding total-price">{{ cartInformation.base_sub_total }}</h2>
             </div>
 
-            <div class="modal-footer">
+            <div class="modal-footer mini-buttons">
                 <a class="col text-left fs16 link-color remove-decoration" :href="viewCart">{{ cartText }}</a>
 
                 <div class="col text-right no-padding">
