@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="col-lg-6">
-                    <a :href="`${baseUrl}/${product.slug}`" :title="product.name" class="unset">
+                    <a :href="`${baseUrl}/${product.url_key}`" :title="product.name" class="unset">
                         <h2 class="quick-view-name">{{ product.name }}</h2>
                     </a>
 
@@ -34,7 +34,7 @@
                         v-if="product.totalReviews && product.totalReviews > 0">
 
                         <star-ratings :ratings="product.avgRating"></star-ratings>
-                        <a class="pl10 unset active-hover product-review-link" :href="`${$root.baseUrl}/reviews/${product.slug}`">
+                        <a class="pl10 unset active-hover product-review-link" :href="`${$root.baseUrl}/reviews/${product.url_key}`">
                             {{ __('products.reviews-count', {'totalReviews': product.totalReviews}) }}
                         </a>
                     </div>
