@@ -142,12 +142,16 @@
                             </div>
 
                             <div class="text">
-                                <h4 class="fw6 fs18">
+                                <!-- <h4 class="fw6 fs18">
                                     {{ core()->currency($cart->selected_shipping_rate->base_price) }}
                                 </h4>
 
                                 <div class="info">
                                     {{ $cart->selected_shipping_rate->method_title }}
+                                </div> -->
+
+                                <div>
+                                    <b>{{ $cart->selected_shipping_rate->method_title }} :</b> {{ core()->currency($cart->selected_shipping_rate->base_price) }}
                                 </div>
                             </div>
                         </div>
@@ -159,12 +163,17 @@
                         </div>
 
                         <div class="text">
-                            <h4 class="fw6 fs18">
+                            <!-- <h4 class="fw6 fs18">
                                 {{ core()->getConfigData('sales.paymentmethods.' . $cart->payment->method . '.title') }}
                             </h4>
 
-                            <span>{{ __('shop::app.customer.account.order.view.payment-method') }}</span>
+                            <span>{{ __('shop::app.customer.account.order.view.payment-method') }}</span> -->
+
+                            <div>
+                                <b>{{ __('shop::app.customer.account.order.view.payment-method') }} :</b> {{ core()->getConfigData('sales.paymentmethods.' . $cart->payment->method . '.title') }}
+                            </div>
                         </div>
+
                     </div>
 
                     <slot name="place-order-btn"></slot>
