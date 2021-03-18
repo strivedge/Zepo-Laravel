@@ -645,7 +645,8 @@ return [
             'flat-desc' => 'This is a flat rate',
             'password' => 'Password',
             'login-exist-message' => 'You already have an account with us, Sign in or continue as guest.',
-            'enter-coupon-code' => 'Enter Coupon Code'
+            'enter-coupon-code' => 'Enter Coupon Code',
+            'gift-card' => 'Gift Card',
         ],
 
         'total' => [
