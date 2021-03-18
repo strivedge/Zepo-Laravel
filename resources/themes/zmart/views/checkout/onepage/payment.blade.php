@@ -37,7 +37,7 @@
 
                         <div class="pl40">
                             <div class="row">
-                                <span class="payment-method method-label">
+                                <span class="payment-method method-label fs16">
                                     <b>{{ $payment['method_title'] }}</b>
                                 </span>
                             </div>

@@ -1,26 +1,35 @@
 @if ($cart)
     <script type="text/x-template" id="coupon-component-template">
         <div class="coupon-container">
-            <div class="discount-control">
-                <form class="custom-form" method="post" @submit.prevent="applyCoupon">
-                    <div class="row">
-                        <div class="control-group" :class="[error_message ? 'has-error' : '']">
-                            <input
-                                type="text"
-                                name="code"
-                                class="control"
-                                v-model="coupon_code"
-                                placeholder="{{ __('shop::app.checkout.onepage.enter-coupon-code') }}" />
+            <accordian title="'{{  __('shop::app.checkout.onepage.enter-coupon-code }}'" active="true">
+                <div class="form-header mb-30" slot="header">
+                    <h4 class="fw6 display-inbl">
+                        <i class="material-icons-outlined text-down-3">shopping_cart</i>
+                       
+                    </h4>
+                    <i class="rango-arrow"></i>
+                </div>
+                <div class="discount-control" slot="body">
+                    <form class="custom-form" method="post" @submit.prevent="applyCoupon">
+                        <div class="row">
+                            <div class="control-group" :class="[error_message ? 'has-error' : '']">
+                                <input
+                                    type="text"
+                                    name="code"
+                                    class="control"
+                                    v-model="coupon_code"
+                                    placeholder="{{ __('shop::app.checkout.onepage.enter-coupon-code') }}" />
 
+                                
+                            </div>
+
+                            <button class="theme-btn light" :disabled="disable_button">{{ __('shop::app.checkout.onepage.apply-coupon') }}</button>
                             
                         </div>
-
-                        <button class="theme-btn light" :disabled="disable_button">{{ __('shop::app.checkout.onepage.apply-coupon') }}</button>
-                        
-                    </div>
-                    <div class="control-error">@{{ error_message }}</div>
-                </form>
-            </div>
+                        <div class="control-error">@{{ error_message }}</div>
+                    </form>
+                </div>
+            </accordian>
 
             <div class="applied-coupon-details" v-if="applied_coupon">
                 <label>{{ __('shop::app.checkout.total.coupon-applied') }}</label>
