@@ -21,7 +21,7 @@
 @endpush
 
 @push('scripts')
-    @include('shop::checkout.cart.coupon')
+    @include('shop::checkout.cart.cart-coupon')
 
     <script type="text/x-template" id="cart-template">
         
@@ -234,7 +234,7 @@
                                 </div>
                                 <div class="col-md-12 coupon-buttons">
                                     <div class="col-lg-7 col-xl-8 coupon-section">
-                                        <coupon-component></coupon-component>
+                                        <cart-coupon-component></cart-coupon-component>
                                     </div>
                                     <div class="col-lg-5 col-xl-4 continue-update-buttons">
                                         {!! view_render_event('bagisto.shop.checkout.cart.controls.after', ['cart' => $cart]) !!}
