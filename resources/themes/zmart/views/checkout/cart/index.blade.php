@@ -263,7 +263,7 @@
                 {!! view_render_event('bagisto.shop.checkout.cart.summary.after', ['cart' => $cart]) !!}
 
                     @if ($cart)
-                        <div class="col-lg-4 col-md-12 order-summary-container pull-right">
+                        <div class="col-lg-5 col-md-12 order-summary-container pull-right">
                             @include('shop::checkout.total.summary', ['cart' => $cart])
 
                             
