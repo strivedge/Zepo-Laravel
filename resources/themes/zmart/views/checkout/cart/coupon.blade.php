@@ -1,6 +1,59 @@
+
 @if ($cart)
     <script type="text/x-template" id="coupon-component-template">
-        <div class="coupon-container">
+        <div data-vv-scope="payment-form" class="payment-form">
+    <div class="form-container">
+        <accordian :title="'{{ __('shop::app.checkout.gift-card') }}'" :active="true">
+            <div class="form-header mb-30" slot="header">
+                
+                <h4 class="fw6 display-inbl">
+                    <span class="material-icons">
+                        payment
+                    </span>
+                   {{ __('shop::app.checkout.onepage.gift-card') }}
+                </h4>
+
+                <i class="rango-arrow"></i>
+            </div>
+
+            <div class="payment-methods" slot="body">
+                    <div class="coupon-container">
+                        <div class="discount-control">
+                            <form class="custom-form" method="post" @submit.prevent="applyCoupon">
+                                <div class="row">
+                                    <div class="control-group" :class="[error_message ? 'has-error' : '']">
+                                        <input
+                                            type="text"
+                                            name="code"
+                                            class="control"
+                                            v-model="coupon_code"
+                                            placeholder="{{ __('shop::app.checkout.onepage.enter-coupon-code') }}" />
+
+                                        
+                                    </div>
+
+                                    <button class="theme-btn light" :disabled="disable_button">{{ __('shop::app.checkout.onepage.apply-coupon') }}</button>
+                                    
+                                </div>
+                                <div class="control-error">@{{ error_message }}</div>
+                            </form>
+                        </div>
+
+                        <div class="applied-coupon-details" v-if="applied_coupon">
+                            <label>{{ __('shop::app.checkout.total.coupon-applied') }}</label>
+
+                            <label class="right" style="display: inline-flex; align-items: center;">
+                                <b>@{{ applied_coupon }}</b>
+
+                                <i class="rango-close fs18" title="{{ __('shop::app.checkout.total.remove-coupon') }}" v-on:click="removeCoupon"></i>
+                            </label>
+                        </div>
+                    </div>
+            </div>
+        </accordian>
+    </div>
+</div>
+        <!-- <div class="coupon-container">
             <div class="discount-control">
                 <form class="custom-form" method="post" @submit.prevent="applyCoupon">
                     <div class="row">
@@ -31,7 +84,7 @@
                     <i class="rango-close fs18" title="{{ __('shop::app.checkout.total.remove-coupon') }}" v-on:click="removeCoupon"></i>
                 </label>
             </div>
-        </div>
+        </div> -->
     </script>
 
     <script>
