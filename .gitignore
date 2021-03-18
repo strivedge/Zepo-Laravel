@@ -3,6 +3,8 @@
 node_modules
 /public/storage
 public/storage
+/public/invoice
+public/invoice
 /public/uploadImages
 public/uploadImages
 /storage

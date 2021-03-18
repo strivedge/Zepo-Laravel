@@ -61,42 +61,6 @@ class OrderRepository extends Repository
      * @param  array  $data
      * @return \Webkul\Sales\Contracts\Order
      */
-    
-    public function viewOrder($id)
-    {
-        if(auth()->guard('admin')->user()->role->id != 1)
-        {
-            $user_id = auth()->guard('admin')->id();
-        }
-
-        $query = DB::table('orders')
-            ->leftJoin('addresses as order_address_shipping', function($leftJoin) {
-                $leftJoin->on('order_address_shipping.order_id', '=', 'orders.id')
-                    ->where('order_address_shipping.address_type', OrderAddress::ADDRESS_TYPE_SHIPPING);
-            })
-            ->leftJoin('addresses as order_address_billing', function($leftJoin) {
-                $leftJoin->on('order_address_billing.order_id', '=', 'orders.id')
-                    ->where('order_address_billing.address_type', OrderAddress::ADDRESS_TYPE_BILLING);
-            })
-            ->leftJoin('order_items as order_items', function($leftJoin) {
-                $leftJoin->on('order_items.order_id', '=', 'orders.id');
-            })
-            ->leftJoin('products', 'products.id', '=', 'order_items.product_id')
-            // ->addSelect('orders.*', 'order_items.*', 'order_address_billing.*', 'order_address_shipping.*', 'products.seller_id')
-            ->where('orders.id', $id);
-            if (isset($user_id) && !empty($user_id)) {
-                $query->where('products.seller_id', $user_id);
-            }
-            
-        $orders = $query->get();
-
-
-        //$orders = \Webkul\Sales\Models\Order::with(['products'])->get();
-
-        // $orders = OrderModel::with(['getSeller'])->get();
-        //echo "<pre>"; print_r($orders); exit();
-         return $orders;
-    }
 
     public function create(array $data)
     {
