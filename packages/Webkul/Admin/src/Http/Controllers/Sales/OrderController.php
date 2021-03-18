@@ -77,8 +77,6 @@ class OrderController extends Controller
             $seller_id=auth()->guard('admin')->id();
             return view($this->_config['seller_view'], compact('order'));
         }
-         
-        // echo "ss<pre>"; print_r($order->items); exit();
 
         return view($this->_config['view'], compact('order'));
     }

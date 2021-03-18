@@ -296,7 +296,12 @@
                                         </thead>
 
                                         <tbody>
-
+@php 
+    $subtotal = 0;
+    $discount = 0;
+    $tax = 0;
+    $grandTotal = 0;
+@endphp
                                             @foreach ($order->items as $item)
 
                                                 <tr>
@@ -351,12 +356,25 @@
                                                     @if ($order->base_discount_amount > 0)
                                                         <td>{{ core()->formatBasePrice($item->base_discount_amount) }}</td>
                                                     @endif
+@php
+    $getSubtotal = $item->base_total;
+    $getDiscount = $item->base_discount_amount;
+    $getTax = $item->base_tax_amount;
 
+    $subtotal+=$getSubtotal;
+    $discount+=$getDiscount;
+    $tax+=$getTax;
+
+    $grandTotal = $subtotal+$order->base_shipping_amount+$discount+$tax;
+@endphp
                                                     <td>{{ core()->formatBasePrice($item->base_total + $item->base_tax_amount - $item->base_discount_amount) }}</td>
                                                 </tr>
                                             @endforeach
                                     </table>
                                 </div>
+
+                                @php
+                                @endphp
 
                                 <div class="summary-comment-container">
                                     <div class="comment-container">
@@ -403,7 +421,7 @@
                                         <tr>
                                             <td>{{ __('admin::app.sales.orders.subtotal') }}</td>
                                             <td>-</td>
-                                            <td>{{ core()->formatBasePrice($order->base_sub_total) }}</td>
+                                            <td>{{ core()->formatBasePrice($subtotal) }}</td>
                                         </tr>
 
                                         @if ($order->haveStockableItems())
@@ -424,20 +442,20 @@
                                                     @endif
                                                 </td>
                                                 <td>-</td>
-                                                <td>{{ core()->formatBasePrice($order->base_discount_amount) }}</td>
+                                                <td>{{ core()->formatBasePrice($discount) }}</td>
                                             </tr>
                                         @endif
 
                                         <tr class="border">
                                             <td>{{ __('admin::app.sales.orders.tax') }}</td>
                                             <td>-</td>
-                                            <td>{{ core()->formatBasePrice($order->base_tax_amount) }}</td>
+                                            <td>{{ core()->formatBasePrice($tax) }}</td>
                                         </tr>
 
                                         <tr class="bold">
                                             <td>{{ __('admin::app.sales.orders.grand-total') }}</td>
                                             <td>-</td>
-                                            <td>{{ core()->formatBasePrice($order->base_grand_total) }}</td>
+                                            <td>{{ core()->formatBasePrice($grandTotal) }}</td>
                                         </tr>
 
                                         <tr class="bold">

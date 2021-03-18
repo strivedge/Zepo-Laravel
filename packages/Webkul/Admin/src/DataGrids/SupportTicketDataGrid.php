@@ -141,12 +141,12 @@ class SupportTicketDataGrid extends DataGrid
      */
     public function prepareMassActions()
     {
-        $this->addMassAction([
-            'type'   => 'delete',
-            'label'  => trans('admin::app.datagrid.delete'),
-            'action' => route('zepo.support-ticket.massdelete'),
-            'method' => 'PUT',
-        ]);
+        // $this->addMassAction([
+        //     'type'   => 'delete',
+        //     'label'  => trans('admin::app.datagrid.delete'),
+        //     'action' => route('zepo.support-ticket.massdelete'),
+        //     'method' => 'PUT',
+        // ]);
 
         $this->addMassAction([
             'type'    => 'update',
