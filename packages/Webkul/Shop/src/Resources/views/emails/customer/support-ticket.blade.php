@@ -24,7 +24,7 @@
         </div>
 
         <div>
-            <a href="{{ route('zepo.support-ticket.edit', [$data['id']]) }}">
+            <a href="{{ route('zepo.support-ticket.view', [$data['id']]) }}">
                 {{__('zepo::app.support-ticket.go-action') }}
             </a>
         </div>
