@@ -3,9 +3,7 @@
         <div class="content-wrap">    
 
             <div class="product-image">
-                
-                
-                    <div class="product-code">{{ product.sku}}</div>
+                <div class="product-code">{{ product.sku}}</div>
                     <div class="sticker new"  v-if="product.special_price">
                         <span class="save">SAVE</span>
                         <span class="percentage">{{ product.percentage }}%</span>
@@ -18,7 +16,7 @@
                                 <img
                                     loading="lazy"
                                     :alt="product.name"
-                                    :src="img.medium_image_url || product.product_image"
+                                    :src="product.image || product.product_image"
                                     :data-src="product.image || product.product_image"
                                     class="card-img-top lzy_img"
                                     :onerror="`this.src='${baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`"  />

@@ -54,11 +54,12 @@
                         <div class="control-group" :class="[errors.has('type') ? 'has-error' : '']">
                             <label for="type" class="required">{{ __('admin::app.catalog.products.product-type') }}</label>
                             <select class="control" v-validate="'required'" id="type" name="type" {{ $familyId ? 'disabled' : '' }} data-vv-as="&quot;{{ __('admin::app.catalog.products.product-type') }}&quot;">
-
                                 @foreach($productTypes as $key => $productType)
-                                    <option value="{{ $key }}" {{ request()->input('type') == $productType['key'] ? 'selected' : '' }}>
-                                        {{ $productType['name'] }}
-                                    </option>
+                                    @if($productType['name'] == "Simple")
+                                        <option value="{{ $key }}" {{ request()->input('type') == $productType['key'] ? 'selected' : '' }}>
+                                            {{ $productType['name'] }}
+                                        </option>
+                                    @endif
                                 @endforeach
 
                             </select>

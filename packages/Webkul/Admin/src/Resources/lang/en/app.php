@@ -523,7 +523,7 @@ return [
             'configurable-error' => 'Please select atleast one configurable attribute.',
             'categories' => 'Categories',
             'images' => 'Images',
-            'inventories' => 'Inventories',
+            'inventories' => 'Stocks',
             'variations' => 'Variations',
             'downloadable' => 'Downloadable Information',
             'links' => 'Links',
