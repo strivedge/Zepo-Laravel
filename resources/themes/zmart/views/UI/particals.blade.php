@@ -207,15 +207,14 @@
                     <ul id="prod-suggestion">
                         <li class='pli' v-for='(product, index) in products[key]' v-if='products[key].length' @click="addProduct(product, key)">
                             <div class="col-md-2 product-img">
-                                <img src="/vendor/webkul/ui/assets/images/product/large-product-placeholder.png">
+                                <img :alt="product.name" :src="product.image" :onerror="`this.src='${baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`">
                             </div>
                             <div class="col-md-8 product-name">
-                                <a href="#">
+                                <a :href="`${$root.baseUrl}/${product.url_key}`">
                                     @{{ product.name }}
                                 </a>
                             </div>
-                            <div class="col-md-2 prices">
-                                ₹200.00
+                            <div class="col-md-2 prices" v-html="product.priceHTML">
                             </div>
                         </li>
 

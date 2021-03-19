@@ -22,6 +22,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Webkul\Product\Mail\AdminProductEmail;
 use File;
+use Webkul\Product\Helpers\ProductImage;
 
 class ProductController extends Controller
 {
@@ -112,7 +113,7 @@ class ProductController extends Controller
 
         $this->categoryRepository = $categoryRepository;
 
-        $this->productRepository = $productRepository;
+         $this->productRepository = $productRepository;
 
         $this->adminRepository = $adminRepository;
 
@@ -494,11 +495,22 @@ class ProductController extends Controller
         //if (request()->ajax()) {
             $results = [];
 
+            $productImageHelper = app('Webkul\Product\Helpers\ProductImage');
+            
             foreach ($this->productRepository->searchProductByAttribute(request()->input('query')) as $row) {
+
+                $image = $productImageHelper->getProductBaseImage($row);
+
+                
                 $results[] = [
                     'id'   => $row->product_id,
                     'sku'  => $row->sku,
                     'name' => $row->name,
+                    //'row' => $row,
+                    'image' => $image['small_image_url'],
+                    'baseUrl'      => url('/'),
+                    'url_key'      => $row->url_key,
+                    'priceHTML' => $row->getTypeInstance()->getOfferPriceHtml(),
                 ];
             }
 
