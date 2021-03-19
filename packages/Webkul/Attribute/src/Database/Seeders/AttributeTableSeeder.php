@@ -97,7 +97,7 @@ class AttributeTableSeeder extends Seeder
             ], [
                 'id'                  => '5',
                 'code'                => 'new',
-                'admin_name'          => 'New',
+                'admin_name'          => 'New Release',
                 'type'                => 'boolean',
                 'validation'          => NULL,
                 'position'            => '5',
@@ -116,7 +116,7 @@ class AttributeTableSeeder extends Seeder
             ], [
                 'id'                  => '6',
                 'code'                => 'featured',
-                'admin_name'          => 'Featured',
+                'admin_name'          => 'Most Popular',
                 'type'                => 'boolean',
                 'validation'          => NULL,
                 'position'            => '6',
