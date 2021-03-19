@@ -1,5 +1,9 @@
 <?php
 
+//product search for products
+Route::get('products/search', 'Webkul\Product\Http\Controllers\ProductController@productSearchBox')->defaults('_config', [
+])->name('products.productlinksearch');
+
 Route::group(['middleware' => ['web']], function () {
     Route::prefix(config('app.admin_url'))->group(function () {
 
