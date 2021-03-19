@@ -489,6 +489,23 @@ class ProductController extends Controller
         }
     }
 
+     public function productSearchBox()
+    {
+        //if (request()->ajax()) {
+            $results = [];
+
+            foreach ($this->productRepository->searchProductByAttribute(request()->input('query')) as $row) {
+                $results[] = [
+                    'id'   => $row->product_id,
+                    'sku'  => $row->sku,
+                    'name' => $row->name,
+                ];
+            }
+
+            return response()->json($results);
+        //} 
+    }
+
     /**
      * Download image or file
      *

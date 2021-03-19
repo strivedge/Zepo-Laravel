@@ -62,5 +62,7 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
 
         Route::get('/category-products/{categoryId}', 'ShopController@getCategoryProducts')
             ->name('velocity.category.products');
+
+        
     });
 });

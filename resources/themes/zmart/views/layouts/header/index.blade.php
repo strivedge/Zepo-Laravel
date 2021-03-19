@@ -3,9 +3,13 @@
         <div class="navbar-middle-wrapper remove-padding-margin velocity-divide-page">
             <logo-component></logo-component>
             <searchbar-component></searchbar-component>
+            <!-- <div slot="body">
+                    <linked-products></linked-products>
+            </div> -->
         </div>
     </div>
 </header>
+<?php $product = [] ?>
 
 @push('scripts')
     <script type="text/javascript">
@@ -21,4 +25,5 @@
             });
         })()
     </script>
+ 
 @endpush

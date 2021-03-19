@@ -76,7 +76,7 @@
                     role="toolbar">
 
                     <div class="btn-group full-width">
-                        <div class="selectdiv">
+                        <!-- <div class="selectdiv">
                            <select class="form-control fs13 styled-select" name="category" @change="focusInput($event)">
                                 <option value="">
                                     {{ __('velocity::app.header.all-categories') }}
@@ -100,17 +100,20 @@
                             <div class="select-icon-container">
                                 <span class="select-icon rango-arrow-down"></span>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="full-width">
 
-                            <input
+                           <search-products></search-products>
+
+
+                             <!-- <input
                                 required
                                 name="term"
                                 type="search"
                                 class="form-control"
                                 placeholder="{{ __('velocity::app.header.search-text') }}"
-                                :value="searchedQuery.term ? searchedQuery.term.split('+').join(' ') : ''" />
+                                :value="searchedQuery.term ? searchedQuery.term.split('+').join(' ') : ''" /> -->
 
                             <image-search-component></image-search-component>
 
@@ -191,6 +194,169 @@
                 :src="uploadedImageUrl" />
         </label>
     </div>
+</script>
+
+   <script type="text/x-template" id="search-products-template">
+        <div>
+
+            <div class="control-group" v-for='(key) in linkedProducts'>
+
+                <input type="text" id="prod-search-box" required name="term" class="control"  placeholder="{{ __('admin::app.catalog.products.product-search-hint') }}" v-on:keyup="search(key)" value="">
+
+                <div class="linked-product-search-result">
+                    <ul id="prod-suggestion">
+                        <li class='pli' v-for='(product, index) in products[key]' v-if='products[key].length' @click="addProduct(product, key)">
+                            @{{ product.name }}
+                        </li>
+
+                        <li class='pli1' v-if='! products[key].length && search_term[key].length && ! is_searching[key]'>
+                            {{ __('admin::app.catalog.products.no-result-found') }}
+                            }
+                        </li>
+
+                        <li class='pli2' v-if="is_searching[key] && search_term[key].length">
+                            {{ __('admin::app.catalog.products.searching') }}
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- <input type="hidden" name="up_sell[]" v-for='(product, index) in addedProducts.up_sells' v-if="(key == 'up_sells') && addedProducts.up_sells.length" :value="product.id"/>
+
+                
+                <span class="filter-tag linked-product-filter-tag" v-if="addedProducts[key].length">
+                    <span class="wrapper linked-product-wrapper " v-for='(product, index) in addedProducts[key]'>
+                        <span class="do-not-cross-linked-product-arrow">
+                            @{{ product.name }}
+                        </span>
+                        <span class="icon cross-icon" @click="removeProduct(product, key)"></span>
+                    </span>
+                </span> -->
+            </div>
+
+        </div>
+    </script>
+
+
+<script>
+     
+    Vue.component('search-products', {
+
+        template: '#search-products-template',
+
+        data: function() {
+            return {
+                products: {
+                    'up_sells': []
+                },
+
+                search_term: {
+                    'up_sells': ''
+                },
+
+                addedProducts: {
+                    'up_sells': []
+                },
+
+                is_searching: {
+                    'up_sells': false
+                },
+
+                //productId: '',
+
+                linkedProducts: ['up_sells'],
+
+                upSellingProducts: {},
+            }
+        },
+
+        created: function () {
+            if (this.upSellingProducts.length >= 1) {
+                console.log("upSellingProducts length")
+                for (var index in this.upSellingProducts) {
+                    this.addedProducts.up_sells.push(this.upSellingProducts[index]);
+                }
+            }
+        },
+
+        methods: {
+            addProduct: function (product, key) {
+                console.log("upSellingProducts addProduct method")
+                //console.log(product)
+                //console.log("product:",product.name)
+                 //$('#prod-search-box').css('overflow-x', 'scroll');
+                 $('#prod-search-box').val(product.name);
+                // console.log("val:",$('#prod-search-box').val())
+                //console.log('test')
+                //$('#prod-suggestion').empty();
+                //this.addedProducts[key].push(product);
+                //console.log("this.products",this.products)
+                //console.log("this.products key",this.products[key])
+                this.search_term[key] = '';
+                this.products[key] = [];
+
+                 console.log("After this.products",this.products[key])
+               
+            },
+
+            removeProduct: function (product, key) {
+                console.log("upSellingProducts removeProduct method")
+                for (var index in this.addedProducts[key]) {
+                    if (this.addedProducts[key][index].id == product.id ) {
+                        this.addedProducts[key].splice(index, 1);
+                    }
+                }
+            },
+
+            search: function (key) {
+                //console.log("upSellingProducts search method")
+                this_this = this;
+
+                this.search_term[key] = $('#prod-search-box').val();
+
+                //console.log('this search_term key ',this.search_term[key])
+
+
+                this.is_searching[key] = true;
+
+                if (this.search_term[key].length >= 1) {
+                    this.$http.get ("{{ route('products.productlinksearch') }}", {params: {query: this.search_term[key]}})
+                        .then (function(response) {
+
+                           // console.log("upSellingProducts response")
+                            //console.log(response)
+
+                            for (var index in response.data) {
+                                if (response.data[index].id == this_this.productId) {
+                                    response.data.splice(index, 1);
+                                }
+                            }
+
+                            if (this_this.addedProducts[key].length) {
+                                for (var product in this_this.addedProducts[key]) {
+                                    for (var productId in response.data) {
+                                        if (response.data[productId].id == this_this.addedProducts[key][product].id) {
+                                            response.data.splice(productId, 1);
+                                        }
+                                    }
+                                }
+                            }
+
+                            this_this.products[key] = response.data;
+
+                            this_this.is_searching[key] = false;
+                        })
+
+                        .catch (function (error) {
+                            this_this.is_searching[key] = false;
+                        })
+                } else {
+                    this_this.products[key] = [];
+                    this_this.is_searching[key] = false;
+                }
+            }
+        }
+    });
+
 </script>
 
 <script type="text/javascript">
