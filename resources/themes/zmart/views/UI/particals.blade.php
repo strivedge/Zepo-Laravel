@@ -245,6 +245,14 @@
         </div>
     </script>
 
+    <script type="text/javascript">
+        $(document).ready(function () {
+            console.log('sss ')
+               $('#prod-suggestion').hide();
+        });
+        
+    </script>
+
 
 
 <script>
