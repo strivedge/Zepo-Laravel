@@ -19,7 +19,9 @@
 @endsection
 
 @section('content-wrapper')
-    <div class="cms-page-container cart-details row offset-1">
-        {!! DbView::make($page)->field('html_content')->render() !!}
+    <div class="account-content velocity-divide-page about-us-content">
+        <div class="cms-page-container common-page">
+            {!! DbView::make($page)->field('html_content')->render() !!}
+        </div>
     </div>
 @endsection

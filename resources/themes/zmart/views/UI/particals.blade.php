@@ -201,12 +201,22 @@
 
             <div class="control-group" v-for='(key) in linkedProducts'>
 
-                <input type="text" id="prod-search-box" required name="term" class="control"  placeholder="{{ __('admin::app.catalog.products.product-search-hint') }}" v-on:keyup="search(key)" value="">
+                <input type="text" id="prod-search-box" required name="term" class="control"  placeholder="{{ __('admin::app.catalog.products.product-search-hint') }}" v-on:keyup="search(key)" value="" autocomplete="off">
 
                 <div class="linked-product-search-result">
                     <ul id="prod-suggestion">
                         <li class='pli' v-for='(product, index) in products[key]' v-if='products[key].length' @click="addProduct(product, key)">
-                            @{{ product.name }}
+                            <div class="col-md-2 product-img">
+                                <img src="/vendor/webkul/ui/assets/images/product/large-product-placeholder.png">
+                            </div>
+                            <div class="col-md-8 product-name">
+                                <a href="#">
+                                    @{{ product.name }}
+                                </a>
+                            </div>
+                            <div class="col-md-2 prices">
+                                ₹200.00
+                            </div>
                         </li>
 
                         <li class='pli1' v-if='! products[key].length && search_term[key].length && ! is_searching[key]'>
@@ -214,7 +224,7 @@
                             }
                         </li>
 
-                        <li class='pli2' v-if="is_searching[key] && search_term[key].length">
+                        <li class='searching' v-if="is_searching[key] && search_term[key].length">
                             {{ __('admin::app.catalog.products.searching') }}
                         </li>
                     </ul>
