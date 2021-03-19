@@ -8,7 +8,7 @@
                         
                         <h4 class="fw6 display-inbl">
                             <span class="material-icons">
-                                payment
+                                code
                             </span>
                            {{ __('shop::app.checkout.onepage.gift-card') }}
                         </h4>
