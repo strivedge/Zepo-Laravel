@@ -94,14 +94,11 @@
                     <input type="hidden" name="seller_id" value="{{ auth()->guard('admin')->id() }}">
                 @endif
             @endif
-
-
-
                                 @foreach ($customAttributes as $attribute)
 
                                     @php
                                         if ($attribute->code == 'guest_checkout' && ! core()->getConfigData('catalog.products.guest-checkout.allow-guest-checkout')) {
-                                            continue;
+                                            
                                         }
 
                                         $validations = [];
@@ -136,9 +133,12 @@
                                              @if ($attribute->type == 'multiselect') :class="[errors.has('{{ $attribute->code }}[]') ? 'has-error' : '']"
                                              @else :class="[errors.has('{{ $attribute->code }}') ? 'has-error' : '']" @endif>
 
+                                        @if($attribute->code == "guest_checkout")
+                                        @else
                                             <label
                                                 for="{{ $attribute->code }}" {{ $attribute->is_required ? 'class=required' : '' }}>
                                                 {{ $attribute->admin_name }}
+                                        @endif
 
                                                 @if ($attribute->type == 'price')
                                                     <span class="currency-code">({{ core()->currencySymbol(core()->getBaseCurrencyCode()) }})</span>
@@ -177,6 +177,46 @@
 
                                     @if(auth()->guard('admin')->user()->role->id != 1)
                                         @if($attribute->code == "status")
+                                        <div class="control-group {{ $attribute->type }}"
+                                             @if ($attribute->type == 'multiselect') :class="[errors.has('{{ $attribute->code }}[]') ? 'has-error' : '']"
+                                             @else :class="[errors.has('{{ $attribute->code }}') ? 'has-error' : '']" @endif>
+
+                                            <label for="{{ $attribute->code }}">
+
+                                                @if ($attribute->type == 'price')
+                                                    <span class="currency-code">({{ core()->currencySymbol(core()->getBaseCurrencyCode()) }})</span>
+                                                @endif
+
+                                                <?php
+                                                $channel_locale = [];
+
+                                                if ($attribute->value_per_channel) {
+                                                    array_push($channel_locale, $channel);
+                                                }
+
+                                                if ($attribute->value_per_locale) {
+                                                    array_push($channel_locale, $locale);
+                                                }
+                                                ?>
+
+                                                @if (count($channel_locale))
+                                                    <span class="locale">[{{ implode(' - ', $channel_locale) }}]</span>
+                                                @endif
+                                            </label>
+
+                                            @include ($typeView)
+
+                                            <span class="control-error"
+                                                @if ($attribute->type == 'multiselect') v-if="errors.has('{{ $attribute->code }}[]')"
+                                                  @else  v-if="errors.has('{{ $attribute->code }}')"  @endif>
+                                                @if ($attribute->type == 'multiselect')
+                                                    @{{ errors.first('{!! $attribute->code !!}[]') }}
+                                                @else
+                                                    @{{ errors.first('{!! $attribute->code !!}') }}
+                                                @endif
+                                            </span>
+                                        </div>
+                                        @elseif($attribute->code == "guest_checkout")
                                         <div class="control-group {{ $attribute->type }}"
                                              @if ($attribute->type == 'multiselect') :class="[errors.has('{{ $attribute->code }}[]') ? 'has-error' : '']"
                                              @else :class="[errors.has('{{ $attribute->code }}') ? 'has-error' : '']" @endif>
