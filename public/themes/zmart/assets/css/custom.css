@@ -59,11 +59,13 @@ a.theme-btn:hover { color: #274985;background: transparent!important; }
 .product-list.empty p,
 .compare-product span.error-message-compare-list,
 .order-success-content p,
-.search-category.category-page-wrapper .search-container.category-container .error-message-search-no-results p { color: #274985; }
+.search-category.category-page-wrapper .search-container.category-container .error-message-search-no-results p,
+.row.products-collection .wishlist-error { color: #274985; }
 
 .search-category.category-page-wrapper .search-container.category-container .error-message-search-no-results { padding: 0; }
 
-.compare-product span.error-message-compare-list { font-size: 16px;font-weight: bold;text-align: center;padding: 0; }
+.compare-product span.error-message-compare-list,
+.row.products-collection .wishlist-error { font-size: 16px;font-weight: bold;text-align: center;padding: 0;width: 100%; }
 
 .cp-round:before { border: 6px solid #E1DFDF; }
 .cp-round:after { border-top: 6px solid #B1CC1E; }
@@ -367,8 +369,8 @@ header .navbar--search #search-form  input { width: 475px; }
 header .navbar--search #search-form  input,
 header .navbar--search #search-form .btn-group select { border: 1px solid #E3E3E3; outline: none; font-size: 14px!important; padding: 10px 10px; float: left;height: 50px;border-radius: 5px;font-family: 'Be Vietnam', sans-serif;color: #413A3D; }
 header .navbar--search #search-form  input::placeholder { font-family: 'Be Vietnam', sans-serif;color: #413A3D; font-size: 14px!important; }
-header .navbar--search #search-form .btn-group .selectdiv,
-header .navbar--search #search-form .btn-group .full-width { height: 50px; }
+header .navbar--search #search-form .btn-group .selectdiv/*,
+header .navbar--search #search-form .btn-group .full-width*/ { height: 50px; }
 header .navbar--search #search-form .btn-group .full-width { position: relative; }
 header .navbar--search #search-form .btn-group .full-width .linked-product-search-result { position: absolute; /*top: 58px;*/top: 51px; display: inline-block; left: 0; right: 0; }
 header .navbar--search #search-form .btn-group .full-width .linked-product-search-result ul#prod-suggestion { padding: 10px 0px 80px;list-style-type: none;/*overflow: scroll;height: 100vh;*/overflow: auto;height: 100vh;margin: 0; }
@@ -674,7 +676,7 @@ header.sticky-header.navbar-middle.header-shadow + .main-content-wrapper #head {
 .sales  .salesoffers-addtocart .salesoffers .imgs img {/* width: 100%;*/ max-width: 100%; }
 .sales  .salesoffers-addtocart .salesoffers .salesoffers-content .imgs img { /*width: 80%;*/max-width: 80%; }
 .sales  .salesoffers-addtocart .salesoffers .salesoffers-content .imgs .common-timing { width: auto; display: inline-block; }
-.sales  .salesoffers-addtocart .salesoffers .salesoffers-content .imgs .common-timing .timings { border: 1px solid #d9dad9;border-radius: 5px; padding: 11px 8px;  color: #000000; font-weight: bold; font-size: 22px; }
+.sales  .salesoffers-addtocart .salesoffers .salesoffers-content .imgs .common-timing .timings { border: 1px solid #d9dad9;border-radius: 5px; padding: 11px 8px;  color: #000000; font-weight: bold; font-size: 22px;text-align: center; }
 .sales .salesoffers-addtocart .salesoffers .salesoffers-content .imgs .common-timing span { display: block;font-weight: bold;color: #989898; font-size: 12px; text-align: center; }
 .sales  .salesoffers-addtocart .salesoffers .salesoffers-content .imgs span.colon { display: inline-block; padding: 0px 4px;font-weight: bold;  color: #000000; }
 .sales  .salesoffers-addtocart .salesoffers .salesoffers-content { font-family: 'Montserrat', sans-serif; font-size: 16px; color: #000000; letter-spacing: 0; }
@@ -1443,9 +1445,9 @@ header .navbar--addcart--wishlist .mini-cart-container .card-body a { display: i
 .account-content.contact-us-content .account-head h2.account-heading { font-weight: bold;padding: 0px 0 20px 0; }
 .account-content.contact-us-content .profile-update-form textarea { width: 100%; padding: 10px; font-family: 'Montserrat', sans-serif; font-size: 14px; border-radius: 2px; color: #413A3D !important; font-weight: 400; border: 1.5px solid #E1DFDF; }
 
-.account-content.about-us-content .account-head h2.account-heading { /*font-weight: bold;*/padding: 0px 0 20px 0; }
+.account-content.commom-us-content .account-head h2.account-heading { /*font-weight: bold;*/padding: 0px 0 20px 0; }
 
-.account-content.about-us-content .cms-page-container.common-page h2 { padding: 0px 0 20px 0; }
+.account-content.common-us-content .cms-page-container.common-page h2 { padding: 0px 0 20px 0; }
 
 @media (max-width: 767px) {
 	.account-content.contact-us-content .contact-details { margin-bottom: 20px; }
@@ -1512,6 +1514,10 @@ header .navbar--addcart--wishlist .mini-cart-container .card-body a { display: i
 .product-detail .right label.required:after { margin-left: 5px; }
 .product-detail .right .info .availability button.active { background: #274985; }
 .product-detail .right .info .availability button { background: #B1CC1E; }
+.product-detail .right .info .product-code label { padding-right: 5px; } 
+.product-detail .right .info .price { display: flex;align-items: center; }
+.product-detail .right .info .price label:first-child { margin: 0; }
+.product-detail .right .info .product-price { padding-left: 7px; }
 .product-detail .right .info .product-price .regular-price { font-family: 'Montserrat', sans-serif; font-size: 18px; color: #989898; font-weight: 400; margin-right: 10px; position: relative; }
 .product-detail .right .info .product-price .regular-price:after { content: ""; width: 100%; height: 1px; background: black; position: absolute; bottom: 8px; left: 0; }
 .product-detail .right .info .product-price .special-price,
@@ -1528,7 +1534,8 @@ header .navbar--addcart--wishlist .mini-cart-container .card-body a { display: i
 .product-detail .right .accordian .accordian-header:hover i { color: #B1CC1E; }
 .product-detail .right .accordian.active .accordian-header h3,
 .product-detail .right .accordian.active .accordian-header i { color: #B1CC1E;font-size: 18px!important; } 
-.product-detail .right .quantity label { padding: 0px 15px 5px 0; }
+.product-detail .right .quantity { width:100%;display: flex;align-items: center; }
+.product-detail .right .quantity label { padding: 0px 15px 5px 0;display: inline-block;width: auto;padding-bottom: 0;margin-bottom: 0; }
 .product-detail #product-form .form-container>.left .product-image-group .magnifier img { /*text-align: left!important;*/border: 1px solid #E7E7E7; border-radius: 2px; padding: 10px !important; }
 .product-detail #product-form .form-container>.left .product-image-group>div { padding: 0px 15px; }
 .product-detail .thumb-list .thumb-frame.active { border: 2px solid #274985; }

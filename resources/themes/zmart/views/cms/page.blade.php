@@ -19,8 +19,15 @@
 @endsection
 
 @section('content-wrapper')
-    <div class="account-content velocity-divide-page about-us-content">
+    <div class="account-content velocity-divide-page common-us-content">
         <div class="cms-page-container common-page">
+            <div class="account-head">
+        
+                <h2 class="account-heading">
+                    <!-- {{ __('shop::app.contact-us.title') }} -->{{ $page->page_title }}
+                </h2>
+            </div>
+            
             {!! DbView::make($page)->field('html_content')->render() !!}
         </div>
     </div>

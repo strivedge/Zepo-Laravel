@@ -121,7 +121,7 @@
                                     @include ('shop::products.view.stock', ['product' => $product])
                                     <div class="product-code"><label>Sku:&nbsp;</label>{{$product->sku}}</div>
 
-                                    <div class="col-12 price">
+                                    <div class="col-12 price"><label>Price:&nbsp;</label>
                                         @include ('shop::products.price', ['product' => $product])
                                     </div>
                                     
