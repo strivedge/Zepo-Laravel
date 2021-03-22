@@ -90,7 +90,7 @@ class ProductDataGrid extends DataGrid
 
         $queryBuilder->whereIn('product_flat.locale', $whereInLocales);
         $queryBuilder->whereIn('product_flat.channel', $whereInChannels);
-        // $queryBuilder->whereNotNull('product_flat.name');
+        $queryBuilder->whereNotNull('product_flat.name');
 
         $this->addFilter('product_id', 'product_flat.product_id');
         $this->addFilter('product_name', 'product_flat.name');
@@ -112,15 +112,6 @@ class ProductDataGrid extends DataGrid
             'filterable' => true,
         ]);
 
-        // $this->addColumn([
-        //     'index'      => 'product_sku',
-        //     'label'      => trans('admin::app.datagrid.sku'),
-        //     'type'       => 'string',
-        //     'searchable' => true,
-        //     'sortable'   => true,
-        //     'filterable' => true,
-        // ]);
-
         $this->addColumn([
             'index'      => 'product_sku',
             'label'      => trans('admin::app.datagrid.sku'),
@@ -130,6 +121,15 @@ class ProductDataGrid extends DataGrid
             'filterable' => true,
         ]);
 
+        // $this->addColumn([
+        //     'index'      => 'product_name',
+        //     'label'      => trans('admin::app.datagrid.name'),
+        //     'type'       => 'string',
+        //     'searchable' => true,
+        //     'sortable'   => true,
+        //     'filterable' => true,
+        // ]);
+
         $this->addColumn([
             'index'      => 'product_name',
             'label'      => trans('admin::app.datagrid.name'),
@@ -137,6 +137,11 @@ class ProductDataGrid extends DataGrid
             'searchable' => true,
             'sortable'   => true,
             'filterable' => true,
+            'wrapper'    => function ($value) {
+                $getId = $value->product_id;
+                $getRoute = route('admin.catalog.products.edit', $getId);
+                echo "<a href='$getRoute'>$value->product_name</a>";
+            },
         ]);
 
         $this->addColumn([

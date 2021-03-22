@@ -37,11 +37,6 @@ return [
         'route' => 'admin.catalog.products.index',
         'sort'  => 1,
     ], [
-        'key'   => 'catalog.add-new-product',
-        'name'  => 'admin::app.layouts.add-new-product',
-        'route' => 'admin.catalog.products.create',
-        'sort'  => 2,
-    ], [
         'key'   => 'catalog.products.edit',
         'name'  => 'admin::app.acl.edit',
         'route' => 'admin.catalog.products.edit',
