@@ -10,7 +10,12 @@
                         {{ $festival[0]->short_desc }}<br/>
                         {{ $festival[0]->long_desc }}<br/>
                         <a href="#" class="promotion btn btn-primary">{{ __('festival::app.festival.more-about-promotion') }}</a></p>
-                    <div class="imgs"><img src="{{ asset('themes/zmart/assets/images/sales-timing.png') }}"></div>
+                    <div class="imgs"><!-- <img src="{{ asset('themes/zmart/assets/images/sales-timing.png') }}"> -->
+                    <div class="common-timing"><div class="days timings">05</div><span>days</span></div><span class="colon">:</span>
+                    <div class="common-timing"><div class="Hours timings">02</div><span>hours</span></div><span class="colon">:</span>
+                    <div class="common-timing"><div class="minutes timings">25</div><span>minutes</span></div><span class="colon">:</span>
+                    <div class="common-timing"><div class="seconds timings">45</div><span>seconds</span></div>
+                    </div>
                     <a href="#" class="active-promotion btn btn-primary">
                         {{ __('festival::app.festival.active-promotions') }}<span><i class="bx bx-right-arrow-alt"></i></span>
                     </a>

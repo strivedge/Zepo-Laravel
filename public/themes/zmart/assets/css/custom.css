@@ -670,9 +670,13 @@ header.sticky-header.navbar-middle.header-shadow + .main-content-wrapper #head {
 .sales { background: #FAFCF3;padding: 50px 0px 50px 0px; }
 .sales .salesoffers-addtocart { display: flex;flex-wrap: wrap; }
 
-.sales  .salesoffers-addtocart .salesoffers .imgs { padding: 25px 0px; }
+.sales  .salesoffers-addtocart .salesoffers .imgs { padding: 25px 0px;display: flex;align-items: center; }
 .sales  .salesoffers-addtocart .salesoffers .imgs img {/* width: 100%;*/ max-width: 100%; }
 .sales  .salesoffers-addtocart .salesoffers .salesoffers-content .imgs img { /*width: 80%;*/max-width: 80%; }
+.sales  .salesoffers-addtocart .salesoffers .salesoffers-content .imgs .common-timing { width: auto; display: inline-block; }
+.sales  .salesoffers-addtocart .salesoffers .salesoffers-content .imgs .common-timing .timings { border: 1px solid #d9dad9;border-radius: 5px; padding: 11px 8px;  color: #000000; font-weight: bold; font-size: 22px; }
+.sales .salesoffers-addtocart .salesoffers .salesoffers-content .imgs .common-timing span { display: block;font-weight: bold;color: #989898; font-size: 12px; text-align: center; }
+.sales  .salesoffers-addtocart .salesoffers .salesoffers-content .imgs span.colon { display: inline-block; padding: 0px 4px;font-weight: bold;  color: #000000; }
 .sales  .salesoffers-addtocart .salesoffers .salesoffers-content { font-family: 'Montserrat', sans-serif; font-size: 16px; color: #000000; letter-spacing: 0; }
 .sales  .salesoffers-addtocart .salesoffers .salesoffers-content a { background: transparent; border:0; }
 .sales  .salesoffers-addtocart .salesoffers .salesoffers-content a.promotion { font-size: 16px; color: #000000; font-weight: bold; text-decoration: underline;padding-left: 0; }
