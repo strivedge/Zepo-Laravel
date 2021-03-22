@@ -81,23 +81,8 @@
         </style>
 
         <style type="text/css">
-            .switcher {font-family:Arial;font-size:10pt;text-align:left;cursor:pointer;overflow:hidden;width:163px;line-height:17px;}
-            .switcher a {text-decoration:none;display:block;font-size:10pt;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;}
-            .switcher a img {vertical-align:middle;display:inline;border:0;padding:0;margin:0;opacity:0.8;}
-            .switcher a:hover img {opacity:1;}
-            .switcher .selected {background:#FFFFFF url(//www.jdmeditech.com/wp-content/plugins/gtranslate/switcher.png) repeat-x;position:relative;z-index:9999;}
-            .switcher .selected a {border:1px solid #CCCCCC;background:url(//www.jdmeditech.com/wp-content/plugins/gtranslate/arrow_down.png) 146px center no-repeat;color:#666666;padding:3px 5px;width:151px;}
-            .switcher .selected a.open {background-image:url(//www.jdmeditech.com/wp-content/plugins/gtranslate/arrow_up.png)}
-            .switcher .selected a:hover {background:#F0F0F0 url(//www.jdmeditech.com/wp-content/plugins/gtranslate/arrow_down.png) 146px center no-repeat;}
-            .switcher .option {position:relative;z-index:9998;border-left:1px solid #CCCCCC;border-right:1px solid #CCCCCC;border-bottom:1px solid #CCCCCC;background-color:#EEEEEE;display:none;width:161px;max-height:198px;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;overflow-y:auto;overflow-x:hidden;}
-            .switcher .option a {color:#000;padding:3px 5px;}
-            .switcher .option a:hover {background:#FFC;}
-            .switcher .option a.selected {background:#FFC;}
-            #selected_lang_name {float: none;}
-            .l_name {float: none !important;margin: 0;}
-            .switcher .option::-webkit-scrollbar-track{-webkit-box-shadow:inset 0 0 3px rgba(0,0,0,0.3);border-radius:5px;background-color:#F5F5F5;}
-            .switcher .option::-webkit-scrollbar {width:5px;}
-            .switcher .option::-webkit-scrollbar-thumb {border-radius:5px;-webkit-box-shadow: inset 0 0 3px rgba(0,0,0,.3);background-color:#888;}
+           .goog-te-banner-frame.skiptranslate {display: none !important;}
+            body { top: 0px !important; }
         </style>
 
     </head>
