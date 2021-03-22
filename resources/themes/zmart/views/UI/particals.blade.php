@@ -149,7 +149,7 @@
                         @endguest
                         >
 
-                       <span class="compare "> <i class="material-icons">compare_arrows</i>
+                       <span class="compare notranslate"> <i class="material-icons">compare_arrows</i>
                             <span class="badge-container" v-if="compareCount > 0">
                                 <span class="badge" v-text="compareCount"></span>
                             </span>
@@ -196,6 +196,7 @@
     </div>
 </script>
 
+
    <script type="text/x-template" id="search-products-template">
         <div>
 
@@ -204,7 +205,7 @@
                 <input type="text" id="prod-search-box" required name="term" class="control"  placeholder="{{ __('admin::app.catalog.products.product-search-hint') }}" v-on:keyup="search(key)" value="" autocomplete="off">
 
                 <div class="linked-product-search-result" id="prod-suggestion">
-                    <ul  >
+                    <ul>
                         <li class='pli' v-for='(product, index) in products[key]' v-if='products[key].length' @click="addProduct(product, key)">
                             <div class="col-md-2 product-img">
                                 <img :alt="product.name" :src="product.image" :onerror="`this.src='${baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`">
