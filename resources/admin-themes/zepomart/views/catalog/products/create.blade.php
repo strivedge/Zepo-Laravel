@@ -46,8 +46,8 @@
 
                 {!! view_render_event('bagisto.admin.catalog.product.create_form_accordian.general.before') !!}
 
-                <accordian :title="'{{ __('admin::app.catalog.products.general') }}'" :active="true">
-                    <div slot="body">
+                <accordian :title="'{{ __('admin::app.catalog.products.general') }}'" :active="true" class="{{ __('admin::app.catalog.products.general') }}">
+                    <div slot="body" class="bodyes">
 
                         {!! view_render_event('bagisto.admin.catalog.product.create_form_accordian.general.controls.before') !!}
 

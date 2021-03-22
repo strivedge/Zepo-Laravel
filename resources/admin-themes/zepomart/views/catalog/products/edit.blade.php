@@ -70,8 +70,8 @@
                         {!! view_render_event('bagisto.admin.catalog.product.edit_form_accordian.' . $attributeGroup->name . '.before', ['product' => $product]) !!}
 
                         <accordian :title="'{{ __($attributeGroup->name) }}'"
-                                   :active="{{$index == 0 ? 'true' : 'false'}}">
-                            <div slot="body">
+                                   :active="{{$index == 0 ? 'true' : 'false'}}" class="{{$attributeGroup->name}}">
+                            <div slot="body" class="bodyes">
                                 {!! view_render_event('bagisto.admin.catalog.product.edit_form_accordian.' . $attributeGroup->name . '.controls.before', ['product' => $product]) !!}
 
             @if($attributeGroup->name == "General")

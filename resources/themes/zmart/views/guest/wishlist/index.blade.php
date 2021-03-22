@@ -61,7 +61,7 @@
                 
                 </template>
 
-                <span v-else-if="isProductListLoaded">{{ __('customer::app.wishlist.empty') }}</span>
+                <span v-else-if="isProductListLoaded" class="wishlist-error">{{ __('customer::app.wishlist.empty') }}</span>
             </div>
 
             {!! view_render_event('bagisto.shop.customers.account.guest-customer.view.after') !!}
