@@ -12,7 +12,7 @@
         :class="`btn btn-link disable-box-shadow ${itemCount == 0 ? 'cursor-not-allowed' : ''}`">
 
         <div class="mini-cart-content">
-            <span class="addcart"><i class="material-icons-outlined text-down-3">shopping_cart</i>
+            <span class="addcart notranslate"><i class="material-icons-outlined text-down-3 notranslate">shopping_cart</i>
             <span class="badge" v-text="itemCount" v-if="itemCount != 0"></span></span>
             <!-- <span class="fs18 fw6 cart-text">{{ __('velocity::app.minicart.cart') }}</span> -->
         </div>
@@ -149,7 +149,7 @@
                         @endguest
                         >
 
-                       <span class="compare"> <i class="material-icons">compare_arrows</i>
+                       <span class="compare "> <i class="material-icons">compare_arrows</i>
                             <span class="badge-container" v-if="compareCount > 0">
                                 <span class="badge" v-text="compareCount"></span>
                             </span>
@@ -161,7 +161,7 @@
 
             {!! view_render_event('bagisto.shop.layout.header.wishlist.before') !!}
                 <a class="wishlist-btn unset" :href="`${isCustomer ? '{{ route('customer.wishlist.index') }}' : '{{ route('velocity.product.guest-wishlist') }}'}`">
-                    <span class="wishlist"><i class="material-icons">favorite_border</i>
+                    <span class="wishlist notranslate"><i class="material-icons">favorite_border</i>
                     <span class="badge-container" v-if="wishlistCount > 0">
                         <span class="badge" v-text="wishlistCount"></span>
                     </span>
@@ -203,8 +203,8 @@
 
                 <input type="text" id="prod-search-box" required name="term" class="control"  placeholder="{{ __('admin::app.catalog.products.product-search-hint') }}" v-on:keyup="search(key)" value="" autocomplete="off">
 
-                <div class="linked-product-search-result">
-                    <ul id="prod-suggestion" >
+                <div class="linked-product-search-result" id="prod-suggestion">
+                    <ul  >
                         <li class='pli' v-for='(product, index) in products[key]' v-if='products[key].length' @click="addProduct(product, key)">
                             <div class="col-md-2 product-img">
                                 <img :alt="product.name" :src="product.image" :onerror="`this.src='${baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`">

@@ -4,8 +4,8 @@
 			<div class="navbar-top-wrapper">
 			    <div class="navbar-left-wrapper col-lg-5 col-xl-6">
 			        <ul>
-	                    <li class="email"><span class="material-icons"> {{ __('shop::app.header.email') }} </span><a href="mailto:{{ __('shop::app.header.email-address') }}">{{ __('shop::app.header.email-address') }}</a></li>
-			        	<li class="phone"><span class="material-icons"> {{ __('shop::app.header.phone') }} </span><a href="tel:{{ __('shop::app.header.phone-num') }}">{{ __('shop::app.header.phone-num') }} </a></li>
+	                    <li class="email"><span class="material-icons notranslate"> {{ __('shop::app.header.email') }} </span><a href="mailto:{{ __('shop::app.header.email-address') }}">{{ __('shop::app.header.email-address') }}</a></li>
+			        	<li class="phone"><span class="material-icons notranslate"> {{ __('shop::app.header.phone') }} </span><a href="tel:{{ __('shop::app.header.phone-num') }}">{{ __('shop::app.header.phone-num') }} </a></li>
 	                </ul>
 			    </div>
 
