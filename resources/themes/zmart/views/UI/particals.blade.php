@@ -204,7 +204,7 @@
                 <input type="text" id="prod-search-box" required name="term" class="control"  placeholder="{{ __('admin::app.catalog.products.product-search-hint') }}" v-on:keyup="search(key)" value="" autocomplete="off">
 
                 <div class="linked-product-search-result">
-                    <ul id="prod-suggestion">
+                    <ul id="prod-suggestion" >
                         <li class='pli' v-for='(product, index) in products[key]' v-if='products[key].length' @click="addProduct(product, key)">
                             <div class="col-md-2 product-img">
                                 <img :alt="product.name" :src="product.image" :onerror="`this.src='${baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`">
@@ -245,8 +245,19 @@
         </div>
     </script>
 
+    <script type="text/javascript">
+        $(document).ready(function () {
+            console.log('sss ')
+               $('#prod-suggestion').hide();
+        });
+        
+    </script>
+
+
 
 <script>
+
+    
      
     Vue.component('search-products', {
 
@@ -297,6 +308,7 @@
                 // console.log("val:",$('#prod-search-box').val())
                 //console.log('test')
                 //$('#prod-suggestion').empty();
+                $('#prod-suggestion').hide();
                 //this.addedProducts[key].push(product);
                 //console.log("this.products",this.products)
                 //console.log("this.products key",this.products[key])
@@ -317,6 +329,7 @@
             },
 
             search: function (key) {
+                $('#prod-suggestion').show();
                 //console.log("upSellingProducts search method")
                 this_this = this;
 
