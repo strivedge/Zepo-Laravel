@@ -4,7 +4,7 @@
 
             <div class="product-image">
                 <div class="product-code">{{ product.sku}}</div>
-                    <div class="sticker new"  v-if="product.special_price">
+                    <div class="sticker new" v-if="product.special_price">
                         <span class="save">SAVE</span>
                         <span class="percentage">{{ product.percentage }}%</span>
                     </div>
@@ -69,7 +69,7 @@
             <div class="product-code">{{ product.sku}}</div>
             
             <div class="img" v-if="product.galleryImages.length > 0">
-               <div class="sticker new"  v-if="product.special_price">
+               <div class="sticker new" v-if="product.special_price">
                 <span class="save">SAVE</span>
                 <span class="percentage">{{ product.percentage }}%</span>
                 </div>

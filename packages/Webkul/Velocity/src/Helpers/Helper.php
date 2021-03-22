@@ -401,6 +401,7 @@ class Helper extends Review
                     $productMetaDetails['new'] = $formattedProduct['new'];
                     $productMetaDetails['addToCartHtml'] = $formattedProduct['addToCartHtml'];
                     $productMetaDetails['galleryImages'] = $formattedProduct['galleryImages'];
+                    $productMetaDetails['percentage']  = $product->getTypeInstance()->getOfferPercentage();
                     $productMetaDetails['defaultAddToCart'] = $formattedProduct['defaultAddToCart'];
                     $productMetaDetails['star_icon'] = asset('/themes/zmart/assets/images/star-gray.png');
                     $productMetaDetails['baseUrl'] = url('/');

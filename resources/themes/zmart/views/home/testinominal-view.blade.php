@@ -1,10 +1,11 @@
 @inject ('testinominalRepository', 'Custom\Testinominal\Repositories\TestinominalRepository')
 
-@if(isset($testinominals) && count($testinominals) > 0)
-<section id="our-customer" class="featured-products slider-img our-customer" style="background-image: url('{{ asset('/themes/zmart/assets/images/testimonial-bg.png') }}');">
 @php
     $testinominals = $testinominalRepository->all();
 @endphp
+
+@if(isset($testinominals) && count($testinominals) > 0)
+<section id="our-customer" class="featured-products slider-img our-customer" style="background-image: url('{{ asset('/themes/zmart/assets/images/testimonial-bg.png') }}');">
 
     <div class="container">
         <div class="section-title"><h2>{{__('testinominal::app.testinominal.home-title') }}</h2></div>
