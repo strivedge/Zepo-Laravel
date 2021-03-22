@@ -1,4 +1,5 @@
 @inject ('blogRepository', 'Custom\Blog\Repositories\BlogRepository')
+
 @php
     $posts = $blogRepository->all();
 @endphp
