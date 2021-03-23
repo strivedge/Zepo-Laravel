@@ -219,9 +219,8 @@
                             </div>
                         </li>
 
-                        <li class='pli1' v-if='! products[key].length && search_term[key].length && ! is_searching[key]'>
+                        <li class='pli1 searching text-center' v-if='! products[key].length && search_term[key].length && ! is_searching[key]'>
                             {{ __('admin::app.catalog.products.no-result-found') }}
-                            }
                         </li>
 
                         <li class='searching' v-if="is_searching[key] && search_term[key].length">
@@ -250,6 +249,9 @@
         $(document).ready(function () {
             console.log('sss ')
                $('#prod-suggestion').hide();
+               $("html,body").click(function(e) {
+                $("#prod-suggestion").hide();
+            });
         });
         
     </script>

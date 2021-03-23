@@ -640,6 +640,12 @@ return [
             'search' => 'Search',
             'group-exist-error' => 'Group with same name already exists.'
         ],
+
+        'zipcode' => [
+            'title' => 'ZipCode',
+            'add-title' => 'Add ZipCode',
+        ],
+
         'categories' => [
             'title' => 'Categories',
             'add-title' => 'Add Category',
