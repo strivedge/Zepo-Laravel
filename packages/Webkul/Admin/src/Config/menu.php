@@ -80,6 +80,12 @@ return [
         'sort'       => 5,
         'icon-class' => '',
     ], [
+        'key'        => 'catalog.zipcode',
+        'name'       => 'admin::app.catalog.zipcode.title',
+        'route'      => 'admin.catalog.zipcode.index',
+        'sort'       => 6,
+        'icon-class' => '',
+    ], [
         'key'        => 'customers',
         'name'       => 'admin::app.layouts.customers',
         'route'      => 'admin.customer.index',

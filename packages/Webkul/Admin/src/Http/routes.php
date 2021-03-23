@@ -395,6 +395,12 @@ Route::group(['middleware' => ['web']], function () {
                 ])->name('admin.catalog.families.update');
 
                 Route::post('/families/delete/{id}', 'Webkul\Attribute\Http\Controllers\AttributeFamilyController@destroy')->name('admin.catalog.families.delete');
+
+                // Catalog ZipCode Route
+                Route::get('/zipcode', 'Webkul\Product\Http\Controllers\ZipCodeController@index')->defaults('_config', [
+                        'view' => 'admin::catalog.zipcode.index',
+                    ])->name('admin.catalog.zipcode.index');
+
             });
 
             // User Routes
