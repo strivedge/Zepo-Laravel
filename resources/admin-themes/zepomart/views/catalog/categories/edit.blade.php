@@ -45,8 +45,8 @@
 
                     {!! view_render_event('bagisto.admin.catalog.category.edit_form_accordian.general.before', ['category' => $category]) !!}
 
-                    <accordian :title="'{{ __('admin::app.catalog.categories.general') }}'" :active="true">
-                        <div slot="body">
+                    <accordian :title="'{{ __('admin::app.catalog.categories.general') }}'" :active="true" class="{{ __('admin::app.catalog.families.general') }}">
+                        <div slot="body" class="bodyes">
 
                             {!! view_render_event('bagisto.admin.catalog.category.edit_form_accordian.general.controls.before', ['category' => $category]) !!}
 

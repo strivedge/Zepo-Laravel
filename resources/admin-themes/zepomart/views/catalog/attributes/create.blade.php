@@ -25,13 +25,13 @@
             </div>
 
             <div class="page-content">
-                <div class="form-container">
+                <div class="form-container change-width">
                     @csrf()
 
                     {!! view_render_event('bagisto.admin.catalog.attribute.create_form_accordian.general.before') !!}
 
-                    <accordian :title="'{{ __('admin::app.catalog.attributes.general') }}'" :active="true">
-                        <div slot="body">
+                    <accordian :title="'{{ __('admin::app.catalog.attributes.general') }}'" :active="true" class="{{ __('admin::app.catalog.families.general') }}">
+                        <div slot="body" class="bodyes">
 
                             {!! view_render_event('bagisto.admin.catalog.attribute.create_form_accordian.general.controls.before') !!}
 
@@ -68,8 +68,8 @@
 
                     {!! view_render_event('bagisto.admin.catalog.attribute.create_form_accordian.label.before') !!}
 
-                    <accordian :title="'{{ __('admin::app.catalog.attributes.label') }}'" :active="true">
-                        <div slot="body">
+                    <accordian :title="'{{ __('admin::app.catalog.attributes.label') }}'" :active="true" class="{{ __('admin::app.catalog.families.general') }}">
+                        <div slot="body" class="bodyes">
 
                             {!! view_render_event('bagisto.admin.catalog.attribute.create_form_accordian.label.controls.before') !!}
 
@@ -100,8 +100,8 @@
                     <div class="hide">
                         {!! view_render_event('bagisto.admin.catalog.attribute.create_form_accordian.options.before') !!}
 
-                        <accordian :title="'{{ __('admin::app.catalog.attributes.options') }}'" :active="true" :id="'options'">
-                            <div slot="body">
+                        <accordian :title="'{{ __('admin::app.catalog.attributes.options') }}'" :active="true" :id="'options'" class="{{ __('admin::app.catalog.families.general') }}">
+                            <div slot="body" class="bodyes">
 
                                 {!! view_render_event('bagisto.admin.catalog.attribute.create_form_accordian.options.controls.before') !!}
 
@@ -118,8 +118,8 @@
 
                     {!! view_render_event('bagisto.admin.catalog.attribute.create_form_accordian.validations.before') !!}
 
-                    <accordian :title="'{{ __('admin::app.catalog.attributes.validations') }}'" :active="true">
-                        <div slot="body">
+                    <accordian :title="'{{ __('admin::app.catalog.attributes.validations') }}'" :active="true" class="{{ __('admin::app.catalog.families.general') }}">
+                        <div slot="body" class="bodyes">
 
                             {!! view_render_event('bagisto.admin.catalog.attribute.create_form_accordian.options.controls.before') !!}
 
@@ -160,8 +160,8 @@
 
                     {!! view_render_event('bagisto.admin.catalog.attribute.create_form_accordian.configuration.before') !!}
 
-                    <accordian :title="'{{ __('admin::app.catalog.attributes.configuration') }}'" :active="true">
-                        <div slot="body">
+                    <accordian :title="'{{ __('admin::app.catalog.attributes.configuration') }}'" :active="true" class="{{ __('admin::app.catalog.families.general') }}">
+                        <div slot="body" class="bodyes">
 
                             {!! view_render_event('bagisto.admin.catalog.attribute.create_form_accordian.configuration.controls.before') !!}
 
