@@ -641,9 +641,24 @@ return [
             'group-exist-error' => 'Group with same name already exists.'
         ],
 
-        'zipcode' => [
+        'zipcodes' => [
             'title' => 'ZipCode',
             'add-title' => 'Add ZipCode',
+            'edit-title' => 'Edit ZipCode',
+            'create' => 'Create',
+            'area-name' => 'Area Name',
+            'area-name-placeholder' => 'Enter area name ',
+            'zipcode' => 'ZipCode',
+            'zipcode-placeholder' => 'Enter Zip Code',
+            'status' => 'Status',
+            'active' => 'Active',
+            'inactive' => 'Inactive',
+            'updated-at' => 'Updated at',
+            'save-btn-title' => 'Save ZipCode',
+            'edit-help-title' => 'Edit',
+            'delete-help-title' => 'Delete',
+            'mass-update-success' => 'ZipCodes updated successfully',
+            'mass-destroy-success' => 'ZipCodes deleted successfully',
         ],
 
         'categories' => [

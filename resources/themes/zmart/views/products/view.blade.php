@@ -119,7 +119,11 @@
                                     @endif
 
                                     @include ('shop::products.view.stock', ['product' => $product])
-                                    <div class="product-code"><label>Sku:&nbsp;</label>{{$product->sku}}</div>
+                                    <div class="product-code"><label>{{ __('shop::app.products.sku') }} </label>{{$product->sku}}</div>
+
+                                    <div class="col-12">
+                                        @include ('shop::products.view.check-availability')
+                                    </div>
 
                                     <div class="col-12 price"><label>Price:&nbsp;</label>
                                         @include ('shop::products.price', ['product' => $product])

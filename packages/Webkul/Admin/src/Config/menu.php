@@ -81,7 +81,7 @@ return [
         'icon-class' => '',
     ], [
         'key'        => 'catalog.zipcode',
-        'name'       => 'admin::app.catalog.zipcode.title',
+        'name'       => 'admin::app.catalog.zipcodes.title',
         'route'      => 'admin.catalog.zipcode.index',
         'sort'       => 6,
         'icon-class' => '',

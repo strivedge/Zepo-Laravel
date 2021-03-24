@@ -311,6 +311,9 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
     // Offer Listing on front-end homepage
     Route::get('offer', 'Custom\Offer\Http\Controllers\OfferHomeController@index')->defaults('_config', ['view' => 'shop::home.offer'])->name('shop.home.offer');
 
+    // ZipCode availability on product detail page
+    Route::get('check-zipcodes/{zipcode}', 'Webkul\API\Http\Controllers\Shop\ZipCodeController@get')->name('shop.product.details.zipcodes');
+
     Route::fallback(\Webkul\Shop\Http\Controllers\ProductsCategoriesProxyController::class . '@index')
         ->defaults('_config', [
             'product_view' => 'shop::products.view',

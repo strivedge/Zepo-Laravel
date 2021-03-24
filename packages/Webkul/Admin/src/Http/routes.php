@@ -401,6 +401,30 @@ Route::group(['middleware' => ['web']], function () {
                         'view' => 'admin::catalog.zipcode.index',
                     ])->name('admin.catalog.zipcode.index');
 
+                Route::get('/zipcode/create', 'Webkul\Product\Http\Controllers\ZipCodeController@create')->defaults('_config', [
+                        'view' => 'admin::catalog.zipcode.create',
+                    ])->name('admin.catalog.zipcode.create');
+
+                Route::post('/zipcode/save', 'Webkul\Product\Http\Controllers\ZipCodeController@store')->defaults('_config', [
+                        'redirect' => 'admin.catalog.zipcode.index',
+                    ])->name('admin.catalog.zipcode.save');
+
+                Route::get('/zipcode/edit/{id}', 'Webkul\Product\Http\Controllers\ZipCodeController@edit')->defaults('_config', [
+                        'view' => 'admin::catalog.zipcode.edit',
+                    ])->name('admin.catalog.zipcode.edit');
+
+                Route::post('/zipcode/delete/{id}', 'Webkul\Product\Http\Controllers\ZipCodeController@destroy')->defaults('_config', [
+                        'redirect' => 'admin.catalog.zipcode.index',
+                    ])->name('admin.catalog.zipcode.delete');
+
+                Route::post('/zipcode/update/{id}', 'Webkul\Product\Http\Controllers\ZipCodeController@update')->defaults('_config', [
+                        'redirect' => 'admin.catalog.zipcode.index',
+                    ])->name('admin.catalog.zipcode.update');
+
+                Route::post('/zipcode/massdelete', 'Webkul\Product\Http\Controllers\ZipCodeController@massDestroy')->name('admin.catalog.zipcode.massdelete');
+
+                Route::post('/zipcode/massupdate', 'Webkul\Product\Http\Controllers\ZipCodeController@massUpdate')->name('admin.catalog.zipcode.massupdate');
+
             });
 
             // User Routes
