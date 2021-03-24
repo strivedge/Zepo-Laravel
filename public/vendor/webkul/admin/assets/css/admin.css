@@ -28,3 +28,7 @@
 .accordian.Price .accordian-content div.bodyes div:last-child.table table td .control-group { width: 100%;padding: 0; }
 .accordian.Price .accordian-content div.bodyes .control-group.date:after { left: auto;right: 3%; }
 .accordian .accordian-content div.bodyes span.locale { font-size: 0;}
+
+.change-width .accordian.General .accordian-content .control-group:nth-child(5) { width: 50%!important; }
+.change-width .accordian.General .accordian-content .control-group:nth-child(5) label,
+.change-width .accordian.General .accordian-content .control-group:nth-child(5) select { width: 100%!important; }
