@@ -16,4 +16,54 @@ class ZipCodeRepository extends Repository
     {
         return 'Webkul\Product\Models\ZipCode';
     }
+
+    // for front-end
+    public function checkZip($zipcode)
+    {
+        $zipcodes = $this->model->where('zipcode', $zipcode)->where('status', 0)->get();
+        return $zipcodes;
+    }
+
+    // for admin side
+    public function create(array $data)
+    {
+        $zipcodes = $this->model->create($data);
+        return $zipcodes;
+    }
+
+    public function findById($id)
+    {
+        $zipcodes = $this->model->find($id);
+        return $zipcodes;
+    }
+
+    public function update(array $data, $id)
+    {
+        $zipcodes = $this->model->find($id)->update($data);
+        return $zipcodes;
+    }
+
+    public function deleteData($id)
+    {
+        $zipcodes = $this->model->find($id)->delete();
+        return $zipcodes;
+    }
+
+    public function massDataDelete($ids)
+    {
+        foreach($ids as $id)
+        {
+            $zipcodes = $this->model->find($id)->delete();
+        }
+        return $zipcodes;
+    }
+
+    public function massDataUpdate($ids, $updateOption)
+    {
+        foreach($ids as $id)
+        {
+            $zipcodes = $this->model->find($id)->update(['status' => $updateOption]);
+        }
+        return $zipcodes;
+    }
 }

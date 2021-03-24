@@ -16,7 +16,7 @@ class CreateZipCodesTable extends Migration
         Schema::create('master_zip_codes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('area_name')->nullable();
-            $table->string('zipcode')->nullable();
+            $table->string('zipcode')->unique();
             $table->boolean('status')->default(0);
             $table->timestamps();
         });
