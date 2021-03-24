@@ -83,7 +83,7 @@
                     <div class="col-12 no-padding">
                         <div class="hero-image">
                             @if (!is_null($category->image))
-                                <img class="logo" src="{{ $category->image_url }}" />
+                                <img class="logo" src="{{ $category->image_url }}" :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`"/>
                             @endif
                         </div>
                     </div>
