@@ -1,27 +1,6 @@
 {!! view_render_event('bagisto.shop.products.add_to_cart.before', ['product' => $product]) !!}
 
     <div class="mx-0 no-padding">
-        @if (isset($showCompare) && $showCompare)
-            <compare-component
-                @auth('customer')
-                    customer="true"
-                @endif
-
-                @guest('customer')
-                    customer="false"
-                @endif
-
-                slug="{{ $product->url_key }}"
-                product-id="{{ $product->id }}"
-                add-tooltip="{{ __('velocity::app.customer.compare.add-tooltip') }}"
-            ></compare-component>
-        @endif
-
-        @if (! (isset($showWishlist) && !$showWishlist))
-            @include('shop::products.wishlist', [
-                'addClass' => $addWishlistClass ?? ''
-            ])
-        @endif
         <div class="buttons">
             <!-- <div class="quick-view-in-list quick-view btn btn-primary">
                     <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn>
@@ -78,6 +57,29 @@
                 @endif
             </div>
         </div>
+        
+        @if (! (isset($showWishlist) && !$showWishlist))
+            @include('shop::products.wishlist', [
+                'addClass' => $addWishlistClass ?? ''
+            ])
+        @endif
+
+        @if (isset($showCompare) && $showCompare)
+            <compare-component
+                @auth('customer')
+                    customer="true"
+                @endif
+
+                @guest('customer')
+                    customer="false"
+                @endif
+
+                slug="{{ $product->url_key }}"
+                product-id="{{ $product->id }}"
+                add-tooltip="{{ __('velocity::app.customer.compare.add-tooltip') }}"
+            ></compare-component>
+        @endif
+
     </div>
 
 {!! view_render_event('bagisto.shop.products.add_to_cart.after', ['product' => $product]) !!}

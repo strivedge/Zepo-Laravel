@@ -61,6 +61,7 @@ class ProductsCategoriesProxyController extends Controller
             }
 
             if ($product = $this->productRepository->findbySlugCustom($slugOrPath)) {
+                // echo "<pre>"; print_r($product); exit();
 
                 $customer = auth()->guard('customer')->user();
 

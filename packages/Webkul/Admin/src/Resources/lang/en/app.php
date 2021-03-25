@@ -116,6 +116,7 @@ return [
         'promotions' => 'Promotions',
         'cart-rules' => 'Cart Rules',
         'catalog-rules' => 'Catalog Rules',
+        'zipcode' => 'ZipCode',
     ],
 
     'dashboard' => [

@@ -107,6 +107,26 @@ return [
         'route' => 'admin.catalog.families.delete',
         'sort'  => 3,
     ], [
+        'key'   => 'catalog.zipcode',
+        'name'  => 'admin::app.acl.zipcode',
+        'route' => 'admin.catalog.zipcode.index',
+        'sort'  => 5,
+    ], [
+        'key'   => 'catalog.zipcode.create',
+        'name'  => 'admin::app.acl.create',
+        'route' => 'admin.catalog.zipcode.create',
+        'sort'  => 1,
+    ], [
+        'key'   => 'catalog.zipcode.edit',
+        'name'  => 'admin::app.acl.edit',
+        'route' => 'admin.catalog.zipcode.edit',
+        'sort'  => 2,
+    ], [
+        'key'   => 'catalog.zipcode.delete',
+        'name'  => 'admin::app.acl.delete',
+        'route' => 'admin.catalog.zipcode.delete',
+        'sort'  => 3,
+    ], [
         'key'   => 'customers',
         'name'  => 'admin::app.acl.customers',
         'route' => 'admin.customer.index',
