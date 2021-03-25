@@ -128,7 +128,10 @@
                                     <div class="col-12 price no-padding">
                                         @include ('shop::products.price', ['product' => $product])
                                     </div>
-                                    <div class="stocks-label"><label>status:&nbsp;</label> 
+                                    <div class="stocks-label">
+                                        <label>
+                                            {{ __('shop::app.products.status') }}&nbsp;
+                                        </label>
                                         @include ('shop::products.view.stock', ['product' => $product])
                                     </div>
 
@@ -158,17 +161,17 @@
 
                                         </div>
                                     </div>
-
-                                    
-
-                                    
-
+                                <div class="product-code-category">
                                     <div class="product-code"><label>{{ __('shop::app.products.sku') }} </label>{{$product->sku}}</div>
 
-                                    <div class="col-12">
+                                    <div class="category">
                                         <label>{{ __('shop::app.products.category') }} </label>
-                                        <a href="{{ route('shop.productOrCategory.index', [$product->category_url_path]) }}">{{$product->category_name}}</a>
+
+                                    @foreach($product->categories as $category)
+                                        <a href="{{ route('shop.productOrCategory.index', [$category->category_url_path]) }}">{{$category->category_name}}</a>,
+                                    @endforeach
                                     </div>
+                                </div>
 
                                 </div>
 

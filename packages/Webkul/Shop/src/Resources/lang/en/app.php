@@ -515,6 +515,7 @@ return [
         'buy-now' => 'Buy Now',
         'whoops' => 'Whoops!',
         'quantity' => 'Quantity',
+        'status' => 'Status:',
         'in-stock' => 'In Stock',
         'out-of-stock' => 'Out Of Stock',
         'view-all' => 'View All',
