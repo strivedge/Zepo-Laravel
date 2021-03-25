@@ -98,62 +98,70 @@
                             <div class="right col-md-12 col-xl-7">
                                 {{-- product-info-section --}}
                                 <div class="info">
-                                    <h2 class="col-lg-12 no-padding product-name">{{ $product->name }}</h2>
-
-                                    <div class="col-lg-12 no-padding">
-                                        <label>{{ __('shop::app.products.brand') }} </label>
-                                        <a href="{{ route('brand-products', [$product->brand_slug]) }}">{{ $product->brand_name }}</a>
-                                    </div>
-
-                                    @if ($total)
-                                        <div class="reviews col-lg-12">
-                                            <star-ratings
-                                                push-class="mr5"
-                                                :ratings="{{ $avgStarRating }}"
-                                            ></star-ratings>
-
-                                            <div class="reviews">
-                                                <span>
-                                                    {{ __('shop::app.reviews.ratingreviews', [
-                                                        'rating' => $avgRatings,
-                                                        'review' => $total])
-                                                    }}
-                                                </span>
+                                    <div class="name-brand-reviews">
+                                        <h2 class="product-name">{{ $product->name }}</h2>
+                                        <div class="rows">
+                                            <div class="product-brand-name">
+                                                <label>{{ __('shop::app.products.brand') }} </label>
+                                                <a href="{{ route('brand-products', [$product->brand_slug]) }}">{{ $product->brand_name }}</a>
                                             </div>
-                                        </div>
-                                    @endif
 
-                                    <div class="col-12 price"><label>Price:&nbsp;</label>
+                                            @if ($total)
+                                                <div class="reviews">
+                                                    <star-ratings
+                                                        push-class="mr5"
+                                                        :ratings="{{ $avgStarRating }}"
+                                                    ></star-ratings>
+
+                                                    <div class="reviews">
+                                                        <span>
+                                                            {{ __('shop::app.reviews.ratingreviews', [
+                                                                'rating' => $avgRatings,
+                                                                'review' => $total])
+                                                            }}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-12 price no-padding">
                                         @include ('shop::products.price', ['product' => $product])
                                     </div>
-
-                                    @include ('shop::products.view.stock', ['product' => $product])
-
-                                    <div class="product-actions">
-                                        @include ('shop::products.detail-add-to-cart', [
-                                            'form' => false,
-                                            'product' => $product,
-                                            'showCartIcon' => false,
-                                            'showCompare' => core()->getConfigData('general.content.shop.compare_option') == "1" ? true : false,
-                                        ])
-
+                                    <div class="stocks-label"><label>status:&nbsp;</label> 
+                                        @include ('shop::products.view.stock', ['product' => $product])
                                     </div>
 
-                                    <div class="col-12">
+                                    <div class="col-12 check-availability">
                                         @include ('shop::products.view.check-availability')
                                     </div>
 
-                                    {!! view_render_event('bagisto.shop.products.view.quantity.before', ['product' => $product]) !!}
+                                    <div class="quality-product-action">
+                                        {!! view_render_event('bagisto.shop.products.view.quantity.before', ['product' => $product]) !!}
 
-                                    @if ($product->getTypeInstance()->showQuantityBox())
-                                        <div>
-                                            <quantity-changer></quantity-changer>
+                                        @if ($product->getTypeInstance()->showQuantityBox())
+                                           
+                                                <quantity-changer></quantity-changer>
+                                            
+                                        @else
+                                            <input type="hidden" name="quantity" value="1">
+                                        @endif
+
+                                        {!! view_render_event('bagisto.shop.products.view.quantity.after', ['product' => $product]) !!}
+                                        <div class="product-actions">
+                                            @include ('shop::products.detail-add-to-cart', [
+                                                'form' => false,
+                                                'product' => $product,
+                                                'showCartIcon' => false,
+                                                'showCompare' => core()->getConfigData('general.content.shop.compare_option') == "1" ? true : false,
+                                            ])
+
                                         </div>
-                                    @else
-                                        <input type="hidden" name="quantity" value="1">
-                                    @endif
+                                    </div>
 
-                                    {!! view_render_event('bagisto.shop.products.view.quantity.after', ['product' => $product]) !!}
+                                    
+
+                                    
 
                                     <div class="product-code"><label>{{ __('shop::app.products.sku') }} </label>{{$product->sku}}</div>
 

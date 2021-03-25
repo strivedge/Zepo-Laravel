@@ -8,7 +8,10 @@
 {!! view_render_event('bagisto.shop.products.view.gallery.before', ['product' => $product]) !!}
 
     <div class="product-image-group">
-        <div class="row col-12">
+        <div class="col-3"><!-- row  -->
+            <product-gallery></product-gallery>
+        </div>
+        <div class="col-9"><!-- row  -->
         
             <magnify-image src="{{ $images[0]['large_image_url'] }}" v-if="!isMobile()">
             </magnify-image>
@@ -23,16 +26,14 @@
                 src="{{ $images[0]['large_image_url'] }}" />
         </div>
 
-        <div class="row col-12">
-            <product-gallery></product-gallery>
-        </div>
+        
 
     </div>
 
 {!! view_render_event('bagisto.shop.products.view.gallery.after', ['product' => $product]) !!}
 
 <script type="text/x-template" id="product-gallery-template">
-    <ul class="thumb-list col-12 row ltr" type="none">
+    <ul class="thumb-list col-12ltr" type="none">
         <li class="arrow left" @click="scroll('prev')" v-if="thumbs.length > 4">
             <i class="rango-arrow-left fs24"></i>
         </li>
