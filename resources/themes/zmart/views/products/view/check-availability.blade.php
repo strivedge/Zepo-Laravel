@@ -1,12 +1,12 @@
-<div class="col-6">
+
 	<label>{{ __('shop::app.products.check-availability') }}</label>
 	<div class="row">
-		<input type="number" name="zipcode" class="control" id="zipcode" placeholder="{{ __('shop::app.products.zip-placeholder') }}" style="display:inline-block;width:50%;">
-		<input type="button" class="theme-btn" id="check" value="{{ __('shop::app.products.check-now') }}" style="display:inline-block;width:auto;">
-		<span id="success" style="color: #b1cc1e;"></span>
-		<span id="errors" style="color: #ff0000;"></span>
+		<input type="number" name="zipcode" class="control" id="zipcode" placeholder="{{ __('shop::app.products.zip-placeholder') }}">
+		<input type="button" class="theme-btn" id="check" value="{{ __('shop::app.products.check-now') }}">
+		<span id="success"></span>
+		<span id="errors"></span>
 	</div>
-</div>
+
 
 <script type="text/javascript">
 $(document).ready(function() {

@@ -1,6 +1,6 @@
 {!! view_render_event('bagisto.shop.products.add_to_cart.before', ['product' => $product]) !!}
 
-    <div class="mx-0 no-padding">
+    <div class="col-12 no-padding">
         <div class="buttons">
             <!-- <div class="quick-view-in-list quick-view btn btn-primary">
                     <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn>
