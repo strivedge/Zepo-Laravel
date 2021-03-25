@@ -100,6 +100,11 @@
                                 <div class="info">
                                     <h2 class="col-lg-12 no-padding product-name">{{ $product->name }}</h2>
 
+                                    <div class="col-lg-12 no-padding">
+                                        <label>{{ __('shop::app.products.brand') }} </label>
+                                        <a href="{{ route('brand-products', [$product->brand_slug]) }}">{{ $product->brand_name }}</a>
+                                    </div>
+
                                     @if ($total)
                                         <div class="reviews col-lg-12">
                                             <star-ratings
