@@ -371,24 +371,36 @@ class ProductRepository extends Repository
             return $query->distinct()
                 ->addSelect('product_flat.*')
                 ->addSelect('products.catalog', 'products.datasheet')
-                ->addSelect('product_categories.category_id as category_id', 'category_translations.name as category_name', 'category_translations.url_path as category_url_path')
                 ->addSelect('product_attribute_values.integer_value', 'attribute_options.admin_name as brand_name', 'attribute_options.option_slug as brand_slug')
                 ->leftJoin('products', 'product_flat.product_id', '=', 'products.id')
-                ->leftJoin('product_categories', 'product_flat.product_id', '=', 'product_categories.product_id')
-                ->leftJoin('category_translations', 'product_categories.category_id', '=', 'category_translations.category_id')
-                ->leftJoin('product_attribute_values',function ($join) {
-                $join->on('product_attribute_values.product_id', '=' , 'product_flat.product_id') ;
+                ->leftJoin('product_attribute_values', function ($join) {
+                $join->on('product_attribute_values.product_id', '=' , 'product_flat.product_id');
                 $join->where('product_attribute_values.integer_value','!=',null);
                 $join->where('product_attribute_values.attribute_id','=', 25);
             })
-                ->leftJoin('attribute_options',function ($join) {
-                $join->on('attribute_options.id', '=' , 'product_attribute_values.integer_value') ;
+                ->leftJoin('attribute_options', function ($join) {
+                $join->on('attribute_options.id', '=' , 'product_attribute_values.integer_value');
                 $join->where('attribute_options.attribute_id','=', 25);
             })
                 ->where('url_key', $slug)
                 ->where('product_flat.channel', $channel)
                 ->where('product_flat.locale', $locale);
         })->first();
+
+        $multiCategory = DB::table('product_flat')->distinct()
+            ->addSelect('product_categories.category_id', 'product_categories.product_id', 'category_translations.name as category_name', 'category_translations.url_path as category_url_path')
+            ->leftJoin('product_categories', function ($join) {
+                $join->on('product_categories.product_id', '=' , 'product_flat.product_id');
+                $join->where('product_categories.category_id','!=', 1);
+            })
+            ->leftJoin('category_translations', function ($join) {
+                $join->on('category_translations.category_id', '=' , 'product_categories.category_id');
+            })
+            ->where('url_key', $slug)
+            ->groupBy('category_translations.category_id')
+            ->get();
+
+        $results->categories = $multiCategory;
 
         return $results;
     }
