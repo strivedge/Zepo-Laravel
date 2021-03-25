@@ -118,17 +118,26 @@
                                         </div>
                                     @endif
 
+                                    <div class="col-12 price"><label>Price:&nbsp;</label>
+                                        @include ('shop::products.price', ['product' => $product])
+                                    </div>
+
                                     @include ('shop::products.view.stock', ['product' => $product])
-                                    <div class="product-code"><label>{{ __('shop::app.products.sku') }} </label>{{$product->sku}}</div>
+
+                                    <div class="product-actions">
+                                        @include ('shop::products.detail-add-to-cart', [
+                                            'form' => false,
+                                            'product' => $product,
+                                            'showCartIcon' => false,
+                                            'showCompare' => core()->getConfigData('general.content.shop.compare_option') == "1" ? true : false,
+                                        ])
+
+                                    </div>
 
                                     <div class="col-12">
                                         @include ('shop::products.view.check-availability')
                                     </div>
 
-                                    <div class="col-12 price"><label>Price:&nbsp;</label>
-                                        @include ('shop::products.price', ['product' => $product])
-                                    </div>
-                                    
                                     {!! view_render_event('bagisto.shop.products.view.quantity.before', ['product' => $product]) !!}
 
                                     @if ($product->getTypeInstance()->showQuantityBox())
@@ -141,15 +150,13 @@
 
                                     {!! view_render_event('bagisto.shop.products.view.quantity.after', ['product' => $product]) !!}
 
-                                    <div class="product-actions">
-                                        @include ('shop::products.detail-add-to-cart', [
-                                            'form' => false,
-                                            'product' => $product,
-                                            'showCartIcon' => false,
-                                            'showCompare' => core()->getConfigData('general.content.shop.compare_option') == "1" ? true : false,
-                                        ])
+                                    <div class="product-code"><label>{{ __('shop::app.products.sku') }} </label>{{$product->sku}}</div>
 
+                                    <div class="col-12">
+                                        <label>{{ __('shop::app.products.category') }} </label>
+                                        <a href="{{ route('shop.productOrCategory.index', [$product->category_url_path]) }}">{{$product->category_name}}</a>
                                     </div>
+
                                 </div>
 
                                 {!! view_render_event('bagisto.shop.products.view.short_description.before', ['product' => $product]) !!}

@@ -371,7 +371,10 @@ class ProductRepository extends Repository
             return $query->distinct()
                 ->addSelect('product_flat.*')
                 ->addSelect('products.catalog', 'products.datasheet')
+                ->addSelect('product_categories.category_id as category_id', 'category_translations.name as category_name', 'category_translations.url_path as category_url_path')
                 ->leftJoin('products', 'product_flat.product_id', '=', 'products.id')
+                ->leftJoin('product_categories', 'product_flat.product_id', '=', 'product_categories.product_id')
+                ->leftJoin('category_translations', 'product_categories.category_id', '=', 'category_translations.category_id')
                 ->where('url_key', $slug)
                 ->where('product_flat.channel', $channel)
                 ->where('product_flat.locale', $locale);

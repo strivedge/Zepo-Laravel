@@ -14,10 +14,13 @@ $(document).ready(function() {
 		var zipcode = $("#zipcode").val();
 		if(zipcode.length == 0) {
 			$("#errors").html("{{ __('shop::app.products.zip-placeholder') }}");
+			$("#success").html("");
 		} else if(zipcode.length <= 5) {
 			$("#errors").html("{{ __('shop::app.products.lessthan-six-error') }}");
+			$("#success").html("");
 		} else if(zipcode.length > 10) {
 			$("#errors").html("{{ __('shop::app.products.greaterthan-ten-error') }}");
+			$("#success").html("");
 		} else {
 			var testUrl = "{{ URL::to('/') }}/check-zipcodes/"+zipcode;
 			$("#errors").html("");
@@ -31,7 +34,8 @@ $(document).ready(function() {
 					if(response.data.length == 0) {
 						$("#success").html("{{ __('shop::app.products.zip-success') }}"+zipcode);
 					} else {
-						$("#success").html("{{ __('shop::app.products.zip-not-provide') }}"+zipcode);
+						$("#errors").html("{{ __('shop::app.products.zip-not-provide') }}"+zipcode);
+						$("#success").html("");
 					}
 			    }
 			});

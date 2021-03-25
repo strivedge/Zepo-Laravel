@@ -546,6 +546,8 @@ return [
         'zip-not-provide' => 'Service not available @',
         'check-now' => 'Check now',
         'no-products-available' => 'No products available',
+        'category' => 'Category:',
+        'brand' => 'Brand:',
     ],
 
     // 'reviews' => [
