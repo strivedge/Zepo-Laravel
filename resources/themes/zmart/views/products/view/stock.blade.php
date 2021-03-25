@@ -1,6 +1,6 @@
 {!! view_render_event('bagisto.shop.products.view.stock.before', ['product' => $product]) !!}
 
-<div class="col-12 availability">
+<div class="availability"><!-- col-12  -->
     <button
         type="button"
         class="{{! $product->haveSufficientQuantity(1) ? '' : 'active' }} disable-box-shadow">
