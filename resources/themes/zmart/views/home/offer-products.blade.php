@@ -10,22 +10,29 @@
                         {{ $festival[0]->short_desc }}<br/>
                         {{ $festival[0]->long_desc }}<br/>
                         <a href="#" class="promotion btn btn-primary">{{ __('festival::app.festival.more-about-promotion') }}</a></p>
-        @php $end_date = $festival[0]->end_date.' '.'23:59:59'; @endphp
-            <div class="timers">
-                <div class="jumbotron countdown show" data-Date='{{ $end_date }}'>
-                    <div class="running">
-                        <timer>
-                          <span class="days"></span>:<span class="hours"></span>:<span class="minutes"></span>:<span class="seconds"></span>
-                        </timer>
-                        <div class="break"></div>
-                        <div class="labels">
-                          <span>Days</span><span>Hours</span><span>Minutes</span><span>Seconds</span>
+
+                    @php $end_date = $festival[0]->end_date.' '.'00:00:00'; @endphp
+
+                
+                    <div class="countdown show" data-Date='{{ $end_date }}'>
+                        <div class="running">
+                            <timer class="imgs">
+                             <div class="common-timing"> <div class="days timings"></div><span>Days</span></div><span class="colon">:</span>
+                             <div class="common-timing"> <div class="hours timings"></div><span>hours</span></div><span class="colon">:</span>
+                             <div class="common-timing"> <div class="minutes timings"></div><span>minutes</span></div><span class="colon">:</span>
+                             <div class="common-timing"> <div class="seconds timings"></div><span>seconds</span></div>
+                           
+                            </timer>
+                            <div class="break"></div>
+                           
+                        </div>
                     </div>
-                </div>
-                <a href="#" class="active-promotion btn btn-primary">
-                    {{ __('festival::app.festival.active-promotions') }}<span><i class="bx bx-right-arrow-alt"></i></span>
-                </a>
-            </div>
+                        
+                    
+                    <a href="#" class="active-promotion btn btn-primary">
+                        {{ __('festival::app.festival.active-promotions') }}<span><i class="bx bx-right-arrow-alt"></i></span>
+                    </a>
+                    </div>
                 </div>
 
                 <div class="featured-grid product-grid-4 col-md-12 col-lg-9">
@@ -39,31 +46,3 @@
         </div>
     </section>
 @endif
-
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-36251023-1']);
-  _gaq.push(['_setDomainName', 'jqueryscript.net']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-<script>
-    try {
-      fetch(new Request("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", { method: 'HEAD', mode: 'no-cors' })).then(function(response) {
-        return true;
-      }).catch(function(e) {
-        var carbonScript = document.createElement("script");
-        carbonScript.src = "//cdn.carbonads.com/carbon.js?serve=CK7DKKQU&placement=wwwjqueryscriptnet";
-        carbonScript.id = "_carbonads_js";
-        document.getElementById("carbon-block").appendChild(carbonScript);
-      });
-    } catch (error) {
-      console.log(error);
-    }
-</script>
