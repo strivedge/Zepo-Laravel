@@ -16,19 +16,11 @@
 {!! view_render_event('bagisto.shop.products.review.before', ['product' => $product]) !!}
 
     @if ($total)
-        @if (isset($accordian) && $accordian)
-            <accordian :active="true">
-                {{-- customer ratings --}}
-                <div slot="header" class="col-lg-12 no-padding">
-                    <h3 class="display-inbl">
-                        {{ __('velocity::app.products.customer-rating') }}
-                    </h3>
+        @if (isset($tab) && $tab)
+            
 
-                    <i class="rango-arrow"></i>
-                </div>
-
-                <div class="row customer-rating" slot="body">
-                    <div class="row full-width text-center mb30">
+                <div class="customer-rating"><!-- row  -->
+                    <div class="row full-width"><!--  text-center mb30  -->
                         <div class="col-lg-12 col-xl-6">
                             <h4 class="col-lg-12 fs16">{{ $avgRatings }} {{ __('shop::app.reviews.star') }}</h4>
 
@@ -69,10 +61,10 @@
                         </div>
                     </div>
                 </div>
-            </accordian>
+           
         @else
-            <div class="row customer-rating">
-                <div class="row full-width text-center mb30">
+            <div class="customer-rating"><!-- row  -->
+                <div class="full-width text-center mb30"><!-- row  -->
                     <div class="col-lg-12 col-xl-6">
                         <h3 class="col-lg-12">{{ $avgRatings }} {{ __('shop::app.reviews.star') }}</h3>
 
@@ -115,18 +107,11 @@
             </div>
         @endif
 
-        @if (isset($accordian) && $accordian)
-            <accordian :title="'{{ __('shop::app.products.total-reviews') }}'" :active="true">
-                {{-- customer reviews --}}
-                <div slot="header" class="col-lg-12 no-padding">
-                    <h3 class="display-inbl">
-                        {{ __('velocity::app.products.reviews-title') }}
-                    </h3>
 
-                    <i class="rango-arrow"></i>
-                </div>
+        @if (isset($tab) && $tab)
+           
 
-                <div class="customer-reviews" slot="body">
+                <div class="customer-reviews">
                     @foreach ($reviewHelper->getReviews($product)->paginate(10) as $review)
                         <div class="row">
                             <h4 class="col-lg-12 fs18">{{ $review->title }}</h4>
@@ -152,13 +137,13 @@
                             </div>
                         </div>
                     @endforeach
-
+                    <div class="view-all-reviews">
                     <a
                         href="{{ route('shop.reviews.index', ['slug' => $product->url_key ]) }}"
                         class="mb20 link-color"
-                    >{{ __('velocity::app.products.view-all-reviews') }}</a>
+                    ><button type="button" class="theme-btn light">{{ __('velocity::app.products.view-all-reviews') }}</button></a>
                 </div>
-            </accordian>
+           
         @else
             <h3 class="display-inbl mb20 col-lg-12 no-padding">
                 {{ __('velocity::app.products.reviews-title') }}
