@@ -66,6 +66,11 @@
             src="{{ asset('themes/zmart/assets/js/jquery.ez-plus.js') }}">
         </script> 
 
+        <script
+            type="text/javascript"
+            src="{{ asset('themes/zmart/assets/js/multi-countdown.js') }}">
+        </script>
+
         @yield('head')
 
         @section('seo')
