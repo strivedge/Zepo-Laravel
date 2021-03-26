@@ -1514,10 +1514,10 @@ header .navbar--addcart--wishlist .mini-cart-container .card-body a { display: i
 .product-detail .right label { /*font-weight: 400;*/font-weight: 500; }
 .product-detail .right label.required:after { margin-left: 5px; }
 .product-detail .right .info .name-brand-reviews .rows { display:flex;align-items: center;padding-bottom: 10px; }
-.product-detail .right .product-brand-name { border-right: 1px solid #ccc;padding: 0px 10px 0px 0px; }
+.product-detail .right .product-brand-name { /*border-right: 1px solid #ccc;*/padding: 0px 10px 0px 0px; }
 .product-detail .right .product-brand-name a { text-decoration: underline; color: #B1CC1E; }
 .product-detail .right .info .name-brand-reviews { border-bottom: 1px solid #ccc; }
-.product-detail .right .info .name-brand-reviews .rows .reviews { padding-left: 10px; }
+.product-detail .right .info .name-brand-reviews .rows .reviews .stars { border-left: 1px solid #ccc; padding-left: 10px; }
 
 .product-detail .right .info .availability button.active { /*background: #274985;*/background: unset;color: #274985; }
 .product-detail .right .info .availability button { /*background: #B1CC1E;*/background: unset;color: #B1CC1E;padding-left: 0; }
