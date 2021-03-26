@@ -164,6 +164,16 @@
                                 <div class="product-code-category">
                                     <div class="product-code"><label>{{ __('shop::app.products.sku') }} </label>{{$product->sku}}</div>
 
+                            <!-- for empty categories -->
+                            @foreach($product->categories as $category)
+                                @if($category->category_url_path != null)
+                                    @php $flag = 1; @endphp
+                                @else
+                                    @php $flag = 0; @endphp
+                                @endif
+                            @endforeach
+
+                                @if($flag == 1)
                                     <div class="category">
                                         <label>{{ __('shop::app.products.category') }} </label>
 
@@ -171,6 +181,7 @@
                                         <a href="{{ route('shop.productOrCategory.index', [$category->category_url_path]) }}">{{$category->category_name}}</a>,
                                     @endforeach
                                     </div>
+                                @endif
                                 </div>
 
                                 </div>
@@ -202,30 +213,17 @@
                                     'active' => true
                                 ])
 
-                                
+                                {{-- product long description --}}
+                                @include ('shop::products.view.description')
+
+                                {{-- reviews count --}}
+                                @include ('shop::products.view.reviews', ['accordian' => true])
                             </div>
                         </div>
                     </product-view>
                 </div>
             </section>
-            <div class="product-tabbing">
-               
-                <ul class="nav nav-tabs">
-                  <li class="active"><a data-toggle="tab" href="#description">{{ __('velocity::app.products.details') }}</a></li>
-                  <li><a data-toggle="tab" href="#reviews"> {{ __('velocity::app.products.reviews-title') }}</a></li>
-                  
-                </ul>
-                        
-                <div class="tab-content">
-                  <div id="description" class="tab-pane  in active">
-                    @include ('shop::products.view.description')
-                  </div>
-                  <div id="reviews" class="tab-pane">
-                    @include ('shop::products.view.reviews', ['tab' => true])
-                  </div>
-                  
-                </div>
-            </div>
+
             <div class="related-products">
                 @include('shop::products.view.related-products')
                 @include('shop::products.view.up-sells')

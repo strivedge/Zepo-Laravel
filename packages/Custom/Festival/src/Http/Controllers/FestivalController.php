@@ -67,19 +67,13 @@ class FestivalController extends Controller
 
         $this->validate(request(), [
             'title' => 'required',
-            'short_desc' => 'required|max:3',
+            'short_desc' => 'required',
             'long_desc' => 'required',
             'image' => 'required|mimes:jpeg,jpg,png,bmp,svg',
             'status' => 'required',
             'start_date' => 'required',
             'end_date' => 'required'
         ]);
-
-        if ($validator->fails()) 
-        {
-            $errors = $validator->errors();
-            return redirect()->back()->withErrors($errors);
-        }
 
         $data = ['title' => $req['title'],
                 'short_desc' => $req['short_desc'],
@@ -170,12 +164,6 @@ class FestivalController extends Controller
             'start_date' => 'required',
             'end_date' => 'required'
         ]);
-            
-        if ($validator->fails()) 
-        {
-            $errors = $validator->errors();
-            return redirect()->back()->withErrors($errors);
-        }
 
         $data = ['title' => $req['title'],
                 'short_desc' => $req['short_desc'],
@@ -191,8 +179,6 @@ class FestivalController extends Controller
         else {
             $data['up_sell'] = [];
         }
-
-        //echo"<pre>"; print_r($data);exit();
 
         $old_data = $this->festivalRepository->findById($id);
 
