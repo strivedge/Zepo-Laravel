@@ -17,13 +17,36 @@
                     <div class="countdown show" data-Date='{{ $end_date }}'>
                         <div class="running">
                             <timer class="imgs">
-                             <div class="common-timing"> <div class="days timings"></div><span>Days</span></div><span class="colon">:</span>
-                             <div class="common-timing"> <div class="hours timings"></div><span>hours</span></div><span class="colon">:</span>
-                             <div class="common-timing"> <div class="minutes timings"></div><span>minutes</span></div><span class="colon">:</span>
-                             <div class="common-timing"> <div class="seconds timings"></div><span>seconds</span></div>
+                            <div class="common-timing"> 
+                                <div class="daysC1 timings"></div>
+                                <div class="daysC2 timings"></div>
+                                <span>Days</span>
+                            </div>
+                            <span class="colon">:</span>
+                            <div class="common-timing">
+                                <div class="hoursC1 timings"></div>
+                                <div class="hoursC2 timings"></div>
+                                <span>hours</span>
+                            </div>
+                            <span class="colon">:</span>
+                             <div class="common-timing">
+                                <div class="minutesC1 timings"></div>
+                                <div class="minutesC2 timings"></div>
+                                <span>minutes</span>
+                            </div>
+                            <span class="colon">:</span>
+                             <div class="common-timing">
+                                <div class="secondsC1 timings"></div>
+                                <div class="secondsC2 timings"></div>
+                                <span>seconds</span>
+                            </div>
                            
                             </timer>
                             <div class="break"></div>
+                        <div class="ended">
+                            <div class="text">Offer is ended</div>
+                            <div class="break"></div>
+                        </div>
                            
                         </div>
                     </div>

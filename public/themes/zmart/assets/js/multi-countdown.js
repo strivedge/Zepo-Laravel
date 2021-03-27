@@ -151,19 +151,32 @@ $(function () {
             //replace text with or without extra class
 
             //whith extras Class
+            let stdays = dif[0].split("");
+            let sthr = dif[1].split("");
+            let stmin = dif[2].split("");
+            let stsec = dif[3].split("");
+
             if ($('.' + extraClass + ' ' + runningClass + ' timer').length) {
-                $('.' + extraClass + ' ' + runningClass + ' timer .days').text(dif[0]);
-                $('.' + extraClass + ' ' + runningClass + ' timer .hours').text(dif[1]);
-                $('.' + extraClass + ' ' + runningClass + ' timer .minutes').text(dif[2]);
-                $('.' + extraClass + ' ' + runningClass + ' timer .seconds').text(dif[3]);
+                $('.' + extraClass + ' ' + runningClass + ' timer .daysC1').text(stdays[0]);
+                $('.' + extraClass + ' ' + runningClass + ' timer .daysC2').text(stdays[1]);
+                $('.' + extraClass + ' ' + runningClass + ' timer .hoursC1').text(sthr[0]);
+                $('.' + extraClass + ' ' + runningClass + ' timer .hoursC2').text(sthr[1]);
+                $('.' + extraClass + ' ' + runningClass + ' timer .minutesC1').text(stmin[0]);
+                $('.' + extraClass + ' ' + runningClass + ' timer .minutesC2').text(stmin[1]);
+                $('.' + extraClass + ' ' + runningClass + ' timer .secondsC1').text(stsec[0]);
+                $('.' + extraClass + ' ' + runningClass + ' timer .secondsC2').text(stsec[1]);
 
             } else {
 
                 //replace parts without extra Class
-                text = text.replace('(days)', dif[0]);
-                text = text.replace('(hours)', dif[1]);
-                text = text.replace('(minutes)', dif[2]);
-                text = text.replace('(seconds)', dif[3]);
+                text = text.replace('(daysC1)', stdays[0]);
+                text = text.replace('(daysC2)', stdays[1]);
+                text = text.replace('(hoursC1)', sthr[0]);
+                text = text.replace('(hoursC2)', sthr[1]);
+                text = text.replace('(minutesC1)', stmin[0]);
+                text = text.replace('(minutesC2)', stmin[1]);
+                text = text.replace('(secondsC1)', stsec[0]);
+                text = text.replace('(secondsC2)', stsec[1]);
                 $('.' + extraClass).text(text);
             }
             pluralization(extraClass, dif);
