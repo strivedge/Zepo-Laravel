@@ -11,20 +11,56 @@
                         {{ $festival[0]->long_desc }}<br/>
                         <a href="#" class="promotion btn btn-primary">{{ __('festival::app.festival.more-about-promotion') }}</a></p>
 
-                    @php $end_date = $festival[0]->end_date.' '.'00:00:00'; @endphp
+                    @php $end_date = $festival[0]->end_date.' '.'02:30:00'; @endphp
 
                 
                     <div class="countdown show" data-Date='{{ $end_date }}'>
                         <div class="running">
                             <timer class="imgs">
-                             <div class="common-timing"> <div class="days timings"></div><span>Days</span></div><span class="colon">:</span>
-                             <div class="common-timing"> <div class="hours timings"></div><span>hours</span></div><span class="colon">:</span>
-                             <div class="common-timing"> <div class="minutes timings"></div><span>minutes</span></div><span class="colon">:</span>
-                             <div class="common-timing"> <div class="seconds timings"></div><span>seconds</span></div>
+                                <div class="common-timing"> 
+                                    <div class="timings">
+                                        <span class="daysC1"></span>
+                                        <span class="daysC2"></span>
+                                    </div>
+                                    <span class="common-timing-text">Days</span>
+                                </div>
+                                <span class="colon">:</span>
+                                <div class="common-timing">
+                                    <div class="timings">
+                                        <span class="hoursC1"></span>
+                                        <span class="hoursC2"></span>
+                                    </div>
+                                    <span class="common-timing-text">hours</span>
+                                </div>
+                                <span class="colon">:</span>
+                                <div class="common-timing">
+                                    <div class="timings">
+                                        <span class="minutesC1"></span>
+                                        <span class="minutesC2"></span>
+                                    </div>
+                                    <span class="common-timing-text">minutes</span>
+                                </div>
+                                <span class="colon">:</span>
+                                <div class="common-timing">
+                                    <div class="timings-seconds">
+                                        <span class="timings">
+                                            <span class="secondsC1"></span>
+                                        </span>
+                                        <span class="timings">
+                                            <span class="secondsC2"></span>
+                                        </span>
+                                    </div>
+                                    <span class="common-timing-text">seconds</span>
+                                </div>
                            
                             </timer>
                             <div class="break"></div>
+        
                            
+                        </div>
+                        <div class="ended">
+                            <span class="text">Offer is ended</span>
+                            <div class="break"></div>
                         </div>
                     </div>
                         

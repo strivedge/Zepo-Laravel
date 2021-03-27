@@ -54,7 +54,7 @@
                                         <div style="width: {{ $percentageRatings[$i] }}%"></div>
                                     </div>
 
-                                    <span class="col-2 no-padding fs16">{{ $percentageRatings[$i] }} %</span>
+                                    <span class="col-2 no-padding fs16 reviews-percentage">{{ $percentageRatings[$i] }} %</span>
                                 </div>
                             @endfor
 
