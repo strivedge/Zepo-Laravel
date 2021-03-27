@@ -984,30 +984,59 @@ class ProductRepository extends Repository
 
     public function getFestivalProducts()
     {
+       
+
           $results = app(ProductFlatRepository::class)->scopeQuery(function ($query) {
             $channel = request()->get('channel') ?: (core()->getCurrentChannelCode() ?: core()->getDefaultChannelCode());
 
             $locale = request()->get('locale') ?: app()->getLocale();
+
+            $product_ids_arr = [];
+            $now = Carbon::now();
+            $dt = Carbon::now();
+            $dt = $dt->toDateString();
+
+            $product_ids = DB::table('master_festival')
+                    ->leftJoin('master_festival_products', 'master_festival.id', 'master_festival_products.parent_id')
+                   // ->leftJoin('product_flat', 'product_flat.product_id', 'master_festival_products.product_id')
+                    ->select(DB::raw('group_concat(master_festival_products.product_id) as product_ids'))
+                    //->select('product_flat.*','master_festival.title','master_festival.short_desc','master_festival.long_desc','master_festival.start_date','master_festival.end_date','master_festival.image')
+                    ->whereDate('master_festival.start_date', '<=', $dt)
+                    ->whereDate('master_festival.end_date', '>=', $dt)
+                    ->where('master_festival.status', 1)
+                    //->where('product_flat.status', 1)
+                    //->groupBy('product_flat.product_id')
+                    ->first();
+                
+
+                if (isset($product_ids) && !empty($product_ids) && !empty($product_ids->product_ids)) {
+                    $product_ids_arr = explode(',', $product_ids->product_ids);
+                }
+
+               
+                //echo $dt.":data<pre>"; print_r($product_ids_arr);exit();
 
             return $query->distinct()
                 ->leftJoin('master_festival_products', 'product_flat.product_id', 'master_festival_products.product_id')
                 ->leftJoin('master_festival', 'product_flat.product_id', 'master_festival_products.product_id')
                 ->select('product_flat.*','master_festival.title','master_festival.short_desc','master_festival.long_desc','master_festival.start_date','master_festival.end_date','master_festival.image')
                 ->where('master_festival.status', 1)
+                //->where('master_festival.id', $data->id)
+                ->whereIn('product_flat.product_id',$product_ids_arr)
                 ->where('product_flat.status', 1)
                 ->where('product_flat.visible_individually', 1)
                 ->where('product_flat.channel', $channel)
                 ->where('product_flat.locale', $locale)
-                //->where('master_festival.start_date', '>=', $this->startDate)
+                ->where('master_festival.start_date', '<=', $now)
                 //->where('master_festival.end_date', '<=', $this->endDate)
-                //->where('master_festival.end_date', '>=', \DB::raw('NOW()'))
+                ->where('master_festival.end_date', '>=', $now)
                 ->whereNotNull('product_flat.url_key')
                 ->groupBy('master_festival_products.product_id');
                // ->inRandomOrder();
                 //->get();
         })->paginate(12);
 
-        //echo"<pre>";print_r($results);exit();
+        //echo"Festival product <pre>";print_r($results);exit();
 
         return $results;
     }
