@@ -22,7 +22,7 @@
                                         <span class="daysC1"></span>
                                         <span class="daysC2"></span>
                                     </div>
-                                    <span class="common-timing-text">Days</span>
+                                    <span class="common-timing-text">days</span>
                                 </div>
                                 <span class="colon">:</span>
                                 <div class="common-timing">
