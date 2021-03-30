@@ -40,6 +40,15 @@ Route::group(['middleware' => ['web']], function () {
                 Route::post('/meta-data/{id}', 'ConfigurationController@storeMetaData')->defaults('_config', [
                     'redirect' => 'velocity.admin.meta-data'
                 ])->name('velocity.admin.store.meta-data');
+
+                Route::get('/tabsection', 'TabSectionController@edit')->defaults('_config', [
+                    'view' => 'velocity::admin.tabsection.edit'
+                ])->name('velocity.admin.tabsection.edit');
+
+                Route::post('/tabsection/save', 'TabSectionController@store')->defaults('_config', [
+                    'redirect' => 'velocity.admin.tabsection.edit'
+                ])->name('velocity.admin.tabsection.save');
+
             });
         });
     });

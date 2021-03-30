@@ -19,5 +19,11 @@ return [
         'route'      => 'velocity.admin.content.index',
         'sort'       => 2,
         'icon-class' => '',
+    ], [
+        'key'        => 'velocity.tabsection',
+        'name'       => 'velocity::app.admin.layouts.tab-section',
+        'route'      => 'velocity.admin.tabsection.edit',
+        'sort'       => 3,
+        'icon-class' => '',
     ],
 ];
