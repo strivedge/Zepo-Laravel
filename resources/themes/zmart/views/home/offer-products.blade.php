@@ -4,14 +4,19 @@
         <div class="container">
             <div class="salesoffers-addtocart">
                 <div class="col-md-12 col-lg-3 salesoffers">
-                    <div class="imgs"><img src="{{ asset($festival[0]->image) }}"></div>
+                    <div class="imgs">
+                        <img src="{{ asset($festival[0]->image) }}">
+                    </div>
                     <div class="salesoffers-content">
                     <p>{{ $festival[0]->title }}<br/>
-                        {{ $festival[0]->short_desc }}<br/>
-                        {{ $festival[0]->long_desc }}<br/>
-                        <a href="#" class="promotion btn btn-primary">{{ __('festival::app.festival.more-about-promotion') }}</a></p>
+                        <!-- {{ $festival[0]->short_desc }}<br/>
+                        {{ $festival[0]->long_desc }}<br/> -->
+                        <a href="{{ route('shop.home.offer-products-detail') }}" class="promotion btn btn-primary">
+                            {{ __('festival::app.festival.more-about-promotion') }}
+                        </a>
+                    </p>
 
-                    @php $end_date = $festival[0]->end_date.' '.'02:30:00'; @endphp
+                    @php $end_date = $festival[0]->end_date.' '.'00:00:00'; @endphp
 
                 
                     <div class="countdown show" data-Date='{{ $end_date }}'>
@@ -22,7 +27,7 @@
                                         <span class="daysC1"></span>
                                         <span class="daysC2"></span>
                                     </div>
-                                    <span class="common-timing-text">Days</span>
+                                    <span class="common-timing-text">days</span>
                                 </div>
                                 <span class="colon">:</span>
                                 <div class="common-timing">
@@ -59,13 +64,13 @@
                            
                         </div>
                         <div class="ended">
-                            <span class="text">Offer is ended</span>
+                            <span class="text">{{ __('festival::app.festival.offer-ended') }}</span>
                             <div class="break"></div>
                         </div>
                     </div>
                         
                     
-                    <a href="#" class="active-promotion btn btn-primary">
+                    <a href="{{ route('shop.home.offer-products-view') }}" class="active-promotion btn btn-primary">
                         {{ __('festival::app.festival.active-promotions') }}<span><i class="bx bx-right-arrow-alt"></i></span>
                     </a>
                     </div>

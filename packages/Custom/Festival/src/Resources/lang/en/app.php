@@ -35,5 +35,6 @@ return [
             'festival_product' => 'Products',
             'more-about-promotion' => 'More about promotion',
             'active-promotions' => 'Active promotions',
+            'offer-ended' => 'Offer is ended',
       ]
 ];
