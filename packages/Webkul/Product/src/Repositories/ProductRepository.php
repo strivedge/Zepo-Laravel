@@ -167,6 +167,7 @@ class ProductRepository extends Repository
     public function getAll($categoryId = null)
     {
         $params = request()->input();
+        $filterInputValues;
 
         if (core()->getConfigData('catalog.products.storefront.products_per_page')) {
             $pages = explode(',', core()->getConfigData('catalog.products.storefront.products_per_page'));
@@ -249,6 +250,7 @@ class ProductRepository extends Repository
                     request()->except(['price'])
                 ));
 
+
             if (count($attributeFilters) > 0) {
                 $qb->where(function ($filterQuery) use ($attributeFilters) {
 
@@ -257,10 +259,15 @@ class ProductRepository extends Repository
 
                             $column = DB::getTablePrefix() . 'product_attribute_values.' . ProductAttributeValueProxy::modelClass()::$attributeTypeFields[$attribute->type];
 
+
+
                             $filterInputValues = explode(',', request()->get($attribute->code));
 
+                            
                             # define the attribute we are filtering
                             $attributeQuery = $attributeQuery->where('product_attribute_values.attribute_id', $attribute->id);
+
+                          
 
                             # apply the filter values to the correct column for this type of attribute.
                             if ($attribute->type != 'price') {
@@ -310,6 +317,8 @@ class ProductRepository extends Repository
             $items = [];
         }
 
+         $data = request()->query();
+        
         $results = new LengthAwarePaginator($items, $count, $perPage, $page, [
             'path'  => request()->url(),
             'query' => request()->query(),

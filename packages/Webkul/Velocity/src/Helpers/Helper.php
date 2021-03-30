@@ -304,7 +304,7 @@ class Helper extends Review
      *
      * @return array
      */
-    public function formatProduct($product, $list = false, $metaInformation = [])
+    public function formatProduct($product, $list = false, $metaInformation = [],$attribute=[])
     {
         $reviewHelper = app('Webkul\Product\Helpers\Review');
         $productImageHelper = app('Webkul\Product\Helpers\ProductImage');
@@ -348,6 +348,7 @@ class Helper extends Review
             'shortDescription'  => $product->short_description,
             'star_icon'   => asset('/themes/zmart/assets/images/star-gray.png'),
             'baseUrl'      => url('/'),
+            'attribute'      => $attribute,
             'defaultAddToCart'  => view('shop::products.add-buttons', ['product' => $product])->render(),
             'addToCartHtml'     => view('shop::products.add-to-cart', [
                 'product'           => $product,

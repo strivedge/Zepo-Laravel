@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Webkul\Velocity\Http\Shop\Controllers;
 use Webkul\Checkout\Contracts\Cart as CartModel;
 use Cart;
+use DB;
+
 
 class ShopController extends Controller
 {
@@ -302,6 +304,29 @@ class ShopController extends Controller
     {
         $products = $this->productRepository->getAll($categoryId);
 
+        $data = request()->except(['price','mode']);
+        $attribute=[];
+        if (!empty($data)) {
+           foreach ($data as $key => $val) {
+           
+               $attr = DB::table('attributes as a')
+                       ->leftJoin('attribute_options as o','a.id','=','o.attribute_id')
+                       ->select('a.id','a.code','a.admin_name as attribute_name','o.id as option_id','o.admin_name as option_name','o.option_slug')
+                       ->where('a.code',$key)
+                       ->where('o.id',$val)
+                       ->get();
+
+                       array_push($attribute, $attr[0]);
+
+                //echo"attribute<pre>";print_r($attr);exit();
+        
+             }
+        }
+        
+
+        //echo"Colums<pre>";print_r($attribute);exit();
+
+
         $productItems = $products->items();
         $productsArray = $products->toArray();
 
@@ -309,8 +334,9 @@ class ShopController extends Controller
             $formattedProducts = [];
 
             foreach ($productItems as $product) {
-                array_push($formattedProducts, $this->velocityHelper->formatProduct($product));
+                array_push($formattedProducts, $this->velocityHelper->formatProduct($product,false,[],$attribute));
             }
+            
 
             $productsArray['data'] = $formattedProducts;
         }
