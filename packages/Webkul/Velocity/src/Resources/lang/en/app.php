@@ -45,7 +45,9 @@ return [
             'meta-data' => 'Meta Data',
             'category-menu' => 'Category Menu',
             'header-content' => 'Header Content',
+            'tab-section' => 'Tab Section',
         ],
+
         'contents'  => [
             'self' => 'Self',
             'active' => 'Active',
@@ -61,16 +63,19 @@ return [
             'no-result-found' => 'No record found.',
             'search-hint' => 'Search product here...',
             'mass-delete-success' => 'Selected content deleted successfully.',
+
             'tab' => [
                 'page' => 'Page Setting',
                 'content' => 'Content Setting',
                 'meta_content' => 'Meta Data',
             ],
+
             'page' => [
                 'title' => 'Title',
                 'status' => 'Status',
                 'position' => 'Position',
             ],
+
             'content' => [
                 'content-type' => 'Content Type',
                 'custom-title' => 'Custom Title',
@@ -90,6 +95,15 @@ return [
                 'content-type' => 'Content Type',
             ]
         ],
+
+        'tabsections' => [
+            'title' => 'Tab Section',
+            'select-category' => 'Select Categories',
+            'choose-category-for-tabs' => 'Choose Category for Tab Section',
+            'save-btn-title' => 'Save',
+            'errors-more-three' => "More than three not allowed!",
+        ],
+
         'meta-data' => [
             'footer'                    => 'Footer',
             'title'                     => 'Zepomart meta data',

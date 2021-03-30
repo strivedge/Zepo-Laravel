@@ -314,6 +314,12 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
     // ZipCode availability on product detail page
     Route::get('check-zipcodes/{zipcode}', 'Webkul\API\Http\Controllers\Shop\ZipCodeController@get')->name('shop.product.details.zipcodes');
 
+    // Festival or offer products routes
+    Route::get('more-about-promotion', 'Custom\Festival\Http\Controllers\FestivalHomeController@morePromotion')->defaults('_config', ['view' => 'shop::home.offer-products-detail'])->name('shop.home.offer-products-detail');
+
+    Route::get('active-promotion', 'Custom\Festival\Http\Controllers\FestivalHomeController@activePromotion')->defaults('_config', ['view' => 'shop::home.offer-products-view'])->name('shop.home.offer-products-view');
+
+    // category and products details route
     Route::fallback(\Webkul\Shop\Http\Controllers\ProductsCategoriesProxyController::class . '@index')
         ->defaults('_config', [
             'product_view' => 'shop::products.view',
