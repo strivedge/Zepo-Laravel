@@ -3,6 +3,9 @@
 @inject ('productImageHelper', 'Webkul\Product\Helpers\ProductImage')
 @inject ('productRatingHelper', 'Webkul\Product\Helpers\Review')
 
+<?php $getTabs = app('Webkul\Velocity\Repositories\TabSectionRepository')->getCategories(); ?>
+<?php //echo "<pre>"; print_r($getTabs); exit(); ?>
+
 @php
     $channel = core()->getCurrentChannel();
 
@@ -128,18 +131,54 @@
         <div class="new-product">
           <div class="container">
             <ul class="nav nav-tabs">
-              <li class="active"><a data-toggle="tab" href="#covid">{{ __('shop::app.home.nav-tabs.covid19-products') }}</a></li>
-              <li><a data-toggle="tab" href="#popular">{{ __('shop::app.home.nav-tabs.most-popular') }}</a></li>
-              <li><a data-toggle="tab" href="#new-releases">{{ __('shop::app.home.nav-tabs.new-releases') }}</a></li>
-              <li><a data-toggle="tab" href="#bestseller">{{ __('shop::app.home.nav-tabs.bestsellers-accessories') }}</a></li>
+              
+              @php $flag = 0; @endphp
+
+              @if (app('Webkul\Velocity\Repositories\TabSectionRepository')->getCategories()->count())
+                @foreach($getTabs as $key => $tab)
+                <!-- for active class only first value -->
+                  @if($key == 0)
+                    @php $flag = 1; @endphp
+                    <li class="{{ $flag == '1' ? 'active' : '' }}"><a data-toggle="tab" href="#{{ $tab->category_id }}">
+                      {{ $tab->category_name }}</a>
+                    </li>
+                  @else
+                    <li><a data-toggle="tab" href="#{{ $tab->category_id }}">
+                      {{ $tab->category_name }}</a>
+                    </li>
+                  @endif
+                @endforeach
+              @endif
+
+              <li class="{{ $flag == '0' ? 'active' : '' }}"><a data-toggle="tab" href="#popular">
+                {{ __('shop::app.home.nav-tabs.most-popular') }}</a>
+              </li>
+              <li><a data-toggle="tab" href="#new-releases">
+                {{ __('shop::app.home.nav-tabs.new-releases') }}</a>
+              </li>
+              <li><a data-toggle="tab" href="#bestseller">
+                {{ __('shop::app.home.nav-tabs.bestsellers-accessories') }}</a>
+              </li>
             </ul>
                         
             <div class="tab-content">
-              <div id="covid" class="tab-pane  in active">
-                @include('shop::home.covid-products')
-                <!-- @include('shop::home.category', ['category' => 'covid19']) -->
-              </div>
-              <div id="popular" class="tab-pane ">
+              @if (app('Webkul\Velocity\Repositories\TabSectionRepository')->getCategories()->count())
+                @foreach($getTabs as $key => $tab)
+                <!-- for in active class only first value -->
+                  @if($key == 0)
+                    @php $flag = 1; @endphp
+                    <div id="{{ $tab->category_id }}" class="tab-pane {{ $flag == '1' ? 'in active' : '' }}">
+                      @include('shop::home.dynamic-category-tabs', ['category' => $tab->category_url_path ])
+                    </div>
+                  @else
+                    <div id="{{ $tab->category_id }}" class="tab-pane">
+                      @include('shop::home.dynamic-category-tabs', ['category' => $tab->category_url_path ])
+                    </div>
+                  @endif
+                @endforeach
+              @endif
+
+              <div id="popular" class="tab-pane {{ $flag == '0' ? 'in active' : '' }}">
                 @include('shop::home.featured-products')
               </div>
               <div id="new-releases" class="tab-pane ">

@@ -155,6 +155,12 @@ class CategoryRepository extends Repository
      */
     public function findByPath(string $urlPath)
     {
+        // echo "<pre>"; print_r($urlPath); exit();
+        return $this->model->whereTranslation('url_path', $urlPath)->first();
+    }
+
+    public function findByPathDynamic(string $urlPath)
+    {
         return $this->model->whereTranslation('url_path', $urlPath)->first();
     }
 
