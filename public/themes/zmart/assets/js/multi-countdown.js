@@ -119,6 +119,7 @@ $(function () {
         $('.' + extraClass + ' ' + runningClass).css('display', 'flex');
         $('.' + extraClass + ' ' + endedClass).css('display', 'none');
 
+
         //call main function
         dateReplace(extraClass, date, fixTime, initText, zeroPad); //prevent delay for the first time
         setInterval(dateReplace, 1000, extraClass, date, fixTime, initText, zeroPad);
