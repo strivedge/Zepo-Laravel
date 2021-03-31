@@ -549,6 +549,8 @@ return [
         'no-products-available' => 'No products available',
         'category' => 'Category:',
         'brand' => 'Brand:',
+        'color' => 'Color',
+        'size' => 'Size',
     ],
 
     // 'reviews' => [

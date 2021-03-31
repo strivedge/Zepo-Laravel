@@ -1042,8 +1042,7 @@ class ProductRepository extends Repository
                 ->whereNotNull('product_flat.url_key')
                 ->groupBy('master_festival_products.product_id');
                // ->inRandomOrder();
-                //->get();
-        })->paginate(12);
+        })->get();
 
         //echo"Festival product <pre>";print_r($results);exit();
 
