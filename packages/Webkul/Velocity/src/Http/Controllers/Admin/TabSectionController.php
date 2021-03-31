@@ -54,8 +54,10 @@ class TabSectionController extends Controller
         } else {
             $datas = "";
         }
-        
+
         $categories = $this->tabSectionRepository->modify($datas);
+
+        session()->flash('success', trans('admin::app.response.update-success', ['name' => 'Tab Section']));
 
     	return redirect()->route($this->_config['redirect'], );
     }

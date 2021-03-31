@@ -161,6 +161,16 @@
 
                                         </div>
                                     </div>
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="product-color">
+                                            <label>{{ __('shop::app.products.color') }} </label>: {{$product->color_label}}
+                                        </div>
+                                        <div class="product-size">
+                                            <label>{{ __('shop::app.products.size') }} </label>: {{$product->size_label}}
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="product-code-category">
                                     <div class="product-code"><label>{{ __('shop::app.products.sku') }} </label>{{$product->sku}}</div>
 
