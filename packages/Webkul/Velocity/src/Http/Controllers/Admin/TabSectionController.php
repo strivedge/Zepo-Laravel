@@ -48,9 +48,15 @@ class TabSectionController extends Controller
     public function store(Request $request)
     {
         $data = request()->all();
-        $datas = implode(",", $data['categories']);
+
+        if(isset($data['categories']) != null) {
+            $datas = implode(",", $data['categories']);
+        } else {
+            $datas = "";
+        }
+        
         $categories = $this->tabSectionRepository->modify($datas);
-        // echo "<pre>"; print_r($categories); exit();
+
     	return redirect()->route($this->_config['redirect'], );
     }
 }
