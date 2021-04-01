@@ -107,20 +107,20 @@
                         <template v-else-if="products.length > 0">
                             @if ($toolbarHelper->getCurrentMode() == 'grid')
                                 <div class="row">
-                                    <product-card
+                                    <category-product-card
                                         :key="index"
                                         :product="product"
                                         v-for="(product, index) in products">
-                                    </product-card>
+                                    </category-product-card>
                                 </div>
                             @else
                                 <div class="product-list">
-                                    <product-card
+                                    <category-product-card
                                         list=true
                                         :key="index"
                                         :product="product"
                                         v-for="(product, index) in products">
-                                    </product-card>
+                                    </category-product-card>
                                 </div>
                             @endif
 
