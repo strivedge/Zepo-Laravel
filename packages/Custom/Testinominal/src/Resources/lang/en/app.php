@@ -5,6 +5,9 @@ return [
     'testinominal' => [
             'add-title' => 'Add Testinominal',
             'edit-title' => 'Edit Testinominal',
+            'create' => 'Create',
+            'edit' => 'Edit',
+            'delete' => 'Delete',
             'id' => 'Id',
             'title' => 'Testinominal',
             'testi-title' => 'Title',
