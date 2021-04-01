@@ -19,54 +19,8 @@
                     @php $end_date = $festival[0]->end_date.' '.'00:00:00'; @endphp
 
                 
-                    <div class="countdown show" data-Date='{{ $end_date }}'>
-                        <div class="running">
-                            <timer class="imgs">
-                                <div class="common-timing"> 
-                                    <div class="timings">
-                                        <span class="daysC1"></span>
-                                        <span class="daysC2"></span>
-                                    </div>
-                                    <span class="common-timing-text">days</span>
-                                </div>
-                                <span class="colon">:</span>
-                                <div class="common-timing">
-                                    <div class="timings">
-                                        <span class="hoursC1"></span>
-                                        <span class="hoursC2"></span>
-                                    </div>
-                                    <span class="common-timing-text">hours</span>
-                                </div>
-                                <span class="colon">:</span>
-                                <div class="common-timing">
-                                    <div class="timings">
-                                        <span class="minutesC1"></span>
-                                        <span class="minutesC2"></span>
-                                    </div>
-                                    <span class="common-timing-text">minutes</span>
-                                </div>
-                                <span class="colon">:</span>
-                                <div class="common-timing">
-                                    <div class="timings-seconds">
-                                        <span class="timings">
-                                            <span class="secondsC1"></span>
-                                        </span>
-                                        <span class="timings">
-                                            <span class="secondsC2"></span>
-                                        </span>
-                                    </div>
-                                    <span class="common-timing-text">seconds</span>
-                                </div>
-                           
-                            </timer>
-                            <div class="break"></div>
-        
-                           
-                        </div>
-                        <div class="ended">
-                            <span class="text">{{ __('festival::app.festival.offer-ended') }}</span>
-                            <div class="break"></div>
-                        </div>
+                    <div class="countdown" data-countdown='{{ $festival[0]->end_date }}'>
+                       
                     </div>
                         
                     
@@ -87,3 +41,30 @@
         </div>
     </section>
 @endif
+ <script>
+      $(document).ready(function() {
+   
+            var clocks = [];
+
+            $('.countdown').each(function() {
+                var clock = $(this),
+                    date = (new Date(clock.data('countdown')).getTime() - new Date().getTime()) / 1000;
+
+                if(date > 0)
+                {
+                  clock.FlipClock(date, {
+                      clockFace: 'DailyCounter',
+                      countdown: true
+                  });
+
+                  clocks.push(clock);
+                }
+                else
+                {
+                   $('.countdown').html("{{ __('festival::app.festival.offer-ended') }}");
+                }
+            });
+
+
+      });
+</script>
