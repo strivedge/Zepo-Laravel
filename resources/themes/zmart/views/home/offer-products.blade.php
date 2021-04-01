@@ -20,7 +20,6 @@
                         $end_date = new DateTime($festival[0]->end_date);
                     @endphp
 
-                
                     <div class="countdown" data-countdown='{{ $end_date->format("Y/m/d") }}'>
                        
                     </div>
