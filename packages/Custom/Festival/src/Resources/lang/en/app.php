@@ -7,6 +7,9 @@ return [
             'title' => 'Festival',
             'add-title' => 'Add Festival',
             'edit-title' => 'Edit Festival',
+            'create' => 'Create',
+            'edit' => 'Edit',
+            'delete' => 'Delete',
             'id' => 'Id',
             'title' => 'Festivals',
             'festival-title' => 'Title',
@@ -36,5 +39,6 @@ return [
             'more-about-promotion' => 'More about promotion',
             'active-promotions' => 'Active promotions',
             'offer-ended' => 'Offer is ended',
+            'to' => 'To',
       ]
 ];

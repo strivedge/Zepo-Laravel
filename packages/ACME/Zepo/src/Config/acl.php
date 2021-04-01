@@ -11,6 +11,11 @@ return [
         'key' => 'support-ticket',
         'name' => 'Support Ticket',
         'route' => 'zepo.support-ticket.index',
-        'sort' => 10
-    ]
+        'sort' => 10,
+    ], [
+        'key'   => 'support-ticket.view',
+        'name'  => 'zepo::app.support-ticket.view',
+        'route' => 'zepo.support-ticket.view',
+        'sort'  => 1,
+    ],
 ];
