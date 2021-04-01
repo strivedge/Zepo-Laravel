@@ -653,7 +653,7 @@ header.sticky-header.navbar-middle.header-shadow + .main-content-wrapper #head {
 ------------------------------------------------------------------------------------------------------------------------*/
 .new-product { padding: 50px 0px; }
 .new-product ul.nav.nav-tabs { display: flex;align-items: center;justify-content: center;border-bottom: 1px solid #E7E7E7; }
-.new-product ul.nav.nav-tabs li a {font-weight: bold;font-size: 16px;color: #274985;}
+.new-product ul.nav.nav-tabs li a {font-weight: bold;font-size: 16px;color: #274985;text-transform: uppercase;}
 .new-product ul.nav.nav-tabs>li.active>a,.new-product  ul.nav.nav-tabs>li.active>a:focus,.new-product  ul.nav.nav-tabs>li.active>a:hover { background-color: transparent;border: 0; }
 .new-product ul.nav.nav-tabs li.active:after { content: ""; position: absolute; background: #274985; width: 100%; left: 0; right: 0; height: 3px; }
 .new-product ul.nav.nav-tabs>li>a:focus,.new-product ul.nav.nav-tabs>li>a:hover { text-decoration: none; background-color: transparent;  }
@@ -754,6 +754,7 @@ header.sticky-header.navbar-middle.header-shadow + .main-content-wrapper #head {
 .more-promotions-details .page-header { border:0;margin: 0px 0px 20px; }
 .more-promotions-details { padding-bottom: 50px; }
 .more-promotions-details .more-promotions-details-content { padding-top: 10px; }
+.more-promotions-details .more-promotions-details-content .imgs img { max-width: 100%; }
 .more-promotions-details .more-promotions-details-content .title { padding-bottom: 10px; }
 .more-promotions-details .more-promotions-details-content label { padding-right: 5px;display: block; }
 .more-promotions-details .more-promotions-details-content div { padding-bottom: 10px; }
@@ -768,6 +769,9 @@ header.sticky-header.navbar-middle.header-shadow + .main-content-wrapper #head {
 @media (max-width: 767px) {
 	.sales ul li .content-wrap .buttons { display: block; }
 	.sales ul li .content-wrap .buttons .quick-view { margin-bottom: 20px; }
+	.more-promotions-details .more-promotions-details-content .content .title h3,
+	.more-promotions-details .more-promotions-details-content { text-align: center; }
+	.more-promotions-details .more-promotions-details-content .content { padding-top: 20px; }
 }
 
 
