@@ -162,17 +162,31 @@
 
                                         </div>
                                     </div>
+                                    
                                     @if(isset($product->attributes) && !empty($product->attributes))
-                                        <div class="col-12">
-                                            @foreach($product->attributes as $attr)
-                                            <div class="row">
-                                                <div class="product-color">
-                                                    <label>{{$attr->attribute_name}}</label>: {{$attr->option_name}}
+                                        <accordian :title="'{{ __('shop::app.products.description') }}'" :active="true">
+                                            <div slot="header">
+                                                <h3 class="no-margin display-inbl">
+                                                    <!-- {{ __('velocity::app.products.details') }} -->More Attributes
+                                                </h3>
+
+                                                <i class="rango-arrow"></i>
+                                            </div> 
+
+                                            <div slot="body">
+                                                <div class="col-12 product-attributes">
+                                                    <div class="row">
+                                                        @foreach($product->attributes as $attr)
+                                                        <div class="col-md-6">
+                                                                <label>{{$attr->attribute_name}}:</label> {{$attr->option_name}}
+                                                        </div>
+                                                        @endforeach
+                                                    </div>
                                                 </div>
                                             </div>
-                                            @endforeach
-                                        </div>
+                                        </accordian>
                                     @endif
+                                        
                                     <div class="product-code-category">
                                         <div class="product-code"><label>{{ __('shop::app.products.sku') }} </label>{{$product->sku}}</div>
 

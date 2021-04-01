@@ -25,6 +25,7 @@
         <link rel="stylesheet" href="{{ asset('themes/zmart/assets/css/google-font.css') }}" />
         <link rel="stylesheet" href="{{ asset('themes/zmart/assets/css/custom.css') }}" />
         <link rel="stylesheet" href="{{ asset('themes/zmart/assets/css/boxicons.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('themes/zmart/assets/css/flipclock.css') }}" />
         
 
 
@@ -68,7 +69,7 @@
 
         <script
             type="text/javascript"
-            src="{{ asset('themes/zmart/assets/js/multi-countdown.js') }}">
+            src="{{ asset('themes/zmart/assets/js/flipclock.js') }}">
         </script>
 
         @yield('head')
