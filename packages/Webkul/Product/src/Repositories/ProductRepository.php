@@ -396,6 +396,16 @@ class ProductRepository extends Repository
                 ->where('product_flat.locale', $locale);
         })->first();
 
+        $attr = DB::table('product_attribute_values as pa')
+                        ->leftJoin('attributes as a','a.id','=','pa.attribute_id')
+                       ->leftJoin('attribute_options as o','o.id','=','pa.integer_value')
+                       ->select('pa.id as pid','pa.integer_value','a.id','a.code','a.admin_name as attribute_name','o.id as option_id','o.admin_name as option_name','o.option_slug')
+                       ->where('pa.integer_value','!=',null)
+                       ->where('pa.integer_value','!=',0)
+                       ->where('a.id','!=',25)
+                       ->where('pa.product_id',$results->product_id)
+                       ->get();
+
         $multiCategory = DB::table('product_flat')->distinct()
             ->addSelect('product_categories.category_id', 'product_categories.product_id', 'category_translations.name as category_name', 'category_translations.url_path as category_url_path')
             ->leftJoin('product_categories', function ($join) {
@@ -409,7 +419,11 @@ class ProductRepository extends Repository
             ->groupBy('category_translations.category_id')
             ->get();
 
+        $results->attributes = $attr;
+
         $results->categories = $multiCategory;
+
+        // echo"attr<pre>";print_r($results);exit();
 
         return $results;
     }
