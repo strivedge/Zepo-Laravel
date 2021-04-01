@@ -60,8 +60,8 @@
                 </div>
 
                 <div class="product-info" v-if="product.attribute.length > 0">
-                    <div  v-for="(attr, ind) in product.attribute" :key="ind">
-                        <div><b>{{attr.attribute_name}}:</b> <span>{{attr.option_name}}</span></div>
+                    <div class="attributes-value" v-for="(attr, ind) in product.attribute" :key="ind">
+                        <span><b>{{attr.attribute_name}}:</b> {{attr.option_name}}</span>
                     </div>
                 </div>
 
@@ -145,8 +145,8 @@
                 <div class="price" v-html="product.priceHTML"></div>
 
                 <div class="product-info" v-if="product.attribute.length > 0">
-                    <div  v-for="(attr, ind) in product.attribute" :key="ind">
-                        <div><b>{{attr.attribute_name}}:</b> <span>{{attr.option_name}}</span></div>
+                    <div class="attributes-value" v-for="(attr, ind) in product.attribute" :key="ind">
+                        <span><b>{{attr.attribute_name}}:</b>{{attr.option_name}}</span></div>
                     </div>
                 </div>
                 

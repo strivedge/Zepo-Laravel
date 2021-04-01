@@ -6,7 +6,7 @@
 
 @push('scripts')
     <script type="text/x-template" id="toolbar-template">
-        <div class="toolbar-wrapper" v-if='!isMobile()'>
+        <div class="toolbar-wrapper">
             <div class="view-mode">
                 @php
                   $viewOption = $toolbarHelper->getViewOption();

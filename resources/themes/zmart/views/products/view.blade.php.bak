@@ -90,12 +90,12 @@
                             <input type="hidden" name="product_id" value="{{ $product->product_id }}">
 
                             {{-- product-gallery --}}
-                            <div class="left col-lg-6 col-xl-5"><!-- col-md-7 -->
+                            <div class="left col-md-7 col-xl-5">
                                 @include ('shop::products.view.gallery')
                             </div>
 
                             {{-- right-section --}}
-                            <div class="right col-lg-6 col-xl-7"><!-- col-md-12 -->
+                            <div class="right col-md-12 col-xl-7">
                                 {{-- product-info-section --}}
                                 <div class="info">
                                     <div class="name-brand-reviews">
