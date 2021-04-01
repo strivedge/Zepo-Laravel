@@ -12,9 +12,6 @@
                 <h1>{{__('zepo::app.support-ticket.title') }}</h1>
             </div>
             <div class="page-action">
-                <!-- <a href="{{ route('admin.blog.create') }}" class="btn btn-lg btn-primary">
-                    {{ __('admin::app.support-ticket.add-title') }}
-                </a> -->
             </div>
         </div>
 

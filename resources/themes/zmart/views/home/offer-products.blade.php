@@ -16,10 +16,12 @@
                         </a>
                     </p>
 
-                    @php $end_date = $festival[0]->end_date.' '.'00:00:00'; @endphp
+                    @php 
+                        $end_date = new DateTime($festival[0]->end_date);
+                    @endphp
 
                 
-                    <div class="countdown" data-countdown='{{ $festival[0]->end_date }}'>
+                    <div class="countdown" data-countdown='{{ $end_date->format("Y/m/d") }}'>
                        
                     </div>
                         
