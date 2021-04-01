@@ -39,5 +39,6 @@ return [
             'more-about-promotion' => 'More about promotion',
             'active-promotions' => 'Active promotions',
             'offer-ended' => 'Offer is ended',
+            'to' => 'To',
       ]
 ];

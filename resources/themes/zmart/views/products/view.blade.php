@@ -164,10 +164,10 @@
                                     </div>
                                     
                                     @if(isset($product->attributes) && !empty($product->attributes))
-                                        <accordian :title="'{{ __('shop::app.products.description') }}'" :active="true">
+                                        <accordian :title="'{{ __('velocity::app.products.more-attributes') }}'" :active="true">
                                             <div slot="header">
                                                 <h3 class="no-margin display-inbl">
-                                                    <!-- {{ __('velocity::app.products.details') }} -->More Attributes
+                                                    {{ __('velocity::app.products.more-attributes') }}
                                                 </h3>
 
                                                 <i class="rango-arrow"></i>
