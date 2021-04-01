@@ -101,11 +101,12 @@
                                     <div class="name-brand-reviews">
                                         <h2 class="product-name">{{ $product->name }}</h2>
                                         <div class="rows">
+                                            @if(isset($product->brand_slug) && !empty($product->brand_slug))
                                             <div class="product-brand-name">
                                                 <label>{{ __('shop::app.products.brand') }} </label>
                                                 <a href="{{ route('brand-products', [$product->brand_slug]) }}">{{ $product->brand_name }}</a>
                                             </div>
-
+                                            @endif
                                             @if ($total)
                                                 <div class="reviews">
                                                     <star-ratings
@@ -161,38 +162,42 @@
 
                                         </div>
                                     </div>
-                                <div class="col-12">
-                                    <div class="row">
-                                        <div class="product-color">
-                                            <label>{{ __('shop::app.products.color') }} </label>: {{$product->color_label}}
+                                    @if(isset($product->attributes) && !empty($product->attributes))
+                                        <div class="col-12">
+                                            @foreach($product->attributes as $attr)
+                                            <div class="row">
+                                                <div class="product-color">
+                                                    <label>{{$attr->attribute_name}}</label>: {{$attr->option_name}}
+                                                </div>
+                                            </div>
+                                            @endforeach
                                         </div>
-                                        <div class="product-size">
-                                            <label>{{ __('shop::app.products.size') }} </label>: {{$product->size_label}}
-                                        </div>
+                                    @endif
+                                    <div class="product-code-category">
+                                        <div class="product-code"><label>{{ __('shop::app.products.sku') }} </label>{{$product->sku}}</div>
+
+                                        <!-- for empty categories -->
+                                        @if(isset($product->categories) && !empty($product->categories))
+                                            @foreach($product->categories as $category)
+                                                @if($category->category_url_path != null)
+                                                    @php $flag = 1; @endphp
+                                                @else
+                                                    @php $flag = 0; @endphp
+                                                @endif
+                                            @endforeach
+
+                                            @if($flag == 1)
+                                                <div class="category">
+                                                    <label>{{ __('shop::app.products.category') }} </label>
+
+                                                @foreach($product->categories as $category)
+                                                    <a href="{{ route('shop.productOrCategory.index', [$category->category_url_path]) }}">{{$category->category_name}}</a>,
+                                                @endforeach
+                                                </div>
+                                            @endif
+                                        @endif
+                                    
                                     </div>
-                                </div>
-                                <div class="product-code-category">
-                                    <div class="product-code"><label>{{ __('shop::app.products.sku') }} </label>{{$product->sku}}</div>
-
-                            <!-- for empty categories -->
-                            @foreach($product->categories as $category)
-                                @if($category->category_url_path != null)
-                                    @php $flag = 1; @endphp
-                                @else
-                                    @php $flag = 0; @endphp
-                                @endif
-                            @endforeach
-
-                                @if($flag == 1)
-                                    <div class="category">
-                                        <label>{{ __('shop::app.products.category') }} </label>
-
-                                    @foreach($product->categories as $category)
-                                        <a href="{{ route('shop.productOrCategory.index', [$category->category_url_path]) }}">{{$category->category_name}}</a>,
-                                    @endforeach
-                                    </div>
-                                @endif
-                                </div>
 
                                 </div>
 
@@ -208,8 +213,6 @@
 
                                 {!! view_render_event('bagisto.shop.products.view.short_description.after', ['product' => $product]) !!}
 
-
-                                
 
                                 @include ('shop::products.view.configurable-options')
 
