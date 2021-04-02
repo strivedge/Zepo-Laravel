@@ -41,6 +41,7 @@ Vue.component('star-ratings', require('./UI/components/star-rating'));
 Vue.component('quantity-btn', require('./UI/components/quantity-btn'));
 Vue.component('sidebar-component', require('./UI/components/sidebar'));
 Vue.component("product-card", require("./UI/components/product-card"));
+Vue.component("category-product-card", require("./UI/components/category-product-card"));
 Vue.component("wishlist-component", require("./UI/components/wishlist"));
 Vue.component('carousel-component', require('./UI/components/carousel'));
 Vue.component('child-sidebar', require('./UI/components/child-sidebar'));
