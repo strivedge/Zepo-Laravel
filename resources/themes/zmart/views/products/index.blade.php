@@ -1,6 +1,8 @@
 @inject ('toolbarHelper', 'Webkul\Product\Helpers\Toolbar')
 @inject ('productRepository', 'Webkul\Product\Repositories\ProductRepository')
 
+<?php //print_r($toolbarHelper->getCurrentMode());exit(); ?>
+
 @extends('shop::layouts.master')
 
 @section('page_title')
@@ -80,13 +82,13 @@
                         @endif
                     </div>
     
-                    <div class="col-12 no-padding">
+                    <!-- <div class="col-12 no-padding">
                         <div class="hero-image">
                             @if (!is_null($category->image))
                                 <img class="logo" src="{{ $category->image_url }}" :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`"/>
                             @endif
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 @if ($isProductsDisplayMode)
