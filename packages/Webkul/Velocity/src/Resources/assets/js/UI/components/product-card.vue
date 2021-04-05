@@ -16,10 +16,9 @@
                                 <img
                                     loading="lazy"
                                     :alt="product.name"
-                                    :src="product.image || product.product_image"
-                                    :data-src="product.image || product.product_image"
-                                    class="card-img-top lzy_img"
-                                    :onerror="`this.src='${baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`"  />
+                                    :src="img.medium_image_url"
+                                    class="card-img-top items"
+                                    :onerror="`this.src='${baseUrl}/vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png'`"  />
                                 
                             </a>
                         </div>
@@ -29,7 +28,7 @@
                             <a :href="`${baseUrl}/${product.slug}`" :title="product.name" class="product-image-container">
                                 <img
                                 :src="product.image || product.product_image"
-                                :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
+                                :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png'`" />
                             </a>
                         </div>
                     </div>
@@ -83,10 +82,9 @@
                             <img
                                 loading="lazy"
                                 :alt="product.name"
-                                :src="img.medium_image_url || product.product_image"
-                                :data-src="product.image || product.product_image"
-                                class="card-img-top lzy_img items"
-                                :onerror="`this.src='${baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`"  />
+                                :src="img.medium_image_url"
+                                class="card-img-top items"
+                                :onerror="`this.src='${baseUrl}/vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png'`"  />
                             
                         </a>
                     
