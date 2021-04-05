@@ -123,7 +123,7 @@
             </div>
         </li>
     <?php else: ?>
-        <li class="">
+        <li class="items">
             <div class="content-wrap">
                 <div class="product-code">{{$product->sku}}</div>
                 <div class="img">
