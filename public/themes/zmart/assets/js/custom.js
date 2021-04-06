@@ -81,7 +81,7 @@
             {
                 breakpoint: 1610,
                 settings: {
-                    slidesToShow: 4,
+                    slidesToShow: 5,
                     slidesToScroll: 1
                 }
             },
@@ -174,7 +174,7 @@ function productImageSlider() {
             {
                 breakpoint: 1610,
                 settings: {
-                    slidesToShow: 4,
+                    slidesToShow: 5,
                     slidesToScroll: 1
                 }
             },
