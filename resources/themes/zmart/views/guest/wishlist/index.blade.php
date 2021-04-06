@@ -41,22 +41,13 @@
                 <shimmer-component v-if="!isProductListLoaded && !isMobile()"></shimmer-component>
 
                 <template v-else-if="isProductListLoaded && products.length > 0">
-                    <carousel-component
-                        slides-per-page="6"
-                        navigation-enabled="true"
-                        pagination-enabled="hide"
-                        id="wishlist-products-carousel"
-                        locale-direction="{{ core()->getCurrentLocale()->direction == 'rtl' ? 'rtl' : 'ltr' }}"
-                        :slides-count="products.length"
-                        :perPageCustom="[[480, 2], [768, 3]]">
-
-                        <slide
-                            :key="index"
-                            :slot="`slide-${index}`"
-                            v-for="(product, index) in products">
-                            <product-card :product="product"></product-card>
-                        </slide>
-                    </carousel-component>
+                    
+                            <div class="linked-products-content">
+                           
+                                <product-card :product="product" v-for="(product, index) in products"></product-card>
+                            
+                            </div>
+                       
 
                 
                 </template>

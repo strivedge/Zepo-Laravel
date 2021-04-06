@@ -126,6 +126,17 @@
                                             @endif
                                         </div>
                                     </div>
+                                    {!! view_render_event('bagisto.shop.products.view.short_description.before', ['product' => $product]) !!}
+
+                                @if ($product->short_description)
+                                    <div class="description">
+                                        <label>{{ __('velocity::app.products.short-description') }}:</label>
+
+                                        {!! $product->short_description !!}
+                                    </div>
+                                @endif
+
+                                {!! view_render_event('bagisto.shop.products.view.short_description.after', ['product' => $product]) !!}
                                     <div class="col-12 price no-padding">
                                         @include ('shop::products.price', ['product' => $product])
                                     </div>
@@ -177,9 +188,11 @@
                                                 <div class="col-12 product-attributes">
                                                     <div class="row">
                                                         @foreach($product->attributes as $attr)
+                                                        @if($attr->attribute_name != "Tax Category")
                                                         <div class="col-md-6">
                                                                 <label>{{$attr->attribute_name}}:</label> {{$attr->option_name}}
                                                         </div>
+                                                        @endif
                                                         @endforeach
                                                     </div>
                                                 </div>
@@ -215,17 +228,7 @@
 
                                 </div>
 
-                                {!! view_render_event('bagisto.shop.products.view.short_description.before', ['product' => $product]) !!}
-
-                                @if ($product->short_description)
-                                    <div class="description">
-                                        <h3 class="col-lg-12">{{ __('velocity::app.products.short-description') }}</h3>
-
-                                        {!! $product->short_description !!}
-                                    </div>
-                                @endif
-
-                                {!! view_render_event('bagisto.shop.products.view.short_description.after', ['product' => $product]) !!}
+                                
 
 
                                 <!-- @include ('shop::products.view.configurable-options') -->
