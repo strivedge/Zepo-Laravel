@@ -43,6 +43,7 @@ class ShopController extends Controller
                     'name'         => $product->name,
                     'sku'          => $product->sku,
                     'urlKey'       => $product->url_key,
+                    'url_key'       => $product->url_key,
                     'slug'       => $product->url_key,
                     'special_price'=> $product->getTypeInstance()->haveSpecialPrice(),
                     'percentage'   => $product->getTypeInstance()->getOfferPercentage(),

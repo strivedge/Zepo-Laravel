@@ -16,6 +16,7 @@
 @endpush
 
 @php
+$list = true;
     if (isset($checkmode) && $checkmode && $toolbarHelper->getCurrentMode() == "list") {
         $list = true;
     }

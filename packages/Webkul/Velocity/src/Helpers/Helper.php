@@ -348,6 +348,8 @@ class Helper extends Review
             'shortDescription'  => $product->short_description,
             'star_icon'   => asset('/themes/zmart/assets/images/star-gray.png'),
             'baseUrl'      => url('/'),
+            'urlKey'       => $product->url_key,
+            'url_key'       => $product->url_key,
             'attribute'      => $attribute,
             'defaultAddToCart'  => view('shop::products.add-buttons', ['product' => $product])->render(),
             'addToCartHtml'     => view('shop::products.add-to-cart', [

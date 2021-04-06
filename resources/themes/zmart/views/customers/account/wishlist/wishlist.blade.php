@@ -26,6 +26,7 @@
     <div class="account-items-list wishlist-container">
         @if ($items->count())
             @foreach ($items as $item)
+            <?php //echo"<pre>";print_r($item->product);exit(); ?>
                 @php
                     $currentMode = $toolbarHelper->getCurrentMode();
                     $moveToCartText = __('shop::app.customer.account.wishlist.move-to-cart');
