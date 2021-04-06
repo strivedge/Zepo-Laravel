@@ -20,10 +20,10 @@ class ProductDataGrid extends DataGrid
     protected $channel = 'all';
 
     /** @var string[] contains the keys for which extra filters to render */
-    protected $extraFilters = [
-        'channels',
-        'locales',
-    ];
+    // protected $extraFilters = [
+    //     'channels',
+    //     'locales',
+    // ];
 
     public function __construct()
     {
