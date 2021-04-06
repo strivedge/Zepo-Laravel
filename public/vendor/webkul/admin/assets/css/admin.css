@@ -32,3 +32,6 @@
 .change-width .accordian.General .accordian-content .control-group:nth-child(5) { width: 50%!important; }
 .change-width .accordian.General .accordian-content .control-group:nth-child(5) label,
 .change-width .accordian.General .accordian-content .control-group:nth-child(5) select { width: 100%!important; }
+#options .accordian-content .control-group input#default-null-option,
+#options .accordian-content .control-group .checkbox label { width: 24px; }
+#options .accordian-content .table .control-group { min-width: 100%;padding: 0; }

@@ -70,7 +70,7 @@ a.theme-btn:hover { color: #274985;background: transparent!important; }
 .cp-round:before { border: 6px solid #E1DFDF; }
 .cp-round:after { border-top: 6px solid #B1CC1E; }
 
-.filters-container { margin: 20px 0;padding-right: 0;text-align: right; }
+.filters-container { /*margin: 20px 0;*/margin: 0px;padding-right: 0;text-align: right; }
 .filters-container .view-mode .rango-view-list-container,
 .filters-container .view-mode .rango-view-grid-container { padding: 5px; }
 .filters-container .view-mode .rango-view-list-container.active,
@@ -1912,7 +1912,7 @@ header .navbar--addcart--wishlist .mini-cart-container .card-body a { display: i
 .category-page-wrapper.product-box .list-li .content-wrap .content .product-info .attributes-value b { padding-right: 3px;font-size: 16px; }
 
 
-.category-page-wrapper.product-box .list-li .content-wrap .sticker.new {  font-size: 14px; margin: 0; position: absolute; background: #B1CC1E; color: #fff;/* padding: 14px 11px;*/ padding: 11px 14px; border-radius: 9px;font-weight: bold; top: 25px;border-radius: 50%;left: 10px;z-index: 1; }
+.category-page-wrapper.product-box .list-li .content-wrap .sticker.new {  font-size: 14px; margin: 0; position: absolute; background: #B1CC1E; color: #fff;/* padding: 14px 11px;*/ padding: 11px 14px; border-radius: 9px;font-weight: bold; /*top: 25px;*/top: 0px;border-radius: 50%;left: 10px;z-index: 1; }
 .category-page-wrapper.product-box .list-li .content-wrap .sticker.new .save,
 .category-page-wrapper.product-box .list-li .content-wrap .sticker.new .new { display: block;font-size: 10px; color: #274985;font-weight: 400; }
 .category-page-wrapper.product-box .list-li .content-wrap .sticker.new .new { font-weight: 700; }
