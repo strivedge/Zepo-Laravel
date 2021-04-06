@@ -117,6 +117,7 @@ return [
         'cart-rules' => 'Cart Rules',
         'catalog-rules' => 'Catalog Rules',
         'zipcode' => 'ZipCode',
+        'discount' => 'Discount',
     ],
 
     'dashboard' => [
@@ -660,6 +661,24 @@ return [
             'delete-help-title' => 'Delete',
             'mass-update-success' => 'ZipCodes updated successfully',
             'mass-destroy-success' => 'ZipCodes deleted successfully',
+        ],
+
+        'discounts' => [
+            'title' => 'Discount',
+            'add-title' => 'Add Discount',
+            'discount-type' => 'Discount Type',
+            'basic-discount' => 'Basic Discount',
+            'extra-bulk-discount' => 'Extra Bulk Discount',
+            'percentage' => 'Percentage',
+            'percen-placeholder' => 'Enter Number of % only',
+            'condition' => 'Condition',
+            'greater-equal' => 'Greater than Equal',
+            'qty' => 'Quantity',
+            'qty-placeholder' => 'Enter Quantity items for Discount',
+            'purchase' => 'Purchase',
+            'purchase-placeholder' => 'Enter only purchasing amount',
+            'discount-by' => 'Discount By',
+            'save-btn-title' => 'Save Discount',
         ],
 
         'categories' => [

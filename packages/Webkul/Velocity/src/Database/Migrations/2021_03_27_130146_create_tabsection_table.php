@@ -27,6 +27,6 @@ class CreateTabsectionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tabsection');
+        Schema::dropIfExists('master_tabsection');
     }
 }

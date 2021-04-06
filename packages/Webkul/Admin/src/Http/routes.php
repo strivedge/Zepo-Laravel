@@ -425,10 +425,23 @@ Route::group(['middleware' => ['web']], function () {
 
                 Route::post('/zipcode/massupdate', 'Webkul\Product\Http\Controllers\ZipCodeController@massUpdate')->name('admin.catalog.zipcode.massupdate');
 
+                // Catalog Discount Route
+                Route::get('/discount', 'Webkul\Product\Http\Controllers\DiscountController@index')->defaults('_config', [
+                        'view' => 'admin::catalog.discount.index',
+                    ])->name('admin.catalog.discount.index');
+
+                Route::get('/discount/create', 'Webkul\Product\Http\Controllers\DiscountController@create')->defaults('_config', [
+                        'view' => 'admin::catalog.discount.create',
+                    ])->name('admin.catalog.discount.create');
+
+                Route::post('/discount/save', 'Webkul\Product\Http\Controllers\DiscountController@store')->defaults('_config', [
+                        'redirect' => 'admin.catalog.discount.index',
+                    ])->name('admin.catalog.discount.save');
+
             });
 
             // User Routes
-            //datagrid for backend users
+            // datagrid for backend users
             Route::get('/users', 'Webkul\User\Http\Controllers\UserController@index')->defaults('_config', [
                 'view' => 'admin::users.users.index',
             ])->name('admin.users.index');
