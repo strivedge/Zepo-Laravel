@@ -228,11 +228,11 @@
                                 {!! view_render_event('bagisto.shop.products.view.short_description.after', ['product' => $product]) !!}
 
 
-                                @include ('shop::products.view.configurable-options')
+                                <!-- @include ('shop::products.view.configurable-options') -->
 
                                 @include ('shop::products.view.downloadable')
 
-                                @include ('shop::products.view.grouped-products')
+                                <!-- @include ('shop::products.view.grouped-products') -->
 
                                 @include ('shop::products.view.bundle-options')
 
@@ -247,12 +247,15 @@
                 </div>
             </section>
 
-             <div class="product-tabbing">
+            <div class="product-tabbing">
                
                 <ul class="nav nav-tabs">
-                  <li class="active"><a data-toggle="tab" href="#description">{{ __('velocity::app.products.details') }}</a></li>
-                  <li><a data-toggle="tab" href="#reviews"> {{ __('velocity::app.products.reviews-title') }}</a></li>
-                  
+                  <li class="active">
+                    <a data-toggle="tab" href="#description">{{ __('velocity::app.products.details') }}</a>
+                  </li>
+                  <li>
+                    <a data-toggle="tab" href="#reviews"> {{ __('velocity::app.products.reviews-title') }}</a>
+                  </li>
                 </ul>
                         
                 <div class="tab-content">
@@ -262,9 +265,8 @@
                   <div id="reviews" class="tab-pane">
                     @include ('shop::products.view.reviews', ['tab' => true])
                   </div>
-                  
                 </div>
-            </div>
+            </div> 
             
             <div class="related-products">
                 @include('shop::products.view.related-products')

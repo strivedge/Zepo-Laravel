@@ -138,10 +138,11 @@
                         </div>
                     @endforeach
                     <div class="view-all-reviews">
-                    <a
-                        href="{{ route('shop.reviews.index', ['slug' => $product->url_key ]) }}"
-                        class="mb20 link-color"
-                    ><button type="button" class="theme-btn light">{{ __('velocity::app.products.view-all-reviews') }}</button></a>
+                        <a
+                            href="{{ route('shop.reviews.index', ['slug' => $product->url_key ]) }}"
+                            class="mb20 link-color"
+                        ><button type="button" class="theme-btn light">{{ __('velocity::app.products.view-all-reviews') }}</button></a>
+                    </div>
                 </div>
            
         @else
