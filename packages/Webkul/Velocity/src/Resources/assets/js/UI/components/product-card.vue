@@ -65,7 +65,7 @@
         </div>
     </div>
 
-    <div class="list-li" v-else>
+    <div class="list-li items" v-else>
         <div class="content-wrap">
             <div class="product-code">{{ product.sku}}</div>
             
