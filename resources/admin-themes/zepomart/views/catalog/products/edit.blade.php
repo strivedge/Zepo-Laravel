@@ -23,7 +23,7 @@
                         {{ __('admin::app.catalog.products.edit-title') }}
                     </h1>
 
-                    <!-- <div class="control-group">
+                    <div class="control-group">
                         <select class="control" id="channel-switcher" name="channel">
                             @foreach (core()->getAllChannels() as $channelModel)
 
@@ -34,9 +34,9 @@
 
                             @endforeach
                         </select>
-                    </div> -->
+                    </div>
 
-                    <!-- <div class="control-group">
+                    <div class="control-group">
                         <select class="control" id="locale-switcher" name="locale">
                             @foreach (core()->getAllLocales() as $localeModel)
 
@@ -47,7 +47,7 @@
 
                             @endforeach
                         </select>
-                    </div> -->
+                    </div>
                 </div>
 
                 <div class="page-action">
