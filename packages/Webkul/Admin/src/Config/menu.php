@@ -86,6 +86,12 @@ return [
         'sort'       => 6,
         'icon-class' => '',
     ], [
+        'key'        => 'catalog.discount',
+        'name'       => 'admin::app.catalog.discounts.title',
+        'route'      => 'admin.catalog.discount.index',
+        'sort'       => 7,
+        'icon-class' => '',
+    ], [
         'key'        => 'customers',
         'name'       => 'admin::app.layouts.customers',
         'route'      => 'admin.customer.index',

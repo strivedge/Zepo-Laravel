@@ -127,6 +127,16 @@ return [
         'route' => 'admin.catalog.zipcode.delete',
         'sort'  => 3,
     ], [
+        'key'   => 'catalog.discount',
+        'name'  => 'admin::app.acl.discount',
+        'route' => 'admin.catalog.discount.index',
+        'sort'  => 6,
+    ], [
+        'key'   => 'catalog.discount.create',
+        'name'  => 'admin::app.acl.create',
+        'route' => 'admin.catalog.discount.create',
+        'sort'  => 1,
+    ], [
         'key'   => 'customers',
         'name'  => 'admin::app.acl.customers',
         'route' => 'admin.customer.index',
