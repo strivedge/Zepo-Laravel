@@ -1,5 +1,7 @@
 {!! view_render_event('bagisto.admin.catalog.product.edit_form_accordian.product_links.before', ['product' => $product]) !!}
 
+<?php //echo"Data<pre>"; print_r($product->up_sells()->get());exit(); ?>
+
 <accordian :title="'{{ __('admin::app.catalog.products.product-link') }}'" :active="false">
     <div slot="body">
 
@@ -109,6 +111,7 @@
 
         created: function () {
             if (this.upSellingProducts.length >= 1) {
+                console.log('upSellingProducts',this.upSellingProducts)
                 for (var index in this.upSellingProducts) {
                     this.addedProducts.up_sells.push(this.upSellingProducts[index]);
                 }
