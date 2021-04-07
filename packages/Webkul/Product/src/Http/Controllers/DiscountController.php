@@ -5,14 +5,17 @@ namespace Webkul\Product\Http\Controllers;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Event;
+use Webkul\Product\Repositories\DiscountRepository;
 use Validator;
 
 class DiscountController extends Controller
 {
-    public function __construct()
+    private $discountRepository;
+    public function __construct(DiscountRepository $discountRepository)
     {
         $this->middleware('admin');
         $this->_config = request('_config');
+        $this->discountRepository = $discountRepository;
     }
 
     public function index()
@@ -30,19 +33,23 @@ class DiscountController extends Controller
         $data = request()->all();
 
         $this->validate(request(), [
-            'area_name' => 'required',
-            'zipcode'      => 'required|Numeric|digits_between:6,10|unique:master_zip_codes,zipcode',
+            'percentage' => 'required',
+            'discount_condition' => 'required',
+            'discount_qty' => 'nullable|integer',
+            'status' => 'required',
         ]);
 
-        session()->flash('success', trans('admin::app.response.update-success', ['name' => 'ZipCode']));
+        $this->discountRepository->create($data);
+
+        session()->flash('success', trans('admin::app.response.create-success', ['name' => 'Discount']));
 
         return redirect()->route($this->_config['redirect']);
     }
 
     public function edit($id)
     {
-    	// $zipcodes = $this->zipCodeRepository->findById($id);
-     //    return view($this->_config['view'], compact('zipcodes'));
+    	$discount = $this->discountRepository->findById($id);
+        return view($this->_config['view'], compact('discount'));
     }
 
     public function update(Request $request, $id)
@@ -50,20 +57,22 @@ class DiscountController extends Controller
         $data = request()->all();
 
         $this->validate(request(), [
-            'area_name' => 'required',
-            'zipcode'      => 'required|Numeric|digits_between:6,10|unique:master_zip_codes,zipcode,'.$id,
+            'percentage' => 'required',
+            'discount_condition' => 'required',
+            'discount_qty' => 'nullable|integer',
+            'status' => 'required',
         ]);
 
-        // $this->zipCodeRepository->update($data, $id);
+        $this->discountRepository->update($data, $id);
 
-        session()->flash('success', trans('admin::app.response.update-success', ['name' => 'ZipCode']));
+        session()->flash('success', trans('admin::app.response.update-success', ['name' => 'Discount']));
 
         return redirect()->route($this->_config['redirect']);
     }
 
     public function destroy($id)
     {
-        // $this->zipCodeRepository->deleteData($id);
+        $this->discountRepository->deleteData($id);
         session()->flash('success', trans('admin::app.response.delete-success', ['name' => 'ZipCode']));
     }
 
@@ -73,8 +82,8 @@ class DiscountController extends Controller
 
         if ($ids != null) 
         {
-            // $this->zipCodeRepository->massDataDelete($ids);
-            session()->flash('success', trans('admin::app.catalog.zipcodes.status.mass-destroy-success'));
+            $this->discountRepository->massDataDelete($ids);
+            session()->flash('success', trans('admin::app.catalog.discounts.mass-destroy-success'));
         }
         return redirect()->back();
     }
@@ -86,8 +95,8 @@ class DiscountController extends Controller
 
         if ($ids != null && $updateOption != null) 
         {
-            // $this->zipCodeRepository->massDataUpdate($ids, $updateOption);
-            session()->flash('success', trans('admin::app.catalog.zipcodes.status.mass-update-success'));
+            $this->discountRepository->massDataUpdate($ids, $updateOption);
+            session()->flash('success', trans('admin::app.catalog.discounts.mass-update-success'));
         }
         return redirect()->back();
     }

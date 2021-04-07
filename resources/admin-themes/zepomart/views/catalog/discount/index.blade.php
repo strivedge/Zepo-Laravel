@@ -18,6 +18,9 @@
         </div>
 
         <div class="page-content">
+            @inject('discountGrid','Webkul\Admin\DataGrids\DiscountDataGrid')
+
+            {!! $discountGrid->render() !!}
         </div>
     </div>
 @stop

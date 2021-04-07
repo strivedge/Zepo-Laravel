@@ -65,9 +65,9 @@ class ZipCodeDataGrid extends DataGrid
             'closure'    => true,
             'wrapper'    => function ($row) {
                 if ($row->status == 1) {
-                    return '<span class="badge badge-md badge-success">'. trans('admin::app.customers.offers.active') .'</span>';
+                    return '<span class="badge badge-md badge-success">'. trans('admin::app.catalog.zipcodes.active') .'</span>';
                 } else {
-                    return '<span class="badge badge-md badge-danger">'. trans('admin::app.customers.offers.inactive') .'</span>';
+                    return '<span class="badge badge-md badge-danger">'. trans('admin::app.catalog.zipcodes.inactive') .'</span>';
                 }
             },
         ]);
