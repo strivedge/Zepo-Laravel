@@ -137,6 +137,16 @@ return [
         'route' => 'admin.catalog.discount.create',
         'sort'  => 1,
     ], [
+        'key'   => 'catalog.discount.edit',
+        'name'  => 'admin::app.acl.edit',
+        'route' => 'admin.catalog.discount.edit',
+        'sort'  => 2,
+    ], [
+        'key'   => 'catalog.discount.delete',
+        'name'  => 'admin::app.acl.delete',
+        'route' => 'admin.catalog.discount.delete',
+        'sort'  => 3,
+    ], [
         'key'   => 'customers',
         'name'  => 'admin::app.acl.customers',
         'route' => 'admin.customer.index',

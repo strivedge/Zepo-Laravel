@@ -438,6 +438,22 @@ Route::group(['middleware' => ['web']], function () {
                         'redirect' => 'admin.catalog.discount.index',
                     ])->name('admin.catalog.discount.save');
 
+                Route::get('/discount/edit/{id}', 'Webkul\Product\Http\Controllers\DiscountController@edit')->defaults('_config', [
+                        'view' => 'admin::catalog.discount.edit',
+                    ])->name('admin.catalog.discount.edit');
+
+                Route::post('/discount/update/{id}', 'Webkul\Product\Http\Controllers\DiscountController@update')->defaults('_config', [
+                        'redirect' => 'admin.catalog.discount.index',
+                    ])->name('admin.catalog.discount.update');
+
+                Route::post('/discount/delete/{id}', 'Webkul\Product\Http\Controllers\DiscountController@destroy')->defaults('_config', [
+                        'redirect' => 'admin.catalog.discount.index',
+                    ])->name('admin.catalog.discount.delete');
+
+                Route::post('/discount/massdelete', 'Webkul\Product\Http\Controllers\DiscountController@massDestroy')->name('admin.catalog.discount.massdelete');
+
+                Route::post('/discount/massupdate', 'Webkul\Product\Http\Controllers\DiscountController@massUpdate')->name('admin.catalog.discount.massupdate');
+
             });
 
             // User Routes

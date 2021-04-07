@@ -666,6 +666,7 @@ return [
         'discounts' => [
             'title' => 'Discount',
             'add-title' => 'Add Discount',
+            'edit-title' => 'Edit Discount',
             'discount-type' => 'Discount Type',
             'basic-discount' => 'Basic Discount',
             'extra-bulk-discount' => 'Extra Bulk Discount',
@@ -678,7 +679,15 @@ return [
             'purchase' => 'Purchase',
             'purchase-placeholder' => 'Enter only purchasing amount',
             'discount-by' => 'Discount By',
+            'status' => 'Status',
+            'active' => 'Active',
+            'inactive' => 'Inactive',
+            'updated-at' => 'Updated at',
+            'edit-help-title' => 'Edit',
+            'delete-help-title' => 'Delete',
             'save-btn-title' => 'Save Discount',
+            'mass-update-success' => 'Discount updated successfully',
+            'mass-destroy-success' => 'Discount deleted successfully',
         ],
 
         'categories' => [
