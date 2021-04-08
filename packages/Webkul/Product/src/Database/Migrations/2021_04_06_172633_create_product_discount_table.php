@@ -21,6 +21,7 @@ class CreateProductDiscountTable extends Migration
             $table->string('discount_qty')->nullable();
             $table->string('discount_purchase')->nullable();
             $table->string('discount_by')->nullable();
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

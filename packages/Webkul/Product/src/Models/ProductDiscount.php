@@ -15,6 +15,7 @@ class ProductDiscount extends Model
         'discount_qty',
         'discount_purchase',
         'discount_by',
+        'status',
     ];
 
     protected $typeInstance;
