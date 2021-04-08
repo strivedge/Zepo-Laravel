@@ -1,8 +1,10 @@
-@if(isset($product->bulk) && $product->bulk == 1)
-<div class="col-md-4">
-    <button type="button" class="theme-btn" name="bulk_buy_request" data-toggle="modal" data-target=".bd-example-modal-xl">{{ __('shop::app.products.bulk-buy-request') }}
-    </button>
-</div>
+@if(isset($product->bulk))
+	@if($product->bulk == 1)
+	<div class="col-md-4">
+	    <button type="button" class="theme-btn" name="bulk_buy_request" data-toggle="modal" data-target=".bd-example-modal-xl">{{ __('shop::app.products.bulk-buy-request') }}
+	    </button>
+	</div>
+	@endif
 @endif
 
 <div class="modal bd-example-modal-xl" id="myBulkRequest" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true" style="margin-top: 130px;">
