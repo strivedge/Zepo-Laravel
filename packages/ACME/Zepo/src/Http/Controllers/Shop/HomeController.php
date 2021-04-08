@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use ACME\Zepo\Mail\ContactEmail;
+use ACME\Zepo\Mail\BulkBuyEmail;
 
 class HomeController extends Controller
 {
@@ -58,9 +59,10 @@ class HomeController extends Controller
     {
         return view($this->_config['view']);
     }
-    public function postContactUs(){
 
-         $this->validate(request(), [
+    public function postContactUs()
+    {
+        $this->validate(request(), [
             'name'            => 'string|required',
             'email'           => 'required|email',
         ]);
@@ -77,16 +79,45 @@ class HomeController extends Controller
 
             try {
                 Mail::queue(new ContactEmail($conatctData));
-
                 session()->flash('success', trans('shop::app.contact.success'));
             } catch (\Exception $e) {
                 report($e);
                 session()->flash('error', trans('shop::app.contact.error'));
             }
+        return redirect()->back();
+    }
 
+    public function getBulkRequest()
+    {
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $contact = $_POST['contact'];
+        $quantity = $_POST['quantity'];
+        $product_name = $_POST['product_name'];
+        $additional = $_POST['additional'];
 
-            return redirect()->back();
+        $bulkData = [
+            'name' => $name,
+            'email' => $email,
+            'contact' => $contact,
+            'quantity' => $quantity,
+            'product_name' => $product_name,
+            'additional' => $additional
+        ];
 
+        try {
+            Mail::queue(new BulkBuyEmail($bulkData));
+            session()->flash('success', trans('shop::app.contact.success'));
+        } catch (\Exception $e) {
+            report($e);
+            session()->flash('error', trans('shop::app.contact.error'));
+        }
+
+        return response()->json([
+            'status' => true,
+            'message' => "Success!",
+            'data'    => $bulkData,
+        ]);
     }
 
 }

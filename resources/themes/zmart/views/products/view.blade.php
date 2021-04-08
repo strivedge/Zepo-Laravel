@@ -103,7 +103,7 @@
                                         <div class="rows">
                                             @if(isset($product->brand_slug) && !empty($product->brand_slug))
                                             <div class="product-brand-name">
-                                                <label>{{ __('shop::app.products.brand') }} </label>
+                                                <label>{{ __('shop::app.products.brand') }}: </label>
                                                 <a href="{{ route('brand-products', [$product->brand_slug]) }}">{{ $product->brand_name }}</a>
                                             </div>
                                             @endif
@@ -145,6 +145,8 @@
                                             {{ __('shop::app.products.status') }}&nbsp;
                                         </label>
                                         @include ('shop::products.view.stock', ['product' => $product])
+
+                                        @include ('shop::products.view.bulk-buy-form')
                                     </div>
 
                                     <div class="col-12 check-availability">
@@ -215,7 +217,7 @@
 
                                             @if($flag == 1)
                                                 <div class="category">
-                                                    <label>{{ __('shop::app.products.category') }} </label>
+                                                    <label>{{ __('shop::app.products.category') }}: </label>
 
                                                 @foreach($product->categories as $category)
                                                     <a href="{{ route('shop.productOrCategory.index', [$category->category_url_path]) }}">{{$category->category_name}}</a>,
