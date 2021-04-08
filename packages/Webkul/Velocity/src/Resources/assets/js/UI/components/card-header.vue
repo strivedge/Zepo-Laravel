@@ -9,50 +9,7 @@
             <h2 class="">{{ headerHeading }}</h2>
         </div>
 
-        <!-- <div class="col-8 no-padding">
-            <div class="row justify-content-end text-right">
-
-                <template v-if="tabs">
-                    <div
-                        :title="tab"
-                        :key="index"
-                        @click="switchTab"
-                        class="col-lg-2 no-padding"
-                        v-for="(tab, index) in tabs.slice(0, 3)">
-
-                        <h2 class="fs16 fw6 cursor-pointer tab" :class="index == 0 ? 'active' : ''">{{ tab }}</h2>
-                    </div>
-                </template>
-
-                <template v-if="scrollable && !(scrollable == '')">
-                    <div class="col-lg-2 no-padding switch-buttons">
-                        <div class="row justify-content-center">
-                            <h2
-                                class="col-lg-1 no-padding v-mr-20 fw6 cursor-pointer"
-                                title="previous"
-                                v-html="'&lt;'"
-                                @click="navigation('prev')"
-                            ></h2>
-
-                            <h2
-                                class="col-lg-1 no-padding fw6 cursor-pointer"
-                                title="next"
-                                @click="navigation('next')"
-                            >></h2>
-                        </div>
-                    </div>
-                </template>
-
-                <template v-if="(! (viewAll == 'false' || viewAll == '')) && viewAll">
-                    <div>
-                        <a :href="viewAll" :title="`View all ${headerHeading} products`" class="remove-decoration link-color">
-                            <h2 class="fs16 fw6 cursor-pointer tab">{{ __('home.view-all') }}</h2>
-                        </a>
-                    </div>
-                </template>
-
-            </div>
-        </div> -->
+        
     </div>
 
 </template>
