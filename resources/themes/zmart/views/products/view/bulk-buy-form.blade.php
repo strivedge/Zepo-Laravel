@@ -126,7 +126,7 @@ $(document).ready(function() {
 			    async: false,
 			    success: function(response) {
 					console.log(response.data);
-					$("#success").html("Your request sended successfully!");
+					$("#success").html("Your request sended successfully, will get in touch soon!");
 			    }
 			});
     	}
