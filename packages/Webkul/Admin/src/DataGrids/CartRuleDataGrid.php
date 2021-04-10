@@ -154,12 +154,12 @@ class CartRuleDataGrid extends DataGrid
             'icon'   => 'icon copy-icon',
         ]);
 
-        $this->addAction([
-            'title'  => trans('admin::app.datagrid.delete'),
-            'method' => 'POST',
-            'route'  => 'admin.cart-rules.delete',
-            'icon'   => 'icon trash-icon',
-        ]);
+        // $this->addAction([
+        //     'title'  => trans('admin::app.datagrid.delete'),
+        //     'method' => 'POST',
+        //     'route'  => 'admin.cart-rules.delete',
+        //     'icon'   => 'icon trash-icon',
+        // ]);
 
     }
 }
