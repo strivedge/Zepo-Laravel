@@ -5,6 +5,8 @@
 
 @extends('shop::layouts.master')
 
+
+
 @section('page_title')
     {{ trim($category->meta_title) != "" ? $category->meta_title : $category->name }}
 @stop
@@ -175,7 +177,7 @@
                         this.products = response.data.products.data;
                         this.paginationHTML = response.data.paginationHTML;
 
-                        //console.log('products',this.products)
+                        console.log('products',this.products)
                     })
                     .catch(error => {
                         this.isLoading = false;

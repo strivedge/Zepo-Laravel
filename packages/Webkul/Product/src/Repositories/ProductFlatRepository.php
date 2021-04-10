@@ -53,6 +53,8 @@ class ProductFlatRepository extends Repository
 
         $productCategoryArrributes = array_unique(array_merge($productArrributes, $productSuperArrributes));
 
+        //echo"<pre>productArrributes";print_r($productArrributes);exit();
+
         return $productCategoryArrributes;
     }
 
@@ -68,9 +70,11 @@ class ProductFlatRepository extends Repository
 
         if (count($category->filterableAttributes) > 0 ) {
             $filterAttributes = $category->filterableAttributes;
+            //echo"filterAttributes<pre>"; print_r($filterAttributes);exit();
+
         } else {
             $categoryProductAttributes = $this->getCategoryProductAttribute($category->id);
-
+            //echo"attr<pre>"; print_r($categoryProductAttributes);exit();
             if ($categoryProductAttributes) {
                 foreach (app('Webkul\Attribute\Repositories\AttributeRepository')->getFilterAttributes() as $filterAttribute) {
                     if (in_array($filterAttribute->id, $categoryProductAttributes)) {
@@ -83,6 +87,8 @@ class ProductFlatRepository extends Repository
                 $filterAttributes = collect($filterAttributes);
             }
         }
+
+        //echo"filterAttributes<pre>"; print_r($filterAttributes);exit();
 
         return $filterAttributes;
     }

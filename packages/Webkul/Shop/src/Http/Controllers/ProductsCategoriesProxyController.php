@@ -55,7 +55,11 @@ class ProductsCategoriesProxyController extends Controller
 
         if (preg_match('/^([a-z0-9-]+\/?)+$/', $slugOrPath)) {
 
+
+
             if ($category = $this->categoryRepository->findByPath($slugOrPath)) {
+
+                 //echo "123r<pre>"; print_r($this->categoryRepository->findByPath($slugOrPath)); exit();
 
                 return view($this->_config['category_view'], compact('category'));
             }
