@@ -8,6 +8,7 @@
             <div class="add-to-cart-btn  add-to-cart btn btn-primary">
                 @if (isset($form) && !$form)
                 <input type="hidden" name="quantity" value="1">
+                
                     <button
                         type="submit"
                         {{ ! $product->isSaleable() ? 'disabled' : '' }}

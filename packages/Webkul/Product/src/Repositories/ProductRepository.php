@@ -432,8 +432,6 @@ class ProductRepository extends Repository
         $results->basicDiscount = $basicDiscount;
         $results->bulkDiscount = $bulkDiscount;
 
-        // echo"bulkDiscount<pre>";print_r($bulkDiscount);exit();
-
         return $results;
     }
 

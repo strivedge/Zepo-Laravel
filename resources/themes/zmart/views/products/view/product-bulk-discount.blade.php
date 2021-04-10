@@ -110,8 +110,8 @@
 		</table>
 	</div>
 </div>
-@endauth
 @endif
+@endauth
 
 @push('scripts')
 <script type="text/javascript">
