@@ -56,7 +56,7 @@ Vue.component('product-quick-view-btn', require('./UI/components/product-quick-v
 window.eventBus = new Vue();
 
 $(document).ready(function () {
-    console.log("Payl vue js ")
+   // console.log("Payl vue js ")
     // define a mixin object
     Vue.mixin(require('./UI/components/trans'));
 

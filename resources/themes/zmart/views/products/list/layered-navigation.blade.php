@@ -3,13 +3,18 @@
 @inject ('productFlatRepository', 'Webkul\Product\Repositories\ProductFlatRepository')
 
 <?php
+
     $filterAttributes = $attributes = [];
     $maxPrice = 0;
+
+
 
     if (isset($category)) {
         $products = $productRepository->getAll($category->id);
 
         $filterAttributes = $productFlatRepository->getFilterableAttributes($category, $products);
+
+        
 
         $maxPrice = core()->convertPrice($productFlatRepository->getCategoryProductMaximumPrice($category));
     } 
@@ -17,6 +22,8 @@
     if (! count($filterAttributes) > 0) {
         $filterAttributes = $attributeRepository->getFilterAttributes();
     }
+
+    //echo"1category<pre>"; print_r($filterAttributes); exit();
 
     foreach ($filterAttributes as $attribute) {
         if ($attribute->code <> 'price') {
@@ -186,6 +193,8 @@
             data: function() {
                 let maxPrice  = @json($maxPrice);
 
+                console.log('maxPrice',maxPrice)
+
                 maxPrice = maxPrice ? ((parseInt(maxPrice) !== 0 || maxPrice) ? parseInt(maxPrice) : 500) : 500;
 
                 return {
@@ -216,6 +225,7 @@
 
                 if (this.appliedFilterValues && this.appliedFilterValues.length) {
                     this.appliedFilters = this.appliedFilterValues;
+
                     if (this.attribute.type == 'price') {
                         this.sliderConfig.value = this.appliedFilterValues;
                         this.sliderConfig.priceFrom = this.appliedFilterValues[0];

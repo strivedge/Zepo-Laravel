@@ -305,7 +305,11 @@ class ShopController extends Controller
     {
         $products = $this->productRepository->getAll($categoryId);
 
-        $data = request()->except(['price','mode']);
+
+
+        $data = request()->except(['price','mode','sort','order','limit']);
+
+       //echo"products<pre>";print_r($data);exit();
         $attribute=[];
         if (!empty($data)) {
            foreach ($data as $key => $val) {
@@ -317,10 +321,10 @@ class ShopController extends Controller
                        ->where('o.id',$val)
                        ->get();
 
-                       array_push($attribute, $attr[0]);
-
-                //echo"attribute<pre>";print_r($attr);exit();
-        
+                       if (!empty($attr) && count($attr) > 0) {
+                        //echo"attribute<pre>";print_r($attr);exit();
+                           array_push($attribute, $attr[0]);
+                       }
              }
         }
         
@@ -335,7 +339,7 @@ class ShopController extends Controller
             $formattedProducts = [];
 
             foreach ($productItems as $product) {
-                array_push($formattedProducts, $this->velocityHelper->formatProduct($product,false,[],$attribute));
+                array_push($formattedProducts, $this->velocityHelper->formatProduct($product,false,[]));
             }
             
 
