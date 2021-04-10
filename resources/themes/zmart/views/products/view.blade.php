@@ -271,7 +271,11 @@
                     @include ('shop::products.view.reviews', ['tab' => true])
                   </div>
                 </div>
-            </div> 
+            </div>
+             
+            <div class="basic-bulk">
+                @include('shop::products.view.product-bulk-discount')
+            </div>
             
             <div class="related-products">
                 @include('shop::products.view.related-products')
