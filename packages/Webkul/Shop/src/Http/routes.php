@@ -319,6 +319,9 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
 
     Route::get('active-promotion', 'Custom\Festival\Http\Controllers\FestivalHomeController@activePromotion')->defaults('_config', ['view' => 'shop::home.offer-products-view'])->name('shop.home.offer-products-view');
 
+    Route::post('bulk-buy-request/sending', 'ACME\Zepo\Http\Controllers\Shop\HomeController@getBulkRequest')
+    ->name('shop.home.bulk-buy.sending');
+
     // category and products details route
     Route::fallback(\Webkul\Shop\Http\Controllers\ProductsCategoriesProxyController::class . '@index')
         ->defaults('_config', [

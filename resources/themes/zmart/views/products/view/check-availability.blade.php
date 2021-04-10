@@ -7,7 +7,7 @@
 		<span id="errors"></span>
 	</div>
 
-
+@push('scripts')
 <script type="text/javascript">
 $(document).ready(function() {
 	$("#check").click(function() {
@@ -44,3 +44,4 @@ $(document).ready(function() {
 	});
 });
 </script>
+@endpush
