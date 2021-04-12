@@ -5,19 +5,19 @@
 
 @auth('customer')
 @if((isset($basicDiscounts) && count($basicDiscounts) > 0) && (isset($bulkDiscounts) && count($bulkDiscounts) > 0))
-<div class="col-lg-12">
+	<h2>Get Discount</h2>
 	<div class="row">
 		@if(isset($basicDiscounts) && count($basicDiscounts) > 0)
-		<div class="basic-discount" style="margin-right: 10px;">
-			<table border="1" style="width: 100%;">
+		<div class="basic-discount">
+			<table class="table-discount">
 				<tr align="center">
-					<th colspan="3" style="padding: 7px;">
+					<th colspan="3">
 						Basic Discount
 					</th>
 				</tr>
 				<tr>
 				@foreach($basicDiscounts as $key => $basicDiscount)
-					<td style="padding: 8px;">
+					<td>
 						{{ $basicDiscount->name }}
 	@php $getBasicJsons = json_decode($basicDiscount->conditions); @endphp
 		<input type="hidden" id="getBPieceCondition{{ $key }}" value="{{ $getBasicJsons[0]->value }}">
@@ -31,15 +31,15 @@
 
 		@if(isset($bulkDiscounts) && count($bulkDiscounts) > 0)
 		<div class="extra-bulk-discount">
-			<table border="1" style="width: 100%;">
+			<table class="table-discount">
 				<tr align="center">
-					<th colspan="3" style="padding: 7px;">
+					<th colspan="3">
 						Extra Bulk Discount
 					</th>
 				</tr>
 				<tr>
 				@foreach($bulkDiscounts as $key => $bulkDiscount)
-					<td style="padding: 8px;">
+					<td>
 						{{ $bulkDiscount->name }} 
 	@php $getBulkJsons = json_decode($bulkDiscount->conditions); @endphp
 		<input type="hidden" id="getExBPieceCondition{{ $key }}" value="{{ $getBulkJsons[0]->value }}">
@@ -52,9 +52,9 @@
 		@endif
 	</div>
 	
-	<div class="calculation" style="margin-top: 20px;">
-		<table border="1" style="width: 100%;">
-			<tr style="padding: 8px;" align="center">
+	<div class="calculation">
+		<table border="1" class="table-discount">
+			<tr class="calculation-heading">
 				<th colspan="6">
 					Price
 				</th>
@@ -63,7 +63,7 @@
 				</th>
 			</tr>
 
-			<tr style="padding: 8px;" align="right">
+			<tr class="calculation-sub-heading" align="right">
 				<th>SKU</th>
 				<th>EXTRA BULK DIS. PRICE</th>
 				<th>BASIC DIS. PRICE</th>
@@ -76,9 +76,9 @@
 
 			<tr align="right">
 				<td>{{ $product->sku }}</td>
-				<td style="color: #239154;" id="ebulkDPrice">0.00 Piece</td>
-				<td style="color: #ff6700;" id="bDPrice">0.00 Piece</td>
-				<td>{!! $product->getTypeInstance()->getPriceHtml() !!} Piece</td>
+				<td id="ebulkDPrice">0.00 Piece</td>
+				<td id="bDPrice">0.00 Piece</td>
+				<td class="test">{!! $product->getTypeInstance()->getPriceHtml() !!} Piece</td>
 				<td id="qty">0 Piece</td>
 				<td>
 					<input type="number" name="getPiece" id="getPiece" min="0">
@@ -95,21 +95,21 @@
 
 			<tr align="right">
 				<td colspan="6"></td>
-				<td style="color: #239154;">Total Discount Amount :</td>
-				<td style="color: #239154;" id="disAmount">0.00 </td>
+				<td class="total-sub-discount">Total Discount Amount :</td>
+				<td id="disAmount">0.00 </td>
 			</tr>
 
 			<tr align="right">
 				<td colspan="6">
-					<span>Total Order Qty : </span>
+					<span class="total-heading">Total Order Qty : </span>
 					<span id="orderPiece">0 Piece </span>
 				</td>
-				<td style="color: #ff6700;">Total Dis. Basic Amount :</td>
-				<td style="color: #ff6700;" id="totalDisBscAmt">0.00 </td>
+				<td class="total-sub-basic-amount">Total Dis. Basic Amount :</td>
+				<td id="totalDisBscAmt">0.00 </td>
 			</tr>
 		</table>
 	</div>
-</div>
+
 @endif
 @endauth
 
