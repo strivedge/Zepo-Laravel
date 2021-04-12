@@ -128,6 +128,13 @@ $(document).ready(function() {
 			    success: function(response) {
 					console.log(response.data);
 					$("#success").html("Your request sended successfully, will get in touch soon!");
+					if(response.message == "Success!") {
+						$("#name").val("");
+						$("#email").val("");
+						$("#contact").val("");
+						$("#quantity").val("");
+						$("#additional").val("");
+					}
 			    }
 			});
     	}
