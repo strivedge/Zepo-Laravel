@@ -1,38 +1,39 @@
 @if(isset($product->bulk))
 	@if($product->bulk == 1)
-	<div class="col-md-4">
+	<div class="bluk-buy-request">
 	    <button type="button" class="theme-btn" name="bulk_buy_request" data-toggle="modal" data-target=".bd-example-modal-xl">{{ __('shop::app.products.bulk-buy-request') }}
 	    </button>
 	</div>
 	@endif
 @endif
 
-<div class="modal bd-example-modal-xl" id="myBulkRequest" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true" style="margin-top: 130px;">
+<div class="modal bd-example-modal-xl" id="myBulkRequest" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true" style="padding: 130px 0px 50px;z-index: 100005;">
 	<div class="modal-dialog modal-xl">
 		<div class="modal-content">
-			<div class="modal-header" style="padding: 10px;">
-			    <h5 class="modal-title" id="exampleModalLongTitle">{{ __('shop::app.products.bulk-buy-request') }}</h5>
-			    <span id="success" style="color: #008000;"></span>
+			<div class="modal-header">
+			    <h2 class="modal-title" id="exampleModalLongTitle">{{ __('shop::app.products.bulk-buy-request') }}</h2>
+			    
 			    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			      <span aria-hidden="true">&times;</span>
 			    </button>
 			</div>
-		  	<div class="modal-body" style="padding: 30px;">
+		  	<div class="modal-body">
+		  		<span id="success"></span>
 		  		<form method="POST" action="{{ route('shop.home.bulk-buy.sending') }}" id="bulk_form">
 		  			@csrf()
 		  			<div class="form-group">
 						<input type="text" placeholder="Name" name="name" id="name" required>
-						<span id="nameError" style="color: #ff0000;"></span>
+						<span id="nameError"></span>
 					</div>
 
 					<div class="form-group">
 						<input type="email" placeholder="Email" name="email" id="email" required>
-						<span id="emailError" style="color: #ff0000;"></span>
+						<span id="emailError"></span>
 					</div>
 
 					<div class="form-group">
 						<input type="tel" placeholder="Contact No." name="contact" id="contact" required>
-						<span id="contactError" style="color: #ff0000;"></span>
+						<span id="contactError"></span>
 					</div>
 
 					<div class="form-group">
@@ -43,7 +44,7 @@
 							<option value="20-50">20-50</option>
 							<option value="50+">More than 50</option>
 						</select>
-						<span id="quantityError" style="color: #ff0000;"></span>
+						<span id="quantityError"></span>
 					</div>
 
 					<div class="form-group">
@@ -54,9 +55,9 @@
 						<input type="text" placeholder="Additional Info" name="additional" id="additional">
 					</div>
 					
-					<div class="form-group">
+					<div class="form-group buttons">
 						<input type="button" class="theme-btn" value="Submit" id="bulk_send">
-						<button type="button" class="theme-btn" data-dismiss="modal" aria-label="Close">Cancel</button>
+						
 					</div>
 				</form>
 			</div>

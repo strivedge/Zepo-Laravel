@@ -273,7 +273,7 @@
                 </div>
             </div>
              
-            <div class="basic-bulk">
+            <div class="basic-bulk-calculator">
                 @include('shop::products.view.product-bulk-discount')
             </div>
             
