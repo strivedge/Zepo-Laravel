@@ -1714,6 +1714,12 @@ header .navbar--addcart--wishlist .mini-cart-container .card-body a { display: i
 	.product-detail #product-form .form-container>.left .product-image-group .magnifier img { display: block; }
 	.product-detail .right .info .quality-product-action .quantity.control-group button,
 	.product-detail .right .info .quality-product-action .quantity.control-group input { width: 85px; height: 50px; }
+	.product-detail .right .quantity { width: 50%; }
+	.basic-bulk-calculator .basic-discount { margin-bottom: 20px; }	
+	.basic-bulk-calculator .basic-discount,
+	.basic-bulk-calculator .extra-bulk-discount { width: 100%; }
+	.basic-bulk-calculator table.table-discount .calculation-heading th { font-size: 12px; }
+	.basic-bulk-calculator table.table-discount .calculation-sub-heading th { font-size: 10px; }
 }
 
 
