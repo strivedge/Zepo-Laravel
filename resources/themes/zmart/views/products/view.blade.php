@@ -176,7 +176,7 @@
                                         </div>
                                     </div>
                                     
-                                    @if(isset($product->attributes) && !empty($product->attributes))
+                                    @if(isset($product->attributes) && count($product->attributes) > 0)
                                         <accordian :title="'{{ __('velocity::app.products.more-attributes') }}'" :active="true">
                                             <div slot="header">
                                                 <h3 class="no-margin display-inbl">
