@@ -12,7 +12,7 @@
 			<table class="table-discount">
 				<tr align="center">
 					<th colspan="3">
-						Basic Discount
+						{{ __('shop::app.products.basic-discount') }}
 					</th>
 				</tr>
 				<tr>
@@ -34,7 +34,7 @@
 			<table class="table-discount">
 				<tr align="center">
 					<th colspan="3">
-						Extra Bulk Discount
+						{{ __('shop::app.products.extra-bulk-discount') }}
 					</th>
 				</tr>
 				<tr>
@@ -56,20 +56,20 @@
 		<table border="1" class="table-discount">
 			<tr class="calculation-heading">
 				<th colspan="6">
-					Price
+					{{ __('shop::app.products.price') }}
 				</th>
 				<th colspan="2">
-					Amount
+					{{ __('shop::app.products.amount') }}
 				</th>
 			</tr>
 
 			<tr class="calculation-sub-heading" align="right">
-				<th>SKU</th>
-				<th>EXTRA BULK DIS. PRICE</th>
-				<th>BASIC DIS. PRICE</th>
-				<th>BASIC PRICE</th>
-				<th>QTY</th>
-				<th>ADD PACKS TO CART</th>
+				<th>{{ __('shop::app.products.sku') }}</th>
+				<th>{{ __('shop::app.products.extra-bulk-dis-price') }}</th>
+				<th>{{ __('shop::app.products.basic-dis-price') }}</th>
+				<th>{{ __('shop::app.products.basic-price') }}</th>
+				<th>{{ __('shop::app.products.qty-discount') }}</th>
+				<th>{{ __('shop::app.products.add-piece-to-cart') }}</th>
 				<th></th>
 				<th></th>
 			</tr>
@@ -78,33 +78,33 @@
 				<td>{{ $product->sku }}</td>
 				<td><span id="ebulkDPrice">0.00 Piece</span></td>
 				<td><span id="bDPrice">0.00 Piece</span></td>
-				<td class="row">@include ('shop::products.price', ['product' => $product]) Piece</td>
-				<td id="qty">0 Piece</td>
+				<td class="row">@include ('shop::products.price', ['product' => $product]) {{ __('shop::app.products.piece') }}</td>
+				<td id="qty">0 {{ __('shop::app.products.piece') }}</td>
 				<td>
 					<input type="number" name="getPiece" id="getPiece" min="0">
 				</td>
-				<td id="billPiece">0 Piece Basic Amount : </td>
+				<td id="billPiece">0 {{ __('shop::app.products.piece-basic-amount') }}</td>
 				<td id="billPrice">0.00 </td>
 			</tr>
 
 			<tr align="right">
 				<td colspan="6"></td>
-				<td>Total Basic Amount : </td>
+				<td>{{ __('shop::app.products.total-basic-amount') }}</td>
 				<td id="totalPrice">0.00 </td>
 			</tr>
 
 			<tr align="right">
 				<td colspan="6"></td>
-				<td class="total-sub-discount">Total Discount Amount :</td>
+				<td class="total-sub-discount">{{ __('shop::app.products.total-discount-amount') }}</td>
 				<td id="disAmount">0.00 </td>
 			</tr>
 
 			<tr align="right">
 				<td colspan="6">
-					<span class="total-heading">Total Order Qty : </span>
-					<span id="orderPiece">0 Piece </span>
+					<span class="total-heading">{{ __('shop::app.products.total-order-qty') }}</span>
+					<span id="orderPiece">0 {{ __('shop::app.products.piece') }} </span>
 				</td>
-				<td class="total-sub-basic-amount">Total Dis. Basic Amount :</td>
+				<td class="total-sub-basic-amount">{{ __('shop::app.products.total-dis-basic-amount') }}</td>
 				<td id="totalDisBscAmt">0.00 </td>
 			</tr>
 		</table>
@@ -172,6 +172,7 @@ $(document).ready(function() {
 			$("#bDPrice").html(basicDPrice);
 			$("#bDPrice").removeClass("strike");
 			$("#ebulkDPrice").addClass("strike");
+			$(".product-price span").addClass("strike");
 			console.log("If 1 ", discountAmount);
 
 			if(totalPrice >= exBDcondition1 && totalPrice <= exBDcondition2-1) {
@@ -182,6 +183,7 @@ $(document).ready(function() {
 				$("#ebulkDPrice").html(bulkDPrice);
 				$("#ebulkDPrice").removeClass("strike");
 				$("#bDPrice").addClass("strike");
+				$(".product-price span").addClass("strike");
 				console.log("Bulk 1",bulkpercent1);
 				console.log("If 1 in If ", discountAmount);
 
@@ -193,6 +195,7 @@ $(document).ready(function() {
 				$("#ebulkDPrice").html(bulkDPrice);
 				$("#ebulkDPrice").removeClass("strike");
 				$("#bDPrice").addClass("strike");
+				$(".product-price span").addClass("strike");
 				console.log("Bulk 2",bulkpercent2);
 				console.log("If 1 in If ", discountAmount);
 
@@ -205,6 +208,7 @@ $(document).ready(function() {
 				$("#ebulkDPrice").html(bulkDPrice);
 				$("#ebulkDPrice").removeClass("strike");
 				$("#bDPrice").addClass("strike");
+				$(".product-price span").addClass("strike");
 				console.log("Bulk 3",bulkpercent3);
 				console.log("If 1 in If ", discountAmount);
 			}
@@ -219,6 +223,7 @@ $(document).ready(function() {
 				$("#ebulkDPrice").html(bulkDPrice);
 				$("#ebulkDPrice").removeClass("strike");
 				$("#bDPrice").addClass("strike");
+				$(".product-price span").addClass("strike");
 				console.log("Bulk 1",bulkpercent1);
 
 			} else if(totalPrice >= exBDcondition2 && totalPrice <= exBDcondition3-1) {
@@ -229,6 +234,7 @@ $(document).ready(function() {
 				$("#ebulkDPrice").html(bulkDPrice);
 				$("#ebulkDPrice").removeClass("strike");
 				$("#bDPrice").addClass("strike");
+				$(".product-price span").addClass("strike");
 				console.log("Bulk 2",bulkpercent2);
 
 			} else if(totalPrice >= exBDcondition3) {
@@ -239,10 +245,18 @@ $(document).ready(function() {
 				$("#ebulkDPrice").html(bulkDPrice);
 				$("#ebulkDPrice").removeClass("strike");
 				$("#bDPrice").addClass("strike");
+				$(".product-price span").addClass("strike");
 				console.log("Bulk 3",bulkpercent3);
 			} else {
 				var discount = 0;
 				var discountAmount = (discount).toFixed(2);
+				var basicDPrice = (discount).toFixed(2);
+				var bulkDPrice = (discount).toFixed(2);
+				$("#bDPrice").html(basicDPrice);
+				$("#ebulkDPrice").html(bulkDPrice);
+				$("#bDPrice").removeClass("strike");
+				$("#ebulkDPrice").removeClass("strike");
+				$(".product-price span").removeClass("strike");
 				console.log("Discount ",discountAmount);
 			}
 
@@ -257,6 +271,7 @@ $(document).ready(function() {
 			$("#bDPrice").html(basicDPrice);
 			$("#bDPrice").removeClass("strike");
 			$("#ebulkDPrice").addClass("strike");
+			$(".product-price span").addClass("strike");
 
 			if(totalPrice >= exBDcondition1 && totalPrice <= exBDcondition2-1) {
 				var bulkpercent1 = (totalPriceDis*parseFloat(exBpercentDis1))/100;
@@ -266,6 +281,7 @@ $(document).ready(function() {
 				$("#ebulkDPrice").html(bulkDPrice);
 				$("#ebulkDPrice").removeClass("strike");
 				$("#bDPrice").addClass("strike");
+				$(".product-price span").addClass("strike");
 				console.log("Bulk 1",bulkpercent1);
 				console.log("If 2 in If ", discountAmount);
 
@@ -277,6 +293,7 @@ $(document).ready(function() {
 				$("#ebulkDPrice").html(bulkDPrice);
 				$("#ebulkDPrice").removeClass("strike");
 				$("#bDPrice").addClass("strike");
+				$(".product-price span").addClass("strike");
 				console.log("Bulk 2",bulkpercent2);
 				console.log("If 2 in If ", discountAmount);
 
@@ -289,6 +306,7 @@ $(document).ready(function() {
 				$("#ebulkDPrice").html(bulkDPrice);
 				$("#ebulkDPrice").removeClass("strike");
 				$("#bDPrice").addClass("strike");
+				$(".product-price span").addClass("strike");
 				console.log("Bulk 3",bulkpercent3);
 				console.log("If 2 in If ", discountAmount);
 			}
@@ -304,6 +322,7 @@ $(document).ready(function() {
 			$("#bDPrice").html(basicDPrice);
 			$("#bDPrice").removeClass("strike");
 			$("#ebulkDPrice").addClass("strike");
+			$(".product-price span").addClass("strike");
 
 			if(totalPrice >= exBDcondition1 && totalPrice <= exBDcondition2-1) {
 				var bulkpercent1 = (totalPriceDis*parseFloat(exBpercentDis1))/100;
@@ -313,6 +332,7 @@ $(document).ready(function() {
 				$("#ebulkDPrice").html(bulkDPrice);
 				$("#ebulkDPrice").removeClass("strike");
 				$("#bDPrice").addClass("strike");
+				$(".product-price span").addClass("strike");
 				console.log("Bulk 1",bulkpercent1);
 				console.log("If 3 in If ", discountAmount);
 
@@ -324,6 +344,7 @@ $(document).ready(function() {
 				$("#ebulkDPrice").html(bulkDPrice);
 				$("#ebulkDPrice").removeClass("strike");
 				$("#bDPrice").addClass("strike");
+				$(".product-price span").addClass("strike");
 				console.log("Bulk 2",bulkpercent2);
 				console.log("If 3 in If ", discountAmount);
 
@@ -336,6 +357,7 @@ $(document).ready(function() {
 				$("#ebulkDPrice").html(bulkDPrice);
 				$("#ebulkDPrice").removeClass("strike");
 				$("#bDPrice").addClass("strike");
+				$(".product-price span").addClass("strike");
 				console.log("Bulk 3",bulkpercent3);
 				console.log("If 3 in If ", discountAmount);
 			}
