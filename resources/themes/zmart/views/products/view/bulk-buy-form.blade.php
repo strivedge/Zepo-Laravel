@@ -22,37 +22,37 @@
 		  		<form method="POST" action="{{ route('shop.home.bulk-buy.sending') }}" id="bulk_form">
 		  			@csrf()
 		  			<div class="form-group">
-						<input type="text" placeholder="Name" name="name" id="name" required>
+						<input type="text" placeholder="{{ __('shop::app.products.name') }}" name="name" id="name" required>
 						<span id="nameError"></span>
 					</div>
 
 					<div class="form-group">
-						<input type="email" placeholder="Email" name="email" id="email" required>
+						<input type="email" placeholder="{{ __('shop::app.products.email') }}" name="email" id="email" required>
 						<span id="emailError"></span>
 					</div>
 
 					<div class="form-group">
-						<input type="tel" placeholder="Contact No." name="contact" id="contact" required>
+						<input type="tel" placeholder="{{ __('shop::app.products.contact') }}" name="contact" id="contact" required>
 						<span id="contactError"></span>
 					</div>
 
 					<div class="form-group">
 						<select name="quantity" id="quantity" required>
-							<option value="">Select minimum quantity</option>
+							<option value="">{{ __('shop::app.products.select-min') }}</option>
 							<option value="5-10">5-10</option>
 							<option value="10-20">10-20</option>
 							<option value="20-50">20-50</option>
-							<option value="50+">More than 50</option>
+							<option value="50+">{{ __('shop::app.products.more-than') }} 50</option>
 						</select>
 						<span id="quantityError"></span>
 					</div>
 
 					<div class="form-group">
-						<input type="text" placeholder="Product Name" name="product_name" id="product_name" value="{{ $product->name }}" readonly>
+						<input type="text" placeholder="{{ __('shop::app.products.product-name') }}" name="product_name" id="product_name" value="{{ $product->name }}" readonly>
 					</div>
 
 					<div class="form-group">
-						<input type="text" placeholder="Additional Info" name="additional" id="additional">
+						<input type="text" placeholder="{{ __('shop::app.products.additional') }}" name="additional" id="additional">
 					</div>
 					
 					<div class="form-group buttons">

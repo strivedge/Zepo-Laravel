@@ -203,7 +203,7 @@
                                     @endif
                                         
                                     <div class="product-code-category">
-                                        <div class="product-code"><label>{{ __('shop::app.products.sku') }} </label>{{$product->sku}}</div>
+                                        <div class="product-code"><label>{{ __('shop::app.products.sku') }}: </label>{{$product->sku}}</div>
 
                                         <!-- for empty categories -->
                                         @if(isset($product->categories) && !empty($product->categories))
