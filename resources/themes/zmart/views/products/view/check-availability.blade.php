@@ -3,8 +3,8 @@
 	<div class="row">
 		<input type="number" name="zipcode" class="control" id="zipcode" placeholder="{{ __('shop::app.products.zip-placeholder') }}">
 		<input type="button" class="theme-btn" id="check" value="{{ __('shop::app.products.check-now') }}">
-		<span id="success"></span>
-		<span id="errors"></span>
+		<span id="successZip"></span>
+		<span id="errorsZip"></span>
 	</div>
 
 @push('scripts')
@@ -13,17 +13,17 @@ $(document).ready(function() {
 	$("#check").click(function() {
 		var zipcode = $("#zipcode").val();
 		if(zipcode.length == 0) {
-			$("#errors").html("{{ __('shop::app.products.zip-placeholder') }}");
-			$("#success").html("");
+			$("#errorsZip").html("{{ __('shop::app.products.zip-placeholder') }}");
+			$("#successZip").html("");
 		} else if(zipcode.length <= 5) {
-			$("#errors").html("{{ __('shop::app.products.lessthan-six-error') }}");
-			$("#success").html("");
+			$("#errorsZip").html("{{ __('shop::app.products.lessthan-six-error') }}");
+			$("#successZip").html("");
 		} else if(zipcode.length > 10) {
-			$("#errors").html("{{ __('shop::app.products.greaterthan-ten-error') }}");
-			$("#success").html("");
+			$("#errorsZip").html("{{ __('shop::app.products.greaterthan-ten-error') }}");
+			$("#successZip").html("");
 		} else {
 			var testUrl = "{{ URL::to('/') }}/check-zipcodes/"+zipcode;
-			$("#errors").html("");
+			$("#errorsZip").html("");
 				$.ajax({
 			    url: testUrl,
 			    type: "GET",
@@ -32,10 +32,11 @@ $(document).ready(function() {
 			    success: function(response) {
 					console.log(response.data.length);
 					if(response.data.length == 0) {
-						$("#success").html("{{ __('shop::app.products.zip-success') }}"+zipcode);
+						$("#successZip").html("{{ __('shop::app.products.zip-success') }}"+zipcode);
+						$("#errorsZip").html("");
 					} else {
-						$("#errors").html("{{ __('shop::app.products.zip-not-provide') }}"+zipcode);
-						$("#success").html("");
+						$("#errorsZip").html("{{ __('shop::app.products.zip-not-provide') }}"+zipcode);
+						$("#successZip").html("");
 					}
 			    }
 			});
