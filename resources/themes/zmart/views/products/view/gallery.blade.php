@@ -31,15 +31,17 @@
                     
                     <div class="modal-content">
                         <span class="close cursor" onclick="closeModal()">&times;</span>
-                        <div class="mySlides">
-                          
-                          <img src="http://localhost/zepomart/public/cache/original/product/108/p1zVWnUEznNIgLbhCUfvUSHsMr1AGfgwmJqby8Rk.png">
-                        </div>
 
+                    @foreach($images as $key => $image)
                         <div class="mySlides">
+                            <img src="{{ $image['medium_image_url'] }}">
+                        </div>
+                    @endforeach
+
+                        <!-- <div class="mySlides">
                           
                           <img src="http://localhost/zepomart/public/cache/original/product/108/TVRWDgMRlzwKZBRa3yZSIZZEkysfGYigIxdkUFGf.png">
-                        </div>
+                        </div> -->
 
                          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                         <a class="next" onclick="plusSlides(1)">&#10095;</a>
