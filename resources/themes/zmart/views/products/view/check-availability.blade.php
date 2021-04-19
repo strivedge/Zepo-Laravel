@@ -3,8 +3,8 @@
 	<div class="row">
 		<input type="number" name="zipcode" class="control" id="zipcode" placeholder="{{ __('shop::app.products.zip-placeholder') }}">
 		<input type="button" class="theme-btn" id="check" value="{{ __('shop::app.products.check-now') }}">
-		<span id="successZip"></span>
-		<span id="errorsZip"></span>
+		<span id="successZip" class="success-msg"></span>
+		<span id="errorsZip" class="error-msg"></span>
 	</div>
 
 @push('scripts')
