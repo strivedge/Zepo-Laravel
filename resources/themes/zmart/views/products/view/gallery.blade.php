@@ -23,7 +23,7 @@
                             <span class="save">{{ __('shop::app.products.save') }}</span><span class="percentage">{{$product->getTypeInstance()->getOfferPercentage()}}%</span>
                         </div>
                     @endif
-                    <img src="http://localhost/zepomart/public/cache/original/product/108/p1zVWnUEznNIgLbhCUfvUSHsMr1AGfgwmJqby8Rk.png" onclick="openModal();currentSlide(1)" class="hover-shadow">
+                    <img src="{{ $images[0]['large_image_url'] }}" onclick="openModal();currentSlide(1)">
                 </div>
                 
 
