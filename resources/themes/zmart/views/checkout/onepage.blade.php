@@ -332,6 +332,38 @@
                                 let value = $(element).val();
                                 let elementId = element.id;
 
+                                if(value != "" && elementId == "billing[phone]") {
+                                    if(value.length <= 7) {
+                                        var billingPhone = "Billing Telephone not less than 8 digit.";
+                                        console.log(billingPhone);
+                                        $("#errorsNumBilling").html(billingPhone);
+                                        isManualValidationFail = true;
+                                    } else if(value.length > 12) {
+                                        var billingPhone = "Billing Telephone not greater than 12 digit.";
+                                        console.log(billingPhone);
+                                        $("#errorsNumBilling").html(billingPhone);
+                                        isManualValidationFail = true;
+                                    } else {
+                                        $("#errorsNumBilling").html("");
+                                    }
+                                }
+
+                                if(value != "" && elementId == "shipping[phone]") {
+                                    if(value.length <= 7) {
+                                        var billingPhone = "Shipping Telephone not less than 8 digit.";
+                                        console.log(billingPhone);
+                                        $("#errorsNumShipping").html(billingPhone);
+                                        isManualValidationFail = true;
+                                    } else if(value.length > 12) {
+                                        var billingPhone = "Shipping Telephone not greater than 12 digit.";
+                                        console.log(billingPhone);
+                                        $("#errorsNumShipping").html(billingPhone);
+                                        isManualValidationFail = true;
+                                    } else {
+                                        $("#errorsNumShipping").html("");
+                                    }
+                                }
+
                                 if (value == ""
                                     && element.id != 'sign-btn'
                                     && element.id != 'billing[company_name]'

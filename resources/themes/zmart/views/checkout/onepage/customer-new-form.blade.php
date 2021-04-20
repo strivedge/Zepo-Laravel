@@ -235,6 +235,7 @@
                 <span class="control-error" v-if="errors.has('address-form.shipping[phone]')">
                     @{{ errors.first('address-form.shipping[phone]') }}
                 </span>
+                <span class="control-error" id="errorsNumShipping"></span>
             </div>
         </div>
 
@@ -513,6 +514,7 @@
                 <span class="control-error" v-if="errors.has('address-form.billing[phone]')">
                     @{{ errors.first('address-form.billing[phone]') }}
                 </span>
+                <span class="control-error" id="errorsNumBilling"></span>
             </div>
         </div>
         <div class="col-md-12 no-padding"> 
@@ -555,3 +557,15 @@
             @endauth
         </div>
     @endif
+
+<!-- @push('scripts')
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#billing[phone]').keyup(function() {
+        var phoneno = $('#billing[phone]').val()
+        console.log(phoneno);
+        console.log("phoneno");
+    });
+});
+</script>
+@endpush -->
