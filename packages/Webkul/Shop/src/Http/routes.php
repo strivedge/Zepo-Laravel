@@ -304,9 +304,9 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
     Route::get('page/{slug}', 'Webkul\CMS\Http\Controllers\Shop\PagePresenterController@presenter')->name('shop.cms.page');
 
     // Blog Listing & Blog Details on front-end homepage
-    Route::get('blog', 'Custom\Blog\Http\Controllers\BlogDetailController@index')->defaults('_config', ['view' => 'shop::home.blog'])->name('shop.home.blog');
+    Route::get('blog', 'Custom\Blog\Http\Controllers\BlogDetailController@index')->defaults('_config', ['view' => 'shop::home.blog'])->name('blog');
 
-    Route::get('blog-detail/{slug}', 'Custom\Blog\Http\Controllers\BlogDetailController@slug')->defaults('_config', ['view' => 'shop::home.blog-details'])->name('blog-detail');
+    Route::get('blog/{slug}', 'Custom\Blog\Http\Controllers\BlogDetailController@slug')->defaults('_config', ['view' => 'shop::home.blog-details'])->name('blog-detail');
 
     // Offer Listing on front-end homepage
     Route::get('offer', 'Custom\Offer\Http\Controllers\OfferHomeController@index')->defaults('_config', ['view' => 'shop::home.offer'])->name('shop.home.offer');
