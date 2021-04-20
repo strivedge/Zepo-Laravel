@@ -98,8 +98,9 @@
 
                 <div class="col-md-6 control-group" :class="[errors.has('phone') ? 'has-error' : '']">
                     <label for="phone" class="mandatory">{{ __('shop::app.customer.account.address.create.phone') }}</label>
-                    <input type="text" class="control" name="phone" value="{{ old('phone') ?? $address->phone }}" v-validate="'required'" data-vv-as="&quot;{{ __('shop::app.customer.account.address.create.phone') }}&quot;">
+                    <input type="text" class="control" name="phone" id="phone" value="{{ old('phone') ?? $address->phone }}" v-validate="'required'" data-vv-as="&quot;{{ __('shop::app.customer.account.address.create.phone') }}&quot;">
                     <span class="control-error" v-if="errors.has('phone')">@{{ errors.first('phone') }}</span>
+                    <span class="control-error" id="errorsPhone"></span>
                 </div>
 
                 {!! view_render_event('bagisto.shop.customers.account.address.edit_form_controls.after', ['address' => $address]) !!}
@@ -116,3 +117,22 @@
 
     {!! view_render_event('bagisto.shop.customers.account.address.edit.after', ['address' => $address]) !!}
 @endsection
+
+@push('scripts')
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#phone").keyup(function() {
+        console.log("Test");
+        var phone = $("#phone").val();
+        if(phone.length <= 7) {
+            $("#errorsPhone").html("Phone not less 8 digit");
+        } else if(phone.length > 12) {
+            $("#errorsPhone").html("Phone not greater 12 digit");
+        } else {
+            $("#errorsPhone").html("");
+        }
+        console.log("Phone ",phone.length);
+    });
+});
+</script>
+@endpush
