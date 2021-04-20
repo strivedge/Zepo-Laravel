@@ -349,7 +349,7 @@
                                         <label for="catalog" class="">{{ __('admin::app.catalog.products.catalog') }}
                                         @if($product->catalog != "")
                                             <a href="{{ asset('/').$product->catalog }}" download="{{ __('velocity::app.products.catalog').'_'.$product->url_key }}"><img src="{{ asset('themes/default/assets/images/product/icons/'.$icons1) }}" alt="{{ __('velocity::app.products.catalog-download') }}"></a> 
-                                        @endif</label>
+                                        @endif &nbsp;<span>(file type : pdf, doc, docx, xls, xlsx)</span></label>
                                         <input type="file" class="control" name="catalog" v-validate="''">
                                         <span class="control-error" v-if="errors.has('catalog')">@{{ errors.first('catalog') }}</span>
                                     </div>
@@ -358,7 +358,7 @@
                                         <label for="datasheet" class="">{{ __('admin::app.catalog.products.datasheet') }}
                                         @if($product->datasheet != "")
                                             <a href="{{ asset('/').$product->datasheet }}" download="{{ __('velocity::app.products.datasheet').'_'.$product->url_key }}"><img src="{{ asset('themes/default/assets/images/product/icons/'.$icons2) }}" alt="{{ __('velocity::app.products.datasheet-download') }}"></a> 
-                                        @endif</label>
+                                        @endif &nbsp;<span>(file type : pdf, doc, docx, xls, xlsx)</span></label>
                                         <input type="file" class="control" name="datasheet" v-validate="''">
                                         <span class="control-error" v-if="errors.has('datasheet')">@{{ errors.first('datasheet') }}</span>
                                     </div>
