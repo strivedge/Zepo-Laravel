@@ -4,12 +4,12 @@
 	$len = count(Request::segments());
 ?>
 @if($len > 0)
-<ol class="breadcrumb">
+<ol class="container">
     <li><a href="{{ route('shop.home.index') }}">Home</a></li>
     @foreach(Request::segments() as $segment)
         <?php $segments .= '/' .$segment; ?>
         @if($i == $len - 1)
-        	<li>
+        	<li class="active">
             <a>{{ ucwords(str_replace('-', ' ', $segment)) }}</a>
         </li>
         @else

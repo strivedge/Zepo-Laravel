@@ -128,7 +128,7 @@
                             category-count="{{ $velocityMetaData ? $velocityMetaData->sidebar_category_count : 10 }}"
                         ></content-header>
 
-                    <div>
+                    <div class="breadcrumb">
                         @include('shop::layouts.breadcrumb')
                     </div>
 

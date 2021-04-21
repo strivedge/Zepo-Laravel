@@ -14,7 +14,7 @@
         </div>
         <div class="col-md-12 col-lg-9"><!-- row col-9 -->
         
-            <magnify-image src="{{ $images[0]['large_image_url'] }}">
+            <magnify-image src="{{ $images[0]['medium_image_url'] }}">
             </magnify-image>
             <div class="mobile-lightbox-gallery">
                 <div class="column">
@@ -23,7 +23,7 @@
                             <span class="save">{{ __('shop::app.products.save') }}</span><span class="percentage">{{$product->getTypeInstance()->getOfferPercentage()}}%</span>
                         </div>
                     @endif
-                    <img src="{{ $images[0]['large_image_url'] }}" onclick="openModal();currentSlide(1)">
+                    <img src="{{ $images[0]['medium_image_url'] }}" onclick="openModal();currentSlide(1)">
                 </div>
                 
 
@@ -38,12 +38,9 @@
                         </div>
                     @endforeach
 
-                        <!-- <div class="mySlides">
-                          
-                          <img src="http://localhost/zepomart/public/cache/original/product/108/TVRWDgMRlzwKZBRa3yZSIZZEkysfGYigIxdkUFGf.png">
-                        </div> -->
+                        
 
-                         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                         <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
                     </div>
