@@ -59,7 +59,7 @@
         <div class="file-uploaded row"> 
             @if($product->catalog != "")
             <div class="catalog-datatsheet">
-                <div class="section-title"><label>{{ __('velocity::app.products.catalog') }}&nbsp;:</label></div>
+                <div class="section-title"><label>{{ __('velocity::app.products.catalog') }}&nbsp;</label></div>
                 <div class="content">
                     <a href="{{ asset('/').$product->catalog }}" download="{{ __('velocity::app.products.catalog').'_'.$product->url_key }}">
                     <img src="{{ asset('themes/default/assets/images/product/icons/'.$icons1) }}" alt="{{ __('velocity::app.products.catalog-download') }}"></a>
@@ -68,7 +68,7 @@
             @endif
             @if($product->datasheet != "")
             <div class="catalog-datatsheet">
-                <div class="section-title"><label>{{ __('velocity::app.products.datasheet') }}&nbsp;:</label></div>
+                <div class="section-title"><label>{{ __('velocity::app.products.datasheet') }}&nbsp;</label></div>
                 <div class="content">
                     <a href="{{ asset('/').$product->datasheet }}" download="{{ __('velocity::app.products.datasheet').'_'.$product->url_key }}">
                     <img src="{{ asset('themes/default/assets/images/product/icons/'.$icons2) }}" alt="{{ __('velocity::app.products.datasheet-download') }}">
