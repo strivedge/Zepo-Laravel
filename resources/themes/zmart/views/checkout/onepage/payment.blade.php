@@ -12,6 +12,7 @@
 
                 <i class="rango-arrow"></i>
             </div>
+            
 
             <div class="payment-methods" slot="body">
                 @foreach ($paymentMethods as $payment)
@@ -20,7 +21,7 @@
 
                     <div class="row col-12">
                         <div>
-                            <label class="radio-container" style="position: absolute;">
+                            <label class="radio-container">
                                 <input
                                     type="radio"
                                     name="payment[method]"
@@ -35,7 +36,7 @@
                             </label>
                         </div>
 
-                        <div class="pl40">
+                        <div class="pl30">
                             <div class="row">
                                 <span class="payment-method method-label fs16">
                                     <b>{{ $payment['method_title'] }}</b>

@@ -129,6 +129,9 @@ $(document).ready(function () {
 
    $('.product-imgs').slick('refresh');
     
+  ('#myCarousel').carousel({
+    interval: 2000
+  });
 
   });
 });
@@ -208,3 +211,5 @@ function productImageSlider() {
 $( window ).on("load", function() {
     productImageSlider();
 });
+
+

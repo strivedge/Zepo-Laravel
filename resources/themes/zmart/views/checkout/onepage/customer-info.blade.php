@@ -22,17 +22,18 @@
                             <div class="card-body row">
 
                                 <div class="col-1">
+                                    <label class="radio-container">
+                                        <input
+                                            type="radio"
+                                            v-validate="'required'"
+                                            name="billing[address_id]"
+                                            :value="addresses.id"
+                                            v-model="address.billing.address_id"
+                                            @change="validateForm('address-form')"
+                                            data-vv-as="&quot;{{ __('shop::app.checkout.onepage.billing-address') }}&quot;" />
 
-                                    <input
-                                        type="radio"
-                                        v-validate="'required'"
-                                        name="billing[address_id]"
-                                        :value="addresses.id"
-                                        v-model="address.billing.address_id"
-                                        @change="validateForm('address-form')"
-                                        data-vv-as="&quot;{{ __('shop::app.checkout.onepage.billing-address') }}&quot;" />
-
-                                    <span class="checkmark"></span>
+                                        <span class="checkmark"></span>
+                                    </label>
                                 </div>
 
                                 <div class="col-10">
@@ -81,17 +82,21 @@
                 @if ($cart->haveStockableItems())
                     <div class="mt10 mb10" v-if="address.billing.address_id">
                         <span class="checkbox fs16 display-inbl">
-                            <input
+                            <label class="checkbox-container">
+                                <span class="checkbox-text">{{ __('shop::app.checkout.onepage.use_for_shipping') }}</span>
+                                <input
                                 class="ml0"
                                 type="checkbox"
                                 id="billing[use_for_shipping]"
                                 name="billing[use_for_shipping]"
                                 @change="validateFormAfterAction"
                                 v-model="address.billing.use_for_shipping" />
+                                <span class="checkmark"></span>
+                            </label>
 
-                            <span class="ml-5">
+                            <!-- <span class="ml-5">
                                 {{ __('shop::app.checkout.onepage.use_for_shipping') }}
-                            </span>
+                            </span> -->
                         </span>
                     </div>
                 @endif

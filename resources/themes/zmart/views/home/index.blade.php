@@ -56,7 +56,7 @@
 <div class="col-12 no-padding content" id="home-right-bar-container">
   @if(isset($sliderData) && !empty($sliderData))
     <section id="slider" class="slider-img">
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <div id="myCarousel" class="carousel slide col-md-9" data-ride="carousel">
         <!-- Indicators -->
       @php 
         $scount=0;
@@ -118,6 +118,14 @@
           <span class="arrows"><img src="{{ asset('/themes/zmart/assets/images/bx-bx-left-arrow-alt.png') }}"></span>
           <span class="sr-only">{{ __('shop::app.home.slider.next') }}</span>
         </a>
+      </div>
+      <div class="col-md-3 banner-offer-imgs">
+        <div class="banner-imgs">
+          <img src="{{ asset('/themes/zmart/assets/images/Online-Medical-D.png') }}">
+        </div>
+        <div class="banner-imgs">
+          <img src="{{ asset('/themes/zmart/assets/images/Online-Medical-D-1.png') }}">
+        </div>
       </div>
         <!-- @include('shop::home.slider') -->
     </section>
