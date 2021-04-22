@@ -4,6 +4,7 @@
 	$len = count(Request::segments());
 ?>
 @if($len > 0)
+<div class="breadcrumb">
 <ol class="container">
     <li><a href="{{ route('shop.home.index') }}">Home</a></li>
     @foreach(Request::segments() as $segment)
@@ -22,4 +23,5 @@
         <?php $i++; ?>
     @endforeach
 </ol>
+</div>
 @endif
