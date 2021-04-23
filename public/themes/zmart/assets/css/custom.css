@@ -1518,7 +1518,10 @@ header .navbar--addcart--wishlist .mini-cart-container .card-body a { display: i
 .account-content.common-us-content .cms-page-container.common-page h2,
 .account-content.common-us-content .cms-page-container.common-page h3 { padding: 0px 0 20px 0; }
 .account-content.common-us-content .cms-page-container.common-page h3 { padding-top: 20px; }
-.account-content.common-us-content .cms-page-container.common-page ul { padding-left: 40px; }
+.account-content.common-us-content .cms-page-container.common-page ul,
+.account-content.common-us-content .cms-page-container.common-page ol { padding-left: 40px; }
+.account-content.common-us-content .cms-page-container.common-page ul li,
+.account-content.common-us-content .cms-page-container.common-page ol li { padding-bottom: 10px; }
 
 @media (max-width: 767px) {
 	.account-content.contact-us-content .contact-details { margin-bottom: 20px; }
