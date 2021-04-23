@@ -1598,7 +1598,7 @@ header .navbar--addcart--wishlist .mini-cart-container .card-body a { display: i
 
 .product-detail .right .info .description p { /*font-weight: 600;*/ }
 .product-detail .right .info .description ul { list-style-type: none;padding-left: 0px;display: flex;flex-wrap: wrap; }
-.product-detail .right .info .description ul li { box-sizing: border-box; }
+.product-detail .right .info .description ul li { box-sizing: border-box;margin-bottom: 10px; }
 .product-detail .right .info .description ul li .content-wrap { height: 100%;border: 1px solid #E7E7E7;border-radius:2px;/*margin:0px 10px 10px;*/padding: 10px 15px 10px;font-weight: 500;font-size: 15px;display: flex;align-items: center; }
 .product-detail .right .info .availability button.active { /*background: #274985;*/background: unset;color: #274985; }
 .product-detail .right .info .availability button { /*background: #B1CC1E;*/background: unset;color: #B1CC1E;padding-left: 0; }
