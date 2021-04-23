@@ -28,9 +28,11 @@
         <ul type="none">
             <li><a href="{!! url('page/about-us') !!}">{{ __('shop::app.footer-links.about-us') }}</a></li>
             <li><a href="{!! url('/contact-us') !!}">{{ __('shop::app.footer-links.contact') }}</a></li>
-            <li><a href="{!! url('page/work-with-us') !!}">{{ __('shop::app.footer-links.work-with-us') }}</a></li>
+            <!-- <li><a href="{!! url('page/work-with-us') !!}">{{ __('shop::app.footer-links.work-with-us') }}</a></li> -->
+            <li><a href="{!! url('page/refund-policy') !!}"><!-- {{ __('shop::app.footer-links.work-with-us') }} -->Refund Policy</a></li>
             <li><a href="{!! url('page/privacy-policy') !!}">{{ __('shop::app.footer-links.privacy-policy') }} </a></li>
             <li><a href="{!! url('page/terms-conditions') !!}">{{ __('shop::app.footer-links.terms-conditions') }}  </a></li>
+            <li><a href="{!! url('page/terms-and-conditions-for-vendorseller') !!}"> Terms And Conditions For Vendor/Seller </a></li>
         </ul>
     </div>
 </div>
