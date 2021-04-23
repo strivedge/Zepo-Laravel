@@ -1,7 +1,7 @@
 @extends('shop::layouts.master')
 
 @section('page_title')
-    {{ __('shop::app.checkout.onepage.title') }}
+    {{ __('velocity::app.checkout.checkout') }}
 @stop
 
 @section('content-wrapper')
