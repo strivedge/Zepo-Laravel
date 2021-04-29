@@ -380,7 +380,7 @@ class ProductRepository extends Repository
             return $query->distinct()
                 ->addSelect('product_flat.*')
                 ->addSelect('products.catalog', 'products.datasheet')
-                ->addSelect('product_attribute_values.integer_value', 'attribute_options.admin_name as brand_name', 'attribute_options.option_slug as brand_slug')
+                ->addSelect('product_attribute_values.integer_value', 'attribute_options.admin_name as brand_name', 'attribute_options.option_slug as brand_slug', 'attribute_options.brand_logo as brand_logo')
                 ->leftJoin('products', 'product_flat.product_id', '=', 'products.id')
                 ->leftJoin('product_attribute_values', function ($join) {
                 $join->on('product_attribute_values.product_id', '=' , 'product_flat.product_id');

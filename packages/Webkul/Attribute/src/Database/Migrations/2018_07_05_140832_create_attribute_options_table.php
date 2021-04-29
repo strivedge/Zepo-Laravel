@@ -18,6 +18,7 @@ class CreateAttributeOptionsTable extends Migration
             $table->increments('id');
             $table->string('admin_name')->nullable();
             $table->string('option_slug')->nullable();
+            $table->string('brand_logo')->nullable();
             $table->integer('sort_order')->nullable();
             $table->integer('attribute_id')->unsigned();
             $table->foreign('attribute_id')->references('id')->on('attributes')->onDelete('cascade');

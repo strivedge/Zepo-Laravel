@@ -15,6 +15,7 @@ class AttributeOption extends TranslatableModel implements AttributeOptionContra
     protected $fillable = [
         'admin_name',
         'option_slug',
+        'brand_logo',
         'swatch_value',
         'sort_order',
         'attribute_id',

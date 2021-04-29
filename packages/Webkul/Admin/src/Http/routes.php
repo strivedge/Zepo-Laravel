@@ -194,6 +194,11 @@ Route::group(['middleware' => ['web']], function () {
 
                 Route::post('/orders/create/{order_id}', 'Webkul\Admin\Http\Controllers\Sales\OrderController@comment')->name('admin.sales.orders.comment');
 
+                // Sellers order route for admin view
+                Route::get('/sellers', 'Webkul\Admin\Http\Controllers\Sales\OrderController@sellers')->defaults('_config', [
+                    'view' => 'admin::sales.sellers.index',
+                ])->name('admin.sales.sellers.index');
+
 
                 // Sales Invoices Routes
                 Route::get('/invoices', 'Webkul\Admin\Http\Controllers\Sales\InvoiceController@index')->defaults('_config', [
