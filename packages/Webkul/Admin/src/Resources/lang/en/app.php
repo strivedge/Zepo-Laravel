@@ -79,7 +79,8 @@ return [
         'tax-rates' => 'Tax Rates',
         'promotions' => 'Promotions',
         'discount' => 'Discount',
-        'cms' => 'CMS'
+        'cms' => 'CMS',
+        'sellers' => 'Sellers',
     ],
 
     'acl' => [
@@ -385,6 +386,10 @@ return [
             'customer-not-notified' => ':date | Customer <b>Not Notified</b>'
         ],
 
+        'sellers' => [
+            'title' => 'Sellers',
+        ],
+
         'invoices' => [
             'title' => 'Invoices',
             'id' => 'Id',
@@ -623,6 +628,8 @@ return [
             'use_in_flat' => "Create in Product Flat Table",
             'is_comparable' => "Attribute is comparable",
             'default_null_option' => 'Create default empty option',
+            'logo' => 'Logo',
+            'brand-logo' => 'Brand Logo',
         ],
         'families' => [
             'title' => 'Families',

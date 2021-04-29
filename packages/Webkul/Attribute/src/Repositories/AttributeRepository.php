@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Event;
 use Webkul\Attribute\Repositories\AttributeOptionRepository;
 use Illuminate\Container\Container as App;
 use Illuminate\Support\Str;
+use Webkul\Attribute\Models\AttributeOption;
 
 class AttributeRepository extends Repository
 {
@@ -47,6 +48,13 @@ class AttributeRepository extends Repository
      * @param  array  $data
      * @return \Webkul\Attribute\Contracts\Attribute
      */
+
+    public function findatrOption($id)
+    {
+        $option = AttributeOption::find($id);
+        return $option;
+    }
+
     public function create(array $data)
     {
         Event::dispatch('catalog.attribute.create.before');

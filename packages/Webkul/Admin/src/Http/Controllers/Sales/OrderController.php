@@ -61,6 +61,11 @@ class OrderController extends Controller
         return view($this->_config['view']);
     }
 
+    public function sellers()
+    {
+        return view($this->_config['view']);
+    }
+
     /**
      * Show the view for the specified resource.
      *
