@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             
             $table->string('catalog')->nullable()->default('NULL');
             $table->string('datasheet')->nullable()->default('NULL');
+            $table->longtext('engraving_shipping_term')->nullable();
             $table->integer('seller_id')->nullable();
         });
 

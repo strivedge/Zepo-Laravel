@@ -66,6 +66,14 @@
             <accordian :title="'{{ __('velocity::app.admin.meta-data.general') }}'" :active="true">
                 <div slot="body">
                     <div class="control-group">
+                        <label style="width:100%;">
+                            {{ __('velocity::app.admin.meta-data.engraving-shipping-term') }}
+                        </label>
+
+                        <textarea class="control" id="engraving_shipping_term" name="engraving_shipping_term">{{ $metaData ? $metaData->engraving_shipping_term : '' }}</textarea>
+                    </div>
+
+                    <div class="control-group">
                         <label>{{ __('velocity::app.admin.meta-data.activate-slider') }}</label>
 
                         <label class="switch">
@@ -368,7 +376,7 @@
                 width: "100%",
                 image_advtab: true,
                 valid_elements : '*[*]',
-                selector: 'textarea#home_page_content,textarea#footer_left_content,textarea#subscription_bar_content,textarea#footer_middle_content,textarea#product-policy',
+                selector: 'textarea#home_page_content,textarea#footer_left_content,textarea#subscription_bar_content,textarea#footer_middle_content,textarea#product-policy, textarea#engraving_shipping_term',
                 plugins: 'image imagetools media wordcount save fullscreen code',
                 toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat | code',
             });

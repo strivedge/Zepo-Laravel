@@ -126,7 +126,8 @@ return [
             'advertisement-three'       => 'Advertisement Three Images',
             'images'                    => 'Images',
             'general'                   => 'General',
-            'add-image-btn-title'       => 'Add Image'
+            'add-image-btn-title'       => 'Add Image',
+            'engraving-shipping-term'   => 'Engraving & Shipping Term',
         ],
         'category'  => [
             'save-btn-title' => 'Save Menu',

@@ -378,22 +378,22 @@ class ProductRepository extends Repository
             $locale = request()->get('locale') ?: app()->getLocale();
 
             return $query->distinct()
-                ->addSelect('product_flat.*')
-                ->addSelect('products.catalog', 'products.datasheet')
-                ->addSelect('product_attribute_values.integer_value', 'attribute_options.admin_name as brand_name', 'attribute_options.option_slug as brand_slug', 'attribute_options.brand_logo as brand_logo')
-                ->leftJoin('products', 'product_flat.product_id', '=', 'products.id')
-                ->leftJoin('product_attribute_values', function ($join) {
-                $join->on('product_attribute_values.product_id', '=' , 'product_flat.product_id');
-                $join->where('product_attribute_values.integer_value','!=',null);
-                $join->where('product_attribute_values.attribute_id','=', 25);
+              ->addSelect('product_flat.*')
+              ->addSelect('products.catalog', 'products.datasheet', 'products.engraving_shipping_term')
+              ->addSelect('product_attribute_values.integer_value', 'attribute_options.admin_name as brand_name', 'attribute_options.option_slug as brand_slug', 'attribute_options.brand_logo as brand_logo')
+              ->leftJoin('products', 'product_flat.product_id', '=', 'products.id')
+              ->leftJoin('product_attribute_values', function ($join) {
+              $join->on('product_attribute_values.product_id', '=' , 'product_flat.product_id');
+              $join->where('product_attribute_values.integer_value','!=',null);
+              $join->where('product_attribute_values.attribute_id','=', 25);
             })
-                ->leftJoin('attribute_options', function ($join) {
-                $join->on('attribute_options.id', '=' , 'product_attribute_values.integer_value');
-                $join->where('attribute_options.attribute_id','=', 25);
+            ->leftJoin('attribute_options', function ($join) {
+              $join->on('attribute_options.id', '=' , 'product_attribute_values.integer_value');
+              $join->where('attribute_options.attribute_id','=', 25);
             })
-                ->where('url_key', $slug)
-                ->where('product_flat.channel', $channel)
-                ->where('product_flat.locale', $locale);
+            ->where('url_key', $slug)
+            ->where('product_flat.channel', $channel)
+            ->where('product_flat.locale', $locale);
         })->first();
 
         $attr = DB::table('product_attribute_values as pa')
@@ -1070,6 +1070,12 @@ class ProductRepository extends Repository
         return $results;
     }
 
-
+  public function getShippingTerm()
+  {
+    $getTerm = DB::table('velocity_meta_data')->distinct()
+      ->select('engraving_shipping_term')
+      ->get();
+    return $getTerm;
+  }
     
 }

@@ -575,6 +575,7 @@ return [
             'product-sku' => 'Product SKU',
             'product-name' => 'Product Name',
             'activate-product' => 'Activate Product',
+            'engraving-shipping-term' => 'Engraving & Shipping Term',
         ],
 
         'attributes' => [
