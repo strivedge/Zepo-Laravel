@@ -363,6 +363,13 @@
                                         <span class="control-error" v-if="errors.has('datasheet')">@{{ errors.first('datasheet') }}</span>
                                     </div>
                             @endif
+                            @if($attribute->code == "bulk")
+                                <div class="control-group" :class="[errors.has('engraving_shipping_term') ? 'has-error' : '']">
+                                    <label for="engraving_shipping_term" class="">{{ __('admin::app.catalog.products.engraving-shipping-term') }}</label>
+                                    <textarea class="control" id="engraving_shipping_term" name="engraving_shipping_term" v-validate="'required'" data-vv-as="&quot;{{ __('admin::app.catalog.products.engraving-shipping-term') }}&quot;">@if($product->engraving_shipping_term != ""){{ $product->engraving_shipping_term }}@else{{ $getTerm[0]->engraving_shipping_term }}@endif</textarea>
+                                    <span class="control-error" v-if="errors.has('engraving_shipping_term')">@{{ errors.first('engraving_shipping_term') }}</span>
+                                </div>
+                            @endif
                                 @endif
 
                                 @endforeach
@@ -416,7 +423,7 @@
             })
 
             tinymce.init({
-                selector: 'textarea#description, textarea#short_description',
+                selector: 'textarea#description, textarea#short_description, textarea#engraving_shipping_term',
                 height: 200,
                 width: "100%",
                 plugins: 'image imagetools media wordcount save fullscreen code table lists link hr',

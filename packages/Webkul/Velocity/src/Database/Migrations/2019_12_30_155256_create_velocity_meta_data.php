@@ -23,6 +23,7 @@ class CreateVelocityMetaData extends Migration
             $table->integer('sidebar_category_count')->default(9);
             $table->integer('featured_product_count')->default(10);
             $table->integer('new_products_count')->default(10);
+            $table->longtext('engraving_shipping_term')->nullable();
             $table->text('subscription_bar_content')->nullable();
             $table->timestamps();
         });

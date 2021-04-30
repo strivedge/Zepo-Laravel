@@ -22,6 +22,7 @@ class Product extends Model implements ProductContract
         'parent_id',
         'catalog',
         'datasheet',
+        'engraving_shipping_term',
         'seller_id',
     ];
 
