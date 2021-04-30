@@ -2,6 +2,7 @@
 
 namespace Webkul\Attribute\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Event;
 use Webkul\Attribute\Repositories\AttributeRepository;
 use File;
@@ -114,6 +115,7 @@ class AttributeController extends Controller
             'code'       => ['required', 'unique:attributes,code,' . $id, new \Webkul\Core\Contracts\Validations\Code],
             'admin_name' => 'required',
             'type'       => 'required',
+            'brand_logo' => 'nullable|mimes:jpeg,jpg,png,bmp',
         ]);
 
         $data = request()->all();
