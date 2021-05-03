@@ -7,7 +7,6 @@
   $getTabs = app('Webkul\Velocity\Repositories\TabSectionRepository')->getCategories(); 
   $getOfferGallary = app('Webkul\Core\Repositories\OfferGallaryRepository')->getTwo();
 ?>
-<?php //echo "Kuldeep<pre>"; print_r($getOfferGallary); exit(); ?>
 
 @php
     $channel = core()->getCurrentChannel();
@@ -122,6 +121,7 @@
           <span class="sr-only">{{ __('shop::app.home.slider.next') }}</span>
         </a>
       </div>
+
       <div class="col-md-3 banner-offer-imgs">
       @if(isset($getOfferGallary) && !empty($getOfferGallary))
         @foreach($getOfferGallary as $gallary)
@@ -130,11 +130,8 @@
           </div>
         @endforeach
       @endif
-
-        <!-- <div class="banner-imgs">
-          <img src="{{ asset('/themes/zmart/assets/images/Online-Medical-D-1.png') }}">
-        </div> -->
       </div>
+      
         <!-- @include('shop::home.slider') -->
     </section>
   @endif
