@@ -697,6 +697,40 @@ Route::group(['middleware' => ['web']], function () {
             //destroy a slider item
             Route::post('slider/delete/{id}', 'Webkul\Core\Http\Controllers\SliderController@destroy')->name('admin.sliders.delete');
 
+            //offer gallary index
+            Route::get('/offer-gallary', 'Webkul\Core\Http\Controllers\OfferGallaryController@index')->defaults('_config', [
+                'view' => 'admin::settings.offer-gallary.index',
+            ])->name('admin.offer-gallary.index');
+
+            //offer gallary create show
+            Route::get('offer-gallary/create', 'Webkul\Core\Http\Controllers\OfferGallaryController@create')->defaults('_config', [
+                'view' => 'admin::settings.offer-gallary.create',
+            ])->name('admin.offer-gallary.create');
+
+            //offer gallary create show
+            Route::post('offer-gallary/create', 'Webkul\Core\Http\Controllers\OfferGallaryController@store')->defaults('_config', [
+                'redirect' => 'admin.offer-gallary.index',
+            ])->name('admin.offer-gallary.store');
+
+            //offer gallary edit show
+            Route::get('offer-gallary/edit/{id}', 'Webkul\Core\Http\Controllers\OfferGallaryController@edit')->defaults('_config', [
+                'view' => 'admin::settings.offer-gallary.edit',
+            ])->name('admin.offer-gallary.edit');
+
+            //offer gallary edit update
+            Route::post('offer-gallary/edit/{id}', 'Webkul\Core\Http\Controllers\OfferGallaryController@update')->defaults('_config', [
+                'redirect' => 'admin.offer-gallary.index',
+            ])->name('admin.offer-gallary.update');
+
+            //destroy a offer gallary item
+            Route::post('offer-gallary/delete/{id}', 'Webkul\Core\Http\Controllers\OfferGallaryController@destroy')->name('admin.offer-gallary.delete');
+
+            // masssdelete for offer gallary
+            Route::post('offer-gallary/masssdelete', 'Webkul\Core\Http\Controllers\OfferGallaryController@massDestroy')->name('admin.offer-gallary.massdelete');
+
+            // massupdate for offer gallary
+            Route::post('offer-gallary/masssupdate', 'Webkul\Core\Http\Controllers\OfferGallaryController@massUpdate')->name('admin.offer-gallary.massupdate');
+
             //tax routes
             Route::get('/tax-categories', 'Webkul\Tax\Http\Controllers\TaxController@index')->defaults('_config', [
                 'view' => 'admin::tax.tax-categories.index',

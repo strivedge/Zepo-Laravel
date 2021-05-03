@@ -3,8 +3,11 @@
 @inject ('productImageHelper', 'Webkul\Product\Helpers\ProductImage')
 @inject ('productRatingHelper', 'Webkul\Product\Helpers\Review')
 
-<?php $getTabs = app('Webkul\Velocity\Repositories\TabSectionRepository')->getCategories(); ?>
-<?php //echo "<pre>"; print_r($getTabs); exit(); ?>
+<?php 
+  $getTabs = app('Webkul\Velocity\Repositories\TabSectionRepository')->getCategories(); 
+  $getOfferGallary = app('Webkul\Core\Repositories\OfferGallaryRepository')->getTwo();
+?>
+<?php //echo "Kuldeep<pre>"; print_r($getOfferGallary); exit(); ?>
 
 @php
     $channel = core()->getCurrentChannel();
@@ -120,12 +123,17 @@
         </a>
       </div>
       <div class="col-md-3 banner-offer-imgs">
-        <div class="banner-imgs">
-          <img src="{{ asset('/themes/zmart/assets/images/Online-Medical-D.png') }}">
-        </div>
-        <div class="banner-imgs">
+      @if(isset($getOfferGallary) && !empty($getOfferGallary))
+        @foreach($getOfferGallary as $gallary)
+          <div class="banner-imgs">
+            <img src="{{ asset('/').$gallary->image }}">
+          </div>
+        @endforeach
+      @endif
+
+        <!-- <div class="banner-imgs">
           <img src="{{ asset('/themes/zmart/assets/images/Online-Medical-D-1.png') }}">
-        </div>
+        </div> -->
       </div>
         <!-- @include('shop::home.slider') -->
     </section>
