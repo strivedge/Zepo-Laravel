@@ -48,7 +48,6 @@ class BlogController extends Controller
     {
         $data = request()->all();
 
-        // $validator = Validator::make($request->all(), [
         $this->validate(request(), [
             'title'    => 'required',
             'image'    => 'required|mimes:jpeg,jpg,png,bmp,svg',
@@ -95,7 +94,7 @@ class BlogController extends Controller
         $data = request()->all();
         
         $this->validate(request(), [
-            'title' => 'required|max:3',
+            'title' => 'required',
             'image' => 'nullable|mimes:jpeg,jpg,png,bmp',
             'slug' => 'unique:master_posts,slug,'.$id,
             'content' => 'required',

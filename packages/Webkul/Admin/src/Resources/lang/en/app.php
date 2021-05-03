@@ -81,6 +81,7 @@ return [
         'discount' => 'Discount',
         'cms' => 'CMS',
         'sellers' => 'Sellers',
+        'offer-gallary' => 'Offer Gallary',
     ],
 
     'acl' => [
@@ -917,6 +918,23 @@ return [
             'update-fail' => 'Slider cannot be updated',
             'delete-success' => 'Cannot delete last slider item',
             'delete-fail' => 'Slider item successfully deleted'
+        ],
+
+        'offer-gallary' => [
+            'title' => 'Offer Gallary',
+            'add-title' => 'Create Offer Gallary',
+            'edit-title' => 'Edit Offer Gallary',
+            'name' => 'Name',
+            'image' => 'Image',
+            'status' => 'Status',
+            'inactive' => 'Inactive',
+            'active' => 'Active',
+            'updated-at' => 'Updated at',
+            'edit-help-title' => 'Edit',
+            'delete-help-title' => 'Delete',
+            'mass-destroy-success' => 'Offer Gallary deleted successfully',
+            'mass-update-success' => 'Offer Gallary updated successfully',
+            'save-btn-title' => 'Save Offer Gallary',
         ],
 
         'tax-categories' => [

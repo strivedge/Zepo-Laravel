@@ -395,9 +395,9 @@
                             @if($attribute->code == 'brand')
                             <td>
                                 <div class="control-group" :class="[errors.has(brandLogo(row)) ? 'has-error' : '']">
-                                    <input type="file" v-validate="''" :name="brandLogo(row)" v-validate="'mimes:bmp,png,jpg,jpeg'" accept="image/*" class="control" data-vv-as="&quot;{{ __('admin::app.catalog.attributes.brand-logo') }}&quot;"/>
+                                    <input type="file" v-validate="''" :name="brandLogo(row)" v-validate="'mimes:bmp,png,svg,jpg,jpeg'" accept="image/*" class="control" data-vv-as="&quot;{{ __('admin::app.catalog.attributes.brand-logo') }}&quot;"/>
                                     <img :src="row['brand_logo']" :onerror="`this.src='{{ URL::to('/') }}/vendor/webkul/ui/assets/images/product/extra-small-product-placeholder.png'`" style="margin-block: 6px; width: 30%; height: 30%;">
-                                    <span class="control-error" v-if="errors.has(brandLogo(row))">Image Format Must Be JPG, JPEG, PNG, BMP.</span>
+                                    <span class="control-error" v-if="errors.has(brandLogo(row))">Image Format Must Be JPG, JPEG, PNG, SVG, BMP.</span>
                                 </div>
                             </td>
                             @endif
