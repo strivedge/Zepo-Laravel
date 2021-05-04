@@ -13,10 +13,13 @@ class OfferGallaryRepository extends Repository
         return 'Webkul\Core\Models\OfferGallary';
     }
 
-    // front-end side
+    // front-end side whereNotNull('product_flat.name');
     public function getTwo()
     {
-        $offerGallary = $this->model->where('status', 1)->orderby('id', 'desc')->take(2)->get();
+        $offerGallary = $this->model->where('status', 1)
+        ->whereNotNull('image')
+        ->orderby('id', 'desc')->take(2)
+        ->get();
         return $offerGallary;
     }
 

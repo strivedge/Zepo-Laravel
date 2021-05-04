@@ -122,15 +122,15 @@
         </a>
       </div>
 
-      <div class="col-md-3 banner-offer-imgs">
       @if(isset($getOfferGallary) && !empty($getOfferGallary))
+      <div class="col-md-3 banner-offer-imgs">
         @foreach($getOfferGallary as $gallary)
           <div class="banner-imgs">
             <img src="{{ asset('/').$gallary->image }}">
           </div>
         @endforeach
-      @endif
       </div>
+      @endif
       
         <!-- @include('shop::home.slider') -->
     </section>
