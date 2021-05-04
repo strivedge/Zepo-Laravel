@@ -111,7 +111,6 @@ class InvoiceRepository extends Repository
                 }
 
                 $orderItem = $this->orderItemRepository->find($itemId);
-                // echo "<pre>"; print_r($orderItem); exit();
 
                 if ($qty > $orderItem->qty_to_invoice) {
                     $qty = $orderItem->qty_to_invoice;
