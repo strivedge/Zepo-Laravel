@@ -106,9 +106,6 @@
                                                 <label>{{ __('shop::app.products.brand') }}: </label>
                                                 <a href="{{ route('brand-products', [$product->brand_slug]) }}">{{ $product->brand_name }}</a>
                                             </div>
-                                            <!-- @if(isset($product->brand_logo) && !empty($product->brand_logo))
-                                                <img src="{{ asset('/').$product->brand_logo }}">
-                                            @endif -->
                                             @endif
                                             @if ($total)
                                                 <div class="reviews">

@@ -25,3 +25,7 @@
 </ol>
 </div>
 @endif
+
+@if(isset($product->brand_logo) && !empty($product->brand_logo))
+    <img src="{{ asset('/').$product->brand_logo }}">
+@endif
