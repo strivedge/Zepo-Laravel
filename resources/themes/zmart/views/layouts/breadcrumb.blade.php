@@ -5,27 +5,35 @@
 ?>
 @if($len > 0)
 <div class="breadcrumb">
-<ol class="container">
-    <li><a href="{{ route('shop.home.index') }}">Home</a></li>
-    @foreach(Request::segments() as $segment)
-        <?php $segments .= '/' .$segment; ?>
-        @if($i == $len - 1)
-        	<li class="active">
-            <a>{{ ucwords(str_replace('-', ' ', $segment)) }}</a>
-        </li>
-        @else
-            @if($segment != "checkout" && $segment != "customer" && $segment != "account" && $segment != "page")
-            	<li>
-                	<a href="{{ route('shop.home.index') }}{{ $segments }}">{{ ucwords(str_replace('-', ' ', $segment)) }}</a>
-            	</li>
+    <div  class="container">
+        <div class="row">
+            <ol class="col-md-8">
+                <li><a href="{{ route('shop.home.index') }}">Home</a></li>
+                @foreach(Request::segments() as $segment)
+                    <?php $segments .= '/' .$segment; ?>
+                    @if($i == $len - 1)
+                    	<li class="active">
+                        <a>{{ ucwords(str_replace('-', ' ', $segment)) }}</a>
+                    </li>
+                    @else
+                        @if($segment != "checkout" && $segment != "customer" && $segment != "account" && $segment != "page")
+                        	<li>
+                            	<a href="{{ route('shop.home.index') }}{{ $segments }}">{{ ucwords(str_replace('-', ' ', $segment)) }}</a>
+                        	</li>
+                        @endif
+                    @endif
+                    <?php $i++; ?>
+                @endforeach
+            </ol>
+            @if(isset($product->brand_logo) && !empty($product->brand_logo))
+                <div class="col-md-4">
+                    <div class="brand-logo">
+                        <img src="{{ asset('/').$product->brand_logo }}">
+                    </div>
+                </div>
             @endif
-        @endif
-        <?php $i++; ?>
-    @endforeach
-</ol>
+        </div>
+    </div>
 </div>
 @endif
 
-@if(isset($product->brand_logo) && !empty($product->brand_logo))
-    <img src="{{ asset('/').$product->brand_logo }}">
-@endif
