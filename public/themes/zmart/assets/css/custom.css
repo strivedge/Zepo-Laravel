@@ -152,11 +152,14 @@ a.theme-btn:hover { color: #274985;background: transparent!important; }
 
 
 .breadcrumb { background: #B1CC1E; padding: 0; }
-.breadcrumb .container { list-style-type: none;display: flex; margin: 0; padding: 15px 15px 15px; }
-.breadcrumb .container>li a { color: #274985;cursor: pointer;font-weight: bold; font-size: 15px; }
-.breadcrumb .container>li.active { width: auto;overflow: hidden;text-overflow: ellipsis;white-space: nowrap; }
-.breadcrumb .container>li.active a { color: #000;cursor: text; }
-.breadcrumb .container>li+li:before { padding: 0 5px; color: #fff; content: "/\A0";font-weight: bold; }
+.breadcrumb .row { align-items: center; }
+.breadcrumb ol { list-style-type: none;display: flex; margin: 0; padding: 15px 15px 15px; }
+.breadcrumb ol>li a { color: #274985;cursor: pointer;font-weight: bold; font-size: 15px; }
+.breadcrumb ol>li.active { width: auto;overflow: hidden;text-overflow: ellipsis;white-space: nowrap; }
+.breadcrumb ol>li.active a { color: #000;cursor: text; }
+.breadcrumb ol>li+li:before { padding: 0 5px; color: #fff; content: "/\A0";font-weight: bold; }
+.breadcrumb .brand-logo { width:100%;height: 100px;overflow: hidden;position: relative;display: inline-block;padding: 15px 0px 7px; }
+.breadcrumb .brand-logo img { width: 100%;height: 100%;object-fit: cover;object-position: center; }
 @media (max-width: 1199px) {
 	.list-card.product-card .content-wrap { width: 35%; }
 	.lg-card-container.list-card .product-information { width: 65%; }
@@ -625,9 +628,9 @@ header.sticky-header.navbar-middle.header-shadow + .main-content-wrapper #head {
 .slider-img .custom-slider-caption .col-left .btn.btn-primary:hover {background: #275da5; color: #ffffff; }
 .slider-img .custom-slider-caption .col-left .btn.btn-primary i {margin-left: 7px; }
 
-.slider-img .banner-offer-imgs .banner-imgs { padding-bottom: 20px; }
+.slider-img .banner-offer-imgs .banner-imgs { padding-bottom: 20px; width: 100%; height: 170px; overflow: hidden; position: relative; display: inline-block; }
 .slider-img .banner-offer-imgs .banner-imgs:last-child { padding-bottom: 0; }
-.slider-img .banner-offer-imgs .banner-imgs img { width: 100%; }
+.slider-img .banner-offer-imgs .banner-imgs img { width: 100%; height: 100%; object-fit: cover;  object-position: center; }
 @media (max-width: 1610px) {
  .slider-img .custom-slider-caption .col-left h1 { /*font-size:50px;*/font-size:35px; }
  .slider-img .custom-slider-caption .col-left p { /*font-size:18px;*/font-size:16px; }

@@ -262,7 +262,7 @@
                     <a data-toggle="tab" href="#reviews"> {{ __('velocity::app.products.reviews-title') }}</a>
                   </li>
                   
-                  @if($product->engraving_shipping_term != "")
+                  @if(isset($product->engraving_shipping_term) && $product->engraving_shipping_term != "")
                   <li>
                     <a data-toggle="tab" href="#engravingandshippingterms">Engraving & Shipping Terms</a>
                   </li>
@@ -278,7 +278,7 @@
                     @include ('shop::products.view.reviews', ['tab' => true])
                   </div>
 
-                  @if($product->engraving_shipping_term != "")
+                  @if(isset($product->engraving_shipping_term) && $product->engraving_shipping_term != "")
                   <div id="engravingandshippingterms" class="tab-pane">
                         {!! $product->engraving_shipping_term !!}
                   </div>
