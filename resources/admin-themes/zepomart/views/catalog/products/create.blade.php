@@ -55,7 +55,7 @@
                             <label for="type" class="required">{{ __('admin::app.catalog.products.product-type') }}</label>
                             <select class="control" v-validate="'required'" id="type" name="type" {{ $familyId ? 'disabled' : '' }} data-vv-as="&quot;{{ __('admin::app.catalog.products.product-type') }}&quot;">
                                 @foreach($productTypes as $key => $productType)
-                                    @if($productType['name'] == "Simple")
+                                    @if($productType['name'] == "Simple" || $productType['name'] == "Configurable")
                                         <option value="{{ $key }}" {{ request()->input('type') == $productType['key'] ? 'selected' : '' }}>
                                             {{ $productType['name'] }}
                                         </option>
@@ -105,9 +105,9 @@
                     @endforeach
                 </select>
             </div>
-            @else
-                <input type="hidden" name="seller_id" value="{{ auth()->guard('admin')->id() }}">
-            @endif
+        @else
+            <input type="hidden" name="seller_id" value="{{ auth()->guard('admin')->id() }}">
+        @endif
 
                         {!! view_render_event('bagisto.admin.catalog.product.create_form_accordian.general.controls.after') !!}
 
