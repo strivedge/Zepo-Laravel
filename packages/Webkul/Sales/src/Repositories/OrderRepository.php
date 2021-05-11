@@ -11,6 +11,7 @@ use Webkul\Sales\Models\Order as OrderModel;
 use Webkul\Sales\Models\OrderAddress;
 use Webkul\Shop\Generators\Sequencer;
 use Webkul\Shop\Generators\OrderNumberIdSequencer;
+use Webkul\Customer\Models\CustomerGroup;
 
 class OrderRepository extends Repository
 {
@@ -55,6 +56,12 @@ class OrderRepository extends Repository
     public function model()
     {
         return Order::class;
+    }
+
+    public function customerGroups()
+    {
+        $groups = CustomerGroup::get();
+        return $groups;
     }
 
     /**

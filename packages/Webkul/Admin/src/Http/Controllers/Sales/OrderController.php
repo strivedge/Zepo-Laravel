@@ -58,7 +58,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view($this->_config['view']);
+        $groups = $this->orderRepository->customerGroups();
+        return view($this->_config['view'], compact('groups'));
     }
 
     public function sellers()

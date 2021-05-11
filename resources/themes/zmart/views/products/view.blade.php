@@ -233,7 +233,7 @@
                                 
 
 
-                                <!-- @include ('shop::products.view.configurable-options') -->
+                                @include ('shop::products.view.configurable-options')
 
                                 @include ('shop::products.view.downloadable')
 
