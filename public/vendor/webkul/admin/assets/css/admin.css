@@ -35,3 +35,5 @@
 #options .accordian-content .control-group input#default-null-option,
 #options .accordian-content .control-group .checkbox label { width: 24px; }
 #options .accordian-content .table .control-group { min-width: 100%;padding: 0; }
+
+.customer_group_codes {  display: inline-flex; justify-content: space-between; align-items: center; height: 36px;  width: 200px; border: 2px solid #c7c7c7; border-radius: 3px; color: #8e8e8e;  padding: 0 5px;  font-family: Montserrat,sans-serif;  font-size: 14px; font-weight: 500; cursor: pointer; }
