@@ -2,7 +2,7 @@
     <div class="modal-parent scrollable quick-view-model">
         <div class="cd-quick-view">
             <template v-if="showProductDetails || true">
-                <div class="col-lg-6 product-gallery">
+                <div class="col-xl-6 product-gallery">
                     <ul class="cd-slider" type="none">
                         <carousel-component
                             slides-per-page="1"
@@ -22,7 +22,7 @@
                     </ul>
                 </div>
 
-                <div class="col-lg-6">
+                <div class="col-xl-6">
                     <a :href="`${baseUrl}/${product.url_key}`" :title="product.name" class="unset">
                         <h2 class="quick-view-name">{{ product.name }}</h2>
                     </a>
