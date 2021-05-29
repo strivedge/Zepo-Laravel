@@ -58,7 +58,7 @@
 <div class="col-12 no-padding content" id="home-right-bar-container">
   @if(isset($sliderData) && !empty($sliderData))
     <section id="slider" class="slider-img">
-      <div id="myCarousel" class="carousel slide col-md-9" data-ride="carousel">
+      <div id="myCarousel" class="carousel slide col-md-12 col-xl-9" data-ride="carousel">
         <!-- Indicators -->
       @php 
         $scount=0;
@@ -92,7 +92,7 @@
             <div class="container">
               <div class="custom-slider-caption">
                 
-                <div class="col-left col-lg-7 col-xl-8">
+                <div class="col-left col-md-7 col-xl-8">
                   <h1>{{ $textTitle }}</h1>
                   <p>{{ $textContent }}</p>
                   <div class="buttons">
@@ -101,7 +101,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="image-wrapper col-lg-5 col-xl-4">
+                <div class="image-wrapper col-md-5 col-xl-4">
                     <img src="{{ url()->to('/') . '/storage/' . $slider['path'] }}" onerror="this.src='{{ asset('vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png') }}'">
                 </div>
               </div>
@@ -123,7 +123,7 @@
       </div>
 
       @if(isset($getOfferGallary) && !empty($getOfferGallary))
-      <div class="col-md-3 banner-offer-imgs">
+      <div class="col-md-12 col-xl-3 banner-offer-imgs">
         @foreach($getOfferGallary as $gallary)
           <div class="banner-imgs">
             <img src="{{ asset('/').$gallary->image }}">
