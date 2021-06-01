@@ -65,7 +65,10 @@
                                         @endphp
                                     @endif
                                 @endforeach
-
+                    <ul>
+                        <li class="email"><span class="material-icons notranslate"> {{ __('shop::app.header.email') }} </span><a href="mailto:{{ __('shop::app.header.email-address') }}">{{ __('shop::app.header.email-address') }}</a></li>
+                        <li class="phone"><span class="material-icons notranslate"> {{ __('shop::app.header.phone') }} </span><a href="tel:{{ __('shop::app.header.phone-num') }}">{{ __('shop::app.header.phone-num') }} </a></li>
+                    </ul>
                                 <ul type="none" class="velocity-content" v-if="headerContent.length > 0">
                                     <li :key="index" v-for="(content, index) in headerContent">
                                         <a
@@ -154,10 +157,7 @@
                                             </div>
                                             <span>{{ $locale->name }}</span>
                                         @endif
-
-                                        <i
-                                            class="rango-arrow-right"
-                                            @click="toggleMetaInfo('languages')">
+                                        <i class="rango-arrow-right" @click="toggleMetaInfo('languages')">
                                         </i>
                                     </li>
 
