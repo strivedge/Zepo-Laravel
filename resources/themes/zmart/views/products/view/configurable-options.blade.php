@@ -291,15 +291,29 @@
                             var priceLabelElement = document.querySelector('.price-label');
                             var priceElement = document.querySelector('.final-price');
 
-                            if (this.childAttributes.length == selectedOptionCount) {
-                                priceLabelElement.style.display = 'none';
+                            var elementsLabel = document.getElementsByClassName('price-label');
+                            var elementsPrice = document.getElementsByClassName('final-price');
+                            var confPrice = document.getElementById('getPrice');
 
+                            if (this.childAttributes.length == selectedOptionCount) {
+                                for (let i = 0; i < elementsPrice.length; i++) {
+                                    elementsLabel[i].style.display = 'none';
+                                    elementsPrice[i].innerHTML = this.config.variant_prices[this.simpleProduct].final_price.formated_price;
+                                    confPrice.value = this.config.variant_prices[this.simpleProduct].final_price.formated_price;
+                                }
+
+                                priceLabelElement.style.display = 'none';
                                 priceElement.innerHTML = this.config.variant_prices[this.simpleProduct].final_price.formated_price;
 
                                 eventBus.$emit('configurable-variant-selected-event', this.simpleProduct)
                             } else {
-                                priceLabelElement.style.display = 'inline-block';
+                                for (let i = 0; i < elementsPrice.length; i++) {
+                                    elementsLabel[i].style.display = 'inline-block';
+                                    elementsPrice[i].innerHTML = this.config.regular_price.formated_price;
+                                    confPrice.value = this.config.regular_price.formated_price;
+                                }
 
+                                priceLabelElement.style.display = 'inline-block';
                                 priceElement.innerHTML = this.config.regular_price.formated_price;
 
                                 eventBus.$emit('configurable-variant-selected-event', 0)

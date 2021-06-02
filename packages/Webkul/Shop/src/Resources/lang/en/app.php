@@ -558,6 +558,7 @@ return [
         'more-than' => 'More than',
         'product-name' => 'Product Name',
         'additional' => 'Additional Info',
+        'get-discount' => 'Get Discount',
         'basic-discount' => 'Basic Discount',
         'extra-bulk-discount' => 'Extra Bulk Discount',
         'extra-bulk-dis-price' => 'EXTRA BULK DIS. PRICE',

@@ -207,5 +207,3 @@ function productImageSlider() {
 $( window ).on("load", function() {
     productImageSlider();
 });
-
-
