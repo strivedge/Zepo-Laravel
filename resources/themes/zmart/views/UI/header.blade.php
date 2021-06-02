@@ -121,7 +121,7 @@
                                         <li>
                                             <a href="{{ route('customer.wishlist.index') }}" class="unset">
                                                 <i class="icon wishlist text-down-3"></i>
-                                                    <!-- <span>{{ __('shop::app.header.wishlist') }}</span> -->
+                                                <span>{{ __('shop::app.header.wishlist') }}</span>
                                             </a>
                                         </li>
 
@@ -142,7 +142,7 @@
                                 @endauth
 
                                 <ul type="none" class="meta-wrapper">
-                                    <li>
+                                    <!-- <li>
                                         @if ($locale)
                                             <div class="language-logo-wrapper">
                                                 @if ($locale->locale_image)
@@ -159,7 +159,7 @@
                                         @endif
                                         <i class="rango-arrow-right" @click="toggleMetaInfo('languages')">
                                         </i>
-                                    </li>
+                                    </li> -->
 
                                     <li>
                                         <span>{{ $currency->code }}</span>
