@@ -5,7 +5,8 @@
 
 @auth('customer')
 @if((isset($basicDiscounts) && count($basicDiscounts) > 0) && (isset($bulkDiscounts) && count($bulkDiscounts) > 0))
-	<h2>Get Discount</h2>
+	<h2>{{ __('shop::app.products.get-discount') }}</h2>
+	<input type="hidden" id="getPrice" value="">
 	<div class="row">
 		@if(isset($basicDiscounts) && count($basicDiscounts) > 0)
 		<div class="basic-discount">
@@ -128,13 +129,24 @@ $(document).ready(function() {
 
 	$("#getPiece").change(function() {
 		var pack = 1;
+		var price = 0;
+		<?php if($product->type == "configurable") {
+		?>
+			var cp = $('#getPrice').val();
+	    	cp = cp.slice(1);
+	    	if(cp == "") {
+	    		pack = 0;
+	    		cp = 0;
+	    	}
+			price = cp 
+		<?php } else { ?>
 		var price = {{ $product->price }};
 		<?php if($product->getTypeInstance()->haveSpecialPrice()) {
 		?>
 			price = {{ $product->special_price }}
-		<?php } ?>
+		<?php }} ?>
 		
-		console.log("Price ",price);
+		// console.log("Price ",price);
 		var inputPiece = $("#getPiece").val();
 		var totalPiece = pack*inputPiece;
 		var totalPrice = totalPiece*price;
@@ -173,7 +185,7 @@ $(document).ready(function() {
 			$("#bDPrice").removeClass("strike");
 			$("#ebulkDPrice").addClass("strike");
 			$(".product-price span").addClass("strike");
-			console.log("If 1 ", discountAmount);
+			// console.log("If 1 ", discountAmount);
 
 			if(totalPrice >= exBDcondition1 && totalPrice <= exBDcondition2-1) {
 				var bulkpercent1 = (totalPriceDis*parseFloat(exBpercentDis1))/100;
@@ -184,8 +196,8 @@ $(document).ready(function() {
 				$("#ebulkDPrice").removeClass("strike");
 				$("#bDPrice").addClass("strike");
 				$(".product-price span").addClass("strike");
-				console.log("Bulk 1",bulkpercent1);
-				console.log("If 1 in If ", discountAmount);
+				// console.log("Bulk 1",bulkpercent1);
+				// console.log("If 1 in If ", discountAmount);
 
 			} else if(totalPrice >= exBDcondition2 && totalPrice <= exBDcondition3-1) {
 				var bulkpercent2 = (totalPriceDis*parseFloat(exBpercentDis2))/100;
@@ -196,35 +208,35 @@ $(document).ready(function() {
 				$("#ebulkDPrice").removeClass("strike");
 				$("#bDPrice").addClass("strike");
 				$(".product-price span").addClass("strike");
-				console.log("Bulk 2",bulkpercent2);
-				console.log("If 1 in If ", discountAmount);
+				// console.log("Bulk 2",bulkpercent2);
+				// console.log("If 1 in If ", discountAmount);
 
 			} else if(totalPrice >= exBDcondition3) {
 				var bulkpercent3 = (totalPriceDis*parseFloat(exBpercentDis3))/100;
 				var discountAmount = (parseFloat(discountAmount)+parseFloat(bulkpercent3)).toFixed(2);
-				console.log("discountAmount3 ", discountAmount);
+				// console.log("discountAmount3 ", discountAmount);
 				totalPriceDis = (totalPrice-discountAmount).toFixed(2);
 				var bulkDPrice = (totalPriceDis/totalPiece).toFixed(2);
 				$("#ebulkDPrice").html(bulkDPrice);
 				$("#ebulkDPrice").removeClass("strike");
 				$("#bDPrice").addClass("strike");
 				$(".product-price span").addClass("strike");
-				console.log("Bulk 3",bulkpercent3);
-				console.log("If 1 in If ", discountAmount);
+				// console.log("Bulk 3",bulkpercent3);
+				// console.log("If 1 in If ", discountAmount);
 			}
 
 		} else if(totalPiece < bDcondition1) {
 			if(totalPrice >= exBDcondition1 && totalPrice <= exBDcondition2-1) {
 				var bulkpercent1 = (totalPrice*parseFloat(exBpercentDis1))/100;
 				var discountAmount = (bulkpercent1).toFixed(2);
-				console.log("discount ",discountAmount);
+				// console.log("discount ",discountAmount);
 				totalPriceDis = (totalPrice-discountAmount).toFixed(2);
 				var bulkDPrice = (totalPriceDis/totalPiece).toFixed(2);
 				$("#ebulkDPrice").html(bulkDPrice);
 				$("#ebulkDPrice").removeClass("strike");
 				$("#bDPrice").addClass("strike");
 				$(".product-price span").addClass("strike");
-				console.log("Bulk 1",bulkpercent1);
+				// console.log("Bulk 1",bulkpercent1);
 
 			} else if(totalPrice >= exBDcondition2 && totalPrice <= exBDcondition3-1) {
 				var bulkpercent2 = (totalPrice*parseFloat(exBpercentDis2))/100;
@@ -235,7 +247,7 @@ $(document).ready(function() {
 				$("#ebulkDPrice").removeClass("strike");
 				$("#bDPrice").addClass("strike");
 				$(".product-price span").addClass("strike");
-				console.log("Bulk 2",bulkpercent2);
+				// console.log("Bulk 2",bulkpercent2);
 
 			} else if(totalPrice >= exBDcondition3) {
 				var bulkpercent3 = (totalPrice*parseFloat(exBpercentDis3))/100;
@@ -246,7 +258,7 @@ $(document).ready(function() {
 				$("#ebulkDPrice").removeClass("strike");
 				$("#bDPrice").addClass("strike");
 				$(".product-price span").addClass("strike");
-				console.log("Bulk 3",bulkpercent3);
+				// console.log("Bulk 3",bulkpercent3);
 			} else {
 				var discount = 0;
 				var discountAmount = (discount).toFixed(2);
@@ -257,7 +269,7 @@ $(document).ready(function() {
 				$("#bDPrice").removeClass("strike");
 				$("#ebulkDPrice").removeClass("strike");
 				$(".product-price span").removeClass("strike");
-				console.log("Discount ",discountAmount);
+				// console.log("Discount ",discountAmount);
 			}
 
 		}
@@ -282,8 +294,8 @@ $(document).ready(function() {
 				$("#ebulkDPrice").removeClass("strike");
 				$("#bDPrice").addClass("strike");
 				$(".product-price span").addClass("strike");
-				console.log("Bulk 1",bulkpercent1);
-				console.log("If 2 in If ", discountAmount);
+				// console.log("Bulk 1",bulkpercent1);
+				// console.log("If 2 in If ", discountAmount);
 
 			} else if(totalPrice >= exBDcondition2 && totalPrice <= exBDcondition3-1) {
 				var bulkpercent2 = (totalPriceDis*parseFloat(exBpercentDis2))/100;
@@ -294,11 +306,11 @@ $(document).ready(function() {
 				$("#ebulkDPrice").removeClass("strike");
 				$("#bDPrice").addClass("strike");
 				$(".product-price span").addClass("strike");
-				console.log("Bulk 2",bulkpercent2);
-				console.log("If 2 in If ", discountAmount);
+				// console.log("Bulk 2",bulkpercent2);
+				// console.log("If 2 in If ", discountAmount);
 
 			} else if(totalPrice >= exBDcondition3) {
-				console.log("bulkpercent3 ",totalPriceDis);
+				// console.log("bulkpercent3 ",totalPriceDis);
 				var bulkpercent3 = (totalPriceDis*parseFloat(exBpercentDis3))/100;
 				var discountAmount = (parseFloat(discountAmount)+parseFloat(bulkpercent3)).toFixed(2);
 				totalPriceDis = (totalPrice-discountAmount).toFixed(2);
@@ -307,8 +319,8 @@ $(document).ready(function() {
 				$("#ebulkDPrice").removeClass("strike");
 				$("#bDPrice").addClass("strike");
 				$(".product-price span").addClass("strike");
-				console.log("Bulk 3",bulkpercent3);
-				console.log("If 2 in If ", discountAmount);
+				// console.log("Bulk 3",bulkpercent3);
+				// console.log("If 2 in If ", discountAmount);
 			}
 
 		}
@@ -333,8 +345,8 @@ $(document).ready(function() {
 				$("#ebulkDPrice").removeClass("strike");
 				$("#bDPrice").addClass("strike");
 				$(".product-price span").addClass("strike");
-				console.log("Bulk 1",bulkpercent1);
-				console.log("If 3 in If ", discountAmount);
+				// console.log("Bulk 1",bulkpercent1);
+				// console.log("If 3 in If ", discountAmount);
 
 			} else if(totalPrice >= exBDcondition2 && totalPrice <= exBDcondition3-1) {
 				var bulkpercent2 = (totalPriceDis*parseFloat(exBpercentDis2))/100;
@@ -345,27 +357,27 @@ $(document).ready(function() {
 				$("#ebulkDPrice").removeClass("strike");
 				$("#bDPrice").addClass("strike");
 				$(".product-price span").addClass("strike");
-				console.log("Bulk 2",bulkpercent2);
-				console.log("If 3 in If ", discountAmount);
+				// console.log("Bulk 2",bulkpercent2);
+				// console.log("If 3 in If ", discountAmount);
 
 			} else if(totalPrice >= exBDcondition3) {
 				var bulkpercent3 = (totalPriceDis*parseFloat(exBpercentDis3))/100;
 				var discountAmount = (parseFloat(discountAmount)+parseFloat(bulkpercent3)).toFixed(2);
-				console.log("discountAmount3 ", discountAmount);
+				// console.log("discountAmount3 ", discountAmount);
 				totalPriceDis = (totalPrice-discountAmount).toFixed(2);
 				var bulkDPrice = (totalPriceDis/totalPiece).toFixed(2);
 				$("#ebulkDPrice").html(bulkDPrice);
 				$("#ebulkDPrice").removeClass("strike");
 				$("#bDPrice").addClass("strike");
 				$(".product-price span").addClass("strike");
-				console.log("Bulk 3",bulkpercent3);
-				console.log("If 3 in If ", discountAmount);
+				// console.log("Bulk 3",bulkpercent3);
+				// console.log("If 3 in If ", discountAmount);
 			}
 
 		}
 
-		console.log("Piece : ",totalPiece);
-		console.log("totalPriceDis : ",totalPriceDis);
+		// console.log("Piece : ",totalPiece);
+		// console.log("totalPriceDis : ",totalPriceDis);
 
 		$("#qty").html(totalPiece+" Piece");
 		$("#billPiece").html(totalPiece+" Piece Basic Amount : ");

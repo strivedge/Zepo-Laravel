@@ -105,5 +105,3 @@
     @endif
 
 {!! view_render_event('bagisto.shop.layout.header.currency-item.after') !!}
-
-
