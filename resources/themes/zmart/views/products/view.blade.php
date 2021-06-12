@@ -149,6 +149,8 @@
                                         @include ('shop::products.view.bulk-buy-form')
                                     </div>
 
+                                    <div>Sold by {{ $product->sold_by }}</div>
+
                                     <div class="col-12 check-availability">
                                         @include ('shop::products.view.check-availability')
                                     </div>
