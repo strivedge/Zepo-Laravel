@@ -12,7 +12,7 @@
         <div class="col-md-12 col-lg-3 mobile-thumb-gallery"><!-- row  col-3-->
             <product-gallery></product-gallery>
         </div>
-        <div class="col-md-12 col-lg-9"><!-- row col-9 -->
+        <div class="col-md-12 col-lg-9 product-image"><!-- row col-9 -->
         
             <magnify-image src="{{ $images[0]['medium_image_url'] }}">
             </magnify-image>

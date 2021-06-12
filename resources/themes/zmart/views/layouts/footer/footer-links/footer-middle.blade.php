@@ -1,5 +1,5 @@
 <div class="col-12 col-md-6 col-lg-4 col-xl-3 footer-block">
-    <h3 class="footer-block-title">{{ __('shop::app.footer-links.quick-links') }}</h3>
+    <h3 class="footer-block-title"><!-- {{ __('shop::app.footer-links.quick-links') }} --></h3>
     <div class="footer-block-content">
         <ul type="none">
             <li><a href="{{ route('shop.home.index') }}">{{ __('shop::app.footer-links.home') }}</a></li>
@@ -23,7 +23,7 @@
     </div>
 </div>
 <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer-block">
-    <h3 class="footer-block-title">{{ __('shop::app.footer-links.contact-us') }}</h3>
+    <h3 class="footer-block-title"><!-- {{ __('shop::app.footer-links.contact-us') }} -->{{ __('shop::app.footer-links.quick-links') }}</h3>
     <div class="footer-block-content">
         <ul type="none">
             <li><a href="{!! url('page/about-us') !!}">{{ __('shop::app.footer-links.about-us') }}</a></li>
