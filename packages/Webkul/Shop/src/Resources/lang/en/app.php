@@ -550,6 +550,7 @@ return [
         'category' => 'Category',
         'brand' => 'Brand',
         'bulk-buy-request' => 'Bulk Buy Request',
+        'sold-by' => 'Sold by',
         'name' => 'Name',
         'email' => 'Email',
         'contact' => 'Contact No.',
