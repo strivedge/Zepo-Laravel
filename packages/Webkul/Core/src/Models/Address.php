@@ -55,6 +55,7 @@ abstract class Address extends Model implements AddressContract
         'order_id',
         'first_name',
         'last_name',
+        'gst_number',
         'gender',
         'company_name',
         'address1',

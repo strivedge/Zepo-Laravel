@@ -45,6 +45,12 @@
                     {!! view_render_event('bagisto.shop.customers.account.address.create_form_controls.last_name.after') !!}
                 </div>
 
+                <div class="control-group" :class="[errors.has('gst_number') ? 'has-error' : '']">
+                    <label for="gst_number" class="">{{ __('shop::app.customer.account.address.create.gst_number') }}</label>
+                    <input type="text" class="control" name="gst_number" value="{{ old('gst_number') }}" v-validate="''" data-vv-as="&quot;{{ __('shop::app.customer.account.address.create.gst_number') }}&quot;">
+                    <span class="control-error" v-if="errors.has('gst_number')">@{{ errors.first('gst_number') }}</span>
+                </div>
+                    
                 <div class="control-group" :class="[errors.has('vat_id') ? 'has-error' : '']">
                     <label for="vat_id">{{ __('shop::app.customer.account.address.create.vat_id') }}
                         <span class="help-note">{{ __('shop::app.customer.account.address.create.vat_help_note') }}</span>
