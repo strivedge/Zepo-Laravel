@@ -112,9 +112,18 @@ class CustomerController extends Controller
             'gender'        => 'required',
             'email'         => 'required|unique:customers,email',
             'date_of_birth' => 'date|before:today',
+            'phone'         => 'required',
         ]);
 
         $data = request()->all();
+
+        if($data['date_of_birth'] == null) {
+            $data['date_of_birth'] = NULL;
+        }
+
+        if($data['phone'] == null) {
+            $data['phone'] = NULL;
+        }
 
         $password = rand(100000, 10000000);
 
@@ -172,9 +181,18 @@ class CustomerController extends Controller
             'gender'        => 'required',
             'email'         => 'required|unique:customers,email,' . $id,
             'date_of_birth' => 'date|before:today',
+            'phone'         => 'required',
         ]);
 
         $data = request()->all();
+
+        if($data['date_of_birth'] == null) {
+            $data['date_of_birth'] = NULL;
+        }
+
+        if($data['phone'] == null) {
+            $data['phone'] = NULL;
+        }
 
         $data['status'] = ! isset($data['status']) ? 0 : 1;
 

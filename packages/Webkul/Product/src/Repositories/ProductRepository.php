@@ -380,8 +380,10 @@ class ProductRepository extends Repository
             return $query->distinct()
               ->addSelect('product_flat.*')
               ->addSelect('products.catalog', 'products.datasheet', 'products.engraving_shipping_term')
-              ->addSelect('product_attribute_values.integer_value', 'attribute_options.admin_name as brand_name', 'attribute_options.option_slug as brand_slug', 'attribute_options.brand_logo as brand_logo')
+              ->addSelect('product_attribute_values.integer_value', 'attribute_options.admin_name as brand_name', 'attribute_options.option_slug as brand_slug', 'attribute_options.brand_logo as brand_logo',
+                'admins.name as sold_by')
               ->leftJoin('products', 'product_flat.product_id', '=', 'products.id')
+              ->leftJoin('admins', 'products.seller_id', '=', 'admins.id')
               ->leftJoin('product_attribute_values', function ($join) {
               $join->on('product_attribute_values.product_id', '=' , 'product_flat.product_id');
               $join->where('product_attribute_values.integer_value','!=',null);
@@ -431,6 +433,8 @@ class ProductRepository extends Repository
         $results->categories = $multiCategory;
         $results->basicDiscount = $basicDiscount;
         $results->bulkDiscount = $bulkDiscount;
+
+        // echo "<pre>"; print_r($results); exit();
 
         return $results;
     }

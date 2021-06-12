@@ -81,7 +81,7 @@
 
                      <div class="form-group">
                     <label>{{ __('shop::app.customer.account.profile.phone') }} <b>:</b></label>
-                       <span>{{ $customer->phone }}</span></div>
+                       <span>{{ $customer->phone ?? '-' }}</span></div>
 
                     {!! view_render_event(
                     'bagisto.shop.customers.account.profile.view.table.after', ['customer' => $customer])
