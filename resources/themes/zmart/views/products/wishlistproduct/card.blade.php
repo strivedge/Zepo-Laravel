@@ -53,7 +53,7 @@ $list = true;
 {!! view_render_event('bagisto.shop.products.list.card.before', ['product' => $product]) !!}
     @if (isset($list) && $list)
         <div class="col-12 lg-card-container no-padding list-card product-card row">
-            <div>
+            <div class="wishlist-button">
                 @include ('shop::products.wishlistproduct.remove-wish', [
                     'addWishlistClass'  => 'pl10',
                     'product'           => $product,
@@ -61,7 +61,7 @@ $list = true;
             </div>
             <div class="content-wrap">
                 <div class="product-image">
-                    <div class="product-code">{{$product->sku}}</div>
+                    
                     @if ($product->getTypeInstance()->haveSpecialPrice())
                     <div class="sticker new">
                         <span class="save">{{ __('shop::app.products.save') }}</span><span class="percentage">{{$product->getTypeInstance()->getOfferPercentage()}}%</span>
@@ -89,41 +89,46 @@ $list = true;
                 </div>
             </div>
 
-            <div class="product-information">
-                <div class="product-name">
-                    <a
-                        href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
-                        title="{{ $product->name }}" class="unset">
+            <div class="product-information-buttons">
+                <div class="product-information">
+                    <div class="product-code">{{$product->sku}}</div>
+                    <div class="product-name">
+                        <a
+                            href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
+                            title="{{ $product->name }}" class="unset">
 
-                        <span>{{ $product->name }}</span><!--  class="fs16" -->
-                    </a>
+                            <span>{{ $product->name }}</span><!--  class="fs16" -->
+                        </a>
+                    </div>
+
+                   
+                    @if( $totalReviews )
+                        <div class="product-rating">
+                            <star-ratings ratings="{{ $avgRatings }}"></star-ratings>
+                            <span>{{ $totalReviews }} {{ __('shop::app.products.ratings') }}</span>
+                        </div>
+                    @endif
+
+                    <div class="cart-wish-wrap mt5">
+                        @include ('shop::products.wishlistproduct.compare', [
+                            'product'           => $product,
+                            'showCompare'       => core()->getConfigData('general.content.shop.compare_option') == "1" ? true : false,
+                        ])
+                    </div>
                 </div>
-
                 <div class="product-price">
                     @include ('shop::products.newproduct.price', ['product' => $product])
                 </div>
-
-                @if( $totalReviews )
-                    <div class="product-rating">
-                        <star-ratings ratings="{{ $avgRatings }}"></star-ratings>
-                        <span>{{ $totalReviews }} {{ __('shop::app.products.ratings') }}</span>
+                <div class="buttons">
+                    <div class="quick-view-in-list">
+                        <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn>
                     </div>
-                @endif
-
-                <div class="cart-wish-wrap mt5">
-                    @include ('shop::products.wishlistproduct.compare', [
+                    @include ('shop::products.wishlistproduct.move-to-cart', [
                         'product'           => $product,
-                        'showCompare'       => core()->getConfigData('general.content.shop.compare_option') == "1" ? true : false,
+                        'addToCartBtnClass' => 'medium-padding',
                     ])
-                </div>
+               </div>
             </div>
-            <div class="quick-view-in-list">
-                <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn>
-            </div>
-            @include ('shop::products.wishlistproduct.move-to-cart', [
-                'product'           => $product,
-                'addToCartBtnClass' => 'medium-padding',
-            ])
         </div>
     @else
         <div class="card grid-card product-card-new">
