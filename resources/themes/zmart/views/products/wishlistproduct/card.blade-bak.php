@@ -53,12 +53,6 @@ $list = true;
 {!! view_render_event('bagisto.shop.products.list.card.before', ['product' => $product]) !!}
     @if (isset($list) && $list)
         <div class="col-12 lg-card-container no-padding list-card product-card row">
-            <div>
-                @include ('shop::products.wishlistproduct.remove-wish', [
-                    'addWishlistClass'  => 'pl10',
-                    'product'           => $product,
-                ])
-            </div>
             <div class="content-wrap">
                 <div class="product-image">
                     <div class="product-code">{{$product->sku}}</div>
@@ -86,6 +80,9 @@ $list = true;
                     @else
                          <img src="{{ $productBaseImage['medium_image_url'] }}" :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
                     @endif
+                    <div class="quick-view-in-list">
+                        <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn>
+                    </div>
                 </div>
             </div>
 
@@ -111,19 +108,14 @@ $list = true;
                 @endif
 
                 <div class="cart-wish-wrap mt5">
-                    @include ('shop::products.wishlistproduct.compare', [
+                    @include ('shop::products.wishlistproduct.add-to-cart', [
+                        'addWishlistClass'  => 'pl10',
                         'product'           => $product,
+                        'addToCartBtnClass' => 'medium-padding',
                         'showCompare'       => core()->getConfigData('general.content.shop.compare_option') == "1" ? true : false,
                     ])
                 </div>
             </div>
-            <div class="quick-view-in-list">
-                <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn>
-            </div>
-            @include ('shop::products.wishlistproduct.move-to-cart', [
-                'product'           => $product,
-                'addToCartBtnClass' => 'medium-padding',
-            ])
         </div>
     @else
         <div class="card grid-card product-card-new">
