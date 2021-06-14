@@ -1,6 +1,6 @@
 {!! view_render_event('bagisto.shop.products.add_to_cart.before', ['product' => $product]) !!}
 
-<div class="buttons">
+<!-- <div class="buttons"> -->
     <div class="add-to-cart-btn  add-to-cart btn btn-primary">
         @if (isset($form) && !$form)
             <button
@@ -51,6 +51,6 @@
             </add-to-cart>
         @endif
     </div>
-</div>
+<!-- </div> -->
 
 {!! view_render_event('bagisto.shop.products.add_to_cart.after', ['product' => $product]) !!}
