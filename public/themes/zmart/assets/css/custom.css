@@ -540,7 +540,15 @@ header.sticky-header.navbar-middle.header-shadow + .main-content-wrapper .vc-hea
     .navbar-bottom ul li a::after, .navbar-bottom ul li a::before { bottom: -9px; }
     .navbar-bottom ul li i,
     .navbar-bottom ul li:hover i { color: #B1CC1E; }
-     .navbar-bottom .nav-container span a { color: #274985; }
+     .navbar-bottom .nav-container span a { color: #274985; font-weight: 600; }
+
+     .navbar-bottom ul li.email,
+     .navbar-bottom ul li.phone { display: flex; }
+     .navbar-bottom ul li.email span,
+     .navbar-bottom ul li.phone span { color: #B1CC1E; padding-right: 7px; }
+	 .navbar-bottom ul li.email a,
+     .navbar-bottom ul li.phone a { font-weight: 600; font-family: 'Be Vietnam', sans-serif; }
+
 	.nav-container .wrapper ul li .category-logo { display: none; }
 	.nav-container .wrapper ul li .language-logo-wrapper { width: 30px;height: 30px; }
 	.nav-container .wrapper ul li .language-logo-wrapper img { width: 100%; }
@@ -651,7 +659,8 @@ header.sticky-header.navbar-middle.header-shadow + .main-content-wrapper .vc-hea
 	.slider-img .custom-slider-caption .col-left p {  }
 
 	.banner-offer-imgs { display: flex; }
-	.slider-img .banner-offer-imgs .banner-imgs { width: 50%; }
+	.slider-img .banner-offer-imgs .banner-imgs { width: 50%; padding-bottom: 0; }
+	.slider-img .banner-offer-imgs .banner-imgs:last-child { padding-left: 15px; }
 }
 @media (max-width: 991px) {
 	.item { padding: 65px 0px; }
@@ -928,7 +937,7 @@ header.sticky-header.navbar-middle.header-shadow + .main-content-wrapper .vc-hea
 
 /* Our customer
 ------------------------------------------------------------------------------------------------------------------------*/
-.our-customer {position: relative; padding: 20px 0px 50px; background-size: cover;width: 100%;}
+.our-customer {position: relative; padding: 20px 0px 50px; background-size: cover;width: 100%;max-width: 100%;}
 .our-customer .container { max-width: 1440px!important; }
 .our-customer  .section-title { padding-bottom: 40px; }
 .our-customer  .section-title h2 { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 700; color: #000000;text-align: center; }
@@ -990,8 +999,17 @@ header.sticky-header.navbar-middle.header-shadow + .main-content-wrapper .vc-hea
 	.auth-content.login-rgister .login-register-content { width: 95%; }
 }
 @media (max-width: 767px) {
-	.auth-content.login-rgister .login-register-content { width: 100%; }
+	.auth-content.login-rgister .login-register-content { width: 100%; padding: 15px; }
+	.auth-content.login-rgister .login-register-content div.body { padding: 15px 15px; }
 	.auth-content.login-rgister .login-register-content .heading.section-title h2 { font-size: 24px; }
+	.auth-content.login-rgister .social-login-links .link { min-width: 100%; padding: 10px 10px; }
+	.auth-content .login-form .social-login-links .control-group, .auth-content .social-login-links .control-group { padding: 0; }
+}
+@media (max-width: 576px) {
+	.auth-content.login-rgister .login-register-content .heading.section-title h2 { font-size: 22px; }
+	.auth-content.login-rgister .login-register-content h3 { font-size: 18px; }
+	.auth-content.login-rgister .login-register-content div.body input.theme-btn, .auth-content.login-rgister .login-register-content div.body .theme-btn { font-size: 12px; }
+
 }
 
 
@@ -1050,6 +1068,9 @@ header.sticky-header.navbar-middle.header-shadow + .main-content-wrapper .vc-hea
 .account-content .account-layout .account-table-content .address-holder .card-body a.card-link.edit-btn:hover { color: #274985;text-decoration: none; }
 .account-content .account-layout .account-table-content .address-holder .card-body a.card-link.delete-btn:hover { color: #B1CC1E;text-decoration: none; }
 
+.account-content .account-layout .reviews-container .review-content { border: 1px solid #E7E7E7; padding: 15px; align-items: center; }
+.account-content .account-layout .reviews-container .review-content a.max-sm-img-dimention { max-width: 100%; max-height: 100%; height: 110px; width: 110px; overflow: hidden; display: inline-block; position: relative; }
+.account-content .account-layout .reviews-container .review-content a.max-sm-img-dimention img { object-fit: cover; object-position: center; }
 .account-content .account-layout .reviews-container .product-name a.remove-decoration { font-size: 16px; color: #2A2A2A;font-weight: 700; }
 .account-content .account-layout .reviews-container .product-name a.remove-decoration:hover { color: #B1CC1E; }
 .account-content .account-layout .reviews-container .delete-btn span { color: #274985; }
@@ -1423,6 +1444,8 @@ header.sticky-header.navbar-middle.header-shadow + .main-content-wrapper .vc-hea
 	.cart-details .cart-content .cart-item-list>.cart-product-details .product-image { padding-right: 15px !important;/*margin-bottom: 10px;*/ max-height: 230px; max-width: 230px; margin: 0 auto 10px; }
 	.cart-details .cart-content .cart-item-list>.cart-product-details .product-image .product-image-container { width: 100%;height: 100%; }
 	.cart-details .cart-content .cart-item-list>.cart-product-details .product-image .product-image-container img { max-height: 100%; }
+	.order-summary-container { padding: 0; }
+	.order-summary .order-summary-content span { font-size: 16px; }
 }
 @media (max-width: 576px) {
 	.cart-details .cart-content .coupon-buttons form.custom-form button.theme-btn.light { margin-top: 10px; }
@@ -1431,6 +1454,14 @@ header.sticky-header.navbar-middle.header-shadow + .main-content-wrapper .vc-hea
 	.cart-details .cart-content .cart-item-list .cart-product-details .item-title { text-align: center; }
 
 	.order-summary-container .row.checkout-buttons:last-child { width: 100%; }
+	.order-summary-container a.theme-btn span { font-size: 12px; }
+	.order-summary .order-summary-content span,
+	.order-summary .order-summary-content span.prices { font-size: 14px; }
+	.order-summary #grand-total-detail div { font-size: 16px; }
+	.order-summary div#grand-total-amount-detail { font-size: 18px; }
+	.cart-details .cart-content .coupon-buttons .continue-update-buttons { display: inline-block; }
+	.cart-details .cart-content .coupon-buttons .continue-update-buttons a.link-color { max-width: 250px; display: block; text-align: center; margin: 0 auto 10px; position: relative; }
+	.cart-details .cart-content .coupon-buttons .continue-update-buttons button.theme-btn { display: block; width: auto; text-align: center; margin: 0 auto; float: unset !important; }
 }
 
 
