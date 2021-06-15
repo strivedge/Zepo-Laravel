@@ -31,7 +31,7 @@
         @if (! $reviews->isEmpty())
             @foreach ($reviews as $review)
                 <div class="col-12 no-padding no-margin fs16">
-                    <div class="col-12 row">
+                    <div class="col-12 row review-content">
                         @php
                             $image = $productImageHelper->getProductBaseImage($review->product);
                         @endphp
