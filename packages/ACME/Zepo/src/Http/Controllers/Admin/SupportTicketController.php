@@ -81,7 +81,7 @@ class SupportTicketController extends Controller
             try {
                     Mail::queue(new SupportTicketEmail($toAdmin));
 
-                    session()->flash('success', trans('admin::app.response.email-success', ['name' => 'Support']));
+                    session()->flash('success', trans('admin::app.response.email-success', ['name' => 'Support Ticket']));
             } catch (\Exception $e) {
                 report($e);
                 session()->flash('error', trans('admin::app.response.email-error'));

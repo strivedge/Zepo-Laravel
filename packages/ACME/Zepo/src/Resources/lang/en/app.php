@@ -34,4 +34,19 @@ return [
             'response-message' => 'Your response recorded you ticket no #0',
             'success-message' => "Your ticket created, We'll get in touch very soon."
         ],
-];
+
+        'sellers' => [
+            'title' => 'Seller Registration',
+            'name' => 'Name',
+            'email' => 'Email',
+            'password' => 'Password',
+            'cpassword' => 'Confirm Password',
+            'status' => 'Status',
+            'role' => 'Role',
+            'btn-register' => 'Register',
+            'subject' => "Request for verify seller account",
+            'seller' => 'Seller',
+            'seller-email' => 'Seller Email',
+            'go-action' => 'go to Seller Verification Action',
+        ]
+    ];

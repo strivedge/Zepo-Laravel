@@ -13,10 +13,10 @@
                             <span class="modal-content">
                                 <a href="{{ route('user.support-ticket') }}" class="login">
                                     <button
-                                                type="button"
-                                                class="">
+                                        type="button"
+                                        class="">
 
-                                                {{__('zepo::app.support-ticket.title') }}
+                                        {{__('zepo::app.support-ticket.title') }}
                                     </button>
                                 </a>    
                             </span>
@@ -28,33 +28,37 @@
                         @guest('customer')
                         <div class="welcome-content pull-right">
                             <div class="modal-content">
+                                <a href="{{ route('user.seller-register') }}" class="login">
+                                    <button
+                                        type="button"
+                                        class="">
+                                        {{__('zepo::app.sellers.title') }}
+                                    </button>
+                                </a>
 
-                                        <a href="{{ route('user.support-ticket') }}" class="login">
-                                            <button
-                                                type="button"
-                                                class="">
+                                <a href="{{ route('user.support-ticket') }}" class="login">
+                                    <button
+                                        type="button"
+                                        class="">
+                                        {{__('zepo::app.support-ticket.title') }}
+                                    </button>
+                                </a>
 
-                                                {{__('zepo::app.support-ticket.title') }}
-                                            </button>
-                                        </a>
-                                
-                                        <a href="{{ route('customer.session.index') }}" class="login">
-                                            <button
-                                                type="button"
-                                                class="">
+                                <a href="{{ route('customer.session.index') }}" class="login">
+                                    <button
+                                        type="button"
+                                        class="">
+                                        {{ __('shop::app.header.sign-in') }}
+                                    </button>
+                                </a>
 
-                                                {{ __('shop::app.header.sign-in') }}
-                                            </button>
-                                        </a>
-
-                                        <a href="{{ route('customer.register.index') }}" class="register">
-                                            <button
-                                                type="button"
-                                                class="">
-                                                {{ __('shop::app.header.sign-up') }}
-                                            </button>
-                                        </a>
-                                
+                                <a href="{{ route('customer.register.index') }}" class="register">
+                                    <button
+                                        type="button"
+                                        class="">
+                                        {{ __('shop::app.header.sign-up') }}
+                                    </button>
+                                </a>
                             </div>
                         </div>
                     @endguest
