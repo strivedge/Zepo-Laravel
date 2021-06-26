@@ -63,7 +63,7 @@ class RazorpayController extends Controller
         //$input = request()->all();
          $input = $request->all();
         //get API Configuration 
-        //echo"<pre>input"; print_r($input);exit();
+        //echo"<pre>input"; print_r(config('custom.razor_key'));exit();
         $api = new Api(config('custom.razor_key'), config('custom.razor_secret'));
         //Fetch payment information by razorpay_payment_id
         $payment = $api->payment->fetch($input['razorpay_payment_id']);
@@ -82,7 +82,7 @@ class RazorpayController extends Controller
             try {
                 $response = $api->payment->fetch($input['razorpay_payment_id'])->capture(array('amount'=>$payment['amount'])); 
 
-               // echo"<pre>"; print_r($response);exit();
+                //echo"<pre>"; print_r($response->status);exit();
 
                 if ($response->status == 'captured' && empty($response->error_code)) {
 
