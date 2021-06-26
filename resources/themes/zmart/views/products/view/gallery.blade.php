@@ -7,16 +7,47 @@
 
 {!! view_render_event('bagisto.shop.products.view.gallery.before', ['product' => $product]) !!}
 
+
     <div class="product-image-group">
-        <div class="col-3"><!-- row  -->
+        <div class="col-md-12 col-lg-3 mobile-thumb-gallery"><!-- row  col-3-->
             <product-gallery></product-gallery>
         </div>
-        <div class="col-9"><!-- row  -->
+        <div class="col-md-12 col-lg-9 product-image"><!-- row col-9 -->
         
-            <magnify-image src="{{ $images[0]['large_image_url'] }}" v-if="!isMobile()">
+            <magnify-image src="{{ $images[0]['medium_image_url'] }}">
             </magnify-image>
+            <div class="mobile-lightbox-gallery">
+                <div class="column">
+                    @if ($product->getTypeInstance()->haveSpecialPrice())
+                        <div class="sticker new">
+                            <span class="save">{{ __('shop::app.products.save') }}</span><span class="percentage">{{$product->getTypeInstance()->getOfferPercentage()}}%</span>
+                        </div>
+                    @endif
+                    <img src="{{ $images[0]['medium_image_url'] }}" onclick="openModal();currentSlide(1)">
+                </div>
+                
+
+                <div id="myModal" class="modal">
+                    
+                    <div class="modal-content">
+                        <span class="close cursor" onclick="closeModal()">&times;</span>
+
+                    @foreach($images as $key => $image)
+                        <div class="mySlides">
+                            <img src="{{ $image['medium_image_url'] }}">
+                        </div>
+                    @endforeach
+
+                        
+
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                    </div>
+                </div>
+            </div>
             @if ($product->getTypeInstance()->haveSpecialPrice())
-            <div class="sticker new">
+            <div class="sticker new desktop-sticker">
                 <span class="save">{{ __('shop::app.products.save') }}</span><span class="percentage">{{$product->getTypeInstance()->getOfferPercentage()}}%</span>
             </div>
             @endif
@@ -70,6 +101,45 @@
 </script>
 
 @push('scripts')
+<script type="text/javascript">
+// Open the Modal
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+// Close the Modal
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i = 0;
+  var slides = document.getElementsByClassName("mySlides");
+  var captionText = document.getElementById("caption");
+
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  
+  slides[slideIndex-1].style.display = "block";
+}
+</script>
+
     <script type="text/javascript">
         (() => {
             var galleryImages = @json($images);

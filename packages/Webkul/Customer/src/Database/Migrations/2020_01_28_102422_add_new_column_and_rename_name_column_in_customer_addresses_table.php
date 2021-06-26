@@ -20,6 +20,10 @@ class AddNewColumnAndRenameNameColumnInCustomerAddressesTable extends Migration
         Schema::table('customer_addresses', function (Blueprint $table) {
             $table->string('last_name')->after('first_name')->nullable();
         });
+
+        Schema::table('customer_addresses', function (Blueprint $table) {
+            $table->string('gst_number')->after('last_name')->nullable();
+        });
     }
 
     /**

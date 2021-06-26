@@ -20,28 +20,34 @@ return [
         'sort'       => 1,
         'icon-class' => '',
     ], [
+        'key'        => 'sales.sellers',
+        'name'       => 'admin::app.layouts.sellers',
+        'route'      => 'admin.sales.sellers.index',
+        'sort'       => 2,
+        'icon-class' => '',
+    ], [
         'key'        => 'sales.shipments',
         'name'       => 'admin::app.layouts.shipments',
         'route'      => 'admin.sales.shipments.index',
-        'sort'       => 2,
+        'sort'       => 3,
         'icon-class' => '',
     ], [
         'key'        => 'sales.invoices',
         'name'       => 'admin::app.layouts.invoices',
         'route'      => 'admin.sales.invoices.index',
-        'sort'       => 3,
+        'sort'       => 4,
         'icon-class' => '',
     ], [
         'key'        => 'sales.refunds',
         'name'       => 'admin::app.layouts.refunds',
         'route'      => 'admin.sales.refunds.index',
-        'sort'       => 4,
+        'sort'       => 5,
         'icon-class' => '',
     ], [
         'key'        => 'sales.cart-products',
         'name'       => 'admin::app.layouts.cart-products',
         'route'      => 'admin.sales.cart-products.index',
-        'sort'       => 5,
+        'sort'       => 6,
         'icon-class' => '',
     ], [
         'key'        => 'catalog',
@@ -188,10 +194,16 @@ return [
         'sort'       => 7,
         'icon-class' => '',
     ], [
+        'key'        => 'settings.offer-gallary',
+        'name'       => 'admin::app.layouts.offer-gallary',
+        'route'      => 'admin.offer-gallary.index',
+        'sort'       => 8,
+        'icon-class' => '',
+    ], [
         'key'        => 'settings.taxes',
         'name'       => 'admin::app.layouts.taxes',
         'route'      => 'admin.tax-categories.index',
-        'sort'       => 8,
+        'sort'       => 9,
         'icon-class' => '',
     ], [
         'key'        => 'settings.taxes.tax-categories',

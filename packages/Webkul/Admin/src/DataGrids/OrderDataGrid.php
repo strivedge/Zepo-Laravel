@@ -26,15 +26,32 @@ class OrderDataGrid extends DataGrid
             ->leftJoin('order_items as order_items', function($leftJoin) {
                 $leftJoin->on('order_items.order_id', '=', 'orders.id');
             })
-            ->addSelect('orders.id','orders.increment_id', 'orders.base_sub_total', 'orders.base_grand_total', 'orders.created_at', 'channel_name', 'status')
+            ->addSelect('orders.id','orders.increment_id', 'orders.base_sub_total', 'orders.base_grand_total', 'orders.created_at', 'channel_name', 'orders.status')
             ->addSelect(DB::raw('CONCAT(' . DB::getTablePrefix() . 'order_address_billing.first_name, " ", ' . DB::getTablePrefix() . 'order_address_billing.last_name) as billed_to'))
             ->addSelect(DB::raw('CONCAT(' . DB::getTablePrefix() . 'order_address_shipping.first_name, " ", ' . DB::getTablePrefix() . 'order_address_shipping.last_name) as shipped_to'));
+
+        if(auth()->guard('admin')->user()->role->id == 1) {
+            if(isset($_GET['customer_group_code'])) {
+                if($_GET['customer_group_code'] == 'guest') {
+                    $queryBuilder->where('orders.is_guest', 1);
+                } else {
+                    $queryBuilder->whereNotNull('orders.customer_id');
+                    $queryBuilder->leftJoin('customers', function($leftJoin) {
+                    $leftJoin->on('customers.id', '=', 'orders.customer_id');
+                    })
+                    ->leftJoin('customer_groups', function($leftJoin) {
+                        $leftJoin->on('customer_groups.id', '=', 'customers.customer_group_id');
+                    })
+                    ->where('customer_groups.code', $_GET['customer_group_code']);
+                }
+            }
+        }
 
         if(auth()->guard('admin')->user()->role->id != 1)
         {
             $queryBuilder->leftJoin('products as products', function($leftJoin) {
                 $leftJoin->on('products.id', '=', 'order_items.product_id')
-                         ->where('products.seller_id', auth()->guard('admin')->id());
+                    ->where('products.seller_id', auth()->guard('admin')->id());
             })
             ->where('products.seller_id', auth()->guard('admin')->id());
         }

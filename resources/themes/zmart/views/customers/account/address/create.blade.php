@@ -45,6 +45,12 @@
                     {!! view_render_event('bagisto.shop.customers.account.address.create_form_controls.last_name.after') !!}
                 </div>
 
+                <div class="control-group" :class="[errors.has('gst_number') ? 'has-error' : '']">
+                    <label for="gst_number" class="">{{ __('shop::app.customer.account.address.create.gst_number') }}</label>
+                    <input type="text" class="control" name="gst_number" value="{{ old('gst_number') }}" v-validate="''" data-vv-as="&quot;{{ __('shop::app.customer.account.address.create.gst_number') }}&quot;">
+                    <span class="control-error" v-if="errors.has('gst_number')">@{{ errors.first('gst_number') }}</span>
+                </div>
+                    
                 <div class="control-group" :class="[errors.has('vat_id') ? 'has-error' : '']">
                     <label for="vat_id">{{ __('shop::app.customer.account.address.create.vat_id') }}
                         <span class="help-note">{{ __('shop::app.customer.account.address.create.vat_help_note') }}</span>
@@ -100,8 +106,9 @@
 
                     <div class="col-md-6 control-group" :class="[errors.has('phone') ? 'has-error' : '']">
                         <label for="phone" class="mandatory">{{ __('shop::app.customer.account.address.create.phone') }}</label>
-                        <input type="text" class="control" name="phone" value="{{ old('phone') }}" v-validate="'required'" data-vv-as="&quot;{{ __('shop::app.customer.account.address.create.phone') }}&quot;">
+                        <input type="text" class="control" name="phone" id="phone" value="{{ old('phone') }}" v-validate="'required'" data-vv-as="&quot;{{ __('shop::app.customer.account.address.create.phone') }}&quot;">
                         <span class="control-error" v-if="errors.has('phone')">@{{ errors.first('phone') }}</span>
+                        <span class="control-error" id="errorsPhone"></span>
                     </div>
 
                     {!! view_render_event('bagisto.shop.customers.account.address.create_form_controls.after') !!}
@@ -117,3 +124,22 @@
 
     {!! view_render_event('bagisto.shop.customers.account.address.create.after') !!}
 @endsection
+
+@push('scripts')
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#phone").keyup(function() {
+        console.log("Test");
+        var phone = $("#phone").val();
+        if(phone.length <= 7) {
+            $("#errorsPhone").html("Phone not less 8 digit");
+        } else if(phone.length > 12) {
+            $("#errorsPhone").html("Phone not greater 12 digit");
+        } else {
+            $("#errorsPhone").html("");
+        }
+        console.log("Phone ",phone);
+    });
+});
+</script>
+@endpush

@@ -209,9 +209,12 @@ class ProductController extends Controller
 
         $categories = $this->categoryRepository->getCategoryTree();
 
+        $getTerm = $this->productRepository->getShippingTerm();
+        // echo "<pre>"; print_r($getTerm); exit();
+
         $inventorySources = $this->inventorySourceRepository->findWhere(['status' => 1]);
 
-        return view($this->_config['view'], compact('product', 'categories', 'inventorySources', 'sellers'));
+        return view($this->_config['view'], compact('product', 'categories', 'inventorySources', 'sellers', 'getTerm'));
     }
 
     /**

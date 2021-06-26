@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="page-action">
-                    <button type="submit" class="btn btn-lg btn-primary">
+                    <button type="submit" id="save_attribute" class="btn btn-lg btn-primary">
                         {{ __('admin::app.catalog.attributes.save-btn-title') }}
                     </button>
                 </div>
@@ -351,6 +351,10 @@
 
                             @endforeach
 
+                            @if($attribute->code == 'brand')
+                                <th>{{ __('admin::app.catalog.attributes.logo') }}</th>
+                            @endif
+
                             <th>{{ __('admin::app.catalog.attributes.position') }}</th>
 
                             <th></th>
@@ -387,6 +391,16 @@
                                     </div>
                                 </td>
                             @endforeach
+
+                            @if($attribute->code == 'brand')
+                            <td>
+                                <div class="control-group" :class="[errors.has(brandLogo(row)) ? 'has-error' : '']">
+                                    <input type="file" v-validate="''" :name="brandLogo(row)" v-validate="'mimes:bmp,png,svg,jpg,jpeg'" accept="image/*" class="control" data-vv-as="&quot;{{ __('admin::app.catalog.attributes.brand-logo') }}&quot;"/>
+                                    <img :src="row['brand_logo']" :onerror="`this.src='{{ URL::to('/') }}/vendor/webkul/ui/assets/images/product/extra-small-product-placeholder.png'`" style="margin-block: 6px; width: 30%; height: 30%;">
+                                    <span class="control-error" v-if="errors.has(brandLogo(row))">Image Format Must Be JPG, JPEG, PNG, SVG, BMP.</span>
+                                </div>
+                            </td>
+                            @endif
 
                             <td>
                                 <div class="control-group" :class="[errors.has(sortOrderName(row)) ? 'has-error' : '']">
@@ -434,12 +448,14 @@
                     var row = {
                             'id': @json($option->id),
                             'admin_name': @json($option->admin_name),
+                            'brand_logo': @json(asset('/').$option->brand_logo),
                             'sort_order': @json($option->sort_order),
                             'swatch_value': @json($option->swatch_value),
                             'swatch_value_url': @json($option->swatch_value_url),
                             'notRequired': '',
                             'locales': {}
                         };
+                        console.log(row);
 
                     @if (empty($option->label))
                         this.isNullOptionChecked = true;
@@ -497,6 +513,10 @@
 
                 adminName: function (row) {
                     return 'options[' + row.id + '][admin_name]';
+                },
+
+                brandLogo: function (row) {
+                    return 'options[' + row.id + '][brand_logo]';
                 },
 
                 localeInputName: function (row, locale) {

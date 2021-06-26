@@ -9,6 +9,10 @@
         $(this).find(".sub-menu").fadeOut();
         $(this).removeClass('active');
       });
+
+      /*$(".hamburger-wrapper").click(function() {
+        $( "#top" ).insertAfter( ".menu-primary-menu-container ul#primary-menu" );
+      });*/
       
   $('.our-customer-content').slick({
       infinite: false,
@@ -109,14 +113,6 @@
             }
         ]
     });  
-
-/*  $('.search-btn').on('click', function(){
-    if($('.navbar--search').css('display') == 'block'){
-      $('.navbar--search').slideUp("fast");
-    } else{
-      $('.navbar--search').slideDown("fast");
-    }
-  });*/
   
  });
 
@@ -129,6 +125,9 @@ $(document).ready(function () {
 
    $('.product-imgs').slick('refresh');
     
+  ('#myCarousel').carousel({
+    interval: 2000
+  });
 
   });
 });
@@ -204,6 +203,7 @@ function productImageSlider() {
     });  
 }
 
+
 $( window ).on("load", function() {
-        productImageSlider();
+    productImageSlider();
 });

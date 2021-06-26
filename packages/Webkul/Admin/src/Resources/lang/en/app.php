@@ -79,7 +79,9 @@ return [
         'tax-rates' => 'Tax Rates',
         'promotions' => 'Promotions',
         'discount' => 'Discount',
-        'cms' => 'CMS'
+        'cms' => 'CMS',
+        'sellers' => 'Sellers',
+        'offer-gallary' => 'Offer Gallary',
     ],
 
     'acl' => [
@@ -385,6 +387,10 @@ return [
             'customer-not-notified' => ':date | Customer <b>Not Notified</b>'
         ],
 
+        'sellers' => [
+            'title' => 'Sellers',
+        ],
+
         'invoices' => [
             'title' => 'Invoices',
             'id' => 'Id',
@@ -570,6 +576,7 @@ return [
             'product-sku' => 'Product SKU',
             'product-name' => 'Product Name',
             'activate-product' => 'Activate Product',
+            'engraving-shipping-term' => 'Engraving & Shipping Term',
         ],
 
         'attributes' => [
@@ -623,6 +630,8 @@ return [
             'use_in_flat' => "Create in Product Flat Table",
             'is_comparable' => "Attribute is comparable",
             'default_null_option' => 'Create default empty option',
+            'logo' => 'Logo',
+            'brand-logo' => 'Brand Logo',
         ],
         'families' => [
             'title' => 'Families',
@@ -909,6 +918,23 @@ return [
             'update-fail' => 'Slider cannot be updated',
             'delete-success' => 'Cannot delete last slider item',
             'delete-fail' => 'Slider item successfully deleted'
+        ],
+
+        'offer-gallary' => [
+            'title' => 'Offer Gallary',
+            'add-title' => 'Create Offer Gallary',
+            'edit-title' => 'Edit Offer Gallary',
+            'name' => 'Name',
+            'image' => 'Image',
+            'status' => 'Status',
+            'inactive' => 'Inactive',
+            'active' => 'Active',
+            'updated-at' => 'Updated at',
+            'edit-help-title' => 'Edit',
+            'delete-help-title' => 'Delete',
+            'mass-destroy-success' => 'Offer Gallary deleted successfully',
+            'mass-update-success' => 'Offer Gallary updated successfully',
+            'save-btn-title' => 'Save Offer Gallary',
         ],
 
         'tax-categories' => [

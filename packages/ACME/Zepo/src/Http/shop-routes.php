@@ -57,5 +57,14 @@ Route::group(['middleware' => ['web', 'theme', 'locale', 'currency']], function 
 		->defaults('_config', ['redirect' => 'user.support-ticket'
 	]);
 
-	   
+	Route::get('/seller-registration', 'ACME\Zepo\Http\Controllers\Shop\SellerRegistrationController@create')
+	    ->name('user.seller-register')
+	    ->defaults('_config', [
+	        'view' => 'shop::seller.create'
+	]);
+
+	Route::post('/seller-registration', 'ACME\Zepo\Http\Controllers\Shop\SellerRegistrationController@store')
+		->name('seller-register.store')
+		->defaults('_config', ['redirect' => 'user.seller-register'
+	]);
 });

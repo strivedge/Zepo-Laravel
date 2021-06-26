@@ -349,7 +349,7 @@
                                         <label for="catalog" class="">{{ __('admin::app.catalog.products.catalog') }}
                                         @if($product->catalog != "")
                                             <a href="{{ asset('/').$product->catalog }}" download="{{ __('velocity::app.products.catalog').'_'.$product->url_key }}"><img src="{{ asset('themes/default/assets/images/product/icons/'.$icons1) }}" alt="{{ __('velocity::app.products.catalog-download') }}"></a> 
-                                        @endif</label>
+                                        @endif &nbsp;<span>(file type : pdf, doc, docx, xls, xlsx)</span></label>
                                         <input type="file" class="control" name="catalog" v-validate="''">
                                         <span class="control-error" v-if="errors.has('catalog')">@{{ errors.first('catalog') }}</span>
                                     </div>
@@ -358,10 +358,17 @@
                                         <label for="datasheet" class="">{{ __('admin::app.catalog.products.datasheet') }}
                                         @if($product->datasheet != "")
                                             <a href="{{ asset('/').$product->datasheet }}" download="{{ __('velocity::app.products.datasheet').'_'.$product->url_key }}"><img src="{{ asset('themes/default/assets/images/product/icons/'.$icons2) }}" alt="{{ __('velocity::app.products.datasheet-download') }}"></a> 
-                                        @endif</label>
+                                        @endif &nbsp;<span>(file type : pdf, doc, docx, xls, xlsx)</span></label>
                                         <input type="file" class="control" name="datasheet" v-validate="''">
                                         <span class="control-error" v-if="errors.has('datasheet')">@{{ errors.first('datasheet') }}</span>
                                     </div>
+                            @endif
+                            @if($attribute->code == "bulk")
+                                <div class="control-group" :class="[errors.has('engraving_shipping_term') ? 'has-error' : '']">
+                                    <label for="engraving_shipping_term" class="">{{ __('admin::app.catalog.products.engraving-shipping-term') }}</label>
+                                    <textarea class="control" id="engraving_shipping_term" name="engraving_shipping_term" v-validate="'required'" data-vv-as="&quot;{{ __('admin::app.catalog.products.engraving-shipping-term') }}&quot;">@if($product->engraving_shipping_term != ""){{ $product->engraving_shipping_term }}@else{{ $getTerm[0]->engraving_shipping_term }}@endif</textarea>
+                                    <span class="control-error" v-if="errors.has('engraving_shipping_term')">@{{ errors.first('engraving_shipping_term') }}</span>
+                                </div>
                             @endif
                                 @endif
 
@@ -416,7 +423,7 @@
             })
 
             tinymce.init({
-                selector: 'textarea#description, textarea#short_description',
+                selector: 'textarea#description, textarea#short_description, textarea#engraving_shipping_term',
                 height: 200,
                 width: "100%",
                 plugins: 'image imagetools media wordcount save fullscreen code table lists link hr',

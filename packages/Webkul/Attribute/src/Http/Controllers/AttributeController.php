@@ -2,8 +2,10 @@
 
 namespace Webkul\Attribute\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Event;
 use Webkul\Attribute\Repositories\AttributeRepository;
+use File;
 
 class AttributeController extends Controller
 {
@@ -113,6 +115,7 @@ class AttributeController extends Controller
             'code'       => ['required', 'unique:attributes,code,' . $id, new \Webkul\Core\Contracts\Validations\Code],
             'admin_name' => 'required',
             'type'       => 'required',
+            'brand_logo' => 'nullable|mimes:jpeg,jpg,png,bmp',
         ]);
 
         $data = request()->all();
@@ -122,6 +125,7 @@ class AttributeController extends Controller
                 $admin_name = str_replace(' ', '-', $optionInputs['admin_name']);
                 $option_slug = strtolower($admin_name);
                 $data['options'][$optionId]['option_slug'] = $option_slug;
+
                 foreach ($data['options'] as $opt_Id => $opt_Input) {
                     if(isset($option_slug) && isset($data['options'][$opt_Id]['option_slug']))
                     {
@@ -139,7 +143,27 @@ class AttributeController extends Controller
                         }
                     }
                 }
+
                 $data['options'][$optionId]['option_slug'] = $option_slug;
+                
+                $brandLogo = isset($optionInputs['brand_logo']);
+                $old_attribute = $this->attributeRepository->findatrOption($optionId);
+                if($brandLogo != null)
+                {
+                    $brandLogo = $optionInputs['brand_logo'];
+                    if(isset($old_attribute['brand_logo']) && $old_attribute['brand_logo'] != null)
+                    {
+                        $file_path = public_path().'/'.$old_attribute['brand_logo'];
+                        if(File::exists($file_path)) 
+                        {
+                            unlink($file_path);
+                        }
+                    }
+
+                    $imageName1 = time().rand(10,100).'.'.$brandLogo->extension();
+                    $brandLogo->move(public_path('uploadImages/brandLogo'), $imageName1);
+                    $data['options'][$optionId]['brand_logo'] = 'uploadImages/brandLogo/'.$imageName1;
+                }
             }
         }
 

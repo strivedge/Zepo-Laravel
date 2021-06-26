@@ -149,6 +149,8 @@
                                         @include ('shop::products.view.bulk-buy-form')
                                     </div>
 
+                                    <div class="sold-by">{{ __('shop::app.products.sold-by') }} <span>{{ $product->sold_by }}</span></div>
+
                                     <div class="col-12 check-availability">
                                         @include ('shop::products.view.check-availability')
                                     </div>
@@ -233,7 +235,7 @@
                                 
 
 
-                                <!-- @include ('shop::products.view.configurable-options') -->
+                                @include ('shop::products.view.configurable-options')
 
                                 @include ('shop::products.view.downloadable')
 
@@ -261,6 +263,13 @@
                   <li>
                     <a data-toggle="tab" href="#reviews"> {{ __('velocity::app.products.reviews-title') }}</a>
                   </li>
+                  
+                  @if(isset($product->engraving_shipping_term) && $product->engraving_shipping_term != "")
+                  <li>
+                    <a data-toggle="tab" href="#engravingandshippingterms">Engraving & Shipping Terms</a>
+                  </li>
+                  @endif
+
                 </ul>
                         
                 <div class="tab-content">
@@ -270,6 +279,13 @@
                   <div id="reviews" class="tab-pane">
                     @include ('shop::products.view.reviews', ['tab' => true])
                   </div>
+
+                  @if(isset($product->engraving_shipping_term) && $product->engraving_shipping_term != "")
+                  <div id="engravingandshippingterms" class="tab-pane">
+                        {!! $product->engraving_shipping_term !!}
+                  </div>
+                  @endif
+
                 </div>
             </div>
              

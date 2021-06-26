@@ -382,10 +382,30 @@ return [
         'route' => 'admin.sliders.delete',
         'sort'  => 3,
     ], [
+        'key'   => 'settings.offer-gallary',
+        'name'  => 'admin::app.layouts.offer-gallary',
+        'route' => 'admin.offer-gallary.index',
+        'sort'  => 8,
+    ], [
+        'key'   => 'settings.offer-gallary.create',
+        'name'  => 'admin::app.acl.create',
+        'route' => 'admin.offer-gallary.create',
+        'sort'  => 1,
+    ], [
+        'key'   => 'settings.offer-gallary.edit',
+        'name'  => 'admin::app.acl.edit',
+        'route' => 'admin.offer-gallary.edit',
+        'sort'  => 2,
+    ], [
+        'key'   => 'settings.offer-gallary.delete',
+        'name'  => 'admin::app.acl.delete',
+        'route' => 'admin.offer-gallary.delete',
+        'sort'  => 3,
+    ], [
         'key'   => 'settings.taxes',
         'name'  => 'admin::app.acl.taxes',
         'route' => 'admin.tax-categories.index',
-        'sort'  => 8,
+        'sort'  => 9,
     ], [
         'key'   => 'settings.taxes.tax-categories',
         'name'  => 'admin::app.acl.tax-categories',

@@ -235,6 +235,7 @@
                 <span class="control-error" v-if="errors.has('address-form.shipping[phone]')">
                     @{{ errors.first('address-form.shipping[phone]') }}
                 </span>
+                <span class="control-error" id="errorsNumShipping"></span>
             </div>
         </div>
 
@@ -318,6 +319,27 @@
                     </span>
                 </div>
             </div>
+        </div>
+
+        <div :class="`col-md-12 form-field ${errors.has('address-form.billing[gst_number]') ? 'has-error' : ''}`">
+            <label for="billing[gst_number]" class="">
+                {{ __('shop::app.checkout.onepage.gst-number') }}
+            </label>
+
+            <input
+                type="text"
+                class="control"
+                id="billing[gst_number]"
+                name="billing[gst_number]"
+                @blur="isCustomerExist"
+                v-validate="''"
+                v-model="address.billing.gst_number"
+                @change="validateForm('gst_number')"
+                data-vv-as="&quot;{{ __('shop::app.checkout.onepage.gst-number') }}&quot;" />
+
+            <span class="control-error" v-if="errors.has('address-form.billing[gst_number]')">
+                @{{ errors.first('address-form.billing[gst_number]') }}
+            </span>
         </div>
 
         <div :class="`col-md-12 form-field ${errors.has('address-form.billing[email]') ? 'has-error' : ''}`">
@@ -513,6 +535,7 @@
                 <span class="control-error" v-if="errors.has('address-form.billing[phone]')">
                     @{{ errors.first('address-form.billing[phone]') }}
                 </span>
+                <span class="control-error" id="errorsNumBilling"></span>
             </div>
         </div>
         <div class="col-md-12 no-padding"> 
