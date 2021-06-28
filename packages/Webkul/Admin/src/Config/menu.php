@@ -67,35 +67,42 @@ return [
         'route'      => 'admin.catalog.products.create',
         'sort'       => 2,
         'icon-class' => '',
-    ], [
+    ], 
+    [
+        'key'        => 'catalog.customer',
+        'name'       => 'admin::app.catalog.customer.title',
+        'route'      => 'admin.catalog.customer.index',
+        'sort'       => 3,
+        'icon-class' => '',
+    ],[
         'key'        => 'catalog.categories',
         'name'       => 'admin::app.layouts.categories',
         'route'      => 'admin.catalog.categories.index',
-        'sort'       => 3,
+        'sort'       => 4,
         'icon-class' => '',
     ], [
         'key'        => 'catalog.attributes',
         'name'       => 'admin::app.layouts.attributes',
         'route'      => 'admin.catalog.attributes.index',
-        'sort'       => 4,
+        'sort'       => 5,
         'icon-class' => '',
     ], [
         'key'        => 'catalog.families',
         'name'       => 'admin::app.layouts.attribute-families',
         'route'      => 'admin.catalog.families.index',
-        'sort'       => 5,
+        'sort'       => 6,
         'icon-class' => '',
     ], [
         'key'        => 'catalog.zipcode',
         'name'       => 'admin::app.catalog.zipcodes.title',
         'route'      => 'admin.catalog.zipcode.index',
-        'sort'       => 6,
+        'sort'       => 7,
         'icon-class' => '',
     ], [
         'key'        => 'catalog.discount',
         'name'       => 'admin::app.catalog.discounts.title',
         'route'      => 'admin.catalog.discount.index',
-        'sort'       => 7,
+        'sort'       => 8,
         'icon-class' => '',
     ], [
         'key'        => 'customers',
