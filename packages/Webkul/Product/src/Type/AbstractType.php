@@ -273,6 +273,8 @@ abstract class AbstractType
                 $product);
         }
 
+        
+
         return $product;
     }
 
@@ -285,6 +287,15 @@ abstract class AbstractType
      */
     public function setProduct($product)
     {
+         //echo "setProduct<pre>";print_r(auth()->guard('customer')->user());
+        if(auth()->guard('customer')->user() && auth()->guard('customer')->user()->id){
+            $customer_id = auth()->guard('customer')->user()->id;
+           $customerPrice = $this->productRepository->getProductCustomerPriceByID($product->id,$customer_id);
+           if (!empty($customerPrice) ) {
+              $product->price = $customerPrice->price;
+           }
+            //echo "setProduct<pre>"; print_r($customerPrice);exit();
+        }
         $this->product = $product;
 
         return $this;
@@ -696,7 +707,9 @@ abstract class AbstractType
      */
     public function getPriceHtml()
     {
-        if ($this->haveSpecialPrice()) {
+
+        if ($this->haveSpecialPrice()){ 
+
             $per = (($this->product->price - $this->getSpecialPrice()) * 100)/$this->product->price;
 
              $html = '<div class="sticker sale">' . $per .'%'. '</div>'
@@ -715,6 +728,7 @@ abstract class AbstractType
 
     public function getOfferPercentage()
     {
+       
         if ($this->haveSpecialPrice()) {
             //'<div class="sticker sale">' . trans('shop::app.products.sale') . '</div>'
             $per = (($this->product->price - $this->getSpecialPrice()) * 100)/$this->product->price;
@@ -737,6 +751,7 @@ abstract class AbstractType
 
     public function getOfferPriceHtml()
     {
+    
         if ($this->haveSpecialPrice()) {
             //'<div class="sticker sale">' . trans('shop::app.products.sale') . '</div>'
             //$per = (($this->product->price - $this->getSpecialPrice()) * 100)/$this->product->price;

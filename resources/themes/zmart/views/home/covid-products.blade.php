@@ -1,4 +1,5 @@
- <?php $categoryDetails = app('Webkul\Category\Repositories\CategoryRepository')->findByPath('covid19'); ?>
+ <?php $categoryDetails = app('Webkul\Category\Repositories\CategoryRepository')->findByPath('covid19');
+ ?>
 
  @if(!empty($categoryDetails))
     @if (app('Webkul\Product\Repositories\ProductRepository')->getAll($categoryDetails->id)->count())

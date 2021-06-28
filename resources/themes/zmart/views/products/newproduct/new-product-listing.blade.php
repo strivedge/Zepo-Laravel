@@ -25,6 +25,7 @@
     $avgRatings = ceil($reviewHelper->getAverageRating($product));
 
     $galleryImages = $productImageHelper->getGalleryImages($product);
+
     $priceHTML = view('shop::products.price', ['product' => $product])->render();
     
     $product->__set('priceHTML', $priceHTML);
@@ -41,7 +42,6 @@
 
         'showCompare'       => core()->getConfigData('general.content.shop.compare_option') == "1"
                                 ? true : false,
-
         'btnText'           => null,
         'moveToCart'        => null,
         'addToCartBtnClass' => '',
