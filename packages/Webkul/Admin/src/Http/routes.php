@@ -401,6 +401,35 @@ Route::group(['middleware' => ['web']], function () {
 
                 Route::post('/families/delete/{id}', 'Webkul\Attribute\Http\Controllers\AttributeFamilyController@destroy')->name('admin.catalog.families.delete');
 
+                 // Catalog Customer Pricing Route
+                Route::get('/customer-price', 'Webkul\Product\Http\Controllers\CustomerPriceController@index')->defaults('_config', [
+                        'view' => 'admin::catalog.customer-price.index',
+                    ])->name('admin.catalog.customer.index');
+
+                Route::get('/customer-price/create', 'Webkul\Product\Http\Controllers\CustomerPriceController@create')->defaults('_config', [
+                        'view' => 'admin::catalog.customer-price.create',
+                    ])->name('admin.catalog.customer.create');
+
+                Route::post('/customer-price/save', 'Webkul\Product\Http\Controllers\CustomerPriceController@store')->defaults('_config', [
+                        'redirect' => 'admin.catalog.customer.index',
+                    ])->name('admin.catalog.customer.save');
+
+                Route::get('/customer-price/edit/{id}', 'Webkul\Product\Http\Controllers\CustomerPriceController@edit')->defaults('_config', [
+                        'view' => 'admin::catalog.customer-price.edit',
+                    ])->name('admin.catalog.customer.edit');
+
+                Route::post('/customer-price/delete/{id}', 'Webkul\Product\Http\Controllers\CustomerPriceController@destroy')->defaults('_config', [
+                        'view' => 'admin.catalog.customer.index',
+                    ])->name('admin.catalog.customer.delete');
+
+                Route::post('/customer-price/update/{id}', 'Webkul\Product\Http\Controllers\CustomerPriceController@update')->defaults('_config', [
+                        'redirect' => 'admin.catalog.customer.index',
+                    ])->name('admin.catalog.customer.update');
+
+                Route::post('/customer-price/massdelete', 'Webkul\Product\Http\Controllers\CustomerPriceController@massDestroy')->name('admin.catalog.customer.massdelete');
+
+                Route::post('/customer-price/massupdate', 'Webkul\Product\Http\Controllers\CustomerPriceController@massUpdate')->name('admin.catalog.customer.massupdate');
+
                 // Catalog ZipCode Route
                 Route::get('/zipcode', 'Webkul\Product\Http\Controllers\ZipCodeController@index')->defaults('_config', [
                         'view' => 'admin::catalog.zipcode.index',

@@ -652,6 +652,27 @@ return [
             'group-exist-error' => 'Group with same name already exists.'
         ],
 
+         'customer' => [
+            'title' => 'Customer Pricing',
+            'add-title' => 'Add Customer Prices',
+            'edit-title' => 'Edit Customer Prices',
+            'create' => 'Create',
+            'product' => 'Product',
+            'product-placeholder' => 'Select Product',
+            'customer' => 'Customer Pricing',
+            'customer-placeholder' => 'Select Customer',
+            'price' => 'Price',
+            'price-placeholder' => 'Enter Price',
+            'updated-at' => 'Updated at',
+            'save-btn-title' => 'Save Customer Price',
+            'edit-help-title' => 'Edit',
+            'delete-help-title' => 'Delete',
+            'required' => 'This feild is required',
+            'add_more_customer' => 'Add More Cutomer Price',
+            'mass-update-success' => 'Customer Prices updated successfully',
+            'mass-destroy-success' => 'Customer Prices deleted successfully',
+        ],
+
         'zipcodes' => [
             'title' => 'ZipCode',
             'add-title' => 'Add ZipCode',
