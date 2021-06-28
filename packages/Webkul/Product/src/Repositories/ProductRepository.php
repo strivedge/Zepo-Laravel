@@ -193,6 +193,19 @@ class ProductRepository extends Repository
                 ->where('product_flat.locale', $locale)
                 ->whereNotNull('product_flat.url_key');
 
+            // if(auth()->guard('customer')->user() && auth()->guard('customer')->user()->id){
+            //     $customer_id = auth()->guard('customer')->user()->id;
+            //     //$qb->leftJoin('customer_product_price', 'customer_product_price.product_id', '=', 'product_flat.product_id');
+            //     $qb->leftJoin('customer_product_price', function($join) use($customer_id) {
+            //         $join->on('customer_product_price.product_id', '=', 'product_flat.product_id');
+            //         $join->where('customer_product_price.customer_id', $customer_id);
+            //     });
+
+            //     $qb->addSelect('customer_product_price.price as customer_price');
+            //     //$qb->where('customer_product_price.customer_id', $customer_id);
+
+            // }
+
             if ($categoryId) {
                 $qb->where('product_categories.category_id', $categoryId);
             }
@@ -300,6 +313,8 @@ class ProductRepository extends Repository
 
         });
 
+
+
         # apply scope query so we can fetch the raw sql and perform a count
         $repository->applyScope();
         $countQuery = "select count(*) as aggregate from ({$repository->model->toSql()}) c";
@@ -318,11 +333,15 @@ class ProductRepository extends Repository
         }
 
          $data = request()->query();
+
+         //echo"items<pre>";print_r($items);exit();
         
         $results = new LengthAwarePaginator($items, $count, $perPage, $page, [
             'path'  => request()->url(),
             'query' => request()->query(),
         ]);
+
+
 
         return $results;
     }
@@ -488,6 +507,20 @@ class ProductRepository extends Repository
 
         return $results;
     }
+
+    public function getProductCustomerPrice($product_id)
+    {
+        $results = DB::table('customer_product_price')->where('product_id', $product_id)->get();
+        return $results;
+    }
+
+    public function getProductCustomerPriceByID($product_id,$customer_id)
+    {
+        $results = DB::table('customer_product_price')->where('product_id', $product_id)->where('customer_id', $customer_id)->first();
+        return $results;
+    }
+
+     
 
     /*public function getFeaturedProductsImages($products_id)
     {
