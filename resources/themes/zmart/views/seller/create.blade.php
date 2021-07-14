@@ -17,7 +17,7 @@
             @csrf()
             @auth('customer')
                 @if(auth()->guard('customer')->user()->id)
-                <!-- <div class="control-group form-group" :class="[errors.has('name') ? 'has-error' : '']">
+                <div class="control-group form-group" :class="[errors.has('name') ? 'has-error' : '']">
                     <label for="name" class="required label-style">
                         {{__('zepo::app.sellers.name') }}
                     </label>
@@ -25,9 +25,9 @@
                     <span class="control-error" v-if="errors.has('name')">
                         @{{ errors.first('name') }}
                     </span>
-                </div> -->
+                </div>
             
-                <!-- <div class="control-group form-group" :class="[errors.has('email') ? 'has-error' : '']">
+                <div class="control-group form-group" :class="[errors.has('email') ? 'has-error' : '']">
                     <label for="email" class="required label-style">
                         {{__('zepo::app.sellers.email') }}
                     </label>
@@ -35,7 +35,7 @@
                     <span class="control-error" v-if="errors.has('email')">
                         @{{ errors.first('email') }}
                     </span>
-                </div> -->
+                </div>
             @endauth
                 @else
                 <div class="control-group form-group" :class="[errors.has('name') ? 'has-error' : '']">
