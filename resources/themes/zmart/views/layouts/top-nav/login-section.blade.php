@@ -11,6 +11,13 @@
                         @auth('customer')
                         <span class="welcome-content support-ticket-link">
                             <span class="modal-content">
+                                <a href="{{ route('user.seller-register') }}" class="login">
+                                    <button
+                                        type="button"
+                                        class="">
+                                        {{__('zepo::app.sellers.title') }}
+                                    </button>
+                                </a>
                                 <a href="{{ route('user.support-ticket') }}" class="login">
                                     <button
                                         type="button"

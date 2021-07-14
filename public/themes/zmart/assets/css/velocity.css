@@ -4018,8 +4018,9 @@ button[disabled] {
     top: -24px;
     font-size: 13px;
 }*/
-}@media only screen and (max-width:992px) {
-    body.open-hamburger {
+}
+@media(max-width: 1199px){
+      body.open-hamburger {
     color: #7f7f7f;
     opacity: .8;
     overflow: hidden;
@@ -4092,6 +4093,9 @@ button[disabled] {
     left: 4px;
     margin-right: 10px;
 }
+}
+@media only screen and (max-width:992px) {
+  
 /*#top {
     display: none;
 }*/
