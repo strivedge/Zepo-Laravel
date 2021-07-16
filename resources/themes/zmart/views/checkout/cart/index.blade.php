@@ -72,7 +72,7 @@
                                         @endphp
 
                                         <div class="col-12 cart-product-details no-padding" v-if="!isMobileDevice">
-                                            <div class="col-2 no-padding product-image">
+                                            <div class="col-1 no-padding product-image">
                                                 <a
                                                     title="{{ $product->name }}"
                                                     class="product-image-container col-2"
@@ -86,7 +86,7 @@
                                                 </a>
                                             </div>
 
-                                            <div class="product-details-content col-md-6 col-xl-7">
+                                            <div class="product-details-content col-md-6 col-xl-8">
                                                 <div class="item-title no-margin">
                                                     <a
                                                         href="{{ route('shop.productOrCategory.index', $url_key) }}"
