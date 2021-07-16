@@ -128,7 +128,7 @@ $(document).ready(function() {
 		$("input[name='quantity']").val(totalQuantity);
 	});
 
-	$("#getPiece").change(function() {
+	$("#getPiece").keyup(function() {
 		var pack = 1;
 		var price = 0;
 		<?php if($product->type == "configurable") {
