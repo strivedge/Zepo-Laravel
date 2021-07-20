@@ -137,22 +137,29 @@
                                 @endif
 
                                 {!! view_render_event('bagisto.shop.products.view.short_description.after', ['product' => $product]) !!}
-                                    <div class="col-12 price no-padding">
-                                        @include ('shop::products.price', ['product' => $product])
+                                    <div class="price-status">
+                                        <div class="price no-padding">
+                                            @include ('shop::products.price', ['product' => $product])
+                                        </div>
+                                        <div class="stocks-status">
+                                            <label>
+                                                {{ __('shop::app.products.status') }}&nbsp;
+                                            </label>
+                                            @include ('shop::products.view.stock', ['product' => $product])
+                                        </div>
                                     </div>
-                                    <div class="stocks-label">
-                                        <label>
-                                            {{ __('shop::app.products.status') }}&nbsp;
-                                        </label>
-                                        @include ('shop::products.view.stock', ['product' => $product])
+                                    
 
-                                        @include ('shop::products.view.bulk-buy-form')
-                                    </div>
+                                    <!-- <div class="sold-by">{{ __('shop::app.products.sold-by') }} <span>{{ $product->sold_by }}</span></div> -->
 
-                                    <div class="sold-by">{{ __('shop::app.products.sold-by') }} <span>{{ $product->sold_by }}</span></div>
+                                    <div class="check-bluk">
+                                        <div class="col-xl-6 check-availability">
+                                            @include ('shop::products.view.check-availability')
+                                        </div>
 
-                                    <div class="col-12 check-availability">
-                                        @include ('shop::products.view.check-availability')
+                                        <div class="col-xl-6 bulk-buy">
+                                            @include ('shop::products.view.bulk-buy-form')
+                                        </div>
                                     </div>
 
                                     <div class="quality-product-action">
@@ -177,6 +184,8 @@
 
                                         </div>
                                     </div>
+
+                                    <div class="sold-by">{{ __('shop::app.products.sold-by') }} <span>{{ $product->sold_by }}</span></div>
                                     
                                     @if(isset($product->attributes) && count($product->attributes) > 0)
                                         <accordian :title="'{{ __('velocity::app.products.more-attributes') }}'" :active="true">
@@ -200,6 +209,7 @@
                                                         @endforeach
                                                     </div>
                                                 </div>
+                                                @include ('shop::products.view.configurable-options')
                                             </div>
                                         </accordian>
                                     @endif
@@ -235,7 +245,7 @@
                                 
 
 
-                                @include ('shop::products.view.configurable-options')
+                                
 
                                 @include ('shop::products.view.downloadable')
 
@@ -289,10 +299,10 @@
                 </div>
             </div>
              
-            <div class="basic-bulk-calculator">
+            <!-- <div class="basic-bulk-calculator"> -->
                 @include('shop::products.view.product-bulk-discount')
-            </div>
-            
+           <!--  </div>
+             -->
             <div class="related-products">
                 @include('shop::products.view.related-products')
                 @include('shop::products.view.up-sells')
