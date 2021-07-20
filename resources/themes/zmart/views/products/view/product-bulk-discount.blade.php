@@ -5,6 +5,7 @@
 
 @auth('customer')
 @if((isset($basicDiscounts) && count($basicDiscounts) > 0) && (isset($bulkDiscounts) && count($bulkDiscounts) > 0))
+<div class="basic-bulk-calculator">
 	<h2>{{ __('shop::app.products.get-discount') }}</h2>
 	<input type="hidden" id="getPrice" value="">
 	<div class="row">
@@ -105,6 +106,7 @@
 			</tr>
 		</table>
 	</div>
+</div>
 @endif
 @endauth
 

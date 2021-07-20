@@ -1,6 +1,6 @@
 <div class="footer">
     <div class="footer-content footer-top">
-         <div class="container">
+        <div class="container">
             <div class="row">
                 @include('shop::layouts.footer.footer-links')
                 {{-- @if ($categories)
