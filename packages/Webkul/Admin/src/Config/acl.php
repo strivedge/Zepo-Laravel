@@ -37,15 +37,20 @@ return [
         'route' => 'admin.catalog.products.index',
         'sort'  => 1,
     ], [
+        'key'   => 'catalog.products.create',
+        'name'  => 'admin::app.acl.create',
+        'route' => 'admin.catalog.products.create',
+        'sort'  => 2,
+    ], [
         'key'   => 'catalog.products.edit',
         'name'  => 'admin::app.acl.edit',
         'route' => 'admin.catalog.products.edit',
-        'sort'  => 2,
+        'sort'  => 3,
     ], [
         'key'   => 'catalog.products.delete',
         'name'  => 'admin::app.acl.delete',
         'route' => 'admin.catalog.products.delete',
-        'sort'  => 3,
+        'sort'  => 4,
     ], [
         'key'   => 'catalog.categories',
         'name'  => 'admin::app.acl.categories',

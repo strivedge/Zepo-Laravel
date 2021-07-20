@@ -63,7 +63,6 @@
 					{{ __('shop::app.products.amount') }}
 				</th>
 			</tr>
-
 			<tr class="calculation-sub-heading" align="right">
 				<th>{{ __('shop::app.products.sku') }}</th>
 				<th>{{ __('shop::app.products.extra-bulk-dis-price') }}</th>
@@ -74,7 +73,6 @@
 				<th></th>
 				<th></th>
 			</tr>
-
 			<tr align="right">
 				<td>{{ $product->sku }}</td>
 				<td><span id="ebulkDPrice">0.00 Piece</span></td>
@@ -87,19 +85,16 @@
 				<td id="billPiece">0 {{ __('shop::app.products.piece-basic-amount') }}</td>
 				<td id="billPrice">0.00 </td>
 			</tr>
-
 			<tr align="right">
 				<td colspan="6"></td>
 				<td>{{ __('shop::app.products.total-basic-amount') }}</td>
 				<td id="totalPrice">0.00 </td>
 			</tr>
-
 			<tr align="right">
 				<td colspan="6"></td>
 				<td class="total-sub-discount">{{ __('shop::app.products.total-discount-amount') }}</td>
 				<td id="disAmount">0.00 </td>
 			</tr>
-
 			<tr align="right">
 				<td colspan="6">
 					<span class="total-heading">{{ __('shop::app.products.total-order-qty') }}</span>
@@ -110,7 +105,6 @@
 			</tr>
 		</table>
 	</div>
-
 @endif
 @endauth
 
