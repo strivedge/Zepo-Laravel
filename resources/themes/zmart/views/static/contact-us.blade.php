@@ -15,7 +15,15 @@
                 </h2>
             </div>
             <ul>
-                <li class="email"><span class="material-icons"> {{ __('shop::app.contact-us.email') }} </span><a href="mailto:{{ __('shop::app.contact-us.email-addr') }}">{{ __('shop::app.contact-us.email-addr') }}</a></li> <li class="phone"><span class="material-icons"> {{ __('shop::app.contact-us.phone') }} </span><a href="tel:{{ __('shop::app.contact-us.phone-num') }}">{{ __('shop::app.contact-us.phone-num') }} </a></li><li class="addresses"><span class="material-icons"> {{ __('shop::app.contact-us.location-on') }} </span>{{ __('shop::app.contact-us.address') }}</li>
+                <li class="email"><span class="material-icons"> {{ __('shop::app.header.email') }} </span>
+                    <a href="mailto:{{ __('shop::app.header.email-address') }}">{{ __('shop::app.header.email-address') }}
+                    </a>
+                </li> 
+                <li class="phone"><span class="material-icons"> {{ __('shop::app.header.phone') }} </span><a href="tel:{{ __('shop::app.header.phone-num') }}">{{ __('shop::app.header.phone-num') }} </a></li><li class="addresses"><span class="material-icons"> {{ __('shop::app.contact-us.location-on') }} </span>
+                    {{ __('shop::app.contact-us.address1') }}<br>
+                    {{ __('shop::app.contact-us.address2') }}<br>
+                    {{ __('shop::app.contact-us.address3') }}
+                </li>
             </ul>
         </div>
 
