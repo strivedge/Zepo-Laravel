@@ -98,7 +98,6 @@ return [
         'phone-number' => 'Phone Number',
         'location-on' => 'location_on',
         'address' => 'B-905, Test City Center, Near test Tower, Testlite, Ahmedabad -380111, Gujarat, India',
-        // 'address' => 'Office 430, Suvas Scala, Near Suvas Caspia, App. ShantiNiketan Solitaire, Ahmedabad - 382350, Gujarat, India',
         'address1' => 'Office 430, Suvas Scala, Near Suvas Caspia,',
         'address2' => ' App. ShantiNiketan Solitaire, 
         Ahmedabad - 382350,',
