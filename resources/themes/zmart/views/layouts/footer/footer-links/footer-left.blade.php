@@ -2,9 +2,14 @@
      <a href="{!! url('/contact-us') !!}"><h3 class="footer-block-title"><!--  -->{{ __('shop::app.footer-links.contact-us') }}</h3></a>
         <div class="footer-block-content">
             <ul type="none">
-                <li><span class="material-icons"> location_on </span>B-905, Test City Center, Near test Tower, <br/> Testlite, Ahmedabad -380111, Gujarat, India</li>
-                <li><span class="material-icons"> phone </span><a href="tel:021 269 962">021 269 962 </a></li>
-                <li><span class="material-icons"> email </span><a href="mailto:support@zepomart.com">support@zepomart.com</a></li>
+                <!-- <li><span class="material-icons"> location_on </span>B-905, Test City Center, Near test Tower, <br/> Testlite, Ahmedabad -380111, Gujarat, India</li> -->
+                <li><span class="material-icons"> {{ __('shop::app.contact-us.location-on') }} </span>
+                    {{ __('shop::app.contact-us.address1') }}<br>
+                    {{ __('shop::app.contact-us.address2') }}<br>
+                    {{ __('shop::app.contact-us.address3') }}
+                </li>
+                <li><span class="material-icons"> {{ __('shop::app.header.phone') }} </span><a href="tel:{{ __('shop::app.header.phone-num') }}"> {{ __('shop::app.header.phone-num') }} </a></li>
+                <li><span class="material-icons"> {{ __('shop::app.header.email') }} </span><a href="mailto:{{ __('shop::app.header.email-address') }}">{{ __('shop::app.header.email-address') }}</a></li>
             </ul>
         </div>
      <h3 class="footer-block-title">
