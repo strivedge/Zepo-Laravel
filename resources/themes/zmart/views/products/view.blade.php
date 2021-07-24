@@ -230,9 +230,13 @@
                                             @if($flag == 1)
                                                 <div class="category">
                                                     <label>{{ __('shop::app.products.category') }}: </label>
-
                                                 @foreach($product->categories as $category)
-                                                    <a href="{{ route('shop.productOrCategory.index', [$category->category_url_path]) }}">{{$category->category_name}}</a>,
+                                                    @if(!$loop->last)
+                                                        <a href="{{ route('shop.productOrCategory.index', [$category->category_url_path]) }}">{{$category->category_name}}</a>,
+                                                    @endif
+                                                    @if($loop->last)
+                                                        <a href="{{ route('shop.productOrCategory.index', [$category->category_url_path]) }}">{{$category->category_name}}</a>
+                                                    @endif
                                                 @endforeach
                                                 </div>
                                             @endif
