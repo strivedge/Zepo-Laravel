@@ -18,9 +18,9 @@ class ZipCodeRepository extends Repository
     }
 
     // for front-end
-    public function checkZip($zipcode)
+    public function checkZip($zipcode, $status)
     {
-        $zipcodes = $this->model->where('zipcode', $zipcode)->where('status', 0)->get();
+        $zipcodes = $this->model->where('zipcode', $zipcode)->where('status', $status)->get();
         return $zipcodes;
     }
 

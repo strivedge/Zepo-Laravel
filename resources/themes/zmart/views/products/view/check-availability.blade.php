@@ -30,8 +30,8 @@ $(document).ready(function() {
 			    dataType: 'json',
 			    async: false,
 			    success: function(response) {
-					console.log(response.data.length);
-					if(response.data.length == 0) {
+					// console.log("success ",response);
+					if(response.data.length) {
 						$("#successZip").html("{{ __('shop::app.products.zip-success') }}"+zipcode);
 						$("#errorsZip").html("");
 					} else {

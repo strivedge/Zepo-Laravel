@@ -19,7 +19,8 @@ class ZipCodeController extends Controller
 
 	public function get($zipcode)
     {
-    	$result = $this->zipCodeRepository->checkZip($zipcode);
+        $status = 1;
+    	$result = $this->zipCodeRepository->checkZip($zipcode, $status);
 
     	return response()->json([
     			'status' => true,
