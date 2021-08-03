@@ -187,7 +187,7 @@
 
                                     <div class="sold-by">{{ __('shop::app.products.sold-by') }} <span>{{ $product->sold_by }}</span></div>
                                     
-                                    @if(isset($product->attributes) && count($product->attributes) > 0)
+                                    @if(Webkul\Product\Helpers\ProductType::hasVariants($product->type) || (isset($product->attributes) && count($product->attributes) > 0))
                                         <accordian :title="'{{ __('velocity::app.products.more-attributes') }}'" :active="true">
                                             <div slot="header">
                                                 <h3 class="no-margin display-inbl">

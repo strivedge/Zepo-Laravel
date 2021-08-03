@@ -227,6 +227,8 @@ class ProductController extends Controller
      */
     public function update(ProductForm $request, $id)
     {
+
+      //echo"<pre>request";  print_r(request()->all());exit();
         $data = request()->all();
 
         $old_data = $this->productRepository->with(['variants', 'variants.inventories'])->findOrFail($id);
@@ -290,7 +292,7 @@ class ProductController extends Controller
         $product = $this->productRepository->update($data, $id);
 
         // Mail to admin for sellers prosuct activation
-        if(auth()->guard('admin')->user()->role->id != 1)
+        if(auth()->guard('admin')->user() && auth()->guard('admin')->user()->role->id != 1)
         {
             $toAdmin = ['id' => $id,
                         'sku' => $data['sku'],

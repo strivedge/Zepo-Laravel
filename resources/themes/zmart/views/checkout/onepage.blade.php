@@ -91,13 +91,21 @@
                var sub_total = cart_data.sub_total;
                var tax_total = cart_data.tax_total;
                var discount_amount = cart_data.discount_amount;
-               var currency = cart_data.base_currency_code;
+               var currency = cart_data.cart_currency_code?cart_data.cart_currency_code:cart_data.base_currency_code;
                var cust_email = cart_data.customer_email;
                var customer_id = cart_data.customer_id;
+
+               console.log('currency',currency)
+
+               if(currency == "USD"){
+                totalAmount = (totalAmount*100).toFixed(1); //USD to cents
+               }else{
+                totalAmount = (totalAmount*100).toFixed(2)
+               }
                
                var options = {
                "key": key,
-               "amount": (totalAmount*100), //amt in paisa, 2000 paise = INR 20
+               "amount": totalAmount, //amt in paisa, 2000 paise = INR 20
                "name": cart_data.customer_first_name,
                "description": "Payment",
                "currency" : "INR",
@@ -114,14 +122,14 @@
                         customer_first_name:cart_data.customer_first_name, customer_last_name:cart_data.customer_last_name
                        }, 
                        success: function (res) {
-                        console.log(res)
+                        console.log("res",res)
                             if (res.success) {
                                 console.log("SITEURL:"+SITEURL)
                                 window.location.href = SITEURL + '/checkout/success';
                             }else{
                                 this.disable_button = true;
-                                
                                 window.showAlert(`alert-danger`, 'Danger', res.msg);
+                                location.reload();
                             }
               
                        }
@@ -153,8 +161,8 @@
     $( document ).ready(function() {
 
         $(document).on("click", "#checkout-place-order-button" , function() {
-            console.log("on click event")
-            placeOrder();
+            console.log("on click event");
+            this.placeOrder();
         });
     });
 
@@ -623,23 +631,33 @@
                             this.disable_button = false;
                             this.isRazorPayPayment = false;
 
+
+
                             //this.$root.showLoader();
-                         console.log("razorPayPayment function call")
-            console.log(cart_data)
+                console.log("razorPayPayment function call")
+                console.log(cart_data)
                var totalAmount = cart_data.grand_total;
                var sub_total = cart_data.sub_total;
                var tax_total = cart_data.tax_total;
                var discount_amount = cart_data.discount_amount;
-               var currency = cart_data.base_currency_code;
+               var currency = cart_data.cart_currency_code?cart_data.cart_currency_code:cart_data.base_currency_code;
                var cust_email = cart_data.customer_email;
                var customer_id = cart_data.customer_id;
+
+               console.log('currency',currency)
+
+               if(currency == "USD"){
+                totalAmount = (totalAmount*100).toFixed(1); //USD to cents
+               }else{
+                totalAmount = (totalAmount*100).toFixed(2)
+               }
                
                var options = {
                "key": key,
-               "amount": (totalAmount*100), //amt in paisa, 2000 paise = INR 20
+               "amount": totalAmount, //amt in paisa or in cents, 2000 paise = INR 20
                "name": cart_data.customer_first_name,
                "description": "Payment",
-               "currency" : "INR",
+               "currency" : currency,
                "image": logo,
                "handler": function (response){
                      $.ajax({
@@ -653,14 +671,14 @@
                         customer_first_name:cart_data.customer_first_name, customer_last_name:cart_data.customer_last_name
                        }, 
                        success: function (res) {
-                        console.log(res)
+                        console.log("res:"+res)
                             if (res.success) {
                                 console.log("SITEURL:"+SITEURL)
                                 window.location.href = SITEURL + '/checkout/success';
                             }else{
                                 this.disable_button = true;
-                            
                                 window.showAlert(`alert-danger`, 'Danger', res.msg);
+                                location.reload();
                             }
               
                        }
@@ -669,12 +687,14 @@
                },
                 "modal": {
                     "ondismiss": function(){
+                        console.log('ondismiss')
                         //this.$parent.hideLoader();
                         $('#checkout-place-order-button').removeAttr('disabled');
-                         console.log("ondismiss")
-                         this.placeOrder();
+                         //$('#cashondelivery').trigger("change");
+                         location.reload();
+                         //this.placeOrder();
                          this.disable_button = true;
-                          window.showAlert(`alert-danger`, 'Danger', 'Payment Failed');
+                        window.showAlert(`alert-danger`, 'Danger', 'Payment Failed');
                      }
                 },
                "prefill": {
@@ -832,6 +852,8 @@
                 methods: {
                     methodSelected: function () {
                         this.$parent.validateForm('payment-form');
+
+                        console.log('selected_shipping_method',this.payment)
 
                         this.$emit('onPaymentMethodSelected', this.payment)
 
