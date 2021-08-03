@@ -4,7 +4,7 @@
 		<input type="number" name="zipcode" class="control" id="zipcode" placeholder="{{ __('shop::app.products.zip-placeholder') }}">
 		<input type="button" class="theme-btn" id="check" value="{{ __('shop::app.products.check-now') }}">
 		<span id="successZip" class="success-msg"></span>
-		<span id="errorsZip" class="error-msg"></span>
+		<span id="errorsZip" class="error-msg" style="color: #ff0000;"></span>
 	</div>
 
 @push('scripts')
