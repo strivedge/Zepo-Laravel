@@ -331,10 +331,8 @@
                 class="control"
                 id="billing[gst_number]"
                 name="billing[gst_number]"
-                @blur="isCustomerExist"
                 v-validate="''"
                 v-model="address.billing.gst_number"
-                @change="validateForm('gst_number')"
                 data-vv-as="&quot;{{ __('shop::app.checkout.onepage.gst-number') }}&quot;" />
 
             <span class="control-error" v-if="errors.has('address-form.billing[gst_number]')">
