@@ -103,28 +103,33 @@ class OrderRepository extends Repository
 
             $order->addresses()->create($data['billing_address']);
 
+            
             foreach ($data['items'] as $item) {
                 Event::dispatch('checkout.order.orderitem.save.before', $data);
 
                 $orderItem = $this->orderItemRepository->create(array_merge($item, ['order_id' => $order->id]));
-
+                 
                 if (isset($item['children']) && $item['children']) {
                     foreach ($item['children'] as $child) {
                         $this->orderItemRepository->create(array_merge($child, ['order_id' => $order->id, 'parent_id' => $orderItem->id]));
                     }
                 }
 
+                //echo "After orderItem<pre>"; print_r($orderItem);
+
                 $this->orderItemRepository->manageInventory($orderItem);
 
                 $this->downloadableLinkPurchasedRepository->saveLinks($orderItem, 'available');
 
               
-
+                //echo "After orderItem save<pre>"; print_r($data);
                 Event::dispatch('checkout.order.orderitem.save.after', $data);
+                //echo "After orderItem save123<pre>"; print_r($data);
 
             }
-
+            //echo "Before create<pre>"; print_r($order);
             Event::dispatch('checkout.order.save.after', $order);
+            
         } catch (\Exception $e) {
             DB::rollBack();
 

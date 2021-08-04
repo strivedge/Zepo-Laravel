@@ -720,7 +720,13 @@ abstract class AbstractType
                 . '<span class="regular-price">' . core()->currency($this->product->price) . '</span>'
                 . '<span class="special-price">' . core()->currency($this->getSpecialPrice()) . '</span>';*/
         } else {
+             
             $html = '<span>' . core()->currency($this->product->price) . '</span>';
+
+            if($this->getMinimalPrice()){
+                $html = '<span class="price-label">As low as</span><span>' . core()->currency($this->getMinimalPrice()) . '</span>';
+            }
+            
         }
 
         return $html;
@@ -760,6 +766,11 @@ abstract class AbstractType
                 . '<span class="special-price">' . core()->currency($this->getSpecialPrice()) . '</span>';
         } else {
             $html = '<span>' . core()->currency($this->product->price) . '</span>';
+            
+            if($this->getMinimalPrice()){
+                $html = '<span>' . core()->currency($this->getMinimalPrice()) . '</span>';
+            }
+
         }
 
         return $html;

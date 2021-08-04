@@ -82,11 +82,16 @@ class RazorpayController extends Controller
             try {
                 $response = $api->payment->fetch($input['razorpay_payment_id'])->capture(array('amount'=>$payment['amount'])); 
 
-                //echo"<pre>"; print_r($response->status);exit();
+                //echo"response:<pre>"; print_r($response);//exit();
 
                 if ($response->status == 'captured' && empty($response->error_code)) {
 
+                   //echo"prepareDataForOrder:<pre>"; print_r(Cart::prepareDataForOrder());
+
                     $order = $this->orderRepository->create(Cart::prepareDataForOrder());
+
+
+                    //echo"order:<pre>"; print_r($order); exit();
 
                       /*$filename = "invoice_".$order->id.".pdf";
 

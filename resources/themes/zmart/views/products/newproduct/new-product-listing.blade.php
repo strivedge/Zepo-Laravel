@@ -101,6 +101,7 @@
                 </div>
 
                 <div class="product-price">
+                    <!-- @include ('shop::products.price', ['product' => $product]) -->
                     @include ('shop::products.newproduct.price', ['product' => $product])
                 </div>
 

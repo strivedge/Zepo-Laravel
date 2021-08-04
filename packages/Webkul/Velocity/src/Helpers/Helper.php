@@ -117,7 +117,9 @@ class Helper extends Review
                     'product_id'    => $orderItem->product_id,
                     'brand'         => $products[$key]->brand,
                 ]);
-            } catch(\Exception $exception) {}
+            } catch(\Exception $exception) {
+                throw $exception;
+            }
         }
     }
 

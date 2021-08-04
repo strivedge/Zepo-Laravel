@@ -84,7 +84,8 @@ class Order extends Model implements OrderContract
      */
     public function items()
     {
-        if(auth()->guard('admin')->user()->role->id != 1) {
+        
+        if(auth()->guard('admin')->user() && auth()->guard('admin')->user()->role->id != 1) {
             $seller_id = auth()->guard('admin')->id();
             return $this->hasMany(OrderItemProxy::modelClass())->addSelect('order_items.*')->leftJoin('products', 'products.id', '=', 'order_items.product_id')->where('products.seller_id',$seller_id)->whereNull('order_items.parent_id');
         }else{

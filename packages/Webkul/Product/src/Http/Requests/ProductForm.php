@@ -70,7 +70,7 @@ class ProductForm extends FormRequest
             'images.*'           => 'nullable|mimes:jpeg,jpg,bmp,png',
             'catalog'            => 'nullable|mimes:doc,pdf,docx,xls,xlsx',
             'datasheet'          => 'nullable|mimes:doc,pdf,docx,xls,xlsx',
-            'engraving_shipping_term' => 'required',
+            'engraving_shipping_term' => 'nullable',
             'special_price_from' => 'nullable|date',
             'special_price_to'   => 'nullable|date|after_or_equal:special_price_from',
             'special_price'      => ['nullable', new \Webkul\Core\Contracts\Validations\Decimal, 'lt:price'],

@@ -23,8 +23,10 @@ class Order
      */
     public function sendNewOrderMail($order)
     {
-        $customerLocale = $this->getLocale($order);
 
+
+        $customerLocale = $this->getLocale($order);
+        
         try {
             /* email to customer */
             $configKey = 'emails.general.notifications.emails.general.notifications.new-order';
