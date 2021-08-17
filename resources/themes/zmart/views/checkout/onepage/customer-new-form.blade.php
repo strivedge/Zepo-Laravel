@@ -223,10 +223,11 @@
                 </label>
 
                 <input
-                    type="text"
+                    type="number"
                     class="control"
                     id="shipping[phone]"
                     name="shipping[phone]"
+                    min="0"
                     v-validate="'required'"
                     v-model="address.shipping.phone"
                     @change="validateForm('address-form')"
@@ -521,7 +522,7 @@
                 </label>
 
                 <input
-                    type="text"
+                    type="number"
                     class="control"
                     id="billing[phone]"
                     name="billing[phone]"
