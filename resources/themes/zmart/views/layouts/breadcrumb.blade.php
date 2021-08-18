@@ -14,18 +14,18 @@
                     <?php $segments .= '/' .$segment; ?>
                     @if($i == $len - 1)
                     	<li class="active">
-                        @if($segment == "onepage")
-                            <a>Checkout</a>
-                        @else
-                            <a>{{ ucwords(str_replace('-', ' ', $segment)) }}</a>
-                        @endif
-                    </li>
+                            @if($segment == "onepage")
+                                <a>Checkout</a>
+                            @else
+                                <a>{{ ucwords(str_replace('-', ' ', $segment)) }}</a>
+                            @endif
+                        </li>
                     @else
-                        @if($segment != "checkout" && $segment != "customer" && $segment != "account" && $segment != "page")
+                        <!-- @if($segment != "checkout" && $segment != "customer" && $segment != "account" && $segment != "page")
                         	<li>
                             	<a href="{{ route('shop.home.index') }}{{ $segments }}">{{ ucwords(str_replace('-', ' ', $segment)) }}</a>
                         	</li>
-                        @endif
+                        @endif -->
                     @endif
                     <?php $i++; ?>
                 @endforeach
