@@ -230,7 +230,7 @@
                     min="0"
                     v-validate="'required'"
                     v-model="address.shipping.phone"
-                    @change="validateForm('address-form')"
+                    @keyup="validateForm('address-form')"
                     data-vv-as="&quot;{{ __('shop::app.checkout.onepage.phone') }}&quot;" />
 
                 <span class="control-error" v-if="errors.has('address-form.shipping[phone]')">
@@ -528,7 +528,7 @@
                     name="billing[phone]"
                     v-validate="'required'"
                     v-model="address.billing.phone"
-                    @change="validateForm('address-form')"
+                    @keyup="validateForm('address-form')"
                     data-vv-as="&quot;{{ __('shop::app.checkout.onepage.phone') }}&quot;" />
 
                 <span class="control-error" v-if="errors.has('address-form.billing[phone]')">

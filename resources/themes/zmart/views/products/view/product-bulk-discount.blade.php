@@ -123,7 +123,15 @@ $(document).ready(function() {
 		$("input[name='quantity']").val(totalQuantity);
 	});
 
+	$("#getPiece").change(function() {
+		calculation();
+	});
+
 	$("#getPiece").keyup(function() {
+		calculation();
+	});
+
+	function calculation() {
 		var pack = 1;
 		var price = 0;
 		<?php if($product->type == "configurable") {
@@ -383,7 +391,7 @@ $(document).ready(function() {
 		$("#disAmount").html(discountAmount);
 		$("#totalDisBscAmt").html(totalPriceDis);
 		$("input[name='quantity']").val(totalPiece);
-	});
+	}
 });
 </script>
 @endpush
