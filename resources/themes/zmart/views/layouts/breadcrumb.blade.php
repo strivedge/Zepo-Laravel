@@ -3,6 +3,7 @@
 	$i = 0;
 	$len = count(Request::segments());
 ?>
+<?php //echo "<pre>"; print_r(Request::segments()); exit(); ?>
 @if($len > 0)
 <div class="breadcrumb">
     <div  class="container">
@@ -13,14 +14,18 @@
                     <?php $segments .= '/' .$segment; ?>
                     @if($i == $len - 1)
                     	<li class="active">
-                        <a>{{ ucwords(str_replace('-', ' ', $segment)) }}</a>
-                    </li>
+                            @if($segment == "onepage")
+                                <a>Checkout</a>
+                            @else
+                                <a>{{ ucwords(str_replace('-', ' ', $segment)) }}</a>
+                            @endif
+                        </li>
                     @else
-                        @if($segment != "checkout" && $segment != "customer" && $segment != "account" && $segment != "page")
+                        <!-- @if($segment != "checkout" && $segment != "customer" && $segment != "account" && $segment != "page")
                         	<li>
                             	<a href="{{ route('shop.home.index') }}{{ $segments }}">{{ ucwords(str_replace('-', ' ', $segment)) }}</a>
                         	</li>
-                        @endif
+                        @endif -->
                     @endif
                     <?php $i++; ?>
                 @endforeach

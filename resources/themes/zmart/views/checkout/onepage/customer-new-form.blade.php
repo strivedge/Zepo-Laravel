@@ -223,13 +223,14 @@
                 </label>
 
                 <input
-                    type="text"
+                    type="number"
                     class="control"
                     id="shipping[phone]"
                     name="shipping[phone]"
+                    min="0"
                     v-validate="'required'"
                     v-model="address.shipping.phone"
-                    @change="validateForm('address-form')"
+                    @keyup="validateForm('address-form')"
                     data-vv-as="&quot;{{ __('shop::app.checkout.onepage.phone') }}&quot;" />
 
                 <span class="control-error" v-if="errors.has('address-form.shipping[phone]')">
@@ -331,10 +332,8 @@
                 class="control"
                 id="billing[gst_number]"
                 name="billing[gst_number]"
-                @blur="isCustomerExist"
                 v-validate="''"
                 v-model="address.billing.gst_number"
-                @change="validateForm('gst_number')"
                 data-vv-as="&quot;{{ __('shop::app.checkout.onepage.gst-number') }}&quot;" />
 
             <span class="control-error" v-if="errors.has('address-form.billing[gst_number]')">
@@ -523,13 +522,13 @@
                 </label>
 
                 <input
-                    type="text"
+                    type="number"
                     class="control"
                     id="billing[phone]"
                     name="billing[phone]"
                     v-validate="'required'"
                     v-model="address.billing.phone"
-                    @change="validateForm('address-form')"
+                    @keyup="validateForm('address-form')"
                     data-vv-as="&quot;{{ __('shop::app.checkout.onepage.phone') }}&quot;" />
 
                 <span class="control-error" v-if="errors.has('address-form.billing[phone]')">
