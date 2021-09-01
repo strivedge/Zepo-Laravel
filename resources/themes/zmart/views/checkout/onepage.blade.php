@@ -79,6 +79,7 @@
          var SITEURL = '{{URL::to('')}}';
          var logo = "{{ asset('themes/zmart/assets/images/logo-text.png') }}";
          var key = "{{ Config::get('custom.razor_key') }}";
+         console.log('razorpay key',key)
          $.ajaxSetup({
            headers: {
                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -144,7 +145,7 @@
                      }
                 },
                "prefill": {
-                   "contact": '9898989898',
+                   "contact": '',
                    "email":   cust_email,
                 },
                 "theme": {
@@ -657,7 +658,7 @@
                "amount": totalAmount, //amt in paisa or in cents, 2000 paise = INR 20
                "name": cart_data.customer_first_name,
                "description": "Payment",
-               "currency" : currency,
+               "currency" : 'INR',//currency,
                "image": logo,
                "handler": function (response){
                      $.ajax({
@@ -667,7 +668,7 @@
                        data: {
                         cart_id:cart_data.id,customer_id:customer_id,
                         razorpay_payment_id: response.razorpay_payment_id,sub_total: sub_total,
-                        totalAmount : totalAmount,currency : currency,is_guest:cart_data.is_guest,
+                        totalAmount : cart_data.grand_total,currency : currency,is_guest:cart_data.is_guest,
                         customer_first_name:cart_data.customer_first_name, customer_last_name:cart_data.customer_last_name
                        }, 
                        success: function (res) {
@@ -698,7 +699,7 @@
                      }
                 },
                "prefill": {
-                   "contact": '9898989898',
+                   "contact": '',
                    "email":   cust_email,
                 },
                 "theme": {

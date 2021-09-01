@@ -63,7 +63,7 @@ class RazorpayController extends Controller
         //$input = request()->all();
          $input = $request->all();
         //get API Configuration 
-        //echo"<pre>input"; print_r(config('custom.razor_key'));exit();
+        //echo"<pre>razor_key:"; print_r(config('custom.razor_key'));  echo"<pre>razor_secret:"; print_r(config('custom.razor_secret'));exit();
         $api = new Api(config('custom.razor_key'), config('custom.razor_secret'));
         //Fetch payment information by razorpay_payment_id
         $payment = $api->payment->fetch($input['razorpay_payment_id']);
