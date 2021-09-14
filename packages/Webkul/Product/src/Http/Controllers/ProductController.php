@@ -23,6 +23,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Webkul\Product\Mail\AdminProductEmail;
 use File;
 use Webkul\Product\Helpers\ProductImage;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -391,14 +392,83 @@ class ProductController extends Controller
         $product = $this->productRepository->findOrFail($id);
 
         try {
-            $this->productRepository->delete($id);
+            $delete = $this->productRepository->delete($id);
+
+            // DB::table('products')
+            //             ->where('id',$id)
+            //             ->delete();
+
+           DB::table('product_categories')
+                        ->where('product_id',$id)
+                        ->delete();
+
+            DB::table('product_relations')
+                        ->where('parent_id',$id)
+                        ->orWhere('child_id',$id)
+                        ->delete();
+
+            DB::table('product_super_attributes')
+                        ->where('product_id',$id)
+                        ->delete();
+
+            DB::table('product_up_sells')
+                        ->where('parent_id',$id)
+                        ->orWhere('child_id',$id)
+                        ->delete();
+
+            DB::table('product_cross_sells')
+                        ->where('parent_id',$id)
+                        ->orWhere('child_id',$id)
+                        ->delete();
+
+            DB::table('product_attribute_values')
+                        ->where('product_id',$id)
+                        ->delete();
+
+            DB::table('product_reviews')
+                        ->where('product_id',$id)
+                        ->delete();
+            DB::table('product_images')
+                        ->where('product_id',$id)
+                        ->delete();
+
+            DB::table('product_inventories')
+                        ->where('product_id',$id)
+                        ->delete();
+
+            DB::table('product_ordered_inventories')
+                        ->where('product_id',$id)
+                        ->delete();
+
+            DB::table('product_downloadable_samples')
+                        ->where('product_id',$id)
+                        ->delete();
+            DB::table('product_downloadable_links')
+                        ->where('product_id',$id)
+                        ->delete();
+            DB::table('product_grouped_products')
+                        ->where('product_id',$id)
+                        ->delete();
+            DB::table('product_bundle_options')
+                        ->where('product_id',$id)
+                        ->delete();
+            DB::table('product_bundle_option_products')
+                        ->where('product_id',$id)
+                        ->delete();
+            DB::table('product_customer_group_prices')
+                        ->where('product_id',$id)
+                        ->delete();
+          
+            DB::table('product_flat')
+                        ->where('product_id',$id)
+                        ->delete();
 
             session()->flash('success', trans('admin::app.response.delete-success', ['name' => 'Product']));
 
             return response()->json(['message' => true], 200);
         } catch (Exception $e) {
             report($e);
-
+            
             session()->flash('error', trans('admin::app.response.delete-failed', ['name' => 'Product']));
         }
 

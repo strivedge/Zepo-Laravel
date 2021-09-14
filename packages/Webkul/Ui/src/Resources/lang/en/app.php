@@ -1,5 +1,5 @@
 <?php
-return [
+return [ 
     'datagrid' => [
         'actions' => 'Actions',
         'id' => 'Index columns have value greater than zero only',
