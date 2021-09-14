@@ -394,11 +394,84 @@ class ProductController extends Controller
         try {
             $delete = $this->productRepository->delete($id);
 
+            $this->deleteProductChild($id);
+
+            session()->flash('success', trans('admin::app.response.delete-success', ['name' => 'Product']));
+
+            return response()->json(['message' => true], 200);
+        } catch (Exception $e) {
+            report($e);
+            
+            session()->flash('error', trans('admin::app.response.delete-failed', ['name' => 'Product']));
+        }
+
+        return response()->json(['message' => false], 400);
+    }
+
+    /**
+     * Mass Delete the products
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function massDestroy()
+    {
+        $productIds = explode(',', request()->input('indexes'));
+
+        foreach ($productIds as $productId) {
+            $product = $this->productRepository->find($productId);
+
+            if (isset($product)) {
+                $this->productRepository->delete($productId);
+                $this->deleteProductChild($productId);
+            }
+        }
+
+        session()->flash('success', trans('admin::app.catalog.products.mass-delete-success'));
+
+        return redirect()->route($this->_config['redirect']);
+    }
+
+    /**
+     * Mass updates the products
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function massUpdate()
+    {
+        $data = request()->all();
+
+        if (! isset($data['massaction-type'])) {
+            return redirect()->back();
+        }
+
+        if (! $data['massaction-type'] == 'update') {
+            return redirect()->back();
+        }
+
+        $productIds = explode(',', $data['indexes']);
+
+        foreach ($productIds as $productId) {
+            $this->productRepository->update([
+                'channel' => null,
+                'locale'  => null,
+                'status'  => $data['update-options'],
+            ], $productId);
+        }
+
+        session()->flash('success', trans('admin::app.catalog.products.mass-update-success'));
+
+        return redirect()->route($this->_config['redirect']);
+    }
+
+    public function deleteProductChild($id){
+
+        try {
+
             // DB::table('products')
             //             ->where('id',$id)
             //             ->delete();
 
-           DB::table('product_categories')
+            DB::table('product_categories')
                         ->where('product_id',$id)
                         ->delete();
 
@@ -463,70 +536,13 @@ class ProductController extends Controller
                         ->where('product_id',$id)
                         ->delete();
 
-            session()->flash('success', trans('admin::app.response.delete-success', ['name' => 'Product']));
+            return;
 
-            return response()->json(['message' => true], 200);
         } catch (Exception $e) {
-            report($e);
-            
-            session()->flash('error', trans('admin::app.response.delete-failed', ['name' => 'Product']));
+             report($e);
+            return;
         }
-
-        return response()->json(['message' => false], 400);
-    }
-
-    /**
-     * Mass Delete the products
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function massDestroy()
-    {
-        $productIds = explode(',', request()->input('indexes'));
-
-        foreach ($productIds as $productId) {
-            $product = $this->productRepository->find($productId);
-
-            if (isset($product)) {
-                $this->productRepository->delete($productId);
-            }
-        }
-
-        session()->flash('success', trans('admin::app.catalog.products.mass-delete-success'));
-
-        return redirect()->route($this->_config['redirect']);
-    }
-
-    /**
-     * Mass updates the products
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function massUpdate()
-    {
-        $data = request()->all();
-
-        if (! isset($data['massaction-type'])) {
-            return redirect()->back();
-        }
-
-        if (! $data['massaction-type'] == 'update') {
-            return redirect()->back();
-        }
-
-        $productIds = explode(',', $data['indexes']);
-
-        foreach ($productIds as $productId) {
-            $this->productRepository->update([
-                'channel' => null,
-                'locale'  => null,
-                'status'  => $data['update-options'],
-            ], $productId);
-        }
-
-        session()->flash('success', trans('admin::app.catalog.products.mass-update-success'));
-
-        return redirect()->route($this->_config['redirect']);
+        
     }
 
     /**
