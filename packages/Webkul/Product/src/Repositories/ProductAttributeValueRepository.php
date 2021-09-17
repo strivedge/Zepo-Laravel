@@ -92,7 +92,7 @@ class ProductAttributeValueRepository extends Repository
                 ->where('product_attribute_values.attribute_id',$attribute_id)
                 ->where('product_flat.status', 1)
                 ->where('product_flat.visible_individually', 1)
-                ->where('product_flat.featured', 1)
+                // ->where('product_flat.featured', 1)
                 ->where('product_flat.channel', $channel)
                 ->where('product_flat.locale', $locale)
                 ->inRandomOrder();

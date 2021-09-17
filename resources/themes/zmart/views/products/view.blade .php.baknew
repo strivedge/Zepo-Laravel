@@ -186,8 +186,8 @@
                                     </div>
 
                                     <div class="sold-by">{{ __('shop::app.products.sold-by') }} <span>{{ $product->sold_by }}</span></div>
-
-                                    @if(Webkul\Product\Helpers\ProductType::hasVariants($product->type))
+                                    
+                                    @if(Webkul\Product\Helpers\ProductType::hasVariants($product->type) || (isset($product->attributes) && count($product->attributes) > 0))
                                         <accordian :title="'{{ __('velocity::app.products.more-attributes') }}'" :active="true">
                                             <div slot="header">
                                                 <h3 class="no-margin display-inbl">
@@ -198,6 +198,17 @@
                                             </div> 
 
                                             <div slot="body">
+                                                <div class="col-12 product-attributes">
+                                                    <div class="row">
+                                                        @foreach($product->attributes as $attr)
+                                                        @if($attr->attribute_name != "Tax Category")
+                                                        <div class="col-md-6">
+                                                                <label>{{$attr->attribute_name}}:</label> {{$attr->option_name}}
+                                                        </div>
+                                                        @endif
+                                                        @endforeach
+                                                    </div>
+                                                </div>
                                                 @include ('shop::products.view.configurable-options')
                                             </div>
                                         </accordian>

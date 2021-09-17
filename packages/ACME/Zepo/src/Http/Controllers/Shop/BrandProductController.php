@@ -40,19 +40,14 @@ class BrandProductController extends Controller
     public function productByBrand($brand_name)
     {
         $brand = app('Webkul\Attribute\Repositories\AttributeRepository')->getAttributeOptionData($brand_name);
-        //echo"<pre>";print_r($brand);exit();
         if (!empty($brand[0]->attribute_id) && $brand[0]->id) {
             $attribute_id = $brand[0]->attribute_id;
             $option_id = $brand[0]->id;
 
             $product = app('Webkul\Product\Repositories\ProductAttributeValueRepository')->findByBrandOption($attribute_id,$option_id);
-
-             //echo"product<pre>";print_r($product);exit();
-        }else{
+        } else {
             $product = [];
         }
-        //echo"<pre>";print_r($brand[0]->attribute_id);exit();
-
         
         return view($this->_config['view'], compact('product'));
     }
