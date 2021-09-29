@@ -48,5 +48,6 @@ return [
             'seller' => 'Seller',
             'seller-email' => 'Seller Email',
             'go-action' => 'go to Seller Verification Action',
+            'login' => 'Seller Login',
         ]
     ];

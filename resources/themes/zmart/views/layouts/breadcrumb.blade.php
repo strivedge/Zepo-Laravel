@@ -1,7 +1,7 @@
 <?php 
-	$segments = '';
-	$i = 0;
-	$len = count(Request::segments());
+    $segments = '';
+    $i = 0;
+    $len = count(Request::segments());
 ?>
 <?php //echo "<pre>"; print_r(Request::segments()); exit(); ?>
 @if($len > 0)
@@ -13,7 +13,7 @@
                 @foreach(Request::segments() as $segment)
                     <?php $segments .= '/' .$segment; ?>
                     @if($i == $len - 1)
-                    	<li class="active">
+                        <li class="active">
                             @if($segment == "onepage")
                                 <a>Checkout</a>
                             @else
@@ -22,9 +22,9 @@
                         </li>
                     @else
                         <!-- @if($segment != "checkout" && $segment != "customer" && $segment != "account" && $segment != "page")
-                        	<li>
-                            	<a href="{{ route('shop.home.index') }}{{ $segments }}">{{ ucwords(str_replace('-', ' ', $segment)) }}</a>
-                        	</li>
+                            <li>
+                                <a href="{{ route('shop.home.index') }}{{ $segments }}">{{ ucwords(str_replace('-', ' ', $segment)) }}</a>
+                            </li>
                         @endif -->
                     @endif
                     <?php $i++; ?>

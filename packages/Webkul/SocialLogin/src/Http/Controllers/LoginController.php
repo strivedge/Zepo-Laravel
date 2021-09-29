@@ -48,12 +48,17 @@ class LoginController extends Controller
      */
     public function redirectToProvider($provider)
     {
+
+        //echo"GOOGLE_CLIENT_ID:<pre>";print_r(env('GOGGLE_CLIENT_ID'));exit();
         try {
+          //echo "payal<pre>";  print_r(Socialite::driver($provider)->redirect());exit();
             return Socialite::driver($provider)->redirect();
         } catch (\Exception $e) {
+
+           //echo"<pre>";print_r($e);exit();
             session()->flash('error', $e->getMessage());
 
-            return redirect()->route('customer.session.index');
+            //return redirect()->route('customer.session.index');
         }
     }
 
@@ -66,12 +71,21 @@ class LoginController extends Controller
     public function handleProviderCallback($provider)
     {
         try {
+
             $user = Socialite::driver($provider)->user();
+            //echo"User:<pre>";print_r($user);
         } catch (\Exception $e) {
+            //echo"Error:<pre>";print_r($e);exit();
+
+             session()->flash('error', 'Try after some time');
             return redirect()->route('customer.session.index');
         }
 
+        //echo"provider:<pre>";print_r( $provider);
+
         $customer = $this->customerSocialAccountRepository->findOrCreateCustomer($user, $provider);
+
+        // echo"Customer:<pre>";print_r($customer);exit();
 
         auth()->guard('customer')->login($customer, true);
 

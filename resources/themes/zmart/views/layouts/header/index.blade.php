@@ -19,8 +19,12 @@
 
                 if (scrollPosition > 50){
                     document.querySelector('header').classList.add('header-shadow');
+                    $(".navbar-bottom").hide();
+                    $(".breadcrumb").css('margin-top','12px');
                 } else {
                     document.querySelector('header').classList.remove('header-shadow');
+                    $(".navbar-bottom").show();
+                    $(".breadcrumb").css('margin-top','-5px');
                 }
             });
         })()

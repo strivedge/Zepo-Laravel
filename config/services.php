@@ -1,5 +1,7 @@
 <?php
 
+
+
 return [
 
     /*
@@ -61,9 +63,9 @@ return [
     ],
 
     'google' => [
-        'client_id' => env('GOOGLE_CLIENT_ID'),
-        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect' => env('GOOGLE_CALLBACK_URL'),
+        'client_id' => '974564342869-d0eup93hj4gtl4fscu8u7gn4lfk0pb5i.apps.googleusercontent.com',
+        'client_secret' => 'lPvSkz54uJqRY2s8FL3FjKlf',
+        'redirect' => 'https://zepomart.testdevurl.com/customer/social-login/google/callback',
     ],
 
     'linkedin' => [

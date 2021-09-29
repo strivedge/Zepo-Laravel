@@ -78,7 +78,7 @@ class OrderController extends Controller
         $order = $this->orderRepository->findOrFail($id);
         $seller_id=0;
 
-        if(auth()->guard('admin')->user() && auth()->guard('admin')->user()->role->id != 1)
+        if(auth()->guard('admin')->user()->role->id != 1)
         {
             $seller_id=auth()->guard('admin')->id();
             return view($this->_config['seller_view'], compact('order'));

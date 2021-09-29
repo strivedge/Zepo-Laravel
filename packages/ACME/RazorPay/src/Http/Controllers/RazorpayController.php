@@ -63,10 +63,13 @@ class RazorpayController extends Controller
         //$input = request()->all();
          $input = $request->all();
         //get API Configuration 
-        //echo"<pre>input"; print_r(config('custom.razor_key'));exit();
+        //echo"<pre>razor_key:"; print_r(config('custom.razor_key'));  
+        //echo"<pre>razor_secret:"; print_r(config('custom.razor_secret'));exit();
         $api = new Api(config('custom.razor_key'), config('custom.razor_secret'));
         //Fetch payment information by razorpay_payment_id
         $payment = $api->payment->fetch($input['razorpay_payment_id']);
+
+        //echo"<pre>payment:"; print_r($payment);exit();
 
         /*$order = $api->order->create(array(
           'receipt' => '123',
@@ -82,16 +85,11 @@ class RazorpayController extends Controller
             try {
                 $response = $api->payment->fetch($input['razorpay_payment_id'])->capture(array('amount'=>$payment['amount'])); 
 
-                //echo"response:<pre>"; print_r($response);//exit();
+                //echo"<pre>response"; print_r($response);exit();
 
                 if ($response->status == 'captured' && empty($response->error_code)) {
 
-                   //echo"prepareDataForOrder:<pre>"; print_r(Cart::prepareDataForOrder());
-
                     $order = $this->orderRepository->create(Cart::prepareDataForOrder());
-
-
-                    //echo"order:<pre>"; print_r($order); exit();
 
                       /*$filename = "invoice_".$order->id.".pdf";
 

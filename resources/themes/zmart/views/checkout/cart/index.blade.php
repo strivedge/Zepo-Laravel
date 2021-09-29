@@ -31,11 +31,11 @@
                 @if ($cart)
                     <div class="cart-details-header col-md-12">
                         <div class="row cart-header col-12 no-padding">
-                            <span class="col-md-8 col-xl-9 fw6 fs16 pr0">
+                            <span class="col-md-8 col-xl-8 fw6 fs16 pr0"><!-- col-xl-9 -->
                                 {{ __('velocity::app.checkout.items') }}
                             </span>
 
-                            <span class="col-md-2 col-xl-1 fw6 fs16 no-padding">
+                            <span class="col-md-2 col-xl-2 fw6 fs16 no-padding"><!-- col-xl-1 -->
                                 {{ __('velocity::app.checkout.qty') }}
                             </span>
 
@@ -86,7 +86,7 @@
                                                 </a>
                                             </div>
 
-                                            <div class="product-details-content col-md-6 col-xl-8">
+                                            <div class="product-details-content col-md-7 col-xl-7">
                                                 <div class="item-title no-margin">
                                                     <a
                                                         href="{{ route('shop.productOrCategory.index', $url_key) }}"
@@ -152,10 +152,10 @@
                                                         <span class="rango-delete fs24"></span>
                                                         
                                                     </a>
-                                                </div>
+                                                </div><!-- col-md-6 col-xl-8 -->
                                             </div>
 
-                                            <div class="product-quantity col-md-2 col-xl-1 no-padding">
+                                            <div class="product-quantity col-md-2 col-xl-2 no-padding"><!-- col-xl-1 -->
                                                 <quantity-changer
                                                     :control-name="'qty[{{$item->id}}]'"
                                                     quantity="{{ $item->quantity }}">
@@ -233,10 +233,10 @@
                                     @endforeach
                                 </div>
                                 <div class="col-md-12 coupon-buttons">
-                                    <div class="col-lg-7 col-xl-8 coupon-section">
+                                    <div class="col-lg-7 col-xl-7 coupon-section"><!-- col-xl-8 -->
                                         <cart-coupon-component></cart-coupon-component>
                                     </div>
-                                    <div class="col-lg-5 col-xl-4 continue-update-buttons">
+                                    <div class="col-lg-5 col-xl-5 continue-update-buttons"><!-- col-xl-4 -->
                                         {!! view_render_event('bagisto.shop.checkout.cart.controls.after', ['cart' => $cart]) !!}
                                             <a
                                                 class="link-color remove-decoration fs16 no-padding theme-btn"

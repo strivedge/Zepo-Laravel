@@ -23,7 +23,7 @@
                             <li class="" :key="Math.random()"  v-for="(product, index) in recentlyViewed">
 
                                 <product-card
-                                    :product="product.formattedProducts">
+                                            :product="product.formattedProducts">
                                 </product-card>
                             </li>
                         </ul>

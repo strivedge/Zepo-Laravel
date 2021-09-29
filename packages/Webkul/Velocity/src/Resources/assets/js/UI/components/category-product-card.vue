@@ -138,7 +138,7 @@
                         :title="product.name"
                         :href="`${baseUrl}/${product.slug}`">
 
-                        {{ product.name }}
+                        {{ product.name | truncate }}
                     </a>
                 </div>
 

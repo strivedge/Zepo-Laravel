@@ -1,5 +1,4 @@
  <?php $categoryDetails = app('Webkul\Category\Repositories\CategoryRepository')->findByPath('covid19');
- //echo"<pre>";print_r(app('Webkul\Product\Repositories\ProductRepository')->getAll($categoryDetails->id));exit();
  ?>
 
  @if(!empty($categoryDetails))

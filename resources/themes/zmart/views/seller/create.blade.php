@@ -11,6 +11,10 @@
             <h2 class="account-heading">
                 {{__('zepo::app.sellers.title') }}
             </h2>
+
+            <a href="{{ route('admin.session.create') }} " class="btn-new-seller">
+                {{ __('zepo::app.sellers.login')}}
+            </a>
         </div>
         <div class="body">
             <form method="post" action="{{ route('seller-register.store') }}" enctype="multipart/form-data" @submit.prevent="onSubmit">
