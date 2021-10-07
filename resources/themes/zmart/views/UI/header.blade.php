@@ -65,16 +65,22 @@
                                         @endphp
                                     @endif
                                 @endforeach
-                    <ul>
-                        <li class="email"><span class="material-icons notranslate"> {{ __('shop::app.header.email') }} </span><a href="mailto:{{ __('shop::app.header.email-address') }}">{{ __('shop::app.header.email-address') }}</a></li>
-                        <li class="phone"><span class="material-icons notranslate"> {{ __('shop::app.header.phone') }} </span><a href="tel:{{ __('shop::app.header.phone-num') }}">{{ __('shop::app.header.phone-num') }} </a></li>
-                    </ul>
-                                <ul type="none" class="velocity-content" v-if="headerContent.length > 0">
-                                    <li :key="index" v-for="(content, index) in headerContent">
+                                <ul>
+                                    <li class="email"><span class="material-icons notranslate"> {{ __('shop::app.header.email') }} </span><a href="mailto:{{ __('shop::app.header.email-address') }}">{{ __('shop::app.header.email-address') }}</a></li>
+                                    <li class="phone"><span class="material-icons notranslate"> {{ __('shop::app.header.phone') }} </span><a href="tel:{{ __('shop::app.header.phone-num') }}">{{ __('shop::app.header.phone-num') }} </a></li>
+                                </ul>
+                                <ul type="none" class="navbar-nav category-wrapper no-margin" id="primary-menu">
+                                    <li class="nav-item parent">
+                                        <a href="{{url('/brand')}}" target="_self">Brand</a>
+                                        <i class="rango-arrow-right" @click="toggleSubBrands('brands')"></i>
+                                        
+                                    </li>
+                                    <li v-for="(content, index) in headerContent" :key="index" class="nav-item">
                                         <a
-                                            class="unset"
                                             v-text="content.title"
-                                            :href="`${$root.baseUrl}/${content.page_link}`">
+                                            :href="`${$root.baseUrl}/${content['page_link']}`"
+                                            v-if="(content['content_type'] == 'link' || content['content_type'] == 'category')"
+                                            :target="content['link_target'] ? '_self' : '_self'">
                                         </a>
                                     </li>
                                 </ul>
@@ -340,6 +346,27 @@
                                     @endforeach
                                 </ul>
                             </div>
+
+                            <div class="wrapper" id="brands" v-else-if="brands">
+                                <div class="drawer-section">
+                                    <i class="rango-arrow-left fs24 text-down-4" @click="toggleSubBrands('brands')"></i>
+                                </div>
+                                <ul class="sub-menu category-wrapper" type="none">
+                                            <?php 
+                                                foreach ($AttributeValues as $key => $val) {
+                                                    if (!empty($val->option_slug)) {
+                                                        $slug = $val->option_slug;
+                                                    }else{
+                                                        $slug = str_replace(' ', '-', $val->admin_name);
+                                                    }
+                                                ?>    
+                                                <li><a href="{{url('/').'/brand/'.$slug}}">{{$val->admin_name}}</a></li>
+                                                
+                                                <?php }
+                                            ?>
+                                        </ul>
+                                    
+                            </div>
                         </div>
                     </div>
 
@@ -461,6 +488,7 @@
                     'compareCount': 0,
                     'wishlistCount': 0,
                     'languages': false,
+                    'brands': false,
                     'hamburger': false,
                     'currencies': false,
                     'subCategory': null,
@@ -537,6 +565,14 @@
                         this.rootCategories = false;
                         this.subCategory = categories[index];
                     }
+                },
+
+                toggleSubBrands: function (brands) {
+                    
+                    this.rootCategories = ! this.rootCategories;
+                    this[brands] = !this[brands];
+                     
+                   
                 },
 
                 toggleMetaInfo: function (metaKey) {
