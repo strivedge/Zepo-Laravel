@@ -39,6 +39,7 @@ class BrandProductController extends Controller
 
     public function productByBrand($brand_name)
     {
+    
         $brand = app('Webkul\Attribute\Repositories\AttributeRepository')->getAttributeOptionData($brand_name);
         if (!empty($brand[0]->attribute_id) && $brand[0]->id) {
             $attribute_id = $brand[0]->attribute_id;

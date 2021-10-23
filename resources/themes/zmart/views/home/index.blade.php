@@ -126,7 +126,9 @@
       <div class="col-md-12 col-xl-3 banner-offer-imgs">
         @foreach($getOfferGallary as $gallary)
           <div class="banner-imgs">
+            <a href="{{ route('user.seller-register') }}">
             <img src="{{ asset('/').$gallary->image }}">
+            </a>
           </div>
         @endforeach
       </div>

@@ -294,8 +294,10 @@
              
             <!-- <div class="basic-bulk-calculator"> -->
                 @include('shop::products.view.product-bulk-discount')
+               
            <!--  </div>
              -->
+             
             <div class="related-products">
                 @include('shop::products.view.related-products')
                 @include('shop::products.view.up-sells')

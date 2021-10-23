@@ -17,7 +17,7 @@ class CreateZipCodesTable extends Migration
             $table->increments('id');
             $table->string('area_name')->nullable();
             $table->string('zipcode')->unique();
-            $table->boolean('status')->default(0);
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }

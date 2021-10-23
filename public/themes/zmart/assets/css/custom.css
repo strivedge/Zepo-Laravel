@@ -1822,7 +1822,8 @@ header .navbar--addcart--wishlist .mini-cart-container .card-body a { display: i
 .product-detail .right .info .product-code-category .category { margin-bottom: 0px; }
 .product-detail .right .info .product-code-category .category a { color: #B1CC1E; }
 .product-detail .right .attributes .attribute { width: 50%; margin-bottom: 10px; }
-.product-detail .right .attributes .attribute .custom-form select { height: 50px; font-family: 'Montserrat', sans-serif; font-size: 14px; border-radius: 2px; color: #413A3D !important; font-weight: 400; width: 100%; border: 1.5px solid #E1DFDF; padding: 10px; }
+.product-detail .right .attributes .attribute .custom-form select { height: 50px; font-family: 'Montserrat', sans-serif; font-size: 14px; border-radius: 2px; color: #413A3D !important; font-weight: 400; width: 100%; border: 1.5px solid #E1DFDF; padding: 10px; background: #fff; }
+.product-detail .right .attributes .attribute .custom-form select[disabled="disabled"] { background-color: #dcdcdc;}
 .product-detail .right .attributes .attribute .custom-form .select-icon-container span.select-icon.rango-arrow-down { top: -35px; }
 .product-tabbing .accordian .accordian-header { padding-bottom: 0; }
 .product-detail .description h3,
@@ -1865,8 +1866,8 @@ header .navbar--addcart--wishlist .mini-cart-container .card-body a { display: i
 .product-detail .thumb-list .thumb-frame.active { border: 2px solid #274985; }
 .product-detail .thumb-list .thumb-frame .bg-image { height: 100%; }
 .product-detail #product-form .form-container .left .product-image-group .mobile-thumb-gallery { max-height: 500px; overflow-y: scroll;}
-/* .product-detail #product-form .form-container .left .product-image-group .mobile-thumb-gallery ul.thumb-list li.left{ display: none;}
-.product-detail #product-form .form-container .left .product-image-group .mobile-thumb-gallery ul.thumb-list li.right{ display: none;} */
+.product-detail #product-form .form-container .left .product-image-group .mobile-thumb-gallery ul.thumb-list li.left{ display: none;}
+.product-detail #product-form .form-container .left .product-image-group .mobile-thumb-gallery ul.thumb-list li.right{ display: none;}
 
 
 

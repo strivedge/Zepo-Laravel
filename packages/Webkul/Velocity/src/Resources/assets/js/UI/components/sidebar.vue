@@ -20,6 +20,7 @@
                     :class="`category unset ${(category.children.length > 0) ? 'fw6' : ''}`">
 
                     <div
+                        v-if="category.category_icon_path"
                         class="category-icon"
                         @mouseout="toggleSidebar(id, $event, 'mouseout')"
                         @mouseover="toggleSidebar(id, $event, 'mouseover')">

@@ -295,6 +295,7 @@ return [
             'reviews'                => 'Reviews',
             'download'               => 'Download',
             'currencies'             => 'Currencies',
+            'brands'                 => 'Brand',
             'addresses'              => 'Addresses',
             'top-brands'             => 'Top Brands',
             'new-password'           => 'New password',

@@ -6,6 +6,7 @@
     @php
         $config = $configurableOptionHelper->getConfigurationConfig($product);
         $galleryImages = $productImageHelper->getGalleryImages($product);
+        $more=Webkul\Product\Helpers\ProductType::hasVariants($product->type);
     @endphp
 
     {!! view_render_event('bagisto.shop.products.view.configurable-options.before', ['product' => $product]) !!}
@@ -49,7 +50,7 @@
 
                             <option
                                 :value="option.id"
-                                v-for='(option, index) in attribute.options'>
+                                v-for='(option, index) in attribute.options' :selected="index == 1 ? 'selected' : ''" >
                                 @{{ option.label }}
                             </option>
 
@@ -85,7 +86,7 @@
 
                         </label>
 
-                        <span v-if="! attribute.options.length" class="no-options">{{ __('shop::app.products.select-above-options') }}</span>
+                        <!-- <span v-if="! attribute.options.length" class="no-options">{{ __('shop::app.products.select-above-options') }}</span> -->
                     </span>
 
                     <span class="control-error" v-if="errors.has('super_attribute[' + attribute.id + ']')">
@@ -126,26 +127,104 @@
 
                             attribute.options = [];
 
-                            if (index) {
-                                attribute.disabled = true;
-                            } else {
+                            // if (index) {
+                            //     attribute.disabled = true;
+                            // } else {
                                 this.fillSelect(attribute);
-                            }
+                            // }
 
                             attribute = Object.assign(attribute, {
                                 childAttributes: childAttributes.slice(),
                                 prevAttribute: attributes[index - 1],
                                 nextAttribute: attributes[index + 1]
                             });
-
+                            
+                            
                             childAttributes.unshift(attribute);
+                            this.fillSelect(attribute);
+                           
                         }
+                    },
+                    
+
+                    mounted: function () {
+                        
+                        this.$nextTick(function () {
+                            
+                            if(@json($config)['attributes']){
+                                this.selectedProductId=@json($config)['attributes'][1]['options'][0]['products'][0];
+                            }
+                            
+                            
+                            var selectedOptionCount = 0;
+                            this.childAttributes.forEach(function(attribute) {
+                                //attribute.selectedIndex = document.getElementById('selected_configurable_option');
+                                var priceLabelElement = document.querySelector('.price-label');
+                                priceLabelElement.style.display = 'none';
+                                 if (attribute.selectedIndex) {
+                                    selectedOptionCount++;
+                                 }
+                            });
+
+                            var priceLabelElement = document.querySelector('.price-label');
+                            var priceElement = document.querySelector('.final-price');
+
+                            var elementsLabel = document.getElementsByClassName('price-label');
+                            var elementsPrice = document.getElementsByClassName('final-price');
+                            var confPrice = document.getElementById('getPrice');
+
+                            if (this.childAttributes.length == selectedOptionCount) {
+                                for (let i = 0; i < elementsPrice.length; i++) {
+                                    elementsLabel[i].style.display = 'none';
+                                   
+                                }
+
+                                priceLabelElement.style.display = 'none';
+
+                                eventBus.$emit('configurable-variant-selected-event', this.simpleProduct)
+                            } else {
+                                for (let i = 0; i < elementsPrice.length; i++) {
+                                    elementsLabel[i].style.display = 'none';
+                                    elementsPrice[i].innerHTML = this.config.regular_price.formated_price;
+                                    confPrice.value = this.config.regular_price.formated_price;
+                                }
+
+                                priceLabelElement.style.display = 'none';
+                                priceElement.innerHTML = this.config.regular_price.formated_price;
+
+                                eventBus.$emit('configurable-variant-selected-event', 0)
+                            }
+                        })
+                      
                     },
 
                     methods: {
                         configure: function(attribute, value, event) {
+                            
                             this.simpleProduct = this.getSelectedProductId(attribute, value);
-
+                            var test='<?php echo  auth()->guard('customer')->user() ?>';
+                            
+                            if(test){
+                                $.ajax({
+                                url: 'getProductForDiscount/'+ this.simpleProduct,
+                                type: 'GET',
+                                dataType: 'json',
+                                async: false,
+                                success: function(response) {
+                                     document.getElementById('getBPieceCondition0').value=JSON.parse(response[0]['conditions'])[0]['value'];
+                                     document.getElementById('bPercentDis0').value=response[0]['discount_amount'];
+                                     document.getElementById('getBPieceCondition1').value=JSON.parse(response[1]['conditions'])[0]['value'];
+                                     document.getElementById('bPercentDis1').value=response[1]['discount_amount'];
+                                     document.getElementById('getBPieceCondition2').value=JSON.parse(response[2]['conditions'])[0]['value'];
+                                     document.getElementById('bPercentDis2').value=response[2]['discount_amount'];
+                                     document.getElementById('discountName0').innerHTML=response[0]['name'];
+                                     document.getElementById('discountName1').innerHTML=response[1]['name'];
+                                     document.getElementById('discountName2').innerHTML=response[2]['name'];
+                                     
+                                }
+                            });
+                            }
+                            
                             if (value) {
                                 attribute.selectedIndex = this.getSelectedIndex(attribute, value);
 
@@ -155,10 +234,10 @@
                                     this.fillSelect(attribute.nextAttribute);
                                     this.resetChildren(attribute.nextAttribute);
                                 } else {
-                                    this.selectedProductId = this.simpleProduct;
+                                     this.selectedProductId = this.simpleProduct;
                                 }
                             } else {
-                                attribute.selectedIndex = 0;
+                                attribute.selectedIndex = 1;
                                 this.resetChildren(attribute);
                                 this.clearSelect(attribute.nextAttribute)
                             }

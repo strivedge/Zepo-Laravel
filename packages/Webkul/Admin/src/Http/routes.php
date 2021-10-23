@@ -434,6 +434,9 @@ Route::group(['middleware' => ['web']], function () {
                 Route::get('/zipcode', 'Webkul\Product\Http\Controllers\ZipCodeController@index')->defaults('_config', [
                         'view' => 'admin::catalog.zipcode.index',
                     ])->name('admin.catalog.zipcode.index');
+                Route::post('/zipcode/import', 'Webkul\Product\Http\Controllers\ZipCodeController@import')->defaults('_config', [
+                    'redirect' => 'admin.catalog.zipcode.index',
+                ])->name('admin.catalog.zipcode.import');
 
                 Route::get('/zipcode/create', 'Webkul\Product\Http\Controllers\ZipCodeController@create')->defaults('_config', [
                         'view' => 'admin::catalog.zipcode.create',

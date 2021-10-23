@@ -40,7 +40,9 @@ class CreateProductFlatTable extends Migration
 
             $table->string('locale')->nullable();
             $table->string('channel')->nullable();
-
+            $table->integer('discount_piece1')->nullable();
+            $table->integer('discount_piece2')->nullable();
+            $table->integer('discount_piece3')->nullable();
             $table->integer('product_id')->unsigned();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });

@@ -350,6 +350,8 @@
                             <div class="wrapper" id="brands" v-else-if="brands">
                                 <div class="drawer-section">
                                     <i class="rango-arrow-left fs24 text-down-4" @click="toggleSubBrands('brands')"></i>
+                                    <h4 class="display-inbl">{{ __('velocity::app.shop.general.brands') }}</h4>
+                                    <i class="material-icons pull-right text-dark" @click="closeDrawer()">cancel</i>
                                 </div>
                                 <ul class="sub-menu category-wrapper" type="none">
                                             <?php 

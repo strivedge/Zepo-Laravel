@@ -397,12 +397,15 @@ class ProductRepository extends Repository
             $locale = request()->get('locale') ?: app()->getLocale();
 
             return $query->distinct()
+            //->addSelect('product_customer_group_prices.qty','product_customer_group_prices.value_type','product_customer_group_prices.customer_group_id')
               ->addSelect('product_flat.*')
+              
               ->addSelect('products.catalog', 'products.datasheet', 'products.engraving_shipping_term')
               ->addSelect('product_attribute_values.integer_value', 'attribute_options.admin_name as brand_name', 'attribute_options.option_slug as brand_slug', 'attribute_options.brand_logo as brand_logo',
                 'admins.name as sold_by')
               ->leftJoin('products', 'product_flat.product_id', '=', 'products.id')
               ->leftJoin('admins', 'products.seller_id', '=', 'admins.id')
+              //->leftJoin('product_customer_group_prices', 'products.id', '=', 'product_customer_group_prices.product_id')
               ->leftJoin('product_attribute_values', function ($join) {
               $join->on('product_attribute_values.product_id', '=' , 'product_flat.product_id');
               $join->where('product_attribute_values.integer_value','!=',null);
@@ -416,7 +419,7 @@ class ProductRepository extends Repository
             ->where('product_flat.channel', $channel)
             ->where('product_flat.locale', $locale);
         })->first();
-
+       
         // $attr = DB::table('product_attribute_values as pa')
         //     ->leftJoin('attributes as a','a.id','=','pa.attribute_id')
         //     ->leftJoin('attribute_options as o','o.id','=','pa.integer_value')
@@ -426,6 +429,11 @@ class ProductRepository extends Repository
         //     ->where('a.id','!=',25)
         //     ->where('pa.product_id',$results->product_id)
         //     ->get();
+
+        //$results->product_id
+        // Sesion custoer id = 2
+
+
 
         $multiCategory = DB::table('product_flat')->distinct()
             ->addSelect('product_categories.category_id', 'product_categories.product_id', 'category_translations.name as category_name', 'category_translations.url_path as category_url_path')
@@ -440,10 +448,56 @@ class ProductRepository extends Repository
             ->groupBy('category_translations.category_id')
             ->get();
 
+        $product = app(ProductFlatRepository::class)->findOneWhere([
+            'url_key' => $slug,
+            'locale'  => app()->getLocale(),
+            'channel' => core()->getCurrentChannelCode(),
+        ]);
+       
         $basicDiscount = DB::table('cart_rules')->distinct()
-            ->whereIn('id', [1,2,3])
+        ->whereIn('id', [1,2,3])
+        ->get();
+      
+        if(auth()->guard('customer')->user()){
+            $result = ProductFlat::join('products', 'product_flat.product_id', '=', 'products.id')
+            ->distinct()
+            ->where('products.parent_id', $results->product_id)
+            ->where('product_flat.channel', core()->getCurrentChannelCode())
             ->get();
-
+            
+            $productDiscount = DB::table('product_customer_group_prices')->distinct()
+            ->where('product_id', $result[0]->id)
+            ->where('customer_group_id',auth()->guard('customer')->user()->customer_group_id)
+            ->take(3)
+            ->get();
+        
+            if(isset($productDiscount[0]->qty) && $productDiscount[0]->qty > 0){
+                $basicDiscount[0]->name=str_replace(json_decode($basicDiscount[0]->conditions)[0]->value, $productDiscount[0]->qty, $basicDiscount[0]->name);
+                $basicDiscount[0]->name=str_replace(intval($basicDiscount[0]->discount_amount)."%", intval($productDiscount[0]->value)."%", $basicDiscount[0]->name);
+                $basicDiscount[0]->conditions = json_decode($basicDiscount[0]->conditions);
+                $basicDiscount[0]->conditions[0]->value = $productDiscount[0]->qty;
+                $basicDiscount[0]->discount_amount = $productDiscount[0]->value;
+                $basicDiscount[0]->conditions=json_encode($basicDiscount[0]->conditions);
+            }
+            if(isset($productDiscount[1]->qty) && $productDiscount[1]->qty > 0){
+                $basicDiscount[1]->name=str_replace(json_decode($basicDiscount[1]->conditions)[0]->value, $productDiscount[1]->qty, $basicDiscount[1]->name);
+                $basicDiscount[1]->name=str_replace(intval($basicDiscount[1]->discount_amount)."%", intval($productDiscount[1]->value)."%", $basicDiscount[1]->name);
+                $basicDiscount[1]->conditions = json_decode($basicDiscount[1]->conditions);
+                $basicDiscount[1]->conditions[0]->value = $productDiscount[1]->qty;
+                $basicDiscount[1]->discount_amount = $productDiscount[1]->value;
+                $basicDiscount[1]->conditions=json_encode($basicDiscount[1]->conditions);
+            }
+            if(isset($productDiscount[2]->qty) && $productDiscount[2]->qty > 0){
+                $basicDiscount[2]->name=str_replace(json_decode($basicDiscount[2]->conditions)[0]->value, $productDiscount[2]->qty, $basicDiscount[2]->name);
+                $basicDiscount[2]->name=str_replace(intval($basicDiscount[2]->discount_amount)."%", intval($productDiscount[2]->value)."%", $basicDiscount[2]->name);
+                $basicDiscount[2]->conditions = json_decode($basicDiscount[2]->conditions);
+                $basicDiscount[2]->conditions[0]->value = $productDiscount[2]->qty;
+                $basicDiscount[2]->discount_amount = $productDiscount[2]->value;
+                $basicDiscount[2]->conditions=json_encode($basicDiscount[2]->conditions);
+            }
+        }
+        
+           
         $bulkDiscount = DB::table('cart_rules')->distinct()
             ->whereIn('id', [4,5,6])
             ->get();
@@ -451,6 +505,7 @@ class ProductRepository extends Repository
         // $results->attributes = $attr;
         $results->categories = $multiCategory;
         $results->basicDiscount = $basicDiscount;
+        
         $results->bulkDiscount = $bulkDiscount;
 
         // echo "<pre>"; print_r($results); exit();

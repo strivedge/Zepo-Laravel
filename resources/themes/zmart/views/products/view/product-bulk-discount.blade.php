@@ -18,12 +18,14 @@
 					</th>
 				</tr>
 				<tr>
+					
 				@foreach($basicDiscounts as $key => $basicDiscount)
+				
 					<td>
-						{{ $basicDiscount->name }}
-	@php $getBasicJsons = json_decode($basicDiscount->conditions); @endphp
-		<input type="hidden" id="getBPieceCondition{{ $key }}" value="{{ $getBasicJsons[0]->value }}">
-		<input type="hidden" id="bPercentDis{{ $key }}" value="{{ $basicDiscount->discount_amount }}">
+						<div id="discountName{{ $key }}">{{ $basicDiscount->name }}</div>
+						@php $getBasicJsons = json_decode($basicDiscount->conditions); @endphp
+						<input type="hidden" id="getBPieceCondition{{ $key }}" value="{{ $getBasicJsons[0]->value }}">
+						<input type="hidden" id="bPercentDis{{ $key }}" value="{{ $basicDiscount->discount_amount }}">
 					</td>
 				@endforeach
 				</tr>
@@ -116,11 +118,15 @@ $(document).ready(function() {
 	$(".increase").click(function() {
 		totalQuantity = $("input[name='quantity']").val();
 		$("input[name='quantity']").val(totalQuantity);
+		$("#getPiece").val(totalQuantity);
+		calculation();
 	});
 
 	$(".decrease").click(function() {
 		totalQuantity = $("input[name='quantity']").val();
 		$("input[name='quantity']").val(totalQuantity);
+		$("#getPiece").val(totalQuantity);
+		calculation();
 	});
 
 	$("#getPiece").change(function() {

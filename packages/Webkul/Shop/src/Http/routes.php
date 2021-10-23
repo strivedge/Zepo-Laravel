@@ -1,6 +1,48 @@
 <?php
 
+
+
 Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function () {
+
+    Route::get('getProductForDiscount/{productId}/', function($productId) 
+{
+    $basicDiscount = DB::table('cart_rules')->distinct()
+    ->whereIn('id', [1,2,3])
+    ->get();
+    
+            $productDiscount = DB::table('product_customer_group_prices')->distinct()
+            ->where('product_id', $productId)
+            ->where('customer_group_id',auth()->guard('customer')->user()->customer_group_id)
+            ->take(3)
+            ->get();
+        
+            if(isset($productDiscount[0]->qty) && $productDiscount[0]->qty > 0){
+                $basicDiscount[0]->name=str_replace(json_decode($basicDiscount[0]->conditions)[0]->value, $productDiscount[0]->qty, $basicDiscount[0]->name);
+                $basicDiscount[0]->name=str_replace(intval($basicDiscount[0]->discount_amount)."%", intval($productDiscount[0]->value)."%", $basicDiscount[0]->name);
+                $basicDiscount[0]->conditions = json_decode($basicDiscount[0]->conditions);
+                $basicDiscount[0]->conditions[0]->value = $productDiscount[0]->qty;
+                $basicDiscount[0]->discount_amount = $productDiscount[0]->value;
+                $basicDiscount[0]->conditions=json_encode($basicDiscount[0]->conditions);
+            }
+            if(isset($productDiscount[1]->qty) && $productDiscount[1]->qty > 0){
+                $basicDiscount[1]->name=str_replace(json_decode($basicDiscount[1]->conditions)[0]->value, $productDiscount[1]->qty, $basicDiscount[1]->name);
+                $basicDiscount[1]->name=str_replace(intval($basicDiscount[1]->discount_amount)."%", intval($productDiscount[1]->value)."%", $basicDiscount[1]->name);
+                $basicDiscount[1]->conditions = json_decode($basicDiscount[1]->conditions);
+                $basicDiscount[1]->conditions[0]->value = $productDiscount[1]->qty;
+                $basicDiscount[1]->discount_amount = $productDiscount[1]->value;
+                $basicDiscount[1]->conditions=json_encode($basicDiscount[1]->conditions);
+            }
+            if(isset($productDiscount[2]->qty) && $productDiscount[2]->qty > 0){
+                $basicDiscount[2]->name=str_replace(json_decode($basicDiscount[2]->conditions)[0]->value, $productDiscount[2]->qty, $basicDiscount[2]->name);
+                $basicDiscount[2]->name=str_replace(intval($basicDiscount[2]->discount_amount)."%", intval($productDiscount[2]->value)."%", $basicDiscount[2]->name);
+                $basicDiscount[2]->conditions = json_decode($basicDiscount[2]->conditions);
+                $basicDiscount[2]->conditions[0]->value = $productDiscount[2]->qty;
+                $basicDiscount[2]->discount_amount = $productDiscount[2]->value;
+                $basicDiscount[2]->conditions=json_encode($basicDiscount[2]->conditions);
+            }
+            return $basicDiscount;
+
+});
 
     //Store front home
     Route::get('/', 'Webkul\Shop\Http\Controllers\HomeController@index')->defaults('_config', [
@@ -167,6 +209,7 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
 
         // Auth Routes
         Route::group(['middleware' => ['customer']], function () {
+            
 
             //Customer logout
             Route::get('logout', 'Webkul\Customer\Http\Controllers\SessionController@destroy')->defaults('_config', [
